@@ -1,0 +1,278 @@
+import { draftMode } from "next/headers";
+
+import {
+  blogPosts,
+  caseStudies,
+  estimatorConfig,
+  faqs,
+  footerColumns,
+  industryProfiles,
+  marketingPages,
+  navigation,
+  resourceGroups,
+  resourceLinks,
+  services,
+  siteSettings,
+  solutionCategories,
+  testimonials,
+  useCaseGroups,
+  useCaseProfiles,
+} from "@/data/site-content";
+import type {
+  BlogPost,
+  CaseStudy,
+  EstimatorConfig,
+  FAQItem,
+  FooterColumn,
+  IndustryProfile,
+  MarketingPage,
+  NavItem,
+  ResourceGroup,
+  ResourceGroupId,
+  ResourceLinkItem,
+  Service,
+  SiteSettings,
+  SolutionCategory,
+  Testimonial,
+  UseCaseGroup,
+  UseCaseProfile,
+} from "@/lib/types";
+import {
+  blogPostQuery,
+  blogPostsQuery,
+  caseStudiesQuery,
+  caseStudyQuery,
+  estimatorConfigQuery,
+  faqsQuery,
+  footerQuery,
+  marketingPageQuery,
+  navigationQuery,
+  serviceQuery,
+  servicesQuery,
+  siteSettingsQuery,
+  testimonialsQuery,
+} from "@/sanity/lib/queries";
+import { sanityFetch } from "@/sanity/lib/client";
+
+async function isPreviewEnabled() {
+  const preview = await draftMode();
+  return preview.isEnabled;
+}
+
+export async function getSiteSettings(): Promise<SiteSettings> {
+  const content = await sanityFetch<SiteSettings>({
+    query: siteSettingsQuery,
+    preview: await isPreviewEnabled(),
+    tags: ["siteSettings"],
+  });
+
+  return content ?? siteSettings;
+}
+
+export async function getNavigation(): Promise<NavItem[]> {
+  const content = await sanityFetch<NavItem[]>({
+    query: navigationQuery,
+    preview: await isPreviewEnabled(),
+    tags: ["navigation"],
+  });
+
+  if (!content?.length) {
+    return navigation;
+  }
+
+  return navigation.map((fallbackItem) => {
+    const matchedItem = content.find(
+      (item) => item.href === fallbackItem.href || item.label === fallbackItem.label,
+    );
+
+    return matchedItem
+      ? { ...fallbackItem, ...matchedItem, kind: matchedItem.kind ?? fallbackItem.kind }
+      : fallbackItem;
+  });
+}
+
+export async function getSolutionCategories(): Promise<SolutionCategory[]> {
+  return solutionCategories;
+}
+
+export async function getIndustries(): Promise<IndustryProfile[]> {
+  return industryProfiles;
+}
+
+export async function getIndustryBySlug(slug: string): Promise<IndustryProfile | null> {
+  return industryProfiles.find((industry) => industry.slug === slug) ?? null;
+}
+
+export async function getUseCaseGroups(): Promise<UseCaseGroup[]> {
+  return useCaseGroups;
+}
+
+export async function getUseCases(): Promise<UseCaseProfile[]> {
+  return useCaseProfiles;
+}
+
+export async function getUseCaseBySlug(slug: string): Promise<UseCaseProfile | null> {
+  return useCaseProfiles.find((useCase) => useCase.slug === slug) ?? null;
+}
+
+export async function getResourceGroups(): Promise<ResourceGroup[]> {
+  return resourceGroups;
+}
+
+export async function getResourceLinks(): Promise<ResourceLinkItem[]> {
+  return resourceLinks;
+}
+
+export async function getResourceLinksByGroup(
+  groupId: ResourceGroupId,
+): Promise<ResourceLinkItem[]> {
+  return resourceLinks.filter((link) => link.group === groupId);
+}
+
+export async function getFooterColumns(): Promise<FooterColumn[]> {
+  const content = await sanityFetch<FooterColumn[]>({
+    query: footerQuery,
+    preview: await isPreviewEnabled(),
+    tags: ["footer"],
+  });
+
+  return content ?? footerColumns;
+}
+
+export async function getMarketingPage(slug: string): Promise<MarketingPage | null> {
+  const content = await sanityFetch<MarketingPage>({
+    query: marketingPageQuery,
+    params: { slug },
+    preview: await isPreviewEnabled(),
+    tags: ["pages"],
+  });
+
+  return content ?? marketingPages.find((page) => page.slug === slug) ?? null;
+}
+
+export async function getServices(): Promise<Service[]> {
+  const content = await sanityFetch<Partial<Service>[]>({
+    query: servicesQuery,
+    preview: await isPreviewEnabled(),
+    tags: ["services"],
+  });
+
+  if (!content?.length) {
+    return services;
+  }
+
+  return services.map((fallbackService) => {
+    const matchedService = content.find((service) => service.slug === fallbackService.slug);
+
+    return matchedService
+      ? {
+          ...fallbackService,
+          ...matchedService,
+          navDescription: matchedService.navDescription ?? fallbackService.navDescription,
+          navImage: matchedService.navImage ?? fallbackService.navImage,
+        }
+      : fallbackService;
+  });
+}
+
+export async function getServiceBySlug(slug: string): Promise<Service | null> {
+  const content = await sanityFetch<Partial<Service>>({
+    query: serviceQuery,
+    params: { slug },
+    preview: await isPreviewEnabled(),
+    tags: ["services"],
+  });
+
+  const fallbackService = services.find((service) => service.slug === slug);
+
+  if (!fallbackService && !content) {
+    return null;
+  }
+
+  if (!fallbackService) {
+    return content as Service;
+  }
+
+  if (!content) {
+    return fallbackService;
+  }
+
+  return {
+    ...fallbackService,
+    ...content,
+    navDescription: content.navDescription ?? fallbackService.navDescription,
+    navImage: content.navImage ?? fallbackService.navImage,
+  };
+}
+
+export async function getCaseStudies(): Promise<CaseStudy[]> {
+  const content = await sanityFetch<CaseStudy[]>({
+    query: caseStudiesQuery,
+    preview: await isPreviewEnabled(),
+    tags: ["caseStudies"],
+  });
+
+  return content ?? caseStudies;
+}
+
+export async function getCaseStudyBySlug(slug: string): Promise<CaseStudy | null> {
+  const content = await sanityFetch<CaseStudy>({
+    query: caseStudyQuery,
+    params: { slug },
+    preview: await isPreviewEnabled(),
+    tags: ["caseStudies"],
+  });
+
+  return content ?? caseStudies.find((item) => item.slug === slug) ?? null;
+}
+
+export async function getBlogPosts(): Promise<BlogPost[]> {
+  const content = await sanityFetch<BlogPost[]>({
+    query: blogPostsQuery,
+    preview: await isPreviewEnabled(),
+    tags: ["posts"],
+  });
+
+  return content ?? blogPosts;
+}
+
+export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
+  const content = await sanityFetch<BlogPost>({
+    query: blogPostQuery,
+    params: { slug },
+    preview: await isPreviewEnabled(),
+    tags: ["posts"],
+  });
+
+  return content ?? blogPosts.find((post) => post.slug === slug) ?? null;
+}
+
+export async function getTestimonials(): Promise<Testimonial[]> {
+  const content = await sanityFetch<Testimonial[]>({
+    query: testimonialsQuery,
+    preview: await isPreviewEnabled(),
+    tags: ["testimonials"],
+  });
+
+  return content ?? testimonials;
+}
+
+export async function getFaqs(): Promise<FAQItem[]> {
+  const content = await sanityFetch<FAQItem[]>({
+    query: faqsQuery,
+    preview: await isPreviewEnabled(),
+    tags: ["faqs"],
+  });
+
+  return content ?? faqs;
+}
+
+export async function getEstimatorConfig(): Promise<EstimatorConfig> {
+  const content = await sanityFetch<EstimatorConfig>({
+    query: estimatorConfigQuery,
+    preview: await isPreviewEnabled(),
+    tags: ["estimatorConfig"],
+  });
+
+  return content ?? estimatorConfig;
+}

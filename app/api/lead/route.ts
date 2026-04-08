@@ -1,0 +1,48 @@
+import { NextResponse } from "next/server";
+
+import { sendFallbackEmail, submitToHubSpot, verifyTurnstile } from "@/lib/integrations";
+import { leadSchema } from "@/lib/schemas";
+
+export async function POST(request: Request) {
+  const payload = await request.json().catch(() => null);
+  const parsed = leadSchema.safeParse(payload);
+
+  if (!parsed.success) {
+    return NextResponse.json({ error: "Invalid form submission." }, { status: 400 });
+  }
+
+  const isHuman = await verifyTurnstile(parsed.data.turnstileToken);
+
+  if (!isHuman) {
+    return NextResponse.json({ error: "Bot verification failed." }, { status: 400 });
+  }
+
+  const hubSpotSuccess = await submitToHubSpot({
+    fields: [
+      { name: "firstname", value: parsed.data.name },
+      { name: "company", value: parsed.data.company },
+      { name: "email", value: parsed.data.email },
+      { name: "phone", value: parsed.data.phone },
+      { name: "service_interest", value: parsed.data.serviceInterest },
+      { name: "message", value: parsed.data.message },
+      { name: "lead_source", value: parsed.data.context },
+    ],
+    pageUri: request.url,
+    pageName: parsed.data.context === "consultation" ? "Book Consultation" : "Contact",
+  });
+
+  if (!hubSpotSuccess) {
+    await sendFallbackEmail("Auxano website lead", [
+      `Context: ${parsed.data.context}`,
+      `Name: ${parsed.data.name}`,
+      `Company: ${parsed.data.company}`,
+      `Email: ${parsed.data.email}`,
+      `Phone: ${parsed.data.phone}`,
+      `Service: ${parsed.data.serviceInterest}`,
+      "",
+      parsed.data.message,
+    ]);
+  }
+
+  return NextResponse.json({ ok: true });
+}

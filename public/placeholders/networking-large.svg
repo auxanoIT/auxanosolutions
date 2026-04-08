@@ -1,0 +1,24 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" rx="48" fill="#EEF4FF"/>
+  <rect x="64" y="64" width="1072" height="772" rx="40" fill="#F7FAFF" stroke="#D8E5FF" stroke-width="2"/>
+  <circle cx="246" cy="260" r="96" fill="#0B1220"/>
+  <circle cx="430" cy="184" r="22" fill="#2F6BFF"/>
+  <circle cx="510" cy="320" r="22" fill="#19D5FF"/>
+  <circle cx="650" cy="210" r="22" fill="#18B67E"/>
+  <circle cx="758" cy="360" r="22" fill="#2F6BFF"/>
+  <circle cx="914" cy="244" r="22" fill="#19D5FF"/>
+  <path d="M246 260L430 184L510 320L650 210L758 360L914 244" stroke="url(#grad2)" stroke-width="12" stroke-linecap="round"/>
+  <rect x="152" y="442" width="896" height="280" rx="32" fill="#FFFFFF" stroke="#D8E5FF" stroke-width="2"/>
+  <path d="M218 520H980" stroke="#E0EAFF" stroke-width="2" stroke-dasharray="10 10"/>
+  <path d="M218 598H980" stroke="#E0EAFF" stroke-width="2" stroke-dasharray="10 10"/>
+  <path d="M218 676H980" stroke="#E0EAFF" stroke-width="2" stroke-dasharray="10 10"/>
+  <text x="198" y="266" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="36" font-weight="700">Networking</text>
+  <text x="154" y="390" fill="#0B1220" font-family="Arial, sans-serif" font-size="44" font-weight="700">Network design, diagrams, cabling, switching, and voice systems.</text>
+  <text x="154" y="482" fill="#38537B" font-family="Arial, sans-serif" font-size="26">Architecture planning and device-level execution for environments that cannot afford blind spots.</text>
+  <defs>
+    <linearGradient id="grad2" x1="246" y1="184" x2="914" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2F6BFF"/>
+      <stop offset="1" stop-color="#19D5FF"/>
+    </linearGradient>
+  </defs>
+</svg>

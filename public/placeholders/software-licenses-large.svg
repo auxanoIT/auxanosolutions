@@ -1,0 +1,22 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" rx="48" fill="#EEF4FF"/>
+  <rect x="64" y="64" width="1072" height="772" rx="40" fill="#F7FAFF" stroke="#D8E5FF" stroke-width="2"/>
+  <rect x="156" y="160" width="888" height="172" rx="30" fill="url(#grad4)"/>
+  <rect x="156" y="378" width="272" height="332" rx="28" fill="#FFFFFF" stroke="#D8E5FF" stroke-width="2"/>
+  <rect x="466" y="378" width="272" height="332" rx="28" fill="#FFFFFF" stroke="#D8E5FF" stroke-width="2"/>
+  <rect x="776" y="378" width="268" height="332" rx="28" fill="#0B1220"/>
+  <path d="M228 470H354" stroke="#2F6BFF" stroke-width="12" stroke-linecap="round"/>
+  <path d="M228 526H322" stroke="#93A4B8" stroke-width="10" stroke-linecap="round"/>
+  <path d="M538 470H664" stroke="#19D5FF" stroke-width="12" stroke-linecap="round"/>
+  <path d="M538 526H632" stroke="#93A4B8" stroke-width="10" stroke-linecap="round"/>
+  <path d="M846 470H972" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round"/>
+  <path d="M846 526H940" stroke="#93DFFF" stroke-width="10" stroke-linecap="round"/>
+  <text x="192" y="236" fill="#0B1220" font-family="Arial, sans-serif" font-size="44" font-weight="700">Software and Licenses</text>
+  <text x="192" y="286" fill="#38537B" font-family="Arial, sans-serif" font-size="26">Security tooling, OS licensing, database access, cloud subscriptions, and application enablement.</text>
+  <defs>
+    <linearGradient id="grad4" x1="156" y1="160" x2="1044" y2="332" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E5EDFF"/>
+      <stop offset="1" stop-color="#CFF8FF"/>
+    </linearGradient>
+  </defs>
+</svg>

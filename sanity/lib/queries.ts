@@ -1,0 +1,180 @@
+import { groq } from "next-sanity";
+
+export const siteSettingsQuery = groq`
+  *[_type == "siteSettings"][0]{
+    name,
+    shortName,
+    description,
+    phone,
+    email,
+    address,
+    city,
+    country,
+    whatsappSales,
+    whatsappSupport,
+    hubspotMeetingUrl
+  }
+`;
+
+export const navigationQuery = groq`
+  *[_type == "navigation"][0].items[]{
+    label,
+    href,
+    kind,
+    description,
+    children[]{
+      label,
+      href,
+      description
+    }
+  }
+`;
+
+export const footerQuery = groq`
+  *[_type == "footer"][0].columns[]{
+    title,
+    links[]{
+      label,
+      href,
+      description
+    }
+  }
+`;
+
+export const marketingPageQuery = groq`
+  *[_type == "page" && slug.current == $slug][0]{
+    title,
+    description,
+    "slug": slug.current,
+    sections[]{...}
+  }
+`;
+
+export const servicesQuery = groq`
+  *[_type == "service"] | order(title asc) {
+    title,
+    category,
+    summary,
+    description,
+    positioning,
+    outcome,
+    heroLabel,
+    highlights,
+    capabilities,
+    deliverables,
+    industries,
+    serviceMixId,
+    navDescription,
+    navImage,
+    "slug": slug.current
+  }
+`;
+
+export const serviceQuery = groq`
+  *[_type == "service" && slug.current == $slug][0]{
+    title,
+    category,
+    summary,
+    description,
+    positioning,
+    outcome,
+    heroLabel,
+    highlights,
+    capabilities,
+    deliverables,
+    industries,
+    serviceMixId,
+    navDescription,
+    navImage,
+    "slug": slug.current
+  }
+`;
+
+export const caseStudiesQuery = groq`
+  *[_type == "caseStudy"] | order(title asc) {
+    title,
+    client,
+    industry,
+    location,
+    summary,
+    challenge,
+    solution,
+    result,
+    metrics,
+    relatedServices,
+    "slug": slug.current
+  }
+`;
+
+export const caseStudyQuery = groq`
+  *[_type == "caseStudy" && slug.current == $slug][0]{
+    title,
+    client,
+    industry,
+    location,
+    summary,
+    challenge,
+    solution,
+    result,
+    metrics,
+    relatedServices,
+    "slug": slug.current
+  }
+`;
+
+export const blogPostsQuery = groq`
+  *[_type == "post"] | order(publishedAt desc) {
+    title,
+    category,
+    publishedAt,
+    readingTime,
+    excerpt,
+    takeaways,
+    body,
+    "slug": slug.current
+  }
+`;
+
+export const blogPostQuery = groq`
+  *[_type == "post" && slug.current == $slug][0]{
+    title,
+    category,
+    publishedAt,
+    readingTime,
+    excerpt,
+    takeaways,
+    body,
+    "slug": slug.current
+  }
+`;
+
+export const testimonialsQuery = groq`
+  *[_type == "testimonial"] | order(_createdAt desc) {
+    quote,
+    name,
+    role,
+    company
+  }
+`;
+
+export const faqsQuery = groq`
+  *[_type == "faq"] | order(order asc) {
+    id,
+    question,
+    answer
+  }
+`;
+
+export const estimatorConfigQuery = groq`
+  *[_type == "estimatorConfig"][0]{
+    companySizes,
+    locationBands,
+    supportTiers,
+    cameraBands,
+    networkScopes,
+    complianceLevels,
+    services,
+    contingencyLow,
+    contingencyHigh
+  }
+`;
