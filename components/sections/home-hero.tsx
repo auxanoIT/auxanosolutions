@@ -18,8 +18,9 @@ import {
 } from "@/components/ui/decorative-wistia-player";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
+import { HeroMetricStrip } from "@/components/sections/hero-metric-strip";
 import { cn } from "@/lib/utils";
-import type { HeroSection, HeroVideoSlide } from "@/lib/types";
+import type { HeroSection, HeroVideoSlide, Metric } from "@/lib/types";
 
 type HomeHeroProps = {
   section: HeroSection;
@@ -48,6 +49,12 @@ const SELECTOR_SIZE = 48;
 const SELECTOR_STROKE = 2.75;
 const SELECTOR_RADIUS = 20;
 const SELECTOR_CIRCUMFERENCE = 2 * Math.PI * SELECTOR_RADIUS;
+const HERO_STATS_FALLBACK: Metric[] = [
+  { value: "12+", label: "Years in Business" },
+  { value: "500+", label: "Projects delivered" },
+  { value: "200+", label: "Clients served" },
+  { value: "24/7", label: "Support available" },
+];
 
 function clampProgress(value: number) {
   return Math.min(Math.max(value, 0), 1);
@@ -59,7 +66,16 @@ function getCountdownValue(progress: number) {
 
 export function HomeHero({ section }: HomeHeroProps) {
   if (section.mode === "videoCarousel" && section.slides?.length) {
-    return <VideoCarouselHero slides={section.slides} />;
+    const metrics = section.metrics.length >= 4
+      ? section.metrics.slice(0, 4)
+      : HERO_STATS_FALLBACK;
+
+    return (
+      <>
+        <VideoCarouselHero slides={section.slides} />
+        <HeroMetricStrip metrics={metrics} />
+      </>
+    );
   }
 
   return <DefaultHomeHero section={section} />;

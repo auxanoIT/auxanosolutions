@@ -302,9 +302,10 @@ export const marketingPages: MarketingPage[] = [
           "Software & Licenses",
         ],
         metrics: [
-          { value: "10+", label: "Years in business" },
+          { value: "12+", label: "Years in Business" },
           { value: "500+", label: "Projects delivered" },
-          { value: "24/7", label: "Support availability" },
+          { value: "200+", label: "Clients served" },
+          { value: "24/7", label: "Support available" },
         ],
         primaryCta: { label: "Book Consultation", href: "/book-consultation", variant: "primary" },
         secondaryCta: { label: "Estimate Your Project", href: "/estimate", variant: "secondary" },
@@ -352,18 +353,72 @@ export const marketingPages: MarketingPage[] = [
         ],
       },
       {
-        _type: "contentSplit",
-        eyebrow: "One delivery partner",
-        title: "Bring infrastructure, networking, systems, licensing, and managed support into one coordinated delivery model.",
-        body: [
-          "Most businesses source these capabilities separately and then absorb the cost of gaps between them. Auxano reduces those gaps by planning the environment as one operating system.",
-          "That means the cabling supports the network, the network supports surveillance and access control, the hardware is configured properly, and support readiness is included instead of deferred.",
-        ],
-        points: [
-          "Design through to support from one accountable team",
-          "Original equipment and documented handover",
-          "Consultancy and delivery under the same operating view",
-          "Support, projects, and procurement connected from day one",
+        _type: "serviceShowcase",
+        eyebrow: "Our Services",
+        title: "Everything your business needs under one roof.",
+        description:
+          "Explore the core service areas Auxano delivers for modern business environments.",
+        items: [
+          {
+            id: "it-infrastructure",
+            title: "IT Infrastructure",
+            description:
+              "We design and deploy reliable IT infrastructure that powers your entire business—built for performance, scalability, and long-term growth.",
+            imageSrc: "/image/card1.png",
+            imageAlt: "IT Infrastructure service card placeholder",
+            ctaLabel: "Learn more",
+            ctaHref: "/services#infrastructure",
+          },
+          {
+            id: "networking",
+            title: "Networking",
+            description:
+              "Fast, secure, and stable network systems designed to keep your business connected at all times.",
+            imageSrc: "/image/card1.png",
+            imageAlt: "Networking service card placeholder",
+            ctaLabel: "Learn more",
+            ctaHref: "/services#networking",
+          },
+          {
+            id: "computers-and-servers",
+            title: "Computers & Servers",
+            description:
+              "Reliable hardware solutions tailored to your business performance and storage needs.",
+            imageSrc: "/image/card1.png",
+            imageAlt: "Computers and servers service card placeholder",
+            ctaLabel: "Learn more",
+            ctaHref: "/services#hardware-systems",
+          },
+          {
+            id: "software-and-licenses",
+            title: "Software & Licenses",
+            description:
+              "Genuine software solutions that keep your business secure, compliant, and productive.",
+            imageSrc: "/image/card1.png",
+            imageAlt: "Software and licenses service card placeholder",
+            ctaLabel: "Learn more",
+            ctaHref: "/services#software-licenses",
+          },
+          {
+            id: "it-management",
+            title: "IT Management",
+            description:
+              "End-to-end IT support that keeps your systems running, secure, and optimized.",
+            imageSrc: "/image/card1.png",
+            imageAlt: "IT Management service card placeholder",
+            ctaLabel: "Learn more",
+            ctaHref: "/services/it-managed-services-staff-outsourcing",
+          },
+          {
+            id: "audio-visuals",
+            title: "Audio Visuals",
+            description:
+              "Professional audio-visual systems for communication, presentations, and events.",
+            imageSrc: "/image/card1.png",
+            imageAlt: "Audio visuals service card placeholder",
+            ctaLabel: "Learn more",
+            ctaHref: "/services/audio-visual-services-livestreaming",
+          },
         ],
       },
       {
@@ -380,15 +435,11 @@ export const marketingPages: MarketingPage[] = [
       },
       {
         _type: "networkMapSection",
-        eyebrow: "Integrated delivery story",
-        title: "Visualize how infrastructure, connectivity, endpoints, and support fit together across the environment.",
+        eyebrow: "Our Solution",
+        title: "Everything your business needs under one roof.",
         description:
-          "This motion system is designed to explain how Auxano thinks about physical systems, network visibility, device readiness, and operational support as one connected stack.",
-        bullets: [
-          "GSAP-driven assembly and signal flow",
-          "Category-aware infrastructure nodes",
-          "Reduced-motion fallback with the same hierarchy",
-        ],
+          "Tell us what you need. Our certified engineers will assess, design, and deliver on time and on budget.",
+        bullets: [],
         nodes: [
           { label: "Core Network", detail: "Switching, design, and monitoring", x: 50, y: 18 },
           { label: "CCTV", detail: "Coverage, storage, retrieval", x: 80, y: 40 },

@@ -12,6 +12,7 @@ import { MetricBand } from "@/components/sections/metric-band";
 import { NetworkMap } from "@/components/sections/network-map";
 import { RichContent } from "@/components/sections/rich-content";
 import { ServiceGrid } from "@/components/sections/service-grid";
+import { ServiceShowcase } from "@/components/sections/service-showcase";
 import { TestimonialRail } from "@/components/sections/testimonial-rail";
 
 type SectionRendererProps = {
@@ -49,6 +50,8 @@ export function SectionRenderer({
         );
       case "contentSplit":
         return <ContentSplit key={key} section={section} />;
+      case "serviceShowcase":
+        return <ServiceShowcase key={key} section={section} />;
       case "categoryShowcase":
         return <CategoryShowcase key={key} section={section} />;
       case "networkMapSection":

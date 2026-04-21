@@ -69,16 +69,18 @@ export function NetworkMap({ section }: NetworkMapProps) {
               description={section.description}
               className="[&>h2]:text-white [&>p]:text-white/70"
             />
-            <ul className="mt-8 space-y-4">
-              {section.bullets.map((bullet) => (
-                <li
-                  key={bullet}
-                  className="rounded-2xl border border-white/10 bg-white/6 px-5 py-4 text-sm leading-7 text-white/80"
-                >
-                  {bullet}
-                </li>
-              ))}
-            </ul>
+            {section.bullets.length ? (
+              <ul className="mt-8 space-y-4">
+                {section.bullets.map((bullet) => (
+                  <li
+                    key={bullet}
+                    className="rounded-2xl border border-white/10 bg-white/6 px-5 py-4 text-sm leading-7 text-white/80"
+                  >
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
+            ) : null}
           </div>
           <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-6 shadow-[0_30px_80px_rgba(0,0,0,0.35)]">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(25,213,255,0.22),transparent_24%),radial-gradient(circle_at_85%_15%,rgba(47,107,255,0.28),transparent_22%)]" />

@@ -143,6 +143,45 @@ const contentSplitSection = defineType({
   ],
 });
 
+const serviceShowcaseItem = defineType({
+  name: "serviceShowcaseItem",
+  title: "Service Showcase Item",
+  type: "object",
+  fields: [
+    defineField({ name: "id", title: "ID", type: "string", validation: (rule) => rule.required() }),
+    defineField({ name: "title", title: "Title", type: "string", validation: (rule) => rule.required() }),
+    defineField({ name: "description", title: "Description", type: "text", validation: (rule) => rule.required() }),
+    defineField({ name: "imageSrc", title: "Image Source", type: "string", validation: (rule) => rule.required() }),
+    defineField({ name: "imageAlt", title: "Image Alt", type: "string", validation: (rule) => rule.required() }),
+    defineField({ name: "ctaLabel", title: "CTA Label", type: "string", validation: (rule) => rule.required() }),
+    defineField({ name: "ctaHref", title: "CTA Href", type: "string", validation: (rule) => rule.required() }),
+  ],
+  preview: {
+    select: {
+      title: "title",
+      subtitle: "description",
+    },
+  },
+});
+
+const serviceShowcaseSection = defineType({
+  name: "serviceShowcase",
+  title: "Service Showcase",
+  type: "object",
+  fields: [
+    defineField({ name: "eyebrow", title: "Eyebrow", type: "string" }),
+    defineField({ name: "title", title: "Title", type: "string", validation: (rule) => rule.required() }),
+    defineField({ name: "description", title: "Description", type: "text" }),
+    defineField({
+      name: "items",
+      title: "Items",
+      type: "array",
+      of: [defineArrayMember({ type: "serviceShowcaseItem" })],
+      validation: (rule) => rule.min(1),
+    }),
+  ],
+});
+
 const categoryShowcaseItem = defineType({
   name: "categoryShowcaseItem",
   title: "Category Showcase Item",
@@ -301,6 +340,7 @@ const page = defineType({
         defineArrayMember({ type: "metricBand" }),
         defineArrayMember({ type: "serviceGrid" }),
         defineArrayMember({ type: "contentSplit" }),
+        defineArrayMember({ type: "serviceShowcase" }),
         defineArrayMember({ type: "categoryShowcase" }),
         defineArrayMember({ type: "networkMapSection" }),
         defineArrayMember({ type: "caseStudyRail" }),
@@ -585,6 +625,8 @@ export const schemaTypes = [
   metricBandSection,
   serviceGridSection,
   contentSplitSection,
+  serviceShowcaseItem,
+  serviceShowcaseSection,
   categoryShowcaseItem,
   categoryShowcaseSection,
   networkMapSection,

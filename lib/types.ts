@@ -281,6 +281,24 @@ export type ContentSplitSection = {
   dark?: boolean;
 };
 
+export type ServiceShowcaseItem = {
+  id: string;
+  title: string;
+  description: string;
+  imageSrc: string;
+  imageAlt: string;
+  ctaLabel: string;
+  ctaHref: string;
+};
+
+export type ServiceShowcaseSection = {
+  _type: "serviceShowcase";
+  eyebrow: string;
+  title: string;
+  description?: string;
+  items: ServiceShowcaseItem[];
+};
+
 export type CategoryShowcaseItem = {
   id: string;
   label: string;
@@ -355,6 +373,7 @@ export type PageSection =
   | MetricBandSection
   | ServiceGridSection
   | ContentSplitSection
+  | ServiceShowcaseSection
   | CategoryShowcaseSection
   | NetworkMapSection
   | CaseStudyRailSection
