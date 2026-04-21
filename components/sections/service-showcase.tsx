@@ -2,21 +2,12 @@
 
 import Image from "next/image";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import {
-  useEffect,
-  useEffectEvent,
-  useId,
-  useRef,
-  useState,
-} from "react";
+import { useEffect, useEffectEvent, useId, useRef, useState } from "react";
 import { useReducedMotion } from "framer-motion";
 
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
-import type {
-  ServiceShowcaseItem,
-  ServiceShowcaseSection,
-} from "@/lib/types";
+import type { ServiceShowcaseItem, ServiceShowcaseSection } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 type ServiceShowcaseProps = {
@@ -77,11 +68,13 @@ export function ServiceShowcase({ section }: ServiceShowcaseProps) {
   const isDesktopViewport = cardsPerPage === DESKTOP_CARD_COUNT;
   const visibleIndex = activeIndex >= section.items.length ? 0 : activeIndex;
   const stepWidth = cardsPerPage
-    ? (viewportWidth - CARD_GAP_PX * (cardsPerPage - 1)) / cardsPerPage + CARD_GAP_PX
+    ? (viewportWidth - CARD_GAP_PX * (cardsPerPage - 1)) / cardsPerPage +
+      CARD_GAP_PX
     : 0;
-  const renderStartIndex = direction === "prev"
-    ? (visibleIndex - 1 + section.items.length) % section.items.length
-    : visibleIndex;
+  const renderStartIndex =
+    direction === "prev"
+      ? (visibleIndex - 1 + section.items.length) % section.items.length
+      : visibleIndex;
   const renderedItems = isCarouselActive
     ? buildWindowItems(section.items, renderStartIndex, cardsPerPage + 1)
     : section.items;
@@ -239,7 +232,10 @@ export function ServiceShowcase({ section }: ServiceShowcaseProps) {
           onBlurCapture={(event) => {
             const nextTarget = event.relatedTarget;
 
-            if (!(nextTarget instanceof Node) || !event.currentTarget.contains(nextTarget)) {
+            if (
+              !(nextTarget instanceof Node) ||
+              !event.currentTarget.contains(nextTarget)
+            ) {
               setIsPaused(false);
             }
           }}
@@ -266,18 +262,21 @@ export function ServiceShowcase({ section }: ServiceShowcaseProps) {
                     }
 
                     if (prevAnimationFrameRef.current) {
-                      window.cancelAnimationFrame(prevAnimationFrameRef.current);
+                      window.cancelAnimationFrame(
+                        prevAnimationFrameRef.current,
+                      );
                       prevAnimationFrameRef.current = null;
                     }
 
                     setIsAnimating(false);
                     setIsTransitionEnabled(false);
                     setTranslateX(0);
-                    setActiveIndex((currentIndex) => (
+                    setActiveIndex((currentIndex) =>
                       direction === "prev"
-                        ? (currentIndex - 1 + section.items.length) % section.items.length
-                        : (currentIndex + 1) % section.items.length
-                    ));
+                        ? (currentIndex - 1 + section.items.length) %
+                          section.items.length
+                        : (currentIndex + 1) % section.items.length,
+                    );
                   }}
                 >
                   {renderedItems.map((item, index) => (
@@ -382,7 +381,9 @@ export function ServiceShowcase({ section }: ServiceShowcaseProps) {
             }
 
             .service-showcase-item {
-              width: calc((100% - ${(cardsPerPage - 1) * CARD_GAP_PX}px) / ${cardsPerPage});
+              width: calc(
+                (100% - ${(cardsPerPage - 1) * CARD_GAP_PX}px) / ${cardsPerPage}
+              );
             }
           `}</style>
         </div>
