@@ -241,10 +241,7 @@ export function CategoryShowcase({ section }: CategoryShowcaseProps) {
               <article className="relative flex flex-col justify-between overflow-hidden bg-[linear-gradient(180deg,rgba(47,107,255,0.18),rgba(25,213,255,0.10),rgba(11,18,32,0.12)),linear-gradient(180deg,#12365a_0%,#0e2d49_100%)] p-6 sm:p-8 lg:p-9">
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(25,213,255,0.12),transparent_28%),radial-gradient(circle_at_85%_18%,rgba(47,107,255,0.16),transparent_26%)]" />
                 <div>
-                  <p className="relative text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[var(--color-cloud)]/78">
-                    {activeItem.label}
-                  </p>
-                  <h3 className="relative mt-3 max-w-xl text-balance text-2xl font-semibold leading-[1.1] tracking-normal text-white sm:text-[2rem] lg:text-[2.35rem]">
+                  <h3 className="relative max-w-xl text-balance text-2xl font-semibold leading-[1.1] tracking-normal text-white sm:text-[2rem] lg:text-[2.35rem]">
                     {activeItem.title}
                   </h3>
                   <p className="relative mt-4 max-w-xl text-sm leading-7 text-white/82">

@@ -152,16 +152,6 @@ export default async function ServicePage({ params }: ServicePageProps) {
             <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
               {service.description}
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href="/book-consultation">Book Consultation</ButtonLink>
-              <ButtonLink
-                href="/estimate"
-                variant="secondary"
-                className="border-white/15 bg-white/10 text-white hover:border-white/35 hover:text-white"
-              >
-                Estimate This Scope
-              </ButtonLink>
-            </div>
           </div>
 
           <div className="relative min-h-[420px] overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5 shadow-[0_30px_90px_rgba(0,0,0,0.35)]">
@@ -182,10 +172,9 @@ export default async function ServicePage({ params }: ServicePageProps) {
           <div className="grid gap-3 rounded-[1.5rem] border border-[color:rgba(11,18,32,0.08)] bg-[#f8fbff] p-4 sm:grid-cols-5">
             {servicePath.map((item, index) => (
               <div key={item} className="rounded-2xl bg-white p-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-muted)]">
-                  0{index + 1}
+                <p className="text-sm font-semibold text-[var(--color-ink)]">
+                  {index + 1}. {item}
                 </p>
-                <p className="mt-2 text-sm font-semibold text-[var(--color-ink)]">{item}</p>
               </div>
             ))}
           </div>
@@ -195,10 +184,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
       <section className="bg-white pb-20 sm:pb-24">
         <Container className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-electric)]">
-              Scope clarity
-            </p>
-            <h2 className="mt-4 text-balance text-4xl font-semibold tracking-[-0.05em] text-[var(--color-ink)] sm:text-5xl">
+            <h2 className="text-balance text-4xl font-semibold tracking-[-0.05em] text-[var(--color-ink)] sm:text-5xl">
               What this service is expected to cover.
             </h2>
             <p className="mt-5 max-w-xl text-base leading-8 text-[var(--color-muted)]">
@@ -254,10 +240,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
       <section className="bg-[#f4f8ff] py-20 sm:py-24">
         <Container className="grid gap-10 lg:grid-cols-[1fr_0.9fr]">
           <div className="rounded-[1.5rem] border border-[color:rgba(11,18,32,0.08)] bg-white p-6 sm:p-8">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-electric)]">
-              Best fit
-            </p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-[var(--color-ink)] sm:text-4xl">
+            <h2 className="text-3xl font-semibold tracking-[-0.05em] text-[var(--color-ink)] sm:text-4xl">
               Environments where this service creates the most value.
             </h2>
             <div className="mt-8 grid gap-3 sm:grid-cols-2">
@@ -273,10 +256,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
           </div>
 
           <div className="rounded-[1.5rem] bg-[#08111f] p-6 text-white sm:p-8">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-cyan)]">
-              Positioning
-            </p>
-            <p className="mt-5 text-2xl font-semibold leading-9 tracking-[-0.04em]">
+            <p className="text-2xl font-semibold leading-9 tracking-[-0.04em]">
               {service.positioning}
             </p>
             <div className="mt-8 border-t border-white/10 pt-6">
@@ -294,16 +274,10 @@ export default async function ServicePage({ params }: ServicePageProps) {
           <Container>
             <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-electric)]">
-                  Related services
-                </p>
-                <h2 className="mt-4 max-w-2xl text-4xl font-semibold tracking-[-0.05em] text-[var(--color-ink)] sm:text-5xl">
+                <h2 className="max-w-2xl text-4xl font-semibold tracking-[-0.05em] text-[var(--color-ink)] sm:text-5xl">
                   Adjacent scopes in the same service category.
                 </h2>
               </div>
-              <ButtonLink href="/services" variant="secondary">
-                Browse All Services
-              </ButtonLink>
             </div>
             <div className="mt-10 grid gap-4 lg:grid-cols-3">
               {related.map((item) => (
@@ -332,26 +306,13 @@ export default async function ServicePage({ params }: ServicePageProps) {
       <section className="bg-[#08111f] py-20 text-white sm:py-24">
         <Container className="grid gap-8 lg:grid-cols-[1fr_0.75fr] lg:items-center">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-cyan)]">
-              Next step
-            </p>
-            <h2 className="mt-4 max-w-3xl text-4xl font-semibold tracking-[-0.05em] sm:text-5xl">
+            <h2 className="max-w-3xl text-4xl font-semibold tracking-[-0.05em] sm:text-5xl">
               Turn this service into a scoped engagement.
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-8 text-slate-300">
               Bring the site details, business priorities, timelines, and constraints. Auxano will
               help define the right technical and commercial path.
             </p>
-          </div>
-          <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-            <ButtonLink href="/book-consultation">Book Consultation</ButtonLink>
-            <ButtonLink
-              href="/contact"
-              variant="secondary"
-              className="border-white/15 bg-white/10 text-white hover:border-white/35 hover:text-white"
-            >
-              Contact Sales
-            </ButtonLink>
           </div>
         </Container>
       </section>

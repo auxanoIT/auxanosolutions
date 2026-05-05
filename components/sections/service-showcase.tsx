@@ -203,14 +203,9 @@ export function ServiceShowcase({ section }: ServiceShowcaseProps) {
     <section className="bg-[linear-gradient(180deg,#ffffff_0%,#f7fbff_100%)] py-20 sm:py-24">
       <Container>
         <div className="mx-auto max-w-4xl text-center">
-          {section.eyebrow ? (
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#23A3FF]">
-              {section.eyebrow}
-            </p>
-          ) : null}
           <h2
             id={headingId}
-            className="mt-5 text-balance text-4xl font-semibold tracking-[-0.06em] text-[var(--color-ink)] sm:text-5xl lg:text-6xl"
+            className="text-balance text-4xl font-semibold tracking-[-0.06em] text-[var(--color-ink)] sm:text-5xl lg:text-6xl"
           >
             {section.title}
           </h2>

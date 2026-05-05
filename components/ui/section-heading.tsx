@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 
-import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
 type SectionHeadingProps = {
@@ -13,7 +12,6 @@ type SectionHeadingProps = {
 };
 
 export function SectionHeading({
-  eyebrow,
   title,
   description,
   align = "left",
@@ -22,8 +20,7 @@ export function SectionHeading({
 }: SectionHeadingProps) {
   return (
     <div className={cn(align === "center" && "mx-auto max-w-3xl text-center", className)}>
-      {eyebrow ? <Badge className={align === "center" ? "justify-center" : undefined}>{eyebrow}</Badge> : null}
-      <h2 className="mt-5 text-balance text-3xl font-semibold tracking-[-0.04em] text-[var(--color-ink)] sm:text-4xl lg:text-5xl">
+      <h2 className="text-balance text-3xl font-semibold tracking-[-0.04em] text-[var(--color-ink)] sm:text-4xl lg:text-5xl">
         {title}
       </h2>
       {description ? (

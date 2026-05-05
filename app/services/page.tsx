@@ -1,17 +1,10 @@
 import Image from "next/image";
 
-import { CTABand } from "@/components/sections/cta-band";
 import { ServiceCategoryCarousel } from "@/components/sections/service-category-carousel";
-import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
 import { getServices, getSolutionCategories } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
-import type {
-  CTABandSection,
-  Service,
-  ServiceCategory,
-  SolutionCategory,
-} from "@/lib/types";
+import type { Service, ServiceCategory, SolutionCategory } from "@/lib/types";
 
 export const metadata = buildMetadata({
   title: "Services",
@@ -79,20 +72,6 @@ const categoryOrder: ServiceCategory[] = [
   "Managed & Advisory",
 ];
 
-const servicesCtaSection: CTABandSection = {
-  _type: "ctaBand",
-  eyebrow: "Ready to scope your project?",
-  title: "Need help turning the service list into a project scope?",
-  description:
-    "Share the environment, risk, location, and timing. Auxano can help sequence the right mix of survey, procurement, deployment, and support.",
-  primaryCta: {
-    label: "Book Consultation",
-    href: "/book-consultation",
-    variant: "primary",
-  },
-  dark: true,
-};
-
 function orderCategoriesByNarrative(categories: SolutionCategory[]) {
   return [...categories].sort(
     (left, right) =>
@@ -120,46 +99,13 @@ export default async function ServicesPage() {
       <section className="overflow-hidden bg-[#08111f] text-white">
         <Container className="grid min-h-[calc(100vh-5rem)] gap-10 py-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:py-16">
           <div className="max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-cyan)]">
-              Services
-            </p>
-            <h1 className="mt-5 text-balance text-5xl font-semibold tracking-[-0.06em] sm:text-6xl lg:text-7xl">
+            <h1 className="text-balance text-3xl font-semibold tracking-[-0.06em] sm:text-4xl lg:text-5xl">
               Technology services built as one operating system.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
-              Auxano brings infrastructure, networking, hardware, software
-              licensing, and managed advisory work into one delivery model, so
-              buyers can move from unclear requirements to a scoped, installed,
-              and supportable environment.
+              Auxano delivers infrastructure, networking, hardware, software,
+              and IT support in one seamless service model.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href="/book-consultation">
-                Book Consultation
-              </ButtonLink>
-              <ButtonLink
-                href="/estimate"
-                variant="secondary"
-                className="border-white/15 bg-white/10 text-white hover:border-white/35 hover:text-white"
-              >
-                Estimate Project Cost
-              </ButtonLink>
-            </div>
-            <div className="mt-10 grid gap-3 sm:grid-cols-3">
-              {[
-                ["5", "service categories"],
-                ["31+", "delivery capabilities"],
-                ["1", "accountable rollout path"],
-              ].map(([value, label]) => (
-                <div key={label} className="border-t border-white/15 pt-4">
-                  <p className="text-3xl font-semibold tracking-[-0.05em]">
-                    {value}
-                  </p>
-                  <p className="mt-1 text-xs font-medium uppercase tracking-[0.18em] text-slate-400">
-                    {label}
-                  </p>
-                </div>
-              ))}
-            </div>
           </div>
 
           <div className="relative min-h-[420px] overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5 shadow-[0_30px_90px_rgba(0,0,0,0.35)]">
@@ -212,10 +158,6 @@ export default async function ServicesPage() {
           })}
         </Container>
       </section>
-
-      <div className="bg-[#F8FBFF]">
-        <CTABand section={servicesCtaSection} />
-      </div>
     </>
   );
 }

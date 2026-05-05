@@ -38,10 +38,7 @@ export function InteractiveServices({ section }: InteractiveServicesProps) {
     <section className="bg-[linear-gradient(180deg,#eef3f8_0%,#f7fafc_100%)] py-18 sm:py-22">
       <Container>
         <div className="mx-auto max-w-4xl text-center">
-          <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-electric)]">
-            {section.eyebrow}
-          </p>
-          <h2 className="mx-auto mt-4 max-w-3xl text-balance text-[2.15rem] font-semibold leading-[1.02] tracking-normal text-[var(--color-ink)] sm:text-[2.6rem] lg:text-[3rem]">
+          <h2 className="mx-auto max-w-3xl text-balance text-[2.15rem] font-semibold leading-[1.02] tracking-normal text-[var(--color-ink)] sm:text-[2.6rem] lg:text-[3rem]">
             {section.title}
           </h2>
          
@@ -197,10 +194,7 @@ export function InteractiveServices({ section }: InteractiveServicesProps) {
 
                             
 
-                            <p className="max-w-[12rem] pr-8 text-[0.66rem] font-semibold uppercase tracking-[0.14em] text-[var(--color-electric)]">
-                              {item.label}
-                            </p>
-                            <h3 className="mt-2 max-w-[13rem] text-[1rem] font-semibold leading-[1.25] tracking-normal text-[var(--color-ink)] sm:text-[1.08rem]">
+                            <h3 className="max-w-[13rem] pr-8 text-[1rem] font-semibold leading-[1.25] tracking-normal text-[var(--color-ink)] sm:text-[1.08rem]">
                               {item.title}
                             </h3>
                             <p className="mt-2.5 text-[0.8rem] leading-6 text-[var(--color-muted)]">
