@@ -37,6 +37,7 @@ export function CategoryShowcase({ section }: CategoryShowcaseProps) {
   const [isAnimating, setIsAnimating] = useState(false);
   const panelRef = useRef<HTMLDivElement | null>(null);
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const hasSelectedTabRef = useRef(false);
   const timelineRef = useRef<gsap.core.Timeline | null>(null);
   const tabsId = useId();
   const activeItem = section.items[activeIndex] ?? section.items[0] ?? null;
@@ -48,6 +49,10 @@ export function CategoryShowcase({ section }: CategoryShowcaseProps) {
   }, []);
 
   useEffect(() => {
+    if (!hasSelectedTabRef.current) {
+      return;
+    }
+
     tabRefs.current[activeIndex]?.scrollIntoView({
       behavior: shouldReduceMotion ? "auto" : "smooth",
       block: "nearest",
@@ -117,6 +122,8 @@ export function CategoryShowcase({ section }: CategoryShowcaseProps) {
     if (index === activeIndex || isAnimating) {
       return;
     }
+
+    hasSelectedTabRef.current = true;
 
     if (shouldReduceMotion || !panelRef.current) {
       setActiveIndex(index);
