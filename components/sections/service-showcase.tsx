@@ -204,7 +204,7 @@ export function ServiceShowcase({ section }: ServiceShowcaseProps) {
       <Container>
         <div className="mx-auto max-w-4xl text-center">
           {section.eyebrow ? (
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#0A3047]">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#23A3FF]">
               {section.eyebrow}
             </p>
           ) : null}
@@ -214,11 +214,6 @@ export function ServiceShowcase({ section }: ServiceShowcaseProps) {
           >
             {section.title}
           </h2>
-          {section.description ? (
-            <p className="mx-auto mt-5 max-w-3xl text-pretty text-lg leading-8 text-[var(--color-muted)]">
-              {section.description}
-            </p>
-          ) : null}
         </div>
 
         <div
@@ -282,7 +277,7 @@ export function ServiceShowcase({ section }: ServiceShowcaseProps) {
                   {renderedItems.map((item, index) => (
                     <article
                       key={`${item.id}-${index}`}
-                      className="service-showcase-item group flex shrink-0 flex-col"
+                      className="service-showcase-item group flex h-full shrink-0 flex-col"
                     >
                       <div className="relative aspect-[0.84] overflow-hidden rounded-[1.8rem] bg-[var(--color-cloud)] shadow-[0_24px_60px_rgba(11,18,32,0.1)]">
                         <Image
@@ -294,18 +289,18 @@ export function ServiceShowcase({ section }: ServiceShowcaseProps) {
                         />
                         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,48,71,0.04),rgba(10,48,71,0.22))]" />
                       </div>
-                      <div className="px-1 pt-6">
-                        <h3 className="text-3xl font-semibold tracking-[-0.05em] text-[var(--color-ink)]">
+                      <div className="flex flex-1 flex-col px-1 pt-6">
+                        <h3 className="min-h-[4.5rem] text-3xl font-semibold tracking-[-0.05em] text-[var(--color-ink)]">
                           {item.title}
                         </h3>
-                        <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
+                        <p className="mt-4 min-h-[8rem] text-base leading-8 text-[var(--color-muted)]">
                           {item.description}
                         </p>
-                        <div className="mt-7 flex items-center">
+                        <div className="mt-auto flex items-center pt-7">
                           <ButtonLink
                             href={item.ctaHref}
                             variant="secondary"
-                            className="!rounded-full !border-[color:rgba(10,48,71,0.12)] !bg-white/92 !px-5 !py-3 !text-[0.94rem] !font-semibold !text-[#0A3047] shadow-[0_14px_34px_rgba(10,48,71,0.08)] hover:!border-[color:rgba(10,48,71,0.28)] hover:!text-[#0A3047]"
+                            className="!rounded-full !border-[color:rgba(10,48,71,0.12)] !bg-white/92 !px-5 !py-3 !text-[1rem] !font-semibold !text-[#0A3047] shadow-[0_14px_34px_rgba(10,48,71,0.08)] hover:!border-[color:rgba(10,48,71,0.28)] hover:!text-[#0A3047]"
                           >
                             <span>{item.ctaLabel}</span>
                             <ArrowRight className="ml-2 h-4 w-4" />
@@ -318,7 +313,10 @@ export function ServiceShowcase({ section }: ServiceShowcaseProps) {
               ) : (
                 <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
                   {section.items.map((item) => (
-                    <article key={item.id} className="group flex flex-col">
+                    <article
+                      key={item.id}
+                      className="group flex h-full flex-col"
+                    >
                       <div className="relative aspect-[0.84] overflow-hidden rounded-[1.8rem] bg-[var(--color-cloud)] shadow-[0_24px_60px_rgba(11,18,32,0.1)]">
                         <Image
                           src={item.imageSrc}
@@ -329,18 +327,18 @@ export function ServiceShowcase({ section }: ServiceShowcaseProps) {
                         />
                         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,48,71,0.04),rgba(10,48,71,0.22))]" />
                       </div>
-                      <div className="px-1 pt-6">
-                        <h3 className="text-3xl font-semibold tracking-[-0.05em] text-[var(--color-ink)]">
+                      <div className="flex flex-1 flex-col px-1 pt-6">
+                        <h3 className="min-h-[4.5rem] text-3xl font-semibold tracking-[-0.05em] text-[var(--color-ink)]">
                           {item.title}
                         </h3>
-                        <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
+                        <p className="mt-4 min-h-[8rem] text-base leading-8 text-[var(--color-muted)]">
                           {item.description}
                         </p>
-                        <div className="mt-7 flex items-center">
+                        <div className="mt-auto flex items-center pt-7">
                           <ButtonLink
                             href={item.ctaHref}
                             variant="secondary"
-                            className="!rounded-full !border-[color:rgba(10,48,71,0.12)] !bg-white/92 !px-5 !py-3 !text-[0.94rem] !font-semibold !text-[#0A3047] shadow-[0_14px_34px_rgba(10,48,71,0.08)] hover:!border-[color:rgba(10,48,71,0.28)] hover:!text-[#0A3047]"
+                            className="!rounded-full !border-[color:rgba(10,48,71,0.12)] !bg-white/92 !px-5 !py-3 !text-[1rem] !font-semibold !text-[#0A3047] shadow-[0_14px_34px_rgba(10,48,71,0.08)] hover:!border-[color:rgba(10,48,71,0.28)] hover:!text-[#0A3047]"
                           >
                             <span>{item.ctaLabel}</span>
                             <ArrowRight className="ml-2 h-4 w-4" />

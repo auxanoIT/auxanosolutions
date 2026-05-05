@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { gsap } from "gsap";
 import { ArrowRight, ShieldCheck } from "lucide-react";
@@ -61,14 +56,18 @@ function clampProgress(value: number) {
 }
 
 function getCountdownValue(progress: number) {
-  return Math.max(0, HERO_COUNTDOWN_START - Math.floor(progress * HERO_COUNTDOWN_START));
+  return Math.max(
+    0,
+    HERO_COUNTDOWN_START - Math.floor(progress * HERO_COUNTDOWN_START),
+  );
 }
 
 export function HomeHero({ section }: HomeHeroProps) {
   if (section.mode === "videoCarousel" && section.slides?.length) {
-    const metrics = section.metrics.length >= 4
-      ? section.metrics.slice(0, 4)
-      : HERO_STATS_FALLBACK;
+    const metrics =
+      section.metrics.length >= 4
+        ? section.metrics.slice(0, 4)
+        : HERO_STATS_FALLBACK;
 
     return (
       <>
@@ -81,11 +80,7 @@ export function HomeHero({ section }: HomeHeroProps) {
   return <DefaultHomeHero section={section} />;
 }
 
-function VideoCarouselHero({
-  slides,
-}: {
-  slides: HeroVideoSlide[];
-}) {
+function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
   const shouldReduceMotion = useReducedMotion();
   const playerRef = useRef<WistiaPlayerElement | null>(null);
   const rootRef = useRef<HTMLDivElement | null>(null);
@@ -100,7 +95,9 @@ function VideoCarouselHero({
   const [activeIndex, setActiveIndex] = useState(0);
   const [progress, setProgress] = useState(0);
   const [isDocumentVisible, setIsDocumentVisible] = useState(() =>
-    typeof document === "undefined" ? true : document.visibilityState === "visible",
+    typeof document === "undefined"
+      ? true
+      : document.visibilityState === "visible",
   );
   const activeSlide = slides[activeIndex] ?? slides[0];
   const countdownValue = shouldReduceMotion
@@ -243,9 +240,12 @@ function VideoCarouselHero({
 
   useLayoutEffect(() => {
     if (shouldReduceMotion) {
-      gsap.set([headlineRef.current, descriptionRef.current, ctaWrapRef.current], {
-        clearProps: "all",
-      });
+      gsap.set(
+        [headlineRef.current, descriptionRef.current, ctaWrapRef.current],
+        {
+          clearProps: "all",
+        },
+      );
       gsap.set(stageTintRef.current, { clearProps: "all" });
       return;
     }
@@ -414,7 +414,7 @@ function VideoCarouselHero({
           <div>
             <h1
               ref={headlineRef}
-              className="max-w-5xl text-balance text-[3.55rem] font-semibold leading-[0.94] tracking-[-0.075em] text-white sm:text-[4.65rem] lg:text-[5.55rem]"
+              className="max-w-5xl text-balance text-[2.7rem] font-semibold leading-[0.94] tracking-[-0.075em] text-white sm:text-[3.55rem] lg:text-[4.35rem]"
             >
               {activeSlide.headline}
             </h1>
@@ -428,7 +428,10 @@ function VideoCarouselHero({
               {activeSlide.description}
             </p>
 
-            <div ref={ctaWrapRef} className="mt-7 flex flex-wrap items-center gap-4">
+            <div
+              ref={ctaWrapRef}
+              className="mt-7 flex flex-wrap items-center gap-4"
+            >
               <ButtonLink
                 href={activeSlide.primaryCta.href}
                 variant="secondary"
@@ -669,7 +672,8 @@ function DefaultHomeHero({ section }: HomeHeroProps) {
                   Integrated Command View
                 </p>
                 <p className="mt-2 text-sm text-white/72">
-                  Support, surveillance, network health, and site readiness in one story.
+                  Support, surveillance, network health, and site readiness in
+                  one story.
                 </p>
               </div>
               <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/6 px-3 py-2 text-xs uppercase tracking-[0.18em] text-white/72">
@@ -737,7 +741,8 @@ function DefaultHomeHero({ section }: HomeHeroProps) {
                   Visibility
                 </p>
                 <p className="mt-2 text-sm font-medium text-white/82">
-                  Network health and deployment readiness reflected in one model.
+                  Network health and deployment readiness reflected in one
+                  model.
                 </p>
               </div>
             </div>

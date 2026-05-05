@@ -110,9 +110,6 @@ export function SolutionsMegaMenu({
                   <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-[var(--color-ink)]">
                     {activeCategory.featuredTitle}
                   </h3>
-                  <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
-                    {activeCategory.featuredDescription}
-                  </p>
                   <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-electric)]">
                     View category
                     <ArrowUpRight className="h-4 w-4" />
@@ -142,9 +139,6 @@ export function SolutionsMegaMenu({
                           <h4 className="text-sm font-semibold text-[var(--color-ink)] transition group-hover:text-[var(--color-electric)]">
                             {service.title}
                           </h4>
-                          <p className="mt-2 text-sm leading-6 text-[var(--color-muted)]">
-                            {service.navDescription}
-                          </p>
                         </div>
                       </div>
                     </Link>

@@ -21,22 +21,18 @@ export function CTABand({ section }: CTABandProps) {
           )}
         >
           <SectionHeading
-            eyebrow={section.eyebrow}
             title={section.title}
             description={section.description}
-            className={section.dark ? "[&>h2]:text-white [&>p]:text-white/72" : undefined}
+            align="center"
+            className={cn(
+              "[&>h2]:text-2xl [&>h2]:font-normal [&>h2]:tracking-normal lg:[&>h2]:text-3xl [&>p]:mx-auto [&>p]:max-w-2xl [&>p]:text-sm [&>p]:leading-7 lg:[&>p]:text-base",
+              section.dark
+                ? "[&>h2]:text-white [&>p]:text-white/72"
+                : undefined,
+            )}
           />
-          <div className="mt-8 flex flex-wrap gap-4">
-            <ButtonLink href={section.primaryCta.href}>{section.primaryCta.label}</ButtonLink>
-            {section.secondaryCta ? (
-              <ButtonLink
-                href={section.secondaryCta.href}
-                variant={section.dark ? "secondary" : "ghost"}
-                className={section.dark ? "border-white/12 bg-white/8 text-white hover:border-white/20 hover:text-white" : undefined}
-              >
-                {section.secondaryCta.label}
-              </ButtonLink>
-            ) : null}
+          <div className="mt-8 flex justify-center">
+            <ButtonLink href="/book-consultation">Book Consultation</ButtonLink>
           </div>
         </div>
       </Container>

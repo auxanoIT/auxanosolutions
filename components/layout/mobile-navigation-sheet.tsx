@@ -320,9 +320,6 @@ export function MobileNavigationSheet({
                                   <h3 className="mt-3 text-base font-semibold text-[var(--color-ink)]">
                                     {category.formalTitle}
                                   </h3>
-                                  <p className="mt-2 text-sm leading-6 text-[var(--color-muted)]">
-                                    {category.featuredDescription}
-                                  </p>
                                 </div>
                               </Link>
                             </SheetClose>
@@ -346,9 +343,6 @@ export function MobileNavigationSheet({
                                     <div className="min-w-0">
                                       <p className="text-sm font-semibold text-[var(--color-ink)]">
                                         {service.title}
-                                      </p>
-                                      <p className="mt-1 text-xs leading-5 text-[var(--color-muted)]">
-                                        {service.navDescription}
                                       </p>
                                     </div>
                                   </Link>

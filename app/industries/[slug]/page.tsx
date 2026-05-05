@@ -151,15 +151,9 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
                 key={service.slug}
                 className="rounded-[2rem] border border-white bg-white p-7 shadow-[0_18px_50px_rgba(11,18,32,0.06)]"
               >
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-electric)]">
-                  Service
-                </p>
-                <h2 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-[var(--color-ink)]">
+                <h2 className="text-2xl font-semibold tracking-[-0.04em] text-[var(--color-ink)]">
                   {service.title}
                 </h2>
-                <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
-                  {service.summary}
-                </p>
                 <ButtonLink
                   href={`/services/${service.slug}`}
                   variant="ghost"

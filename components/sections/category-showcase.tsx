@@ -3,12 +3,20 @@
 import { gsap } from "gsap";
 import { useReducedMotion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
-import { useEffect, useId, useLayoutEffect, useRef, useState, type KeyboardEvent } from "react";
+import {
+  useEffect,
+  useId,
+  useLayoutEffect,
+  useRef,
+  useState,
+  type KeyboardEvent,
+} from "react";
 import { flushSync } from "react-dom";
 
 import { DecorativeWistiaPlayer } from "@/components/ui/decorative-wistia-player";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
+import type { WistiaPlayerEvent } from "@/components/ui/decorative-wistia-player";
 import type { CategoryShowcaseSection } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -120,7 +128,10 @@ export function CategoryShowcase({ section }: CategoryShowcaseProps) {
     setIsAnimating(true);
   }
 
-  function handleTabKeyDown(event: KeyboardEvent<HTMLButtonElement>, index: number) {
+  function handleTabKeyDown(
+    event: KeyboardEvent<HTMLButtonElement>,
+    index: number,
+  ) {
     if (isAnimating) {
       return;
     }
@@ -150,15 +161,22 @@ export function CategoryShowcase({ section }: CategoryShowcaseProps) {
     handleSelect(nextIndex);
   }
 
+  function handleVideoReady(event: WistiaPlayerEvent) {
+    event.target.endVideoBehavior = "loop";
+    void event.target.play().catch(() => {
+      // Browsers can still block autoplay in some contexts; muted playback props remain the fallback.
+    });
+  }
+
   if (!activeItem) {
     return null;
   }
 
   return (
-    <section className="relative overflow-hidden bg-[linear-gradient(180deg,#0b1220_0%,#12365a_44%,#10324a_100%)] py-20 text-white sm:py-24">
+    <section className="relative overflow-hidden bg-[linear-gradient(180deg,#0b1220_0%,#12365a_44%,#10324a_100%)] py-16 text-white sm:py-20">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(25,213,255,0.14),transparent_26%),radial-gradient(circle_at_84%_12%,rgba(47,107,255,0.18),transparent_24%)]" />
       <Container>
-        <h2 className="relative max-w-6xl text-balance text-[2.85rem] font-semibold leading-[0.94] tracking-[-0.07em] text-white sm:text-[4rem] lg:text-[5.3rem]">
+        <h2 className="relative max-w-5xl text-balance text-[2rem] font-bold leading-[1.05] tracking-normal text-white sm:text-[2.55rem] lg:text-[3.1rem]">
           {section.title}
         </h2>
 
@@ -210,46 +228,48 @@ export function CategoryShowcase({ section }: CategoryShowcaseProps) {
         >
           <div
             ref={panelRef}
-            className="overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] shadow-[0_30px_90px_rgba(11,18,32,0.32)]"
+            className="mx-auto max-w-6xl overflow-hidden rounded-[1.5rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] shadow-[0_24px_70px_rgba(11,18,32,0.28)]"
           >
-            <div className="grid min-h-[22rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01))] lg:min-h-[37rem] lg:grid-cols-2">
-              <article className="relative flex flex-col justify-between overflow-hidden bg-[linear-gradient(180deg,rgba(47,107,255,0.18),rgba(25,213,255,0.10),rgba(11,18,32,0.12)),linear-gradient(180deg,#12365a_0%,#0e2d49_100%)] p-8 sm:p-10 lg:p-12">
+            <div className="grid min-h-[20rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01))] lg:min-h-[30rem] lg:grid-cols-2">
+              <article className="relative flex flex-col justify-between overflow-hidden bg-[linear-gradient(180deg,rgba(47,107,255,0.18),rgba(25,213,255,0.10),rgba(11,18,32,0.12)),linear-gradient(180deg,#12365a_0%,#0e2d49_100%)] p-6 sm:p-8 lg:p-9">
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(25,213,255,0.12),transparent_28%),radial-gradient(circle_at_85%_18%,rgba(47,107,255,0.16),transparent_26%)]" />
                 <div>
-                  <p className="relative text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-cloud)]/78">
+                  <p className="relative text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[var(--color-cloud)]/78">
                     {activeItem.label}
                   </p>
-                  <h3 className="relative mt-4 max-w-2xl text-balance text-3xl font-semibold tracking-[-0.05em] text-white sm:text-[2.45rem] lg:text-[3.25rem]">
+                  <h3 className="relative mt-3 max-w-xl text-balance text-2xl font-semibold leading-[1.1] tracking-normal text-white sm:text-[2rem] lg:text-[2.35rem]">
                     {activeItem.title}
                   </h3>
-                  <p className="relative mt-5 max-w-2xl text-base leading-8 text-white/82">
+                  <p className="relative mt-4 max-w-xl text-sm leading-7 text-white/82">
                     {activeItem.description}
                   </p>
 
-                  <ul className="relative mt-8 space-y-4">
+                  <ul className="relative mt-6 space-y-3">
                     {activeItem.bullets.map((bullet) => (
                       <li key={bullet} className="flex gap-3">
-                        <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-[var(--color-cyan)]" />
-                        <span className="text-sm leading-7 text-white/88">{bullet}</span>
+                        <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[var(--color-cyan)]" />
+                        <span className="text-xs leading-6 text-white/88 sm:text-sm">
+                          {bullet}
+                        </span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="relative mt-8">
+                <div className="relative mt-6">
                   <ButtonLink
                     href={activeItem.ctaHref}
                     variant="secondary"
-                    className="!border-transparent !bg-white !px-7 !py-3.5 !text-base !font-semibold !text-[var(--color-ink)] shadow-[0_18px_44px_rgba(47,107,255,0.16)] hover:!border-transparent hover:!text-[var(--color-ink)]"
+                    className="!border-transparent !bg-white !px-6 !py-3 !text-sm !font-semibold !text-[var(--color-ink)] shadow-[0_16px_38px_rgba(47,107,255,0.14)] hover:!border-transparent hover:!text-[var(--color-ink)]"
                   >
                     {activeItem.ctaLabel}
                   </ButtonLink>
                 </div>
               </article>
 
-              <div className="relative min-h-[20rem] bg-[linear-gradient(180deg,#d9dde4_0%,#cdd5de_100%)] lg:min-h-[37rem]">
+              <div className="relative min-h-[18rem] bg-[linear-gradient(180deg,#d9dde4_0%,#cdd5de_100%)] lg:min-h-[30rem]">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_18%,rgba(255,255,255,0.28),transparent_24%),linear-gradient(180deg,rgba(47,107,255,0.05)_0%,rgba(25,213,255,0.04)_45%,rgba(11,18,32,0.08)_100%)]" />
-                <div className="relative h-full min-h-[20rem]">
+                <div className="relative h-full min-h-[18rem]">
                   <DecorativeWistiaPlayer
                     mediaId={section.wistiaMediaId}
                     autoplay
@@ -259,6 +279,7 @@ export function CategoryShowcase({ section }: CategoryShowcaseProps) {
                     bigPlayButton={false}
                     controlsVisibleOnLoad={false}
                     copyLinkAndThumbnail={false}
+                    endVideoBehavior="loop"
                     fullscreenControl={false}
                     playBarControl={false}
                     playPauseControl={false}
@@ -269,7 +290,10 @@ export function CategoryShowcase({ section }: CategoryShowcaseProps) {
                     transparentLetterbox
                     seo={false}
                     playerColor="19d5ff"
-                    preload="metadata"
+                    preload="auto"
+                    onEnded={handleVideoReady}
+                    onApiReady={handleVideoReady}
+                    onLoadedMetadata={handleVideoReady}
                     className="pointer-events-none absolute inset-0 block h-full w-full"
                     style={{ width: "100%", height: "100%" }}
                   />

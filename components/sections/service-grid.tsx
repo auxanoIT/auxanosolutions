@@ -21,13 +21,9 @@ export function ServiceGrid({ section, services }: ServiceGridProps) {
               key={service.slug}
               className="group rounded-[2rem] border border-[color:rgba(11,18,32,0.08)] bg-white p-7 shadow-[0_18px_50px_rgba(11,18,32,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(11,18,32,0.12)]"
             >
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-electric)]">
-                {service.category}
-              </p>
-              <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-[var(--color-ink)]">
+              <h3 className="text-2xl font-semibold tracking-[-0.04em] text-[var(--color-ink)]">
                 {service.title}
               </h3>
-              <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">{service.summary}</p>
               <ul className="mt-6 space-y-3 text-sm text-[var(--color-ink)]">
                 {service.highlights.slice(0, 3).map((highlight) => (
                   <li key={highlight} className="flex gap-3">

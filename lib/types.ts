@@ -318,11 +318,49 @@ export type CategoryShowcaseSection = {
   items: CategoryShowcaseItem[];
 };
 
+export type InteractiveServicesItem = {
+  id: string;
+  label: string;
+  title: string;
+  description: string;
+  ctaLabel: string;
+  ctaHref: string;
+  x: number;
+  y: number;
+  size?: number;
+  glowFrom?: string;
+  glowTo?: string;
+  panelPlacement?: "right" | "left" | "bottom";
+  targetSize?: number;
+  targetOffsetX?: number;
+  targetOffsetY?: number;
+};
+
+export type InteractiveServicesSection = {
+  _type: "interactiveServices";
+  eyebrow: string;
+  title: string;
+  description: string;
+  imageSrc: string;
+  imageAlt: string;
+  promptLabel: string;
+  items: InteractiveServicesItem[];
+};
+
+export type TrustBannerSection = {
+  _type: "trustBanner";
+  title: string;
+  description: string;
+  cta: CTA;
+};
+
 export type NetworkMapSection = {
   _type: "networkMapSection";
   eyebrow: string;
   title: string;
   description: string;
+  imageSrc?: string;
+  imageAlt?: string;
   bullets: string[];
   nodes: NetworkNode[];
 };
@@ -375,6 +413,8 @@ export type PageSection =
   | ContentSplitSection
   | ServiceShowcaseSection
   | CategoryShowcaseSection
+  | InteractiveServicesSection
+  | TrustBannerSection
   | NetworkMapSection
   | CaseStudyRailSection
   | TestimonialRailSection

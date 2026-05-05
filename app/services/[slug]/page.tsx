@@ -1,17 +1,86 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
+import {
+  ArrowLeft,
+  ArrowRight,
+  BadgeCheck,
+  CheckCircle2,
+  ClipboardCheck,
+  FileText,
+  Network,
+  ShieldCheck,
+  Target,
+  Wrench,
+} from "lucide-react";
 
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
 import { JsonLd } from "@/components/ui/json-ld";
-import { SectionHeading } from "@/components/ui/section-heading";
 import { getServiceBySlug, getServices } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/utils";
+import type { ServiceCategory } from "@/lib/types";
 
 type ServicePageProps = {
   params: Promise<{ slug: string }>;
 };
+
+const categoryStyles: Record<
+  ServiceCategory,
+  {
+    icon: typeof ShieldCheck;
+    accent: string;
+    tint: string;
+    image: string;
+    imageAlt: string;
+  }
+> = {
+  Infrastructure: {
+    icon: ShieldCheck,
+    accent: "#2f6bff",
+    tint: "rgba(47,107,255,0.1)",
+    image: "/image/IT Infrastructure.png",
+    imageAlt: "Biometric access control device in a secure infrastructure environment",
+  },
+  Networking: {
+    icon: Network,
+    accent: "#f97316",
+    tint: "rgba(249,115,22,0.11)",
+    image: "/image/networking.png",
+    imageAlt: "Network rack with structured orange cabling",
+  },
+  "Hardware Systems": {
+    icon: Wrench,
+    accent: "#18b67e",
+    tint: "rgba(24,182,126,0.12)",
+    image: "/image/computer_and_server.png",
+    imageAlt: "Computer and server hardware systems",
+  },
+  "Software & Licenses": {
+    icon: BadgeCheck,
+    accent: "#7c3aed",
+    tint: "rgba(124,58,237,0.1)",
+    image: "/image/software_and_licenses.jpg",
+    imageAlt: "Software licensing and cloud services workspace",
+  },
+  "Managed & Advisory": {
+    icon: ClipboardCheck,
+    accent: "#0f766e",
+    tint: "rgba(15,118,110,0.12)",
+    image: "/image/It_management.jpg",
+    imageAlt: "IT management professional reviewing service activity",
+  },
+};
+
+const servicePath = [
+  "Discovery",
+  "Scope",
+  "Deployment",
+  "Handover",
+  "Support",
+];
 
 export async function generateMetadata({
   params,
@@ -45,6 +114,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
   const related = services
     .filter((item) => item.slug !== service.slug && item.category === service.category)
     .slice(0, 3);
+  const style = categoryStyles[service.category];
 
   return (
     <>
@@ -64,132 +134,193 @@ export default async function ServicePage({ params }: ServicePageProps) {
         }}
       />
 
-      <section className="bg-[linear-gradient(180deg,#F7FAFF_0%,#EEF4FF_100%)] py-20 sm:py-24">
-        <Container className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr]">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-electric)]">
-              {service.category}
-            </p>
-            <h1 className="mt-6 max-w-4xl text-balance text-5xl font-semibold tracking-[-0.06em] text-[var(--color-ink)] sm:text-6xl">
+      <section className="overflow-hidden bg-[#08111f] text-white">
+        <Container className="py-6">
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 transition hover:text-white"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            All services
+          </Link>
+        </Container>
+        <Container className="grid gap-10 pb-16 pt-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+          <div className="max-w-3xl">
+            <h1 className="text-balance text-5xl font-semibold tracking-[-0.06em] sm:text-6xl lg:text-7xl">
               {service.title}
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--color-muted)]">
+            <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
               {service.description}
             </p>
-            <p className="mt-6 max-w-2xl text-sm leading-7 text-[var(--color-ink)]">
-              {service.positioning}
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-wrap gap-3">
               <ButtonLink href="/book-consultation">Book Consultation</ButtonLink>
-              <ButtonLink href="/estimate" variant="secondary">
+              <ButtonLink
+                href="/estimate"
+                variant="secondary"
+                className="border-white/15 bg-white/10 text-white hover:border-white/35 hover:text-white"
+              >
                 Estimate This Scope
               </ButtonLink>
             </div>
           </div>
-          <div className="rounded-[2rem] border border-white bg-white p-7 shadow-[0_24px_60px_rgba(11,18,32,0.08)]">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-electric)]">
-              Outcome
-            </p>
-            <p className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-[var(--color-ink)]">
-              {service.outcome}
-            </p>
-            <ul className="mt-8 space-y-4">
-              {service.highlights.map((highlight) => (
-                <li key={highlight} className="flex gap-3 text-sm leading-7 text-[var(--color-muted)]">
-                  <span className="mt-[0.65rem] h-1.5 w-1.5 rounded-full bg-[var(--color-cyan)]" />
-                  <span>{highlight}</span>
-                </li>
-              ))}
-            </ul>
+
+          <div className="relative min-h-[420px] overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5 shadow-[0_30px_90px_rgba(0,0,0,0.35)]">
+            <Image
+              src={style.image}
+              alt={style.imageAlt}
+              fill
+              priority
+              className="object-cover opacity-90"
+              sizes="(min-width: 1024px) 54vw, 100vw"
+            />
           </div>
         </Container>
       </section>
 
-      <section className="py-20 sm:py-24">
-        <Container className="grid gap-10 lg:grid-cols-2">
-          <div>
-            <SectionHeading
-              eyebrow="Capabilities"
-              title="What the delivery typically covers"
-              description="The final scope is adjusted to the environment, but these are the main operating layers covered in the service."
-            />
-            <div className="mt-8 grid gap-4">
-              {service.capabilities.map((capability) => (
-                <div
-                  key={capability}
-                  className="rounded-[1.75rem] border border-[color:rgba(11,18,32,0.08)] bg-white px-5 py-4 text-sm leading-7 text-[var(--color-ink)]"
-                >
-                  {capability}
-                </div>
-              ))}
-            </div>
-          </div>
-          <div>
-            <SectionHeading
-              eyebrow="Deliverables"
-              title="What a serious handover looks like"
-              description="The commercial promise is not just technical installation. It is the clarity of the final environment and operating model."
-            />
-            <div className="mt-8 grid gap-4">
-              {service.deliverables.map((deliverable) => (
-                <div
-                  key={deliverable}
-                  className="rounded-[1.75rem] border border-[color:rgba(11,18,32,0.08)] bg-[var(--color-cloud)] px-5 py-4 text-sm leading-7 text-[var(--color-ink)]"
-                >
-                  {deliverable}
-                </div>
-              ))}
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      <section className="bg-[var(--color-cloud)] py-20 sm:py-24">
-        <Container className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <SectionHeading
-              eyebrow="Best fit"
-              title="Where this service creates the strongest operational value"
-              description="Auxano’s message should make it clear which environments are most likely to benefit from the service."
-            />
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {service.industries.map((industry) => (
-              <div
-                key={industry}
-                className="rounded-[1.75rem] border border-white bg-white px-5 py-4 text-sm font-medium text-[var(--color-ink)] shadow-[0_16px_40px_rgba(11,18,32,0.06)]"
-              >
-                {industry}
+      <section className="bg-white py-14">
+        <Container>
+          <div className="grid gap-3 rounded-[1.5rem] border border-[color:rgba(11,18,32,0.08)] bg-[#f8fbff] p-4 sm:grid-cols-5">
+            {servicePath.map((item, index) => (
+              <div key={item} className="rounded-2xl bg-white p-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-muted)]">
+                  0{index + 1}
+                </p>
+                <p className="mt-2 text-sm font-semibold text-[var(--color-ink)]">{item}</p>
               </div>
             ))}
           </div>
         </Container>
       </section>
 
+      <section className="bg-white pb-20 sm:pb-24">
+        <Container className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-electric)]">
+              Scope clarity
+            </p>
+            <h2 className="mt-4 text-balance text-4xl font-semibold tracking-[-0.05em] text-[var(--color-ink)] sm:text-5xl">
+              What this service is expected to cover.
+            </h2>
+            <p className="mt-5 max-w-xl text-base leading-8 text-[var(--color-muted)]">
+              A serious scope should make coverage, deliverables, operating fit, and the next
+              commercial action clear before procurement begins.
+            </p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="rounded-[1.25rem] border border-[color:rgba(11,18,32,0.08)] bg-[#f8fbff] p-6">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-[var(--color-electric)]">
+                <Target className="h-5 w-5" />
+              </div>
+              <h3 className="mt-5 text-2xl font-semibold tracking-[-0.04em] text-[var(--color-ink)]">
+                Core capabilities
+              </h3>
+              <ul className="mt-6 space-y-4">
+                {service.capabilities.map((capability) => (
+                  <li key={capability} className="flex gap-3 text-sm leading-7 text-[var(--color-muted)]">
+                    <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-[var(--color-success)]" />
+                    <span>{capability}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="rounded-[1.25rem] border border-[color:rgba(11,18,32,0.08)] bg-white p-6 shadow-[0_18px_60px_rgba(11,18,32,0.06)]">
+              <div
+                className="flex h-11 w-11 items-center justify-center rounded-2xl"
+                style={{ backgroundColor: style.tint, color: style.accent }}
+              >
+                <FileText className="h-5 w-5" />
+              </div>
+              <h3 className="mt-5 text-2xl font-semibold tracking-[-0.04em] text-[var(--color-ink)]">
+                Handover deliverables
+              </h3>
+              <ul className="mt-6 space-y-4">
+                {service.deliverables.map((deliverable) => (
+                  <li key={deliverable} className="flex gap-3 text-sm leading-7 text-[var(--color-muted)]">
+                    <span
+                      className="mt-2.5 h-2 w-2 shrink-0 rounded-full"
+                      style={{ backgroundColor: style.accent }}
+                    />
+                    <span>{deliverable}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-[#f4f8ff] py-20 sm:py-24">
+        <Container className="grid gap-10 lg:grid-cols-[1fr_0.9fr]">
+          <div className="rounded-[1.5rem] border border-[color:rgba(11,18,32,0.08)] bg-white p-6 sm:p-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-electric)]">
+              Best fit
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-[var(--color-ink)] sm:text-4xl">
+              Environments where this service creates the most value.
+            </h2>
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+              {service.industries.map((industry) => (
+                <div
+                  key={industry}
+                  className="rounded-2xl border border-[color:rgba(11,18,32,0.08)] bg-[#f8fbff] px-5 py-4 text-sm font-semibold text-[var(--color-ink)]"
+                >
+                  {industry}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-[1.5rem] bg-[#08111f] p-6 text-white sm:p-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-cyan)]">
+              Positioning
+            </p>
+            <p className="mt-5 text-2xl font-semibold leading-9 tracking-[-0.04em]">
+              {service.positioning}
+            </p>
+            <div className="mt-8 border-t border-white/10 pt-6">
+              <p className="text-sm leading-7 text-slate-300">
+                If the environment involves multiple stakeholders, procurement choices, site risk,
+                or post-launch accountability, this service should be scoped before purchase.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
       {related.length ? (
-        <section className="py-20 sm:py-24">
+        <section className="bg-white py-20 sm:py-24">
           <Container>
-            <SectionHeading
-              eyebrow="Related Services"
-              title="Explore adjacent capabilities"
-              description="The broader Auxano service stack is still visible for buyers shaping a larger technical program."
-            />
-            <div className="mt-8 grid gap-4 lg:grid-cols-3">
+            <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-electric)]">
+                  Related services
+                </p>
+                <h2 className="mt-4 max-w-2xl text-4xl font-semibold tracking-[-0.05em] text-[var(--color-ink)] sm:text-5xl">
+                  Adjacent scopes in the same service category.
+                </h2>
+              </div>
+              <ButtonLink href="/services" variant="secondary">
+                Browse All Services
+              </ButtonLink>
+            </div>
+            <div className="mt-10 grid gap-4 lg:grid-cols-3">
               {related.map((item) => (
                 <article
                   key={item.slug}
-                  className="rounded-[2rem] border border-[color:rgba(11,18,32,0.08)] bg-white p-7 shadow-[0_18px_50px_rgba(11,18,32,0.06)]"
+                  className="group rounded-[1.25rem] border border-[color:rgba(11,18,32,0.08)] bg-[#f8fbff] p-6 transition hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(11,18,32,0.1)]"
                 >
-                  <h2 className="text-2xl font-semibold tracking-[-0.04em] text-[var(--color-ink)]">
+                  <h3 className="text-2xl font-semibold tracking-[-0.04em] text-[var(--color-ink)]">
                     {item.title}
-                  </h2>
-                  <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">{item.summary}</p>
+                  </h3>
                   <ButtonLink
                     href={`/services/${item.slug}`}
                     variant="ghost"
                     className="mt-6 justify-start px-0 text-[var(--color-electric)] hover:bg-transparent"
                   >
                     View service
+                    <ArrowRight className="ml-2 h-4 w-4 transition group-hover:translate-x-1" />
                   </ButtonLink>
                 </article>
               ))}
@@ -197,6 +328,33 @@ export default async function ServicePage({ params }: ServicePageProps) {
           </Container>
         </section>
       ) : null}
+
+      <section className="bg-[#08111f] py-20 text-white sm:py-24">
+        <Container className="grid gap-8 lg:grid-cols-[1fr_0.75fr] lg:items-center">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-cyan)]">
+              Next step
+            </p>
+            <h2 className="mt-4 max-w-3xl text-4xl font-semibold tracking-[-0.05em] sm:text-5xl">
+              Turn this service into a scoped engagement.
+            </h2>
+            <p className="mt-5 max-w-2xl text-base leading-8 text-slate-300">
+              Bring the site details, business priorities, timelines, and constraints. Auxano will
+              help define the right technical and commercial path.
+            </p>
+          </div>
+          <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
+            <ButtonLink href="/book-consultation">Book Consultation</ButtonLink>
+            <ButtonLink
+              href="/contact"
+              variant="secondary"
+              className="border-white/15 bg-white/10 text-white hover:border-white/35 hover:text-white"
+            >
+              Contact Sales
+            </ButtonLink>
+          </div>
+        </Container>
+      </section>
     </>
   );
 }

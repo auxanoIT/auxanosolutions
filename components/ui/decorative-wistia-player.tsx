@@ -16,6 +16,7 @@ export type DecorativeWistiaPlayerProps = {
   className?: string;
   controlsVisibleOnLoad?: boolean;
   copyLinkAndThumbnail?: boolean;
+  endVideoBehavior?: "default" | "loop" | "reset";
   fullscreenControl?: boolean;
   muted?: boolean;
   playbackRateControl?: boolean;
