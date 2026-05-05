@@ -6,7 +6,12 @@ import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
 import { getServices, getSolutionCategories } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
-import type { CTABandSection, Service, ServiceCategory } from "@/lib/types";
+import type {
+  CTABandSection,
+  Service,
+  ServiceCategory,
+  SolutionCategory,
+} from "@/lib/types";
 
 export const metadata = buildMetadata({
   title: "Services",
@@ -88,8 +93,8 @@ const servicesCtaSection: CTABandSection = {
   dark: true,
 };
 
-function orderCategoriesByNarrative(category: { label: string }[]) {
-  return [...category].sort(
+function orderCategoriesByNarrative(categories: SolutionCategory[]) {
+  return [...categories].sort(
     (left, right) =>
       categoryOrder.indexOf(left.label as ServiceCategory) -
       categoryOrder.indexOf(right.label as ServiceCategory),
