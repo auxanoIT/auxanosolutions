@@ -49,6 +49,16 @@ export type ServiceNavMedia = {
   alt: string;
 };
 
+export type ServiceCapabilitySection = {
+  id: string;
+  navLabel: string;
+  title: string;
+  lead: string;
+  body: string[];
+  points: string[];
+  image: ServiceNavMedia;
+};
+
 export type Service = {
   slug: string;
   title: string;
@@ -65,6 +75,10 @@ export type Service = {
   serviceMixId: string;
   navDescription: string;
   navImage: ServiceNavMedia;
+  detailEyebrow?: string;
+  detailTitle?: string;
+  detailDescription?: string;
+  capabilitySections?: ServiceCapabilitySection[];
 };
 
 export type SolutionCategory = {

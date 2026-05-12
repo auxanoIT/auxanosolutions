@@ -9,6 +9,109 @@ import {
 } from "@/lib/content";
 import { absoluteUrl } from "@/lib/utils";
 
+type SitemapEntryInput = {
+  path: string;
+  lastModified?: Date | string;
+  changeFrequency: NonNullable<
+    MetadataRoute.Sitemap[number]["changeFrequency"]
+  >;
+  priority: number;
+};
+
+const siteLastModified = new Date("2026-05-05T00:00:00.000Z");
+
+const staticRoutes: SitemapEntryInput[] = [
+  {
+    path: "/",
+    changeFrequency: "weekly",
+    priority: 1,
+  },
+  {
+    path: "/services",
+    changeFrequency: "weekly",
+    priority: 0.95,
+  },
+  {
+    path: "/use-cases",
+    changeFrequency: "weekly",
+    priority: 0.88,
+  },
+  {
+    path: "/industries",
+    changeFrequency: "weekly",
+    priority: 0.86,
+  },
+  {
+    path: "/estimate",
+    changeFrequency: "monthly",
+    priority: 0.84,
+  },
+  {
+    path: "/book-consultation",
+    changeFrequency: "monthly",
+    priority: 0.82,
+  },
+  {
+    path: "/contact",
+    changeFrequency: "monthly",
+    priority: 0.78,
+  },
+  {
+    path: "/case-studies",
+    changeFrequency: "monthly",
+    priority: 0.74,
+  },
+  {
+    path: "/resources",
+    changeFrequency: "monthly",
+    priority: 0.72,
+  },
+  {
+    path: "/resources/knowledge-center",
+    changeFrequency: "weekly",
+    priority: 0.7,
+  },
+  {
+    path: "/resources/support-center",
+    changeFrequency: "monthly",
+    priority: 0.68,
+  },
+  {
+    path: "/blog",
+    changeFrequency: "weekly",
+    priority: 0.68,
+  },
+  {
+    path: "/about",
+    changeFrequency: "monthly",
+    priority: 0.62,
+  },
+  {
+    path: "/privacy",
+    changeFrequency: "yearly",
+    priority: 0.2,
+  },
+  {
+    path: "/terms",
+    changeFrequency: "yearly",
+    priority: 0.2,
+  },
+];
+
+function toSitemapEntry({
+  path,
+  lastModified = siteLastModified,
+  changeFrequency,
+  priority,
+}: SitemapEntryInput): MetadataRoute.Sitemap[number] {
+  return {
+    url: absoluteUrl(path),
+    lastModified,
+    changeFrequency,
+    priority,
+  };
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [services, useCases, industries, caseStudies, posts] = await Promise.all([
     getServices(),
@@ -18,29 +121,36 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     getBlogPosts(),
   ]);
 
-  return [
-    "/",
-    "/about",
-    "/services",
-    "/use-cases",
-    "/industries",
-    "/case-studies",
-    "/resources",
-    "/resources/knowledge-center",
-    "/resources/support-center",
-    "/blog",
-    "/contact",
-    "/book-consultation",
-    "/estimate",
-    "/privacy",
-    "/terms",
-    ...services.map((service) => `/services/${service.slug}`),
-    ...useCases.map((useCase) => useCase.href),
-    ...industries.map((industry) => industry.href),
-    ...caseStudies.map((item) => `/case-studies/${item.slug}`),
-    ...posts.map((post) => `/blog/${post.slug}`),
-  ].map((path) => ({
-    url: absoluteUrl(path),
-    lastModified: new Date(),
-  }));
+  const dynamicRoutes: SitemapEntryInput[] = [
+    ...services.map((service) => ({
+      path: `/services/${service.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    })),
+    ...useCases.map((useCase) => ({
+      path: useCase.href,
+      changeFrequency: "monthly" as const,
+      priority: 0.82,
+    })),
+    ...industries.map((industry) => ({
+      path: industry.href,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
+    ...caseStudies.map((item) => ({
+      path: `/case-studies/${item.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.66,
+    })),
+    ...posts.map((post) => ({
+      path: `/blog/${post.slug}`,
+      lastModified: post.publishedAt,
+      changeFrequency: "monthly" as const,
+      priority: 0.64,
+    })),
+  ];
+
+  return [...staticRoutes, ...dynamicRoutes]
+    .map(toSitemapEntry)
+    .sort((left, right) => left.url.localeCompare(right.url));
 }

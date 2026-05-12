@@ -31,6 +31,12 @@ export async function generateMetadata({
     title: caseStudy.title,
     description: caseStudy.summary,
     path: `/case-studies/${caseStudy.slug}`,
+    type: "article",
+    keywords: [
+      caseStudy.industry,
+      caseStudy.location,
+      ...caseStudy.relatedServices,
+    ],
   });
 }
 

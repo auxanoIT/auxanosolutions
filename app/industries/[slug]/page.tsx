@@ -50,6 +50,11 @@ export async function generateMetadata({
     title: industry.title,
     description: industry.heroDescription,
     path: industry.href,
+    keywords: [
+      industry.title,
+      ...industry.environmentExamples,
+      ...industry.primaryServiceSlugs,
+    ],
   });
 }
 

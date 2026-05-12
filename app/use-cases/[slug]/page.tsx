@@ -61,6 +61,11 @@ export async function generateMetadata({
     title: useCase.title,
     description: useCase.heroDescription,
     path: useCase.href,
+    keywords: [
+      useCase.title,
+      ...useCase.environmentExamples,
+      ...useCase.primaryServiceSlugs,
+    ],
   });
 }
 

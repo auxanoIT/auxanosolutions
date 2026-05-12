@@ -5,23 +5,21 @@ import { notFound } from "next/navigation";
 import {
   ArrowLeft,
   ArrowRight,
-  BadgeCheck,
-  CheckCircle2,
-  ClipboardCheck,
-  FileText,
   Network,
   ShieldCheck,
-  Target,
   Wrench,
+  BadgeCheck,
+  ClipboardCheck,
 } from "lucide-react";
 
+import { ServiceCapabilityFlow } from "@/components/sections/service-capability-flow";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
 import { JsonLd } from "@/components/ui/json-ld";
 import { getServiceBySlug, getServices } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/utils";
-import type { ServiceCategory } from "@/lib/types";
+import type { Service, ServiceCapabilitySection, ServiceCategory } from "@/lib/types";
 
 type ServicePageProps = {
   params: Promise<{ slug: string }>;
@@ -74,13 +72,55 @@ const categoryStyles: Record<
   },
 };
 
-const servicePath = [
-  "Discovery",
-  "Scope",
-  "Deployment",
-  "Handover",
-  "Support",
-];
+function buildFallbackSections(
+  service: Service,
+  image: string,
+  imageAlt: string,
+): ServiceCapabilitySection[] {
+  return [
+    {
+      id: "delivery-model",
+      navLabel: "Delivery model",
+      title: `How ${service.title.toLowerCase()} is scoped.`,
+      lead: service.summary,
+      body: [service.description],
+      points: service.capabilities,
+      image: {
+        src: image,
+        alt: imageAlt,
+      },
+    },
+    {
+      id: "handover-control",
+      navLabel: "Handover",
+      title: "What should be clear at completion.",
+      lead:
+        "A finished scope should leave the environment usable, supportable, and easier to govern.",
+      body: [
+        "Auxano documents the technical outcome in a way that helps internal teams, external vendors, and future support work from the same operating picture.",
+      ],
+      points: service.deliverables,
+      image: {
+        src: image,
+        alt: imageAlt,
+      },
+    },
+    {
+      id: "operating-fit",
+      navLabel: "Operating fit",
+      title: "Where this service creates measurable value.",
+      lead: service.positioning,
+      body: [
+        "The strongest results come when the service is matched to the environment, the operational pressure behind it, and the accountability expected after deployment.",
+      ],
+      points: service.highlights,
+      image: {
+        src: image,
+        alt: imageAlt,
+      },
+    },
+  ];
+}
 
 export async function generateMetadata({
   params,
@@ -100,6 +140,16 @@ export async function generateMetadata({
     title: service.title,
     description: service.summary,
     path: `/services/${service.slug}`,
+    keywords: [
+      service.title,
+      service.category,
+      ...service.industries,
+      ...service.highlights.slice(0, 3),
+      ...(service.capabilitySections?.flatMap((section) => [
+        section.navLabel,
+        section.title,
+      ]) ?? []),
+    ],
   });
 }
 
@@ -115,6 +165,9 @@ export default async function ServicePage({ params }: ServicePageProps) {
     .filter((item) => item.slug !== service.slug && item.category === service.category)
     .slice(0, 3);
   const style = categoryStyles[service.category];
+  const capabilitySections =
+    service.capabilitySections ??
+    buildFallbackSections(service, style.image, style.imageAlt);
 
   return (
     <>
@@ -167,107 +220,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
         </Container>
       </section>
 
-      <section className="bg-white py-14">
-        <Container>
-          <div className="grid gap-3 rounded-[1.5rem] border border-[color:rgba(11,18,32,0.08)] bg-[#f8fbff] p-4 sm:grid-cols-5">
-            {servicePath.map((item, index) => (
-              <div key={item} className="rounded-2xl bg-white p-4">
-                <p className="text-sm font-semibold text-[var(--color-ink)]">
-                  {index + 1}. {item}
-                </p>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section className="bg-white pb-20 sm:pb-24">
-        <Container className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-          <div>
-            <h2 className="text-balance text-4xl font-semibold tracking-[-0.05em] text-[var(--color-ink)] sm:text-5xl">
-              What this service is expected to cover.
-            </h2>
-            <p className="mt-5 max-w-xl text-base leading-8 text-[var(--color-muted)]">
-              A serious scope should make coverage, deliverables, operating fit, and the next
-              commercial action clear before procurement begins.
-            </p>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="rounded-[1.25rem] border border-[color:rgba(11,18,32,0.08)] bg-[#f8fbff] p-6">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-[var(--color-electric)]">
-                <Target className="h-5 w-5" />
-              </div>
-              <h3 className="mt-5 text-2xl font-semibold tracking-[-0.04em] text-[var(--color-ink)]">
-                Core capabilities
-              </h3>
-              <ul className="mt-6 space-y-4">
-                {service.capabilities.map((capability) => (
-                  <li key={capability} className="flex gap-3 text-sm leading-7 text-[var(--color-muted)]">
-                    <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-[var(--color-success)]" />
-                    <span>{capability}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="rounded-[1.25rem] border border-[color:rgba(11,18,32,0.08)] bg-white p-6 shadow-[0_18px_60px_rgba(11,18,32,0.06)]">
-              <div
-                className="flex h-11 w-11 items-center justify-center rounded-2xl"
-                style={{ backgroundColor: style.tint, color: style.accent }}
-              >
-                <FileText className="h-5 w-5" />
-              </div>
-              <h3 className="mt-5 text-2xl font-semibold tracking-[-0.04em] text-[var(--color-ink)]">
-                Handover deliverables
-              </h3>
-              <ul className="mt-6 space-y-4">
-                {service.deliverables.map((deliverable) => (
-                  <li key={deliverable} className="flex gap-3 text-sm leading-7 text-[var(--color-muted)]">
-                    <span
-                      className="mt-2.5 h-2 w-2 shrink-0 rounded-full"
-                      style={{ backgroundColor: style.accent }}
-                    />
-                    <span>{deliverable}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      <section className="bg-[#f4f8ff] py-20 sm:py-24">
-        <Container className="grid gap-10 lg:grid-cols-[1fr_0.9fr]">
-          <div className="rounded-[1.5rem] border border-[color:rgba(11,18,32,0.08)] bg-white p-6 sm:p-8">
-            <h2 className="text-3xl font-semibold tracking-[-0.05em] text-[var(--color-ink)] sm:text-4xl">
-              Environments where this service creates the most value.
-            </h2>
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
-              {service.industries.map((industry) => (
-                <div
-                  key={industry}
-                  className="rounded-2xl border border-[color:rgba(11,18,32,0.08)] bg-[#f8fbff] px-5 py-4 text-sm font-semibold text-[var(--color-ink)]"
-                >
-                  {industry}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="rounded-[1.5rem] bg-[#08111f] p-6 text-white sm:p-8">
-            <p className="text-2xl font-semibold leading-9 tracking-[-0.04em]">
-              {service.positioning}
-            </p>
-            <div className="mt-8 border-t border-white/10 pt-6">
-              <p className="text-sm leading-7 text-slate-300">
-                If the environment involves multiple stakeholders, procurement choices, site risk,
-                or post-launch accountability, this service should be scoped before purchase.
-              </p>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <ServiceCapabilityFlow service={service} sections={capabilitySections} />
 
       {related.length ? (
         <section className="bg-white py-20 sm:py-24">

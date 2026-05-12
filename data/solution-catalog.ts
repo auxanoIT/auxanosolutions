@@ -11,6 +11,10 @@ type ServiceSeed = {
   capabilities: string[];
   deliverables: string[];
   industries: string[];
+  detailEyebrow?: string;
+  detailTitle?: string;
+  detailDescription?: string;
+  capabilitySections?: Service["capabilitySections"];
 };
 
 const categoryCardImages: Record<ServiceCategory, { src: string; alt: string }> = {
@@ -197,6 +201,96 @@ export const services: Service[] = [
       "Operator handover and usage guidance",
     ],
     industries: ["Corporate offices", "Healthcare", "Education", "Warehousing"],
+    detailEyebrow: "Door access control capabilities",
+    detailTitle: "Door access systems built around control, proof, and clean daily operation.",
+    detailDescription:
+      "This delivery model turns the PDF promise into a practical access-control scope: credential strategy, centralized administration, traceable entry records, and integration with the wider security environment.",
+    capabilitySections: [
+      {
+        id: "credential-entry",
+        navLabel: "Credentials",
+        title: "Biometric and card access that fits the site.",
+        lead:
+          "Fingerprint, facial recognition, and proximity cards should reduce friction at the door without weakening operational control.",
+        body: [
+          "Auxano aligns reader choice, lock type, traffic volume, and entry policy before devices are installed. That keeps the door experience fast for approved users while preserving stricter control for sensitive spaces.",
+          "The outcome is not just hardware on the wall. It is a credential model that matches the way people actually move through the building.",
+        ],
+        points: [
+          "Fingerprint, facial, and proximity-card options",
+          "Reader placement matched to entry flow",
+          "Role-based credential strategy",
+          "Site-specific access policy planning",
+        ],
+        image: {
+          src: "/image/service-details/door-access-credentials.webp",
+          alt: "Professional access control reader and credential verification at a modern office entrance",
+        },
+      },
+      {
+        id: "centralized-access",
+        navLabel: "Control",
+        title: "Centralized management for grants, revocations, and cleaner accountability.",
+        lead:
+          "Every access decision should be easier to administer from one place than through fragmented manual handoffs.",
+        body: [
+          "Access rights can be issued, changed, or revoked from a unified dashboard, which matters when employees move roles, vendors finish work, or temporary passes must expire on time.",
+          "That central view also helps the business keep the door layer aligned with HR changes, operational roles, and site policies.",
+        ],
+        points: [
+          "Single dashboard for permission management",
+          "Faster revocation for exited or changed users",
+          "Cleaner temporary and visitor access rules",
+          "Reduced dependency on manual coordination",
+        ],
+        image: {
+          src: "/image/service-details/door-access-dashboard.webp",
+          alt: "Security administrator managing access permissions from a centralized dashboard",
+        },
+      },
+      {
+        id: "entry-audit-trail",
+        navLabel: "Audit trail",
+        title: "Automatic entry and exit logs that support review instead of guesswork.",
+        lead:
+          "An access system earns trust when the record of movement is clear, searchable, and usable during review.",
+        body: [
+          "Door events should support incident review, compliance questions, and basic operational accountability without requiring teams to reconstruct events from memory.",
+          "Auxano scopes logs, schedules, and operator expectations so the audit trail is not simply enabled, but usable.",
+        ],
+        points: [
+          "Automatic user and event logs",
+          "Clear movement records for investigation",
+          "Better support for compliance reviews",
+          "Practical handover for operators",
+        ],
+        image: {
+          src: "/image/service-details/door-access-audit.webp",
+          alt: "Access control event log review on a workstation in a secure operations room",
+        },
+      },
+      {
+        id: "security-integration",
+        navLabel: "Integration",
+        title: "Access control tied back to the wider surveillance picture.",
+        lead:
+          "The front door becomes more valuable when entry events and security visibility are planned together.",
+        body: [
+          "The PDF calls out CCTV integration for a reason: access events become stronger when teams can connect a door action to the relevant video context.",
+          "Auxano plans the handoff between access control and surveillance so the security stack works as one coordinated environment rather than isolated tools.",
+        ],
+        points: [
+          "CCTV-aware deployment planning",
+          "Better context around entry events",
+          "Sharper post-incident review",
+          "Staff handover on the complete workflow",
+        ],
+        image: {
+          src: "/image/service-details/door-access-integration.webp",
+          alt: "Integrated office security setup combining door access control and CCTV monitoring",
+        },
+      },
+    ],
   }),
   buildService({
     slug: "surveillance-system-cctv",
@@ -223,6 +317,96 @@ export const services: Service[] = [
       "Maintenance recommendation and handover",
     ],
     industries: ["Retail", "Warehousing", "Education", "Commercial offices"],
+    detailEyebrow: "CCTV capabilities",
+    detailTitle: "Surveillance designed for visibility, retention, and usable response.",
+    detailDescription:
+      "The PDF positions CCTV as a full-service scope, not a camera-only purchase. The page now explains the operating logic behind coverage design, remote review, storage sizing, and lifecycle support.",
+    capabilitySections: [
+      {
+        id: "camera-coverage",
+        navLabel: "Coverage",
+        title: "HD and 4K camera design based on the environment, not a generic count.",
+        lead:
+          "Indoor, outdoor, PTZ, low-light, and day-night needs should be chosen from the risk picture of the site.",
+        body: [
+          "Auxano starts with line of sight, activity zones, entrances, blind spots, and review expectations. That keeps the solution focused on evidence quality and operational awareness.",
+          "The aim is camera placement that protects what matters without wasting budget on poor angles or duplicated coverage.",
+        ],
+        points: [
+          "Indoor, outdoor, PTZ, and day-night coverage",
+          "Risk-led placement and camera selection",
+          "Sharper protection of entrances and blind spots",
+          "Cleaner alignment with site operations",
+        ],
+        image: {
+          src: "/image/service-details/cctv-camera-coverage.webp",
+          alt: "Modern CCTV camera network covering a commercial building entrance and perimeter",
+        },
+      },
+      {
+        id: "remote-visibility",
+        navLabel: "Remote view",
+        title: "Live and recorded footage available wherever oversight is needed.",
+        lead:
+          "Remote visibility matters when managers, security leads, or owners need evidence without being physically on site.",
+        body: [
+          "The viewing experience is configured around practical use: secure remote access, intuitive playback, and the ability to check both current activity and prior events quickly.",
+          "That makes surveillance more useful for everyday operations and incident response alike.",
+        ],
+        points: [
+          "Live and recorded footage access",
+          "Usable playback across common devices",
+          "Faster incident verification",
+          "Remote oversight for distributed teams",
+        ],
+        image: {
+          src: "/image/service-details/cctv-remote-viewing.webp",
+          alt: "Operations manager reviewing live CCTV footage on laptop and mobile device",
+        },
+      },
+      {
+        id: "retention-storage",
+        navLabel: "Storage",
+        title: "Recorder and storage sizing tied to the retention window the business actually needs.",
+        lead:
+          "A surveillance project is incomplete if footage quality is high but retention planning is weak.",
+        body: [
+          "Auxano aligns NVR or DVR capacity with camera count, resolution, frame needs, and the number of days footage must remain available.",
+          "That keeps storage expectations realistic and protects against discovering too late that the evidence window is shorter than required.",
+        ],
+        points: [
+          "NVR and DVR sizing",
+          "Retention planning by camera load",
+          "Capacity aligned with review requirements",
+          "Reduced storage guesswork",
+        ],
+        image: {
+          src: "/image/service-details/cctv-storage-retention.webp",
+          alt: "Security recording hardware and storage dashboard representing CCTV footage retention planning",
+        },
+      },
+      {
+        id: "survey-to-support",
+        navLabel: "Lifecycle",
+        title: "Site survey, installation, commissioning, and maintenance handled as one chain.",
+        lead:
+          "The PDF makes the point clearly: one team should own the route from survey to long-term support.",
+        body: [
+          "That single delivery chain reduces design drift, missed handover details, and fragmented accountability after installation.",
+          "It also gives the client a clearer path for additions, troubleshooting, and maintenance planning after go-live.",
+        ],
+        points: [
+          "Survey-backed deployment plan",
+          "Installation and commissioning in one scope",
+          "Maintenance direction after launch",
+          "Stronger ownership across the project",
+        ],
+        image: {
+          src: "/image/service-details/cctv-survey-support.webp",
+          alt: "Field engineer commissioning a commercial surveillance system on site",
+        },
+      },
+    ],
   }),
   buildService({
     slug: "structured-lan-cabling",
@@ -249,6 +433,96 @@ export const services: Service[] = [
       "As-built and handover documentation",
     ],
     industries: ["Corporate offices", "Data rooms", "Healthcare", "Education"],
+    detailEyebrow: "Structured LAN cabling capabilities",
+    detailTitle: "Structured cabling built to be testable, traceable, and supportable.",
+    detailDescription:
+      "The PDF emphasizes that cabling should not be improvised. This flow turns that into a commercial standard: correct media selection, disciplined routing, certification, and handover documentation.",
+    capabilitySections: [
+      {
+        id: "right-media",
+        navLabel: "Media",
+        title: "Cat6, Cat6A, and fibre chosen for the actual load and distance.",
+        lead:
+          "The right cable in the right place first time prevents expensive compromises later.",
+        body: [
+          "Auxano selects copper or fibre based on endpoint demand, backbone needs, equipment layout, and future expandability rather than habit.",
+          "That keeps the network foundation ready for both current traffic and the upgrades that arrive after occupancy or expansion.",
+        ],
+        points: [
+          "Cat6, Cat6A, and fibre deployment",
+          "Data and voice readiness",
+          "Distance and bandwidth considered early",
+          "Cleaner growth path for the site",
+        ],
+        image: {
+          src: "/image/service-details/lan-media-selection.webp",
+          alt: "Structured Cat6A and fibre cabling prepared for installation in a business facility",
+        },
+      },
+      {
+        id: "cable-management",
+        navLabel: "Cable routing",
+        title: "Labelled, trunked, and properly routed cabling that remains maintainable.",
+        lead:
+          "Cabling quality is visible long after installation when support teams can understand the environment at a glance.",
+        body: [
+          "Route discipline, cabinet order, labeling, and physical neatness reduce fault-finding time and create a more professional technical environment.",
+          "This is where long-term supportability is either won or lost.",
+        ],
+        points: [
+          "Neat containment and trunking",
+          "Readable labels and patching discipline",
+          "Reduced troubleshooting friction",
+          "More professional rack and room presentation",
+        ],
+        image: {
+          src: "/image/service-details/lan-cable-management.webp",
+          alt: "Neatly managed structured network cabling in a business communications rack",
+        },
+      },
+      {
+        id: "certified-testing",
+        navLabel: "Testing",
+        title: "Every run tested and documented before the job is treated as complete.",
+        lead:
+          "Proof matters more than assumptions when the physical layer is meant to support serious operations.",
+        body: [
+          "The PDF specifically references Fluke-certified testing. That proof closes the gap between an installed cable and a verified cable.",
+          "Testing reports help commissioning teams, internal IT, and future contractors understand exactly what was delivered.",
+        ],
+        points: [
+          "Fluke-certified testing where required",
+          "Evidence-backed pass and fail review",
+          "Fewer hidden deployment risks",
+          "Stronger handover confidence",
+        ],
+        image: {
+          src: "/image/service-details/lan-certification-testing.webp",
+          alt: "Technician using a cable certification tester on structured LAN cabling",
+        },
+      },
+      {
+        id: "as-built-documentation",
+        navLabel: "Documentation",
+        title: "As-built drawings and handover records that make the network easier to own.",
+        lead:
+          "Nothing is guessed. Everything is easier to support because the final environment is documented.",
+        body: [
+          "As-built drawings, endpoint references, and handover notes help future expansion, fault response, and audit readiness.",
+          "That turns the installation into a maintainable asset rather than a hidden dependency only the original installer understands.",
+        ],
+        points: [
+          "As-built drawings",
+          "Clear handover records",
+          "Better support for future changes",
+          "More disciplined ownership after completion",
+        ],
+        image: {
+          src: "/image/service-details/lan-as-built-documentation.webp",
+          alt: "Structured cabling documentation and as-built network drawings reviewed by project engineers",
+        },
+      },
+    ],
   }),
   buildService({
     slug: "data-centre-services",
@@ -275,6 +549,96 @@ export const services: Service[] = [
       "Reliability and monitoring handover",
     ],
     industries: ["Enterprise offices", "Financial services", "Healthcare", "Operations-heavy SMEs"],
+    detailEyebrow: "Data centre service capabilities",
+    detailTitle: "Infrastructure readiness shaped around uptime, protection, and environmental control.",
+    detailDescription:
+      "The PDF frames data centre work as a reliability discipline. This page now expands the four pillars behind that promise: room build-out, power continuity, cooling, and environmental monitoring.",
+    capabilitySections: [
+      {
+        id: "server-room-buildout",
+        navLabel: "Build-out",
+        title: "Server rooms designed around racks, power, cooling, and physical protection.",
+        lead:
+          "The room itself is part of the infrastructure and should be engineered with the same care as the equipment inside it.",
+        body: [
+          "Auxano aligns rack layout, working clearance, power routes, cooling considerations, and controlled access before deployment gets crowded or difficult to maintain.",
+          "That produces a cleaner technical environment and lowers the risk of costly rework later.",
+        ],
+        points: [
+          "Rack and equipment layout",
+          "Physical security readiness",
+          "Maintainable service clearances",
+          "Stronger foundation for uptime planning",
+        ],
+        image: {
+          src: "/image/service-details/data-centre-buildout.webp",
+          alt: "Professional server room build-out with racks, power, and security planning",
+        },
+      },
+      {
+        id: "power-management",
+        navLabel: "Power",
+        title: "UPS and power management sized to keep critical equipment protected.",
+        lead:
+          "Outages and surges should be design inputs, not surprises discovered after failure.",
+        body: [
+          "The power strategy accounts for UPS coverage, surge protection, and operational continuity around the equipment that cannot be allowed to drop without consequence.",
+          "That helps clients make better resilience decisions before the infrastructure becomes business-critical.",
+        ],
+        points: [
+          "UPS planning",
+          "Surge and outage protection",
+          "Priority equipment mapping",
+          "Cleaner resilience decisions",
+        ],
+        image: {
+          src: "/image/service-details/data-centre-power.webp",
+          alt: "UPS and power distribution equipment protecting a business server room",
+        },
+      },
+      {
+        id: "precision-cooling",
+        navLabel: "Cooling",
+        title: "Cooling strategies that preserve equipment health and operating stability.",
+        lead:
+          "Temperature drift shortens equipment life and weakens reliability before it becomes obvious.",
+        body: [
+          "Auxano plans thermal control around the room footprint, equipment density, airflow, and the expected operational profile of the space.",
+          "That avoids the pattern of installing equipment first and discovering environmental limits after the fact.",
+        ],
+        points: [
+          "Precision cooling considerations",
+          "Airflow awareness around rack layout",
+          "Reduced heat-related risk",
+          "Better long-term equipment protection",
+        ],
+        image: {
+          src: "/image/service-details/data-centre-cooling.webp",
+          alt: "Cooling infrastructure maintaining a professional server room environment",
+        },
+      },
+      {
+        id: "environmental-monitoring",
+        navLabel: "Monitoring",
+        title: "Environmental alerts for temperature, humidity, and intrusion risks.",
+        lead:
+          "A data centre should report its own early-warning signals before a small issue becomes downtime.",
+        body: [
+          "The PDF highlights temperature, humidity, and intrusion alerts. Those signals create a tighter operating loop around infrastructure health and physical risk.",
+          "Monitoring extends the service from build quality into ongoing awareness.",
+        ],
+        points: [
+          "Temperature and humidity awareness",
+          "Intrusion alerting",
+          "Faster escalation when conditions drift",
+          "More complete uptime governance",
+        ],
+        image: {
+          src: "/image/service-details/data-centre-monitoring.webp",
+          alt: "Environmental monitoring dashboard for server room temperature humidity and intrusion alerts",
+        },
+      },
+    ],
   }),
   buildService({
     slug: "automated-gates-sliding-doors",
