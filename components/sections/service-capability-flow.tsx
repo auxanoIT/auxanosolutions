@@ -26,9 +26,30 @@ export function ServiceCapabilityFlow({
       return;
     }
 
-    const sectionNodes = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter((node): node is HTMLElement => Boolean(node));
+    let animationFrame = 0;
+
+    const getSectionNodes = () =>
+      sectionIds
+        .map((id) => document.getElementById(id))
+        .filter((node): node is HTMLElement => Boolean(node));
+
+    const syncFromScroll = () => {
+      const sectionNodes = getSectionNodes();
+      const activationOffset = 190;
+      const currentSection =
+        sectionNodes
+          .filter((node) => node.getBoundingClientRect().top <= activationOffset)
+          .at(-1) ?? sectionNodes[0];
+
+      if (currentSection?.id) {
+        setActiveSection(currentSection.id);
+      }
+    };
+
+    const scheduleSync = () => {
+      window.cancelAnimationFrame(animationFrame);
+      animationFrame = window.requestAnimationFrame(syncFromScroll);
+    };
 
     const syncFromHash = () => {
       const nextId = window.location.hash.replace("#", "");
@@ -37,28 +58,15 @@ export function ServiceCapabilityFlow({
       }
     };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntry = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((left, right) => right.intersectionRatio - left.intersectionRatio)[0];
-
-        if (visibleEntry?.target.id) {
-          setActiveSection(visibleEntry.target.id);
-        }
-      },
-      {
-        rootMargin: "-28% 0px -54% 0px",
-        threshold: [0.2, 0.45, 0.7],
-      },
-    );
-
-    sectionNodes.forEach((node) => observer.observe(node));
-    syncFromHash();
+    syncFromScroll();
+    window.addEventListener("scroll", scheduleSync, { passive: true });
+    window.addEventListener("resize", scheduleSync);
     window.addEventListener("hashchange", syncFromHash);
 
     return () => {
-      observer.disconnect();
+      window.cancelAnimationFrame(animationFrame);
+      window.removeEventListener("scroll", scheduleSync);
+      window.removeEventListener("resize", scheduleSync);
       window.removeEventListener("hashchange", syncFromHash);
     };
   }, [sectionIds]);
