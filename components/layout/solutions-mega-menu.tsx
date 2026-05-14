@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 
 import {
   NavigationMenuContent,
@@ -59,13 +59,18 @@ export function SolutionsMegaMenu({
         Solutions
       </NavigationMenuTrigger>
       <NavigationMenuContent className="fixed inset-x-0 top-20 mt-0 w-full">
-        <div className="border-t border-[color:rgba(11,18,32,0.08)] bg-[color:rgba(255,255,255,0.98)] shadow-[0_28px_70px_rgba(11,18,32,0.12)] backdrop-blur-xl">
-          <Container className="grid gap-10 py-8 lg:grid-cols-[240px_minmax(0,1fr)]">
-            <div className="border-b border-[color:rgba(11,18,32,0.08)] pb-6 lg:border-b-0 lg:border-r lg:pb-0 lg:pr-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-muted)]">
-                Solutions
+        <motion.div
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+          className="border-t border-b border-[color:rgba(11,18,32,0.08)] bg-white"
+        >
+          <Container className="grid min-h-[23.75rem] gap-8 py-10 lg:grid-cols-[185px_minmax(0,1fr)]">
+            <div className="border-r border-[color:rgba(11,18,32,0.12)] pr-7">
+              <p className="text-[0.68rem] font-semibold text-[var(--color-muted)]">
+                Solution groups
               </p>
-              <div className="mt-4 space-y-1">
+              <div className="mt-4 space-y-2">
                 {categories.map((category) => {
                   const isActive = category.id === activeCategory.id;
 
@@ -75,79 +80,79 @@ export function SolutionsMegaMenu({
                       type="button"
                       onMouseEnter={() => setActiveCategoryId(category.id)}
                       onFocus={() => setActiveCategoryId(category.id)}
+                      onClick={() => setActiveCategoryId(category.id)}
                       className={cn(
-                        "flex w-full items-center justify-between rounded-2xl px-4 py-3 text-left transition",
+                        "block w-full text-left text-[0.95rem] font-semibold leading-tight transition-colors",
                         isActive
-                          ? "bg-[var(--color-cloud)] text-[var(--color-ink)]"
-                          : "text-[var(--color-muted)] hover:bg-[color:rgba(11,18,32,0.04)] hover:text-[var(--color-ink)]",
+                          ? "text-[var(--color-electric)]"
+                          : "text-[var(--color-ink)] hover:text-[var(--color-electric)]",
                       )}
                     >
-                      <span className="text-sm font-semibold">{category.label}</span>
+                      {category.label}
                     </button>
                   );
                 })}
               </div>
             </div>
 
-            <div className="grid gap-5 lg:grid-cols-[minmax(290px,340px)_1fr]">
-              <Link
-                href={activeCategory.href}
-                className="group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-[color:rgba(11,18,32,0.08)] bg-[var(--color-cloud)] transition hover:-translate-y-0.5 hover:shadow-[0_24px_60px_rgba(11,18,32,0.08)]"
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={activeCategory.id}
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -4 }}
+                transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+                className="grid auto-rows-[4rem] grid-cols-4 gap-3"
               >
-                <div className="relative aspect-[4/3] overflow-hidden border-b border-[color:rgba(11,18,32,0.08)]">
-                  <Image
-                    src={activeCategory.featuredImage.src}
-                    alt={activeCategory.featuredImage.alt}
-                    fill
-                    sizes="(min-width: 1024px) 320px, 100vw"
-                    className="object-cover"
-                  />
-                </div>
-                <div className="flex flex-1 flex-col p-6">
-                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-electric)]">
-                    {activeCategory.formalTitle}
-                  </p>
-                  <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-[var(--color-ink)]">
-                    {activeCategory.featuredTitle}
-                  </h3>
-                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-electric)]">
-                    View category
-                    <ArrowUpRight className="h-4 w-4" />
-                  </span>
-                </div>
-              </Link>
+                <NavigationMenuLink
+                  asChild
+                  className="group row-span-3 flex flex-col overflow-hidden rounded-md bg-[color:rgba(238,244,255,0.74)] transition-colors hover:bg-[color:rgba(238,244,255,0.96)]"
+                >
+                  <Link href={activeCategory.href}>
+                    <span className="px-4 pt-4 text-[0.95rem] font-medium text-[var(--color-ink)]">
+                      Overview
+                    </span>
+                    <span className="relative mt-auto block h-[9.5rem] w-full overflow-hidden">
+                      <Image
+                        src={activeCategory.featuredImage.src}
+                        alt={activeCategory.featuredImage.alt}
+                        fill
+                        sizes="255px"
+                        className="object-cover transition duration-300 group-hover:scale-[1.03]"
+                      />
+                    </span>
+                  </Link>
+                </NavigationMenuLink>
 
-              <div className="grid max-h-[29rem] gap-4 overflow-y-auto pr-1 sm:grid-cols-2">
                 {activeServices.map((service) => (
                   <NavigationMenuLink
                     key={service.slug}
                     asChild
-                    className="group rounded-[1.5rem] border border-[color:rgba(11,18,32,0.08)] bg-white p-4 transition hover:-translate-y-0.5 hover:border-[color:rgba(47,107,255,0.22)] hover:shadow-[0_18px_45px_rgba(11,18,32,0.08)]"
+                    className="group rounded-md bg-[color:rgba(247,249,252,0.92)] transition-colors hover:bg-[var(--color-cloud)]"
                   >
-                    <Link href={`/services/${service.slug}`}>
-                      <div className="flex gap-4">
-                        <div className="relative h-18 w-22 shrink-0 overflow-hidden rounded-[1rem] bg-[var(--color-cloud)]">
-                          <Image
-                            src={service.navImage.src}
-                            alt={service.navImage.alt}
-                            fill
-                            sizes="88px"
-                            className="object-cover"
-                          />
-                        </div>
-                        <div className="min-w-0">
-                          <h4 className="text-sm font-semibold text-[var(--color-ink)] transition group-hover:text-[var(--color-electric)]">
-                            {service.title}
-                          </h4>
-                        </div>
-                      </div>
+                    <Link
+                      href={`/services/${service.slug}`}
+                      className="flex min-w-0 items-center justify-between gap-4 px-4 py-3"
+                    >
+                      <span className="min-w-0 text-[0.95rem] font-medium leading-snug text-[var(--color-ink)] transition-colors group-hover:text-[var(--color-electric)]">
+                        {service.title}
+                      </span>
+                      <span className="relative h-10 w-12 shrink-0 overflow-hidden rounded-md bg-white/80">
+                        <Image
+                          src={service.navImage.src}
+                          alt={service.navImage.alt}
+                          fill
+                          sizes="48px"
+                          className="object-cover"
+                        />
+                      </span>
                     </Link>
                   </NavigationMenuLink>
                 ))}
-              </div>
-            </div>
+              </motion.div>
+            </AnimatePresence>
           </Container>
-        </div>
+        </motion.div>
       </NavigationMenuContent>
     </NavigationMenuItem>
   );

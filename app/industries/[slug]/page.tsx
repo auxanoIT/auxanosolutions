@@ -1,18 +1,24 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
+import {
+  ArrowDown,
+  ArrowRight,
+  BadgeCheck,
+  ClipboardCheck,
+  Network,
+  ShieldCheck,
+} from "lucide-react";
 
-import { ButtonLink } from "@/components/ui/button-link";
+import { LeadForm } from "@/components/forms/lead-form";
+import { IndustryChallengeTabs } from "@/components/sections/industry-challenge-tabs";
 import { Container } from "@/components/ui/container";
 import { IndustryIcon } from "@/components/ui/industry-icon";
 import { SectionHeading } from "@/components/ui/section-heading";
-import {
-  getCaseStudies,
-  getIndustryBySlug,
-  getIndustries,
-  getServices,
-} from "@/lib/content";
+import { getIndustryBySlug, getIndustries, getServices } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
-import type { Service } from "@/lib/types";
+import type { Service, ServiceNavMedia } from "@/lib/types";
 
 type IndustryPageProps = {
   params: Promise<{ slug: string }>;
@@ -22,6 +28,10 @@ function getMappedServices(serviceSlugs: string[], services: Service[]) {
   return serviceSlugs
     .map((slug) => services.find((service) => service.slug === slug))
     .filter((service): service is Service => Boolean(service));
+}
+
+function getServiceCardImage(service: Service): ServiceNavMedia {
+  return service.capabilitySections?.[0]?.image ?? service.navImage;
 }
 
 export async function generateStaticParams() {
@@ -60,10 +70,9 @@ export async function generateMetadata({
 
 export default async function IndustryPage({ params }: IndustryPageProps) {
   const { slug } = await params;
-  const [industry, services, caseStudies] = await Promise.all([
+  const [industry, services] = await Promise.all([
     getIndustryBySlug(slug),
     getServices(),
-    getCaseStudies(),
   ]);
 
   if (!industry) {
@@ -71,202 +80,253 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
   }
 
   const mappedServices = getMappedServices(industry.primaryServiceSlugs, services);
-  const relatedCaseStudy = industry.relatedCaseStudySlug
-    ? caseStudies.find((item) => item.slug === industry.relatedCaseStudySlug)
-    : null;
+  const featuredServices = mappedServices.slice(0, 3);
+  const featureItems = [
+    {
+      icon: ShieldCheck,
+      title: "Security and access planned together",
+      description:
+        "Access control, surveillance, and site workflows are scoped as one operating environment instead of isolated purchases.",
+    },
+    {
+      icon: Network,
+      title: "Infrastructure that supports the security layer",
+      description:
+        "Cabling, switching, wireless, and endpoint readiness are considered before the environment depends on the rollout.",
+    },
+    {
+      icon: ClipboardCheck,
+      title: "Documented handover and support clarity",
+      description:
+        "The result is easier to operate because scope, configuration, diagrams, and support expectations are left clear.",
+    },
+  ];
 
   return (
     <>
-      <section className="bg-[linear-gradient(180deg,#F7FAFF_0%,#EEF4FF_100%)] py-20 sm:py-24">
-        <Container className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-electric)]">
-              Industry
-            </p>
-            <h1 className="mt-6 max-w-4xl text-balance text-5xl font-semibold tracking-[-0.06em] text-[var(--color-ink)] sm:text-6xl">
-              {industry.heroTitle}
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--color-muted)]">
-              {industry.heroDescription}
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <ButtonLink href="/book-consultation">{industry.ctaLabel}</ButtonLink>
-              <ButtonLink href="/estimate" variant="secondary">
-                Estimate Project Scope
-              </ButtonLink>
+      <section className="overflow-hidden bg-white">
+        <div className="relative hidden min-h-[35rem] md:block">
+          <Image
+            src={industry.heroImage.src}
+            alt={industry.heroImage.alt}
+            fill
+            priority
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,#fff_0%,rgba(255,255,255,0.96)_30%,rgba(255,255,255,0.72)_48%,rgba(255,255,255,0.18)_68%,rgba(255,255,255,0)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.88)_0%,rgba(255,255,255,0)_22%,rgba(255,255,255,0)_78%,rgba(255,255,255,0.75)_100%)]" />
+
+          <Container className="relative flex min-h-[35rem] items-center">
+            <div className="max-w-[34rem]">
+              <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-[color:rgba(11,18,32,0.08)] bg-white/86 text-[var(--color-ink)] shadow-[0_12px_32px_rgba(11,18,32,0.08)] backdrop-blur">
+                <IndustryIcon name={industry.icon} className="h-5 w-5" strokeWidth={1.8} />
+              </div>
+              <p className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-electric)]">
+                {industry.title}
+              </p>
+              <h1 className="mt-4 max-w-[30rem] text-balance text-[2.65rem] font-semibold leading-[1.06] tracking-[-0.04em] text-[var(--color-ink)] lg:text-[3.2rem]">
+                Infrastructure for {industry.title}
+              </h1>
+              <p className="mt-5 max-w-xl text-base leading-7 text-[var(--color-muted)]">
+                {industry.shortDescription}
+              </p>
+              <div className="mt-8 flex items-center gap-5">
+                <Link
+                  href="/book-consultation"
+                  className="inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-semibold !text-white transition hover:-translate-y-0.5"
+                >
+                  Book Consultation
+                </Link>
+                <a
+                  href="#industry-challenges"
+                  aria-label="Scroll to industry challenges"
+                  className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-black/18 bg-white/70 text-black backdrop-blur transition hover:-translate-y-0.5 hover:bg-white"
+                >
+                  <ArrowDown className="h-5 w-5" />
+                </a>
+              </div>
             </div>
+          </Container>
+        </div>
+
+        <div className="md:hidden">
+          <div className="relative min-h-[19rem] bg-[var(--color-cloud)]">
+            <Image
+              src={industry.heroImage.src}
+              alt={industry.heroImage.alt}
+              fill
+              priority
+              className="object-cover"
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.12)_0%,rgba(255,255,255,0.78)_100%)]" />
           </div>
-          <div className="rounded-[2rem] border border-white bg-white p-7 shadow-[0_24px_60px_rgba(11,18,32,0.08)]">
-            <div className="flex h-16 w-16 items-center justify-center rounded-[1.25rem] border border-[color:rgba(11,18,32,0.08)] bg-[var(--color-cloud)] text-[var(--color-ink)]">
-              <IndustryIcon name={industry.icon} className="h-7 w-7" strokeWidth={1.8} />
+
+          <Container className="bg-[#f4f6f8] py-10">
+            <div className="flex h-14 w-14 items-center justify-center rounded-lg border border-[color:rgba(11,18,32,0.08)] bg-[var(--color-cloud)] text-[var(--color-ink)]">
+              <IndustryIcon name={industry.icon} className="h-6 w-6" strokeWidth={1.8} />
             </div>
-            <p className="mt-6 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-electric)]">
-              Best Fit
-            </p>
-            <h2 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-[var(--color-ink)]">
+            <p className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-electric)]">
               {industry.title}
-            </h2>
-            <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
+            </p>
+            <h1 className="mt-4 text-balance text-[2.1rem] font-semibold leading-[1.08] tracking-[-0.04em] text-[var(--color-ink)]">
+              Infrastructure for {industry.title}
+            </h1>
+            <p className="mt-5 text-base leading-7 text-[var(--color-muted)]">
               {industry.shortDescription}
             </p>
-            <div className="mt-6 grid gap-3">
-              {industry.environmentExamples.map((environment) => (
-                <div
-                  key={environment}
-                  className="rounded-[1.25rem] border border-[color:rgba(11,18,32,0.08)] bg-[var(--color-cloud)] px-4 py-3 text-sm font-medium text-[var(--color-ink)]"
-                >
-                  {environment}
-                </div>
-              ))}
+            <div className="mt-7 flex items-center gap-4">
+              <Link
+                href="/book-consultation"
+                className="inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-semibold !text-white transition hover:-translate-y-0.5"
+              >
+                Book Consultation
+              </Link>
+              <a
+                href="#industry-challenges"
+                aria-label="Scroll to industry challenges"
+                className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-black/18 bg-white text-black"
+              >
+                <ArrowDown className="h-5 w-5" />
+              </a>
             </div>
-          </div>
-        </Container>
+          </Container>
+        </div>
       </section>
 
-      <section className="py-20 sm:py-24">
+      <section className="border-y border-[color:rgba(11,18,32,0.08)] bg-[#f8fbff] py-9">
         <Container>
-          <SectionHeading
-            eyebrow="Operating Pressure"
-            title="What this environment usually needs solved first"
-            description="These pages are structured around real operational pressure, not generic industry labeling."
-          />
-          <div className="mt-8 grid gap-4 lg:grid-cols-3">
-            {industry.challengePoints.map((point) => (
-              <article
-                key={point}
-                className="rounded-[2rem] border border-[color:rgba(11,18,32,0.08)] bg-white p-7 shadow-[0_18px_50px_rgba(11,18,32,0.06)]"
-              >
-                <p className="text-sm leading-7 text-[var(--color-muted)]">{point}</p>
-              </article>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section className="bg-[var(--color-cloud)] py-20 sm:py-24">
-        <Container>
-          <SectionHeading
-            eyebrow="Mapped Solutions"
-            title="The services most likely to matter in this sector"
-            description="Each industry page maps to a focused service stack instead of showing the full catalog at once."
-          />
-          <div className="mt-8 grid gap-4 lg:grid-cols-3">
-            {mappedServices.map((service) => (
-              <article
-                key={service.slug}
-                className="rounded-[2rem] border border-white bg-white p-7 shadow-[0_18px_50px_rgba(11,18,32,0.06)]"
-              >
-                <h2 className="text-2xl font-semibold tracking-[-0.04em] text-[var(--color-ink)]">
-                  {service.title}
-                </h2>
-                <ButtonLink
-                  href={`/services/${service.slug}`}
-                  variant="ghost"
-                  className="mt-6 justify-start px-0 text-[var(--color-electric)] hover:bg-transparent"
-                >
-                  View service
-                </ButtonLink>
-              </article>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section className="py-20 sm:py-24">
-        <Container className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
-          <div>
-            <SectionHeading
-              eyebrow="Environment Examples"
-              title="Typical operating contexts for this page"
-              description="The goal is to help buyers recognize where the service stack fits, not force every environment into the same story."
-            />
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2">
+          <p className="text-center text-sm font-semibold text-[var(--color-ink)]">
+            Built for operating contexts like these
+          </p>
+          <div className="mt-5 flex flex-wrap justify-center gap-3">
             {industry.environmentExamples.map((environment) => (
-              <div
+              <span
                 key={environment}
-                className="rounded-[1.75rem] border border-[color:rgba(11,18,32,0.08)] bg-white px-5 py-4 text-sm font-medium text-[var(--color-ink)] shadow-[0_16px_40px_rgba(11,18,32,0.06)]"
+                className="rounded-full border border-[color:rgba(11,18,32,0.1)] bg-white px-4 py-2 text-sm font-medium text-[var(--color-muted)]"
               >
                 {environment}
-              </div>
+              </span>
             ))}
           </div>
         </Container>
       </section>
 
-      <section className="pb-20 sm:pb-24">
-        <Container>
-          {relatedCaseStudy ? (
-            <div className="rounded-[2.5rem] border border-[color:rgba(11,18,32,0.08)] bg-white p-8 shadow-[0_22px_60px_rgba(11,18,32,0.08)]">
-              <SectionHeading
-                eyebrow="Proof"
-                title={relatedCaseStudy.title}
-                description={relatedCaseStudy.summary}
-              />
-              <div className="mt-8 grid gap-4 md:grid-cols-3">
-                {relatedCaseStudy.metrics.map((metric) => (
-                  <div
-                    key={metric.label}
-                    className="rounded-[1.5rem] border border-[color:rgba(11,18,32,0.08)] bg-[var(--color-cloud)] p-5"
-                  >
-                    <p className="text-3xl font-semibold tracking-[-0.05em] text-[var(--color-ink)]">
-                      {metric.value}
-                    </p>
-                    <p className="mt-2 text-sm leading-6 text-[var(--color-muted)]">
-                      {metric.label}
-                    </p>
+      <div id="industry-challenges">
+        <IndustryChallengeTabs industry={industry} services={featuredServices} />
+      </div>
+
+      <section className="bg-[#f6f8fb] py-16 sm:py-24">
+        <Container className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <div className="relative min-h-[24rem] overflow-hidden rounded-lg bg-white shadow-[0_22px_70px_rgba(11,18,32,0.08)]">
+            <Image
+              src={industry.heroImage.src}
+              alt={industry.heroImage.alt}
+              fill
+              className="object-cover"
+              sizes="(min-width: 1024px) 50vw, 100vw"
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,17,31,0.2),rgba(8,17,31,0))]" />
+          </div>
+
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-electric)]">
+              Auxano delivery approach
+            </p>
+            <h2 className="mt-4 text-balance text-4xl font-semibold tracking-[-0.05em] text-[var(--color-ink)] sm:text-5xl">
+              Why choose Auxano for {industry.title.toLowerCase()}
+            </h2>
+            <p className="mt-5 text-base leading-8 text-[var(--color-muted)]">
+              We connect practical technology choices with the way the site is
+              expected to run: movement, visibility, uptime, and post-launch support.
+            </p>
+
+            <div className="mt-8 grid gap-6">
+              {featureItems.map((item) => {
+                const Icon = item.icon;
+
+                return (
+                  <div key={item.title} className="flex gap-4">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-white text-[var(--color-electric)] shadow-[0_12px_32px_rgba(11,18,32,0.07)]">
+                      <Icon className="h-5 w-5" strokeWidth={1.8} />
+                    </div>
+                    <div>
+                      <h3 className="text-base font-semibold text-[var(--color-ink)]">
+                        {item.title}
+                      </h3>
+                      <p className="mt-2 text-sm leading-7 text-[var(--color-muted)]">
+                        {item.description}
+                      </p>
+                    </div>
                   </div>
-                ))}
-              </div>
-              <div className="mt-8">
-                <ButtonLink href={`/case-studies/${relatedCaseStudy.slug}`} variant="secondary">
-                  Review Case Study
-                </ButtonLink>
-              </div>
+                );
+              })}
             </div>
-          ) : (
-            <div className="rounded-[2.5rem] border border-[color:rgba(11,18,32,0.08)] bg-[var(--color-cloud)] p-8">
-              <SectionHeading
-                eyebrow="Delivery Approach"
-                title="Where credibility still matters even without a sector-specific case study."
-                description="Auxano should still present a grounded operating approach when formal proof is not yet public for a given industry."
-              />
-              <div className="mt-8 grid gap-4 md:grid-cols-3">
-                {[
-                  "Survey and scope before procurement decisions are locked in.",
-                  "Documented handover so the environment stays supportable after launch.",
-                  "Consultation-led design across networking, security, and operational workflows.",
-                ].map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-[1.5rem] border border-[color:rgba(11,18,32,0.08)] bg-white p-5 text-sm leading-7 text-[var(--color-muted)]"
-                  >
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
+          </div>
         </Container>
       </section>
 
-      <section className="pb-20 sm:pb-24">
-        <Container className="rounded-[2.5rem] border border-[color:rgba(11,18,32,0.08)] bg-[var(--color-ink)] px-6 py-10 text-white shadow-[0_28px_70px_rgba(11,18,32,0.2)] sm:px-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-cyan)]">
-            Consultation
-          </p>
-          <h2 className="mt-5 max-w-3xl text-balance text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl lg:text-5xl">
-            Ready to shape the right {industry.title.toLowerCase()} rollout?
-          </h2>
-          <p className="mt-4 max-w-3xl text-base leading-7 text-white/72 sm:text-lg">
-            Use this page as the starting point for a consultation built around the environment, not a generic service list.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <ButtonLink href="/book-consultation">{industry.ctaLabel}</ButtonLink>
-            <ButtonLink href="/estimate" variant="secondary">
-              Estimate Project Scope
-            </ButtonLink>
+      <section className="bg-white py-16 sm:py-24">
+        <Container>
+          <SectionHeading
+            eyebrow="Mapped solutions"
+            title={`Solutions for ${industry.title.toLowerCase()}`}
+            description="A focused set of Auxano services is shown here instead of the full catalog, so the page stays close to the sector's most likely needs."
+          />
+
+          <div className="mt-10 grid gap-6 lg:grid-cols-3">
+            {featuredServices.map((service) => {
+              const image = getServiceCardImage(service);
+
+              return (
+                <article
+                  key={service.slug}
+                  className="overflow-hidden rounded-lg border border-[color:rgba(11,18,32,0.08)] bg-white shadow-[0_18px_50px_rgba(11,18,32,0.06)]"
+                >
+                  <div className="relative min-h-[13.5rem] bg-[var(--color-cloud)]">
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      className="object-cover"
+                      sizes="(min-width: 1024px) 31vw, 100vw"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-electric)]">
+                      <BadgeCheck className="h-4 w-4" />
+                      Auxano solution
+                    </div>
+                    <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-[var(--color-ink)]">
+                      {service.title}
+                    </h3>
+                    <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
+                      {service.summary}
+                    </p>
+                    <Link
+                      href={`/services/${service.slug}`}
+                      className="mt-6 inline-flex items-center text-sm font-semibold text-[var(--color-electric)]"
+                    >
+                      View solution
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </div>
+                </article>
+              );
+            })}
           </div>
+        </Container>
+      </section>
+
+      <section className="bg-[#f6f8fb] py-16 sm:py-24">
+        <Container>
+          <LeadForm
+            context="consultation"
+            title="Have questions? We can help"
+            description={`Tell Auxano what your ${industry.title.toLowerCase()} environment needs to solve, and the team can shape the right consultation path.`}
+            className="mx-auto max-w-5xl rounded-lg"
+          />
         </Container>
       </section>
     </>

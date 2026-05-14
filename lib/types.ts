@@ -115,6 +115,7 @@ export type IndustryProfile = {
   shortDescription: string;
   heroTitle: string;
   heroDescription: string;
+  heroImage: ServiceNavMedia;
   icon: IndustryIconName;
   primaryServiceSlugs: string[];
   challengePoints: string[];

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
@@ -57,30 +58,45 @@ export default async function IndustriesPage() {
                 <Link
                   key={industry.slug}
                   href={industry.href}
-                  className="group rounded-[1.85rem] border border-[color:rgba(11,18,32,0.08)] bg-white p-6 shadow-[0_18px_50px_rgba(11,18,32,0.06)] transition hover:-translate-y-1 hover:border-[color:rgba(47,107,255,0.24)] hover:shadow-[0_24px_60px_rgba(11,18,32,0.08)]"
+                  className="group overflow-hidden rounded-lg border border-[color:rgba(11,18,32,0.08)] bg-white shadow-[0_18px_50px_rgba(11,18,32,0.06)] transition hover:-translate-y-1 hover:border-[color:rgba(47,107,255,0.24)] hover:shadow-[0_24px_60px_rgba(11,18,32,0.08)]"
                 >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-[1.15rem] border border-[color:rgba(11,18,32,0.08)] bg-[var(--color-cloud)] text-[var(--color-ink)]">
-                    <IndustryIcon name={industry.icon} className="h-6 w-6" strokeWidth={1.8} />
+                  <div className="relative min-h-[11rem] bg-[var(--color-cloud)]">
+                    <Image
+                      src={industry.heroImage.src}
+                      alt={industry.heroImage.alt}
+                      fill
+                      className="object-cover transition duration-500 group-hover:scale-[1.03]"
+                      sizes="(min-width: 1280px) 23vw, (min-width: 640px) 47vw, 100vw"
+                    />
+                    <div className="absolute left-4 top-4 flex h-12 w-12 items-center justify-center rounded-lg bg-white/90 text-[var(--color-ink)] shadow-[0_12px_30px_rgba(11,18,32,0.12)] backdrop-blur">
+                      <IndustryIcon
+                        name={industry.icon}
+                        className="h-5 w-5"
+                        strokeWidth={1.8}
+                      />
+                    </div>
                   </div>
-                  <h2 className="mt-5 text-2xl font-semibold tracking-[-0.04em] text-[var(--color-ink)]">
-                    {industry.title}
-                  </h2>
-                  <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
-                    {industry.shortDescription}
-                  </p>
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {primaryServices.slice(0, 2).map((service) => (
-                      <span
-                        key={service.slug}
-                        className="rounded-full border border-[color:rgba(11,18,32,0.08)] bg-[var(--color-cloud)] px-3 py-2 text-xs font-medium text-[var(--color-ink)]"
-                      >
-                        {service.title}
-                      </span>
-                    ))}
+                  <div className="p-6">
+                    <h2 className="text-2xl font-semibold tracking-[-0.04em] text-[var(--color-ink)]">
+                      {industry.title}
+                    </h2>
+                    <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
+                      {industry.shortDescription}
+                    </p>
+                    <div className="mt-6 flex flex-wrap gap-2">
+                      {primaryServices.slice(0, 2).map((service) => (
+                        <span
+                          key={service.slug}
+                          className="rounded-full border border-[color:rgba(11,18,32,0.08)] bg-[var(--color-cloud)] px-3 py-2 text-xs font-medium text-[var(--color-ink)]"
+                        >
+                          {service.title}
+                        </span>
+                      ))}
+                    </div>
+                    <span className="mt-6 inline-flex text-sm font-semibold text-[var(--color-electric)]">
+                      Explore industry
+                    </span>
                   </div>
-                  <span className="mt-6 inline-flex text-sm font-semibold text-[var(--color-electric)]">
-                    Explore industry
-                  </span>
                 </Link>
               );
             })}

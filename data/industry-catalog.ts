@@ -1,11 +1,15 @@
 import type { IndustryProfile } from "@/lib/types";
 
-type IndustrySeed = Omit<IndustryProfile, "href">;
+type IndustrySeed = Omit<IndustryProfile, "href" | "heroImage">;
 
 function buildIndustry(industry: IndustrySeed): IndustryProfile {
   return {
     ...industry,
     href: `/industries/${industry.slug}`,
+    heroImage: {
+      src: `/image/industries/${industry.slug}.webp`,
+      alt: `${industry.title} technology infrastructure environment`,
+    },
   };
 }
 

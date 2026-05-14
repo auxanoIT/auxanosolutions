@@ -665,6 +665,96 @@ export const services: Service[] = [
       "Operational handover checklist",
     ],
     industries: ["Commercial offices", "Estates", "Warehousing", "Healthcare"],
+    detailEyebrow: "Automated entry capabilities",
+    detailTitle: "Automated gates and sliding doors built for secure, controlled movement.",
+    detailDescription:
+      "The PDF frames this service as secure, smart entry that operates seamlessly. This page expands that into a practical delivery story covering motorized gates, car park barriers, sensor-triggered doors, and remote control with safety protections built in.",
+    capabilitySections: [
+      {
+        id: "swing-sliding-gates",
+        navLabel: "Gates",
+        title: "Motorized swing and sliding gates for vehicle and pedestrian access.",
+        lead:
+          "Entry automation should improve movement without weakening safety, control, or accountability at the perimeter.",
+        body: [
+          "Auxano designs motorized gate systems around the actual site flow: vehicle approach, pedestrian movement, security posture, available power, and manual override requirements.",
+          "That keeps the installation practical for daily use while still protecting the entrance as a controlled access point.",
+        ],
+        points: [
+          "Swing and sliding gate automation",
+          "Vehicle and pedestrian entry planning",
+          "Access-control-ready operation",
+          "Manual override included in the scope",
+        ],
+        image: {
+          src: "/image/service-details/automated-gates-swing-sliding.webp",
+          alt: "Motorized sliding gate controlling vehicle and pedestrian entry at a modern facility",
+        },
+      },
+      {
+        id: "boom-barriers",
+        navLabel: "Barriers",
+        title: "Fast-action boom barriers for car parks and controlled vehicle lanes.",
+        lead:
+          "Car park and driveway control works best when the barrier is fast, visible, and matched to traffic volume.",
+        body: [
+          "Boom barriers help facilities separate approved vehicle movement from open access, especially where guards, reception teams, tenants, or visitors share the same entrance.",
+          "Auxano plans barrier placement, activation method, and traffic behavior so the gate line remains efficient rather than becoming a bottleneck.",
+        ],
+        points: [
+          "Fast-action car park barriers",
+          "Vehicle lane control",
+          "Card, remote, or operator activation",
+          "Traffic-aware placement and setup",
+        ],
+        image: {
+          src: "/image/service-details/automated-gates-boom-barrier.webp",
+          alt: "Fast-action boom barrier controlling access to a commercial car park entrance",
+        },
+      },
+      {
+        id: "automated-sliding-doors",
+        navLabel: "Sliding doors",
+        title: "Sensor-triggered automated sliding doors for offices and facilities.",
+        lead:
+          "Automated doors should create a smooth user experience while still respecting the security and safety requirements of the building.",
+        body: [
+          "For offices, healthcare areas, reception zones, and shared facilities, sensor-triggered doors can reduce friction and improve movement where hands-free entry is expected.",
+          "The scope considers door size, sensor placement, user volume, safety response, and integration with the surrounding access policy.",
+        ],
+        points: [
+          "Sensor-triggered door operation",
+          "Office and facility entry support",
+          "Safety-aware opening and closing logic",
+          "Cleaner experience for high-traffic entrances",
+        ],
+        image: {
+          src: "/image/service-details/automated-gates-sliding-doors.webp",
+          alt: "Sensor-triggered automated sliding glass doors at a professional office entrance",
+        },
+      },
+      {
+        id: "remote-app-control",
+        navLabel: "Remote control",
+        title: "Remote, app, phone, and card control for everyday operation.",
+        lead:
+          "The right control method lets authorized users operate entry points without creating new security gaps.",
+        body: [
+          "Auxano can configure entry operation around phones, remotes, cards, or operator controls depending on the site and the people who need access.",
+          "Anti-crush sensors, power backup, and override planning are treated as part of the delivery standard, not optional afterthoughts.",
+        ],
+        points: [
+          "Phone, app, remote, or card operation",
+          "Anti-crush sensor planning",
+          "Power backup included",
+          "Operator handover and safety testing",
+        ],
+        image: {
+          src: "/image/service-details/automated-gates-remote-control.webp",
+          alt: "Facility manager operating an automated gate from a mobile phone and access remote",
+        },
+      },
+    ],
   }),
   buildService({
     slug: "sales-of-it-hardware",
@@ -691,6 +781,96 @@ export const services: Service[] = [
       "Warranty-backed fulfillment",
     ],
     industries: ["Professional services", "Healthcare", "Education", "Retail"],
+    detailEyebrow: "IT hardware supply capabilities",
+    detailTitle: "Original IT hardware sourced, warranted, and ready for deployment.",
+    detailDescription:
+      "The PDF positions this service around genuine equipment and deployment readiness. This page breaks that down into role-matched devices, server supply, supporting accessories, and bulk procurement for organizations.",
+    capabilitySections: [
+      {
+        id: "desktops-laptops-workstations",
+        navLabel: "Devices",
+        title: "Desktops, laptops, and workstations matched to the role.",
+        lead:
+          "The right machine depends on workload, user role, budget, warranty expectations, and deployment timing.",
+        body: [
+          "Auxano helps clients choose across HP, Dell, Lenovo, Apple, and other suitable device tiers without treating every user as if they have the same computing needs.",
+          "That keeps procurement practical: finance, administration, design, field, and executive users can each receive hardware that fits the job.",
+        ],
+        points: [
+          "Desktop, laptop, and workstation supply",
+          "Role-based specification guidance",
+          "Business and user workload alignment",
+          "Deployment-ready procurement planning",
+        ],
+        image: {
+          src: "/image/service-details/it-hardware-devices.webp",
+          alt: "Business desktops laptops and workstations prepared for professional deployment",
+        },
+      },
+      {
+        id: "server-hardware-supply",
+        navLabel: "Servers",
+        title: "Server hardware sourced for business-critical infrastructure needs.",
+        lead:
+          "Server procurement should be tied to workload, resilience, expansion, and supportability from the start.",
+        body: [
+          "Auxano supplies server hardware from recognized business vendors and helps align tower, rack, or workload-specific choices with the operational role the server must perform.",
+          "The result is not just a purchase order. It is a better-informed infrastructure decision.",
+        ],
+        points: [
+          "Server supply and sizing support",
+          "Vendor and model fit guidance",
+          "Infrastructure readiness review",
+          "Warranty-aware fulfillment",
+        ],
+        image: {
+          src: "/image/service-details/it-hardware-servers.webp",
+          alt: "Enterprise server hardware prepared for installation in a business server room",
+        },
+      },
+      {
+        id: "peripherals-accessories",
+        navLabel: "Accessories",
+        title: "Peripherals and accessories supplied with the same deployment discipline.",
+        lead:
+          "Monitors, UPS units, storage, and accessories shape how usable the core hardware becomes on day one.",
+        body: [
+          "Auxano can bundle supporting items with the main hardware order so teams do not lose time chasing missing adapters, displays, storage, backup power, or workspace accessories.",
+          "This is especially useful when a team is opening a new office, onboarding users, or refreshing a fleet.",
+        ],
+        points: [
+          "Monitors, UPS, storage, and peripherals",
+          "Accessory bundles by user role",
+          "Reduced procurement gaps",
+          "Cleaner day-one readiness",
+        ],
+        image: {
+          src: "/image/service-details/it-hardware-accessories.webp",
+          alt: "Professional IT peripherals monitors UPS units and accessories organized for deployment",
+        },
+      },
+      {
+        id: "bulk-procurement",
+        navLabel: "Bulk supply",
+        title: "Bulk procurement with asset-tagged delivery for organizations.",
+        lead:
+          "Large hardware orders need tracking, warranty control, and delivery structure, not just boxes arriving at reception.",
+        body: [
+          "For schools, offices, healthcare teams, retail groups, and growing businesses, Auxano can coordinate bulk procurement with asset tagging and organized handover.",
+          "Every product is sourced through authorized channels so warranty and authenticity stay clear.",
+        ],
+        points: [
+          "Asset-tagged delivery",
+          "Bulk procurement coordination",
+          "Authorized distributor sourcing",
+          "Genuine warranty on supplied products",
+        ],
+        image: {
+          src: "/image/service-details/it-hardware-bulk-procurement.webp",
+          alt: "Asset-tagged IT hardware shipment prepared for organized business deployment",
+        },
+      },
+    ],
   }),
   buildService({
     slug: "repair-of-it-hardware",
@@ -717,6 +897,96 @@ export const services: Service[] = [
       "Restored device or system handover",
     ],
     industries: ["Corporate offices", "Retail", "Education", "Healthcare"],
+    detailEyebrow: "IT hardware repair capabilities",
+    detailTitle: "Hardware repair handled with diagnosis, transparency, and recovery in mind.",
+    detailDescription:
+      "The PDF emphasizes fast, honest repairs and transparent diagnosis before work begins. This flow turns that promise into repair scopes for user devices, servers, printers, data recovery, and preventive maintenance.",
+    capabilitySections: [
+      {
+        id: "laptop-desktop-repair",
+        navLabel: "User devices",
+        title: "Laptop and desktop repairs that get users back to work quickly.",
+        lead:
+          "Screens, keyboards, motherboards, power issues, and internal components should be diagnosed before repair decisions are made.",
+        body: [
+          "Auxano isolates the fault, explains the repair path, and confirms likely parts or service requirements before work proceeds.",
+          "That keeps the process clearer for business users who need uptime, cost control, and honest expectations.",
+        ],
+        points: [
+          "Screen, keyboard, and component repair",
+          "Motherboard and power fault diagnosis",
+          "Repair estimate before work begins",
+          "Clear device handover after service",
+        ],
+        image: {
+          src: "/image/service-details/repair-laptops-desktops.webp",
+          alt: "Technician repairing a business laptop and desktop hardware components on a clean workbench",
+        },
+      },
+      {
+        id: "server-printer-diagnostics",
+        navLabel: "Servers & printers",
+        title: "Server and printer diagnostics with part replacement where needed.",
+        lead:
+          "Shared infrastructure failures affect more than one user, so diagnosis must be careful and accountable.",
+        body: [
+          "Auxano supports diagnostics and part replacement for servers and printers, helping teams resolve hardware faults without unnecessary replacement when repair is practical.",
+          "The approach is designed to restore service while documenting what failed and what should be watched next.",
+        ],
+        points: [
+          "Server hardware diagnostics",
+          "Printer fault isolation",
+          "Part replacement planning",
+          "Service restoration notes",
+        ],
+        image: {
+          src: "/image/service-details/repair-servers-printers.webp",
+          alt: "Engineer diagnosing server and printer hardware issues in a business support environment",
+        },
+      },
+      {
+        id: "data-recovery-support",
+        navLabel: "Recovery",
+        title: "Data recovery support for failed drives and damaged storage.",
+        lead:
+          "When a drive fails, the first response should protect the chance of recovery rather than make the damage worse.",
+        body: [
+          "Auxano helps assess failed drives and storage incidents, then recommends the safest practical path for retrieving critical data where recovery is possible.",
+          "This service is especially important when business files, accounts, project records, or operational data are trapped on failed hardware.",
+        ],
+        points: [
+          "Failed drive assessment",
+          "Recovery-first handling guidance",
+          "Business-critical data focus",
+          "Clear recommendation before next action",
+        ],
+        image: {
+          src: "/image/service-details/repair-data-recovery.webp",
+          alt: "Data recovery specialist examining failed storage drives in a professional repair lab",
+        },
+      },
+      {
+        id: "preventive-maintenance",
+        navLabel: "Maintenance",
+        title: "Preventive maintenance scheduled before problems become downtime.",
+        lead:
+          "Servicing equipment before failure is often cheaper and less disruptive than emergency repair.",
+        body: [
+          "Auxano can schedule cleaning, checks, component review, firmware or system observations, and practical maintenance recommendations for devices and shared equipment.",
+          "The goal is to reduce repeat faults and give the client better visibility into hardware condition.",
+        ],
+        points: [
+          "Scheduled servicing",
+          "Condition and fault trend review",
+          "Reduced unexpected downtime",
+          "Transparent diagnosis with no hidden charges",
+        ],
+        image: {
+          src: "/image/service-details/repair-preventive-maintenance.webp",
+          alt: "Technician performing preventive maintenance on business IT equipment",
+        },
+      },
+    ],
   }),
   buildService({
     slug: "sales-of-data-centre-consumables",
@@ -743,6 +1013,96 @@ export const services: Service[] = [
       "Volume pricing support",
     ],
     industries: ["Data centres", "Enterprise offices", "ISPs", "Operations teams"],
+    detailEyebrow: "Data centre consumables capabilities",
+    detailTitle: "Critical consumables supplied quickly for clean, supportable infrastructure.",
+    detailDescription:
+      "The PDF describes this as the right supplies when you need them. This page expands the consumables scope into patching, rack hardware, fibre accessories, and cable-management kits for ongoing infrastructure work.",
+    capabilitySections: [
+      {
+        id: "patch-cables",
+        navLabel: "Patch cables",
+        title: "Cat5e, Cat6, Cat6A, and fibre patch cables in the lengths you need.",
+        lead:
+          "The right patch cable stock keeps deployments, expansions, and emergency changes moving without delay.",
+        body: [
+          "Auxano supplies patch cables across copper and fibre requirements, helping data rooms, offices, and support teams avoid low-quality or mismatched connectivity supplies.",
+          "This is useful for new racks, cleanup projects, urgent replacements, and recurring operational demand.",
+        ],
+        points: [
+          "Cat5e, Cat6, Cat6A, and fibre options",
+          "Multiple cable lengths",
+          "Deployment and replacement stock",
+          "Cleaner compatibility planning",
+        ],
+        image: {
+          src: "/image/service-details/consumables-patch-cables.webp",
+          alt: "Organized copper and fibre patch cables prepared for data centre connectivity work",
+        },
+      },
+      {
+        id: "rack-hardware",
+        navLabel: "Rack hardware",
+        title: "Rack hardware that keeps cabinet work organized and serviceable.",
+        lead:
+          "Small rack components can decide whether a deployment is clean, safe, and easy to maintain.",
+        body: [
+          "Auxano supplies cage nuts, blanking panels, shelf brackets, rails, and other cabinet accessories needed for practical rack organization.",
+          "Having the right rack hardware available reduces improvisation and keeps installations more professional.",
+        ],
+        points: [
+          "Cage nuts and mounting hardware",
+          "Blanking panels and shelf brackets",
+          "Rails and rack accessories",
+          "Cleaner cabinet organization",
+        ],
+        image: {
+          src: "/image/service-details/consumables-rack-hardware.webp",
+          alt: "Rack hardware accessories including cage nuts blanking panels rails and brackets organized for installation",
+        },
+      },
+      {
+        id: "sfp-transceivers",
+        navLabel: "Transceivers",
+        title: "SFP modules and transceivers for fibre connectivity accessories.",
+        lead:
+          "Fibre links depend on correctly matched modules, connectors, distance, and speed requirements.",
+        body: [
+          "Auxano helps source SFP modules, transceivers, and related fibre accessories so network and data-centre teams can complete connectivity work with fewer compatibility surprises.",
+          "The supply conversation can include the equipment already in place and the performance target for the link.",
+        ],
+        points: [
+          "SFP modules and transceivers",
+          "Fibre connectivity accessories",
+          "Compatibility-aware sourcing",
+          "Support for expansion and replacement",
+        ],
+        image: {
+          src: "/image/service-details/consumables-sfp-transceivers.webp",
+          alt: "SFP transceiver modules and fibre connectivity accessories arranged for network installation",
+        },
+      },
+      {
+        id: "cable-management-kits",
+        navLabel: "Management kits",
+        title: "Cable-management kits, labels, cleaning tools, and support consumables.",
+        lead:
+          "Good infrastructure work depends on the small supplies that make routing, labeling, and maintenance repeatable.",
+        body: [
+          "Auxano supplies ties, labels, cable-management tools, thermal paste, cleaning tools, and supporting items for teams maintaining racks and technical rooms.",
+          "Fast supply and volume pricing support recurring infrastructure needs rather than one-off emergency buying.",
+        ],
+        points: [
+          "Ties, labels, and cable-management supplies",
+          "Thermal paste and cleaning tools",
+          "Fast supply for operational teams",
+          "Volume pricing for ongoing demand",
+        ],
+        image: {
+          src: "/image/service-details/consumables-cable-management.webp",
+          alt: "Cable management kits labels ties and cleaning tools organized for data centre maintenance",
+        },
+      },
+    ],
   }),
   buildService({
     slug: "audio-visual-services-livestreaming",
@@ -769,6 +1129,96 @@ export const services: Service[] = [
       "Pack-down and handover",
     ],
     industries: ["Corporate events", "Education", "Religious organizations", "Professional services"],
+    detailEyebrow: "AV and livestreaming capabilities",
+    detailTitle: "Audio visual and livestreaming delivery planned down to the last detail.",
+    detailDescription:
+      "The PDF frames AV as an end-to-end event and room service: set up, manage live, and pack up while the client focuses on the audience. This page turns that into conference room AV, event production, livestreaming, and LED display capability sections.",
+    capabilitySections: [
+      {
+        id: "conference-room-av",
+        navLabel: "Room AV",
+        title: "Conference room AV for meetings, collaboration, and video conferencing.",
+        lead:
+          "Meeting rooms need audio, display, and conferencing systems that work cleanly for everyday users.",
+        body: [
+          "Auxano designs and installs projectors, displays, PA systems, microphones, speakers, and video conferencing tools around the room size and use case.",
+          "The aim is a room that teams can use without technical friction before every meeting.",
+        ],
+        points: [
+          "Projectors, displays, and PA systems",
+          "Video conferencing setup",
+          "Room-size-aware AV planning",
+          "User-ready handover",
+        ],
+        image: {
+          src: "/image/service-details/av-conference-room.webp",
+          alt: "Modern conference room with professional display audio and video conferencing setup",
+        },
+      },
+      {
+        id: "event-production",
+        navLabel: "Events",
+        title: "Full AV production for conferences, launches, and ceremonies.",
+        lead:
+          "Events need technical delivery that supports the program instead of distracting from it.",
+        body: [
+          "Auxano can plan and run event audio, displays, staging support, microphones, playback, and live technical operation for corporate, educational, and public moments.",
+          "The team handles setup and live management so organizers can focus on the audience and program.",
+        ],
+        points: [
+          "Conference and launch AV support",
+          "PA, display, and playback coordination",
+          "Live technical operation",
+          "Setup and pack-up included",
+        ],
+        image: {
+          src: "/image/service-details/av-event-production.webp",
+          alt: "Professional event production setup with stage lighting display screens and audio equipment",
+        },
+      },
+      {
+        id: "professional-livestreaming",
+        navLabel: "Livestreaming",
+        title: "Professional multi-camera livestreaming to major online platforms.",
+        lead:
+          "Livestreaming should be planned around camera coverage, audio clarity, switching, platform setup, and live reliability.",
+        body: [
+          "Auxano supports multi-camera streaming to YouTube, Facebook, Zoom, and other event platforms, with the operating crew and technical preparation needed for a smooth broadcast.",
+          "This helps events reach remote audiences without reducing the experience to a single static phone camera.",
+        ],
+        points: [
+          "Multi-camera livestreaming",
+          "YouTube, Facebook, Zoom, and platform support",
+          "Audio and video switching",
+          "Live crew operation",
+        ],
+        image: {
+          src: "/image/service-details/av-livestreaming.webp",
+          alt: "Professional multi-camera livestreaming control setup for a business event",
+        },
+      },
+      {
+        id: "led-video-walls",
+        navLabel: "LED walls",
+        title: "LED video walls for high-impact events and permanent installations.",
+        lead:
+          "Large-format display systems should be specified for brightness, viewing distance, content type, and installation context.",
+        body: [
+          "Auxano can support LED video wall planning for temporary events and permanent facilities where standard displays are not enough.",
+          "The scope can include screen sizing, placement, source management, setup, live operation, and pack-down where required.",
+        ],
+        points: [
+          "LED video wall support",
+          "Event and permanent display planning",
+          "High-impact visual presentation",
+          "Setup, live management, and pack-up",
+        ],
+        image: {
+          src: "/image/service-details/av-led-video-wall.webp",
+          alt: "Large LED video wall display installed for a professional event presentation",
+        },
+      },
+    ],
   }),
   buildService({
     slug: "network-design-with-diagram",
@@ -795,6 +1245,96 @@ export const services: Service[] = [
       "Procurement-ready equipment schedule",
     ],
     industries: ["Corporate offices", "Healthcare", "Retail", "Education"],
+    detailEyebrow: "Network design capabilities",
+    detailTitle: "Network design that gives every engineer a clear path before deployment starts.",
+    detailDescription:
+      "The PDF positions network design as the starting point for fast, secure, correctly configured networking. This page expands that into site survey, diagramming, IP planning, and bill-of-materials discipline.",
+    capabilitySections: [
+      {
+        id: "network-site-survey",
+        navLabel: "Site survey",
+        title: "Physical assessment of your space and requirements.",
+        lead:
+          "A reliable network starts with the building, users, devices, and operating constraints that the design must support.",
+        body: [
+          "Auxano reviews the physical environment before equipment is specified, including rooms, routes, power, endpoint locations, wireless behavior, and expansion expectations.",
+          "That early survey reduces assumptions and gives the design a stronger foundation for installation, configuration, and future support.",
+        ],
+        points: [
+          "Physical space and route assessment",
+          "User and device requirement review",
+          "Wireless and wired coverage inputs",
+          "Expansion and support considerations",
+        ],
+        image: {
+          src: "/image/service-details/network-design-site-survey.webp",
+          alt: "Network engineer performing a site survey inside a modern office environment",
+        },
+      },
+      {
+        id: "logical-physical-diagrams",
+        navLabel: "Diagrams",
+        title: "Logical and physical diagrams for every engineer that follows.",
+        lead:
+          "Network documentation should make the environment easier to understand, support, and extend.",
+        body: [
+          "Auxano produces diagrams that separate how the network is structured logically from how it is physically deployed across rooms, racks, and pathways.",
+          "This becomes permanent IT documentation instead of knowledge trapped with the first installer.",
+        ],
+        points: [
+          "Logical topology diagrams",
+          "Physical layout documentation",
+          "Engineer-ready handover material",
+          "Clearer support and troubleshooting",
+        ],
+        image: {
+          src: "/image/service-details/network-design-diagrams.webp",
+          alt: "Engineers reviewing logical and physical network diagrams on a project table",
+        },
+      },
+      {
+        id: "ip-address-planning",
+        navLabel: "IP planning",
+        title: "Structured IP planning for subnetting, DHCP scopes, and DNS design.",
+        lead:
+          "Address planning protects the network from avoidable conflicts, confusion, and growth limits.",
+        body: [
+          "Auxano defines addressing, segmentation, DHCP scopes, DNS needs, and service layout so the network can be configured cleanly from the beginning.",
+          "That structure is especially important when the environment includes multiple departments, guest access, servers, phones, CCTV, or wireless networks.",
+        ],
+        points: [
+          "Subnet and address planning",
+          "DHCP scope structure",
+          "DNS and service layout",
+          "Segmentation-ready design",
+        ],
+        image: {
+          src: "/image/service-details/network-design-ip-planning.webp",
+          alt: "Structured IP address planning and network addressing review on a workstation",
+        },
+      },
+      {
+        id: "network-bill-of-materials",
+        navLabel: "BOM",
+        title: "Bill of materials with exact equipment specifications.",
+        lead:
+          "A clear BOM turns the design into a procurement-ready scope with fewer surprises.",
+        body: [
+          "Auxano defines equipment categories, quantities, specifications, and deployment dependencies so purchasing is tied to the actual design.",
+          "This helps clients compare budgets properly and prevents underbuying or buying the wrong class of hardware.",
+        ],
+        points: [
+          "Equipment quantities and specifications",
+          "Brand and model guidance where needed",
+          "Procurement-ready schedule",
+          "Budget and deployment alignment",
+        ],
+        image: {
+          src: "/image/service-details/network-design-bom.webp",
+          alt: "Procurement-ready network bill of materials reviewed beside switches routers and access points",
+        },
+      },
+    ],
   }),
   buildService({
     slug: "network-architecture-planning",
@@ -821,6 +1361,96 @@ export const services: Service[] = [
       "Migration roadmap",
     ],
     industries: ["Enterprise offices", "Multi-site businesses", "Healthcare", "Professional services"],
+    detailEyebrow: "Network architecture capabilities",
+    detailTitle: "Network architecture planning aligned to strategy, resilience, and migration realities.",
+    detailDescription:
+      "The PDF emphasizes independent advice, no vendor bias, and no sales agenda. This page expands that into audit, architecture recommendation, redundancy planning, and migration sequencing.",
+    capabilitySections: [
+      {
+        id: "current-state-audit",
+        navLabel: "Audit",
+        title: "Current-state audit of gaps, risks, and performance.",
+        lead:
+          "Architecture work should begin with a clear view of what exists today and what is already causing risk.",
+        body: [
+          "Auxano reviews the current network against business requirements, support pressure, security exposure, and performance expectations.",
+          "The goal is to document real gaps before recommending a target architecture or migration path.",
+        ],
+        points: [
+          "Current topology and device review",
+          "Performance and capacity assessment",
+          "Risk and support-gap identification",
+          "Documented findings before recommendations",
+        ],
+        image: {
+          src: "/image/service-details/network-architecture-audit.webp",
+          alt: "Network architect auditing current network state with dashboards and rack documentation",
+        },
+      },
+      {
+        id: "architecture-recommendation",
+        navLabel: "Recommendation",
+        title: "Architecture recommendation across LAN, WAN, SD-WAN, cloud, and hybrid needs.",
+        lead:
+          "The right architecture depends on the business model, not on one default vendor or one fashionable topology.",
+        body: [
+          "Auxano weighs LAN, WAN, SD-WAN, cloud, and hybrid options against operational fit, resilience, cost, and supportability.",
+          "The recommendation explains the tradeoffs so leadership and technical teams can make a practical decision.",
+        ],
+        points: [
+          "LAN, WAN, SD-WAN, cloud, and hybrid review",
+          "Business-fit recommendation",
+          "Tradeoff and dependency explanation",
+          "Vendor-neutral decision support",
+        ],
+        image: {
+          src: "/image/service-details/network-architecture-recommendation.webp",
+          alt: "Network architecture recommendation workshop reviewing LAN WAN cloud and hybrid options",
+        },
+      },
+      {
+        id: "redundancy-planning",
+        navLabel: "Redundancy",
+        title: "Redundancy planning to reduce single points of failure.",
+        lead:
+          "A network can look complete and still be fragile if critical paths have no fallback.",
+        body: [
+          "Auxano identifies where resilience is needed: links, power, core switching, firewalls, wireless coverage, service paths, and branch connectivity.",
+          "The plan is shaped around business impact so redundancy is added where it actually protects operations.",
+        ],
+        points: [
+          "Single-point-of-failure review",
+          "Link and core resilience planning",
+          "Business-impact prioritization",
+          "Continuity-aware architecture",
+        ],
+        image: {
+          src: "/image/service-details/network-architecture-redundancy.webp",
+          alt: "Resilient network architecture diagram with redundant links and core infrastructure planning",
+        },
+      },
+      {
+        id: "migration-roadmap",
+        navLabel: "Roadmap",
+        title: "Migration roadmap from old to new with minimal disruption.",
+        lead:
+          "Good architecture becomes valuable only when the migration path can be executed without avoidable downtime.",
+        body: [
+          "Auxano breaks migration into practical phases, dependencies, testing points, rollback thinking, and communication needs.",
+          "That roadmap helps the business modernize without turning every improvement into an operational interruption.",
+        ],
+        points: [
+          "Phased migration sequencing",
+          "Dependency and testing plan",
+          "Rollback and continuity thinking",
+          "Reduced disruption during change",
+        ],
+        image: {
+          src: "/image/service-details/network-architecture-roadmap.webp",
+          alt: "Network migration roadmap planning session with phased technical milestones",
+        },
+      },
+    ],
   }),
   buildService({
     slug: "network-cabling",
@@ -847,6 +1477,96 @@ export const services: Service[] = [
       "As-built documentation",
     ],
     industries: ["Corporate offices", "Warehousing", "Education", "Retail"],
+    detailEyebrow: "Network cabling capabilities",
+    detailTitle: "Network cabling installed, tested, certified, and documented.",
+    detailDescription:
+      "The PDF defines network cabling as a proof-led service: every run tested, certified, and documented. This page expands horizontal cabling, data-centre cabling, conduit/trunking, and certification reports.",
+    capabilitySections: [
+      {
+        id: "horizontal-backbone-cabling",
+        navLabel: "Backbone",
+        title: "Horizontal and backbone cabling using Cat6, Cat6A, copper, and fibre.",
+        lead:
+          "The cabling layer must support the network's current load and the growth that follows.",
+        body: [
+          "Auxano plans cable routes, media type, outlet locations, patching, and backbone needs around the environment and equipment strategy.",
+          "That keeps the physical layer ready for voice, data, wireless, surveillance, and other connected systems.",
+        ],
+        points: [
+          "Cat6 and Cat6A copper cabling",
+          "Fibre optic backbone support",
+          "Outlet and route planning",
+          "Voice and data readiness",
+        ],
+        image: {
+          src: "/image/service-details/network-cabling-backbone.webp",
+          alt: "Horizontal and backbone network cabling installation in a commercial building",
+        },
+      },
+      {
+        id: "data-centre-cabling",
+        navLabel: "Rack cabling",
+        title: "Data-centre cabling that is colour-coded, labelled, and managed.",
+        lead:
+          "Rack cabling should make operations easier, not create a hidden support problem.",
+        body: [
+          "Auxano organizes patching, rack runs, cabinet layout, and colour discipline so changes remain understandable after handover.",
+          "This improves troubleshooting, reduces accidental disconnects, and creates a more professional data room.",
+        ],
+        points: [
+          "Managed rack cabling",
+          "Colour-coded cable organization",
+          "Patch-panel and cabinet discipline",
+          "Cleaner support after handover",
+        ],
+        image: {
+          src: "/image/service-details/network-cabling-rack.webp",
+          alt: "Colour-coded and labelled data centre rack cabling managed neatly",
+        },
+      },
+      {
+        id: "conduit-trunking",
+        navLabel: "Pathways",
+        title: "Conduit and trunking for cable protection through walls, floors, and ceilings.",
+        lead:
+          "Cable pathways protect the installation and make the finished site look disciplined.",
+        body: [
+          "Auxano routes cables through appropriate containment, reducing exposure, damage risk, and visual clutter across workspaces and technical areas.",
+          "Pathway planning also makes future additions cleaner because the route strategy is already defined.",
+        ],
+        points: [
+          "Conduit and trunking installation",
+          "Protected cable routing",
+          "Cleaner office and facility finish",
+          "Future expansion readiness",
+        ],
+        image: {
+          src: "/image/service-details/network-cabling-trunking.webp",
+          alt: "Protected network cable routing through conduit and trunking in a modern facility",
+        },
+      },
+      {
+        id: "fluke-certified-reports",
+        navLabel: "Reports",
+        title: "Fluke-certified reports for every run on completion.",
+        lead:
+          "Completed cabling should be proven with test results, not accepted by sight alone.",
+        body: [
+          "Auxano tests cable runs and provides certification evidence where required, supporting TIA-568 and ISO 11801 compliant delivery.",
+          "As-built drawings and reports help future engineers understand what was installed and verified.",
+        ],
+        points: [
+          "Cable certification testing",
+          "Printed or digital test results",
+          "TIA-568 and ISO 11801 alignment",
+          "As-built documentation on completion",
+        ],
+        image: {
+          src: "/image/service-details/network-cabling-certification.webp",
+          alt: "Technician generating certified network cabling test reports after installation",
+        },
+      },
+    ],
   }),
   buildService({
     slug: "network-configurations",
@@ -873,6 +1593,96 @@ export const services: Service[] = [
       "Documentation and support notes",
     ],
     industries: ["Corporate offices", "Retail", "Professional services", "Hybrid teams"],
+    detailEyebrow: "Network configuration capabilities",
+    detailTitle: "Network configurations built for performance, security, reliability, and handover clarity.",
+    detailDescription:
+      "The PDF splits this service across enterprise, small business, home office, and documentation needs. This page turns those into practical configuration sections with the same sticky capability flow.",
+    capabilitySections: [
+      {
+        id: "enterprise-network-config",
+        navLabel: "Enterprise",
+        title: "Enterprise configuration for VLANs, QoS, 802.1X, routing, and hardening.",
+        lead:
+          "Enterprise networks need segmentation, prioritization, authentication, and routing discipline from the beginning.",
+        body: [
+          "Auxano configures enterprise-grade network behavior around users, departments, applications, voice, wireless, servers, and security boundaries.",
+          "The work can include VLANs, QoS, 802.1X, routing protocols, and hardening controls depending on the environment.",
+        ],
+        points: [
+          "VLAN and segmentation setup",
+          "QoS for voice and priority traffic",
+          "802.1X and access hardening",
+          "Routing protocol configuration",
+        ],
+        image: {
+          src: "/image/service-details/network-config-enterprise.webp",
+          alt: "Enterprise network configuration dashboard with switches routing and secure segmentation",
+        },
+      },
+      {
+        id: "small-business-network-config",
+        navLabel: "SMB",
+        title: "Small business setup for firewalls, guest WiFi, VPNs, and printer integration.",
+        lead:
+          "Small business networks still need clean security and usability, even when the environment is smaller.",
+        body: [
+          "Auxano configures firewall rules, secure wireless, guest access, VPN access, and shared devices so teams can work reliably without exposing the network unnecessarily.",
+          "The setup is practical for offices, retail locations, clinics, schools, and professional service teams.",
+        ],
+        points: [
+          "Firewall rule setup",
+          "Guest WiFi and secure wireless",
+          "VPN access configuration",
+          "Printer and shared device integration",
+        ],
+        image: {
+          src: "/image/service-details/network-config-small-business.webp",
+          alt: "Small business network configuration with firewall WiFi VPN and shared printer setup",
+        },
+      },
+      {
+        id: "home-office-network-config",
+        navLabel: "Home office",
+        title: "Fast, reliable home and home-office WiFi with device management.",
+        lead:
+          "Remote and hybrid work need stable connectivity without turning the home network into a constant support burden.",
+        body: [
+          "Auxano improves WiFi placement, device behavior, router settings, access controls, and reliability for home-office and executive home environments.",
+          "This helps users work with better video calls, stronger coverage, and clearer device control.",
+        ],
+        points: [
+          "Home and home-office WiFi tuning",
+          "Device management setup",
+          "Coverage and performance optimization",
+          "Hybrid work reliability",
+        ],
+        image: {
+          src: "/image/service-details/network-config-home-office.webp",
+          alt: "Reliable home office WiFi configuration with router laptop and managed devices",
+        },
+      },
+      {
+        id: "network-config-documentation",
+        navLabel: "Documentation",
+        title: "Full documentation with configurations backed up and handed over.",
+        lead:
+          "Nothing should be a mystery after the network has been configured.",
+        body: [
+          "Auxano records key configuration decisions, backs up device configs, and hands over support notes so future changes can be made with context.",
+          "This closes the gap between a working network and a network that can be owned properly by the client.",
+        ],
+        points: [
+          "Configuration backup",
+          "Handover documentation",
+          "Support notes and key settings",
+          "Reduced dependency on memory",
+        ],
+        image: {
+          src: "/image/service-details/network-config-documentation.webp",
+          alt: "Network configuration backup and handover documentation reviewed by an engineer",
+        },
+      },
+    ],
   }),
   buildService({
     slug: "sales-of-network-equipment",
@@ -899,6 +1709,96 @@ export const services: Service[] = [
       "Budget-aligned sourcing recommendation",
     ],
     industries: ["Corporate offices", "Healthcare", "Education", "Retail"],
+    detailEyebrow: "Network equipment supply capabilities",
+    detailTitle: "Genuine network equipment specified around the right need, price, and deployment plan.",
+    detailDescription:
+      "The PDF lists firewalls, routers, switches, wireless access points, and accessories. This page expands each supply category so buyers understand how Auxano helps spec and source the right equipment.",
+    capabilitySections: [
+      {
+        id: "network-firewalls",
+        navLabel: "Firewalls",
+        title: "Firewall supply for the security edge of the network.",
+        lead:
+          "Firewall selection should match the threat profile, user count, bandwidth, services, and support model.",
+        body: [
+          "Auxano helps clients choose firewall platforms and licensing needs based on actual operating requirements rather than buying a device that is too weak or unnecessarily complex.",
+          "The goal is genuine hardware, correct sizing, and a clearer security path.",
+        ],
+        points: [
+          "Firewall sizing and recommendation",
+          "Security-edge procurement support",
+          "License and feature awareness",
+          "Budget-aligned sourcing",
+        ],
+        image: {
+          src: "/image/service-details/network-equipment-firewalls.webp",
+          alt: "Enterprise firewall appliances prepared for secure network deployment",
+        },
+      },
+      {
+        id: "routers-switches",
+        navLabel: "Switching",
+        title: "Routers and switches specified for the network they must support.",
+        lead:
+          "Routing and switching hardware should be selected for performance, ports, power, growth, and manageability.",
+        body: [
+          "Auxano sources switching and routing equipment across common business tiers, helping clients choose what fits the design and budget.",
+          "The recommendation can account for PoE needs, uplinks, VLANs, stacking, branch connectivity, and long-term support.",
+        ],
+        points: [
+          "Router and switch procurement",
+          "Port, PoE, and uplink planning",
+          "Business-tier model guidance",
+          "Growth-aware hardware selection",
+        ],
+        image: {
+          src: "/image/service-details/network-equipment-switches-routers.webp",
+          alt: "Routers and switches staged for business network installation",
+        },
+      },
+      {
+        id: "wireless-access-points",
+        navLabel: "Wireless",
+        title: "Wireless access points matched to coverage, density, and management needs.",
+        lead:
+          "The right access point depends on the building, users, application load, and management expectations.",
+        body: [
+          "Auxano helps specify wireless access points for offices, schools, retail spaces, warehouses, and other environments where coverage and stability matter.",
+          "The supply conversation considers placement, controller model, guest access, capacity, and future expansion.",
+        ],
+        points: [
+          "Wireless access point sourcing",
+          "Coverage and density guidance",
+          "Managed WiFi planning",
+          "Guest and business access needs",
+        ],
+        image: {
+          src: "/image/service-details/network-equipment-access-points.webp",
+          alt: "Wireless access points prepared for managed business WiFi deployment",
+        },
+      },
+      {
+        id: "network-cables-accessories",
+        navLabel: "Accessories",
+        title: "Cables and accessories including patch cables, SFP modules, and media converters.",
+        lead:
+          "Accessories complete the installation and often decide whether the main equipment can be deployed without delay.",
+        body: [
+          "Auxano supplies the supporting parts needed for network projects, including patch cables, SFP modules, media converters, and related connectivity accessories.",
+          "When clients are not sure what to buy, Auxano can spec the right equipment and accessories for the budget and design.",
+        ],
+        points: [
+          "Patch cables and connectivity accessories",
+          "SFP modules and media converters",
+          "Spec support when requirements are unclear",
+          "Reduced procurement mismatch",
+        ],
+        image: {
+          src: "/image/service-details/network-equipment-accessories.webp",
+          alt: "Network cables SFP modules media converters and accessories arranged for installation",
+        },
+      },
+    ],
   }),
   buildService({
     slug: "office-telephone-system-ip-pbx",
@@ -925,6 +1825,96 @@ export const services: Service[] = [
       "Call flow and support handover",
     ],
     industries: ["Professional services", "Corporate offices", "Healthcare", "Education"],
+    detailEyebrow: "IP PBX capabilities",
+    detailTitle: "Office telephone systems that reduce call cost and modernize communication.",
+    detailDescription:
+      "The PDF presents IP PBX as a practical upgrade: on-premises or cloud-hosted systems, SIP trunking, IP phones, softphones, and smart business features. This page turns each item into a clear service section.",
+    capabilitySections: [
+      {
+        id: "ip-pbx-deployment",
+        navLabel: "PBX",
+        title: "IP PBX deployment for on-premises or cloud-hosted communication.",
+        lead:
+          "A modern PBX should match how the business answers, routes, records, and manages calls.",
+        body: [
+          "Auxano deploys IP PBX platforms around the organization's call flow, sites, users, extensions, and management requirements.",
+          "The solution can support on-premises or cloud-hosted models depending on reliability, budget, and operating preference.",
+        ],
+        points: [
+          "On-premises or cloud-hosted PBX",
+          "Extension and user planning",
+          "Call-flow-aware deployment",
+          "Migration from legacy telephony",
+        ],
+        image: {
+          src: "/image/service-details/ip-pbx-deployment.webp",
+          alt: "Modern IP PBX telephone system deployment in a business communications room",
+        },
+      },
+      {
+        id: "sip-trunking",
+        navLabel: "SIP",
+        title: "SIP trunking for lower-cost local and international calls.",
+        lead:
+          "SIP trunking moves business calling over internet connectivity while preserving professional call handling.",
+        body: [
+          "Auxano configures SIP connectivity, provider details, routing behavior, failover thinking, and call quality considerations.",
+          "For many businesses, the move to IP telephony can reduce phone bills while improving flexibility.",
+        ],
+        points: [
+          "SIP trunk setup",
+          "Local and international call routing",
+          "Call quality and provider coordination",
+          "Cost-saving telephony path",
+        ],
+        image: {
+          src: "/image/service-details/ip-pbx-sip-trunking.webp",
+          alt: "SIP trunking and business voice connectivity configured on a telephony dashboard",
+        },
+      },
+      {
+        id: "ip-phones-softphones",
+        navLabel: "Phones",
+        title: "IP phones and softphones for desk, mobile, and PC-based working.",
+        lead:
+          "Users should be able to communicate from the right device without losing the structure of the office phone system.",
+        body: [
+          "Auxano rolls out desk phones, mobile softphones, and PC calling apps so teams can work across offices, remote locations, and hybrid schedules.",
+          "This expands communication without forcing every user into the same hardware pattern.",
+        ],
+        points: [
+          "Desk phone rollout",
+          "Mobile and PC softphones",
+          "Anywhere-working support",
+          "User training and handover",
+        ],
+        image: {
+          src: "/image/service-details/ip-pbx-phones-softphones.webp",
+          alt: "Business IP phones and softphone apps prepared for office and mobile communication",
+        },
+      },
+      {
+        id: "smart-telephony-features",
+        navLabel: "Features",
+        title: "Smart features including auto-attendant, queues, voicemail-to-email, and recording.",
+        lead:
+          "The value of IP telephony comes from better call handling, not only newer handsets.",
+        body: [
+          "Auxano configures smart business features around how the organization receives calls, routes departments, manages missed calls, and reviews conversations where required.",
+          "These features help teams improve responsiveness and create a more professional caller experience.",
+        ],
+        points: [
+          "Auto-attendant and call queues",
+          "Voicemail-to-email setup",
+          "Call recording where required",
+          "Better customer call handling",
+        ],
+        image: {
+          src: "/image/service-details/ip-pbx-smart-features.webp",
+          alt: "Office telephony dashboard showing call queues voicemail and smart business phone features",
+        },
+      },
+    ],
   }),
   buildService({
     slug: "desktop-laptop-sales",
