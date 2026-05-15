@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { gsap } from "gsap";
@@ -14,6 +15,7 @@ import {
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
 import { HeroMetricStrip } from "@/components/sections/hero-metric-strip";
+import { PartnerLogoMarquee } from "@/components/sections/partner-logo-marquee";
 import { cn } from "@/lib/utils";
 import type { HeroSection, HeroVideoSlide, Metric } from "@/lib/types";
 
@@ -73,6 +75,7 @@ export function HomeHero({ section }: HomeHeroProps) {
       <>
         <VideoCarouselHero slides={section.slides} />
         <HeroMetricStrip metrics={metrics} />
+        <PartnerLogoMarquee />
       </>
     );
   }
@@ -358,8 +361,16 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
       ref={rootRef}
       className="relative overflow-hidden bg-[#071b24] text-white"
     >
-      <div className="relative min-h-[18rem] sm:min-h-[31rem] lg:min-h-[44rem] xl:min-h-[47rem]">
+      <div className="relative min-h-[14rem] sm:min-h-[25rem] lg:min-h-[33rem] xl:min-h-[36rem]">
         <div className="absolute inset-0 bg-[#071b24]" />
+        <Image
+          src="/image/servces.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center opacity-80"
+        />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,27,36,0.62)_0%,rgba(7,27,36,0.08)_38%,rgba(7,27,36,0.36)_100%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,27,36,0.08)_0%,rgba(7,27,36,0.02)_48%,rgba(7,27,36,0.66)_100%)]" />
         <div
@@ -422,23 +433,23 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
         />
 
         <Container className="grid gap-8 py-8 sm:py-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(21rem,0.78fr)] lg:gap-20 lg:py-[3.25rem]">
-          <div>
+          <div className="min-w-0">
             <div className="mb-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/66">
               <span className="h-px w-8 bg-[#52d3a2]" />
               Auxano command view
             </div>
             <h1
               ref={headlineRef}
-              className="max-w-5xl text-balance text-[2.85rem] font-semibold leading-[0.94] tracking-[-0.065em] text-white sm:text-[3.8rem] lg:text-[4.7rem]"
+              className="max-w-full break-words text-[2.45rem] font-semibold leading-[0.96] tracking-[-0.045em] text-white sm:max-w-5xl sm:text-balance sm:text-[3.8rem] sm:leading-[0.94] sm:tracking-[-0.065em] lg:text-[4.7rem]"
             >
               {activeSlide.headline}
             </h1>
           </div>
 
-          <div className="lg:pt-10">
+          <div className="min-w-0 lg:pt-10">
             <p
               ref={descriptionRef}
-              className="max-w-xl text-pretty text-lg leading-8 text-white/84 sm:text-[1.35rem] sm:leading-[1.55] lg:text-[1.08rem] lg:leading-8"
+              className="max-w-full text-lg leading-8 text-white/84 sm:max-w-xl sm:text-pretty sm:text-[1.35rem] sm:leading-[1.55] lg:text-[1.08rem] lg:leading-8"
             >
               {activeSlide.description}
             </p>
@@ -450,14 +461,14 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
               <ButtonLink
                 href={activeSlide.primaryCta.href}
                 variant="secondary"
-                className="!rounded-sm !border-transparent !bg-white !px-6 !py-3.5 !text-base !font-semibold !text-[#061a28] shadow-[0_22px_55px_rgba(3,18,31,0.2)] hover:!-translate-y-0.5 hover:!border-transparent hover:!text-[#061a28]"
+                className="!w-full !rounded-sm !border-transparent !bg-white !px-6 !py-3.5 !text-base !font-semibold !text-[#061a28] shadow-[0_22px_55px_rgba(3,18,31,0.2)] hover:!-translate-y-0.5 hover:!border-transparent hover:!text-[#061a28] sm:!w-auto"
               >
                 {activeSlide.primaryCta.label}
               </ButtonLink>
               <ButtonLink
                 href="/estimate"
                 variant="ghost"
-                className="!rounded-sm !px-5 !py-3.5 !text-base !font-semibold !text-white/86 hover:!bg-white/8 hover:!text-white"
+                className="!w-full !justify-start !rounded-sm !px-0 !py-3.5 !text-base !font-semibold !text-white/86 hover:!bg-transparent hover:!text-white sm:!w-auto sm:!justify-center sm:!px-5 sm:hover:!bg-white/8"
               >
                 Estimate project
                 <ArrowRight className="ml-2 h-4 w-4" />

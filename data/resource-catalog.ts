@@ -22,7 +22,6 @@ export const resourceGroups: ResourceGroup[] = [
   buildGroup("insights-learning", "Insights & Learning", [
     { id: "knowledge-center", label: "Knowledge Center", href: "/resources/knowledge-center" },
     { id: "blog", label: "Blog", href: "/blog" },
-    { id: "use-cases", label: "Use Cases", href: "/use-cases" },
     { id: "industries", label: "Industries", href: "/industries" },
   ]),
   buildGroup("proof-planning", "Proof & Planning", [

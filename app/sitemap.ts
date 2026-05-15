@@ -5,7 +5,6 @@ import {
   getCaseStudies,
   getIndustries,
   getServices,
-  getUseCases,
 } from "@/lib/content";
 import { absoluteUrl } from "@/lib/utils";
 
@@ -30,11 +29,6 @@ const staticRoutes: SitemapEntryInput[] = [
     path: "/services",
     changeFrequency: "weekly",
     priority: 0.95,
-  },
-  {
-    path: "/use-cases",
-    changeFrequency: "weekly",
-    priority: 0.88,
   },
   {
     path: "/industries",
@@ -113,9 +107,8 @@ function toSitemapEntry({
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [services, useCases, industries, caseStudies, posts] = await Promise.all([
+  const [services, industries, caseStudies, posts] = await Promise.all([
     getServices(),
-    getUseCases(),
     getIndustries(),
     getCaseStudies(),
     getBlogPosts(),
@@ -126,11 +119,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       path: `/services/${service.slug}`,
       changeFrequency: "monthly" as const,
       priority: 0.9,
-    })),
-    ...useCases.map((useCase) => ({
-      path: useCase.href,
-      changeFrequency: "monthly" as const,
-      priority: 0.82,
     })),
     ...industries.map((industry) => ({
       path: industry.href,

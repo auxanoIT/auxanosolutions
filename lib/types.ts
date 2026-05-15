@@ -9,7 +9,7 @@ export type CTA = LinkItem & {
 };
 
 export type NavItem = LinkItem & {
-  kind?: "link" | "solutions" | "useCases" | "industries" | "resources";
+  kind?: "link" | "solutions" | "industries" | "resources";
   children?: LinkItem[];
 };
 
@@ -118,70 +118,6 @@ export type IndustryProfile = {
   heroImage: ServiceNavMedia;
   icon: IndustryIconName;
   primaryServiceSlugs: string[];
-  challengePoints: string[];
-  environmentExamples: string[];
-  relatedCaseStudySlug?: string;
-  ctaLabel: string;
-};
-
-export type UseCaseGroupId =
-  | "security-operations"
-  | "infrastructure-connectivity"
-  | "managed-it"
-  | "advisory-compliance";
-
-export type UseCaseMenuSection =
-  | "access-and-entry"
-  | "visibility-and-response"
-  | "site-foundation"
-  | "connectivity-and-communications"
-  | "support-coverage"
-  | "device-lifecycle"
-  | "risk-and-compliance"
-  | "transformation-and-delivery";
-
-export type UseCaseIconName =
-  | "entryway-security"
-  | "cctv-monitoring"
-  | "parking-lot-surveillance"
-  | "perimeter-gate-automation"
-  | "office-network-rollout"
-  | "structured-cabling"
-  | "multi-site-connectivity"
-  | "server-room-readiness"
-  | "ip-pbx-communications"
-  | "managed-it-support"
-  | "it-staff-outsourcing"
-  | "endpoint-deployment"
-  | "break-fix-recovery"
-  | "it-audit-compliance"
-  | "firewall-hardening"
-  | "cloud-transition"
-  | "technology-project-delivery";
-
-export type UseCaseGroup = {
-  id: UseCaseGroupId;
-  label: string;
-  href: string;
-  description: string;
-  sections: Array<{
-    id: UseCaseMenuSection;
-    title: string;
-  }>;
-};
-
-export type UseCaseProfile = {
-  slug: string;
-  href: string;
-  title: string;
-  shortDescription: string;
-  heroTitle: string;
-  heroDescription: string;
-  group: UseCaseGroupId;
-  menuSection: UseCaseMenuSection;
-  icon: UseCaseIconName;
-  primaryServiceSlugs: string[];
-  relevantIndustrySlugs: string[];
   challengePoints: string[];
   environmentExamples: string[];
   relatedCaseStudySlug?: string;

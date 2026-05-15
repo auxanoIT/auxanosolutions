@@ -60,3 +60,39 @@ img {
 summary::-webkit-details-marker {
   display: none;
 }
+
+@keyframes partner-logo-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.partner-logo-marquee {
+  animation: partner-logo-marquee 34s linear infinite;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+.partner-logo-marquee:hover,
+.partner-logo-marquee:focus-within {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .partner-logo-marquee {
+    animation: none;
+  }
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

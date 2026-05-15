@@ -15,8 +15,6 @@ import {
   getServices,
   getSiteSettings,
   getSolutionCategories,
-  getUseCaseGroups,
-  getUseCases,
 } from "@/lib/content";
 
 const sora = Sora({
@@ -46,8 +44,6 @@ export default async function RootLayout({
   const [
     navigation,
     solutionCategories,
-    useCaseGroups,
-    useCases,
     industries,
     resourceGroups,
     services,
@@ -56,8 +52,6 @@ export default async function RootLayout({
   ] = await Promise.all([
     getNavigation(),
     getSolutionCategories(),
-    getUseCaseGroups(),
-    getUseCases(),
     getIndustries(),
     getResourceGroups(),
     getServices(),
@@ -72,8 +66,6 @@ export default async function RootLayout({
           <SiteHeader
             navigation={navigation}
             solutionCategories={solutionCategories}
-            useCaseGroups={useCaseGroups}
-            useCases={useCases}
             industries={industries}
             resourceGroups={resourceGroups}
             services={services}

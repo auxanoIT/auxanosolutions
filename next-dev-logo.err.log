@@ -1,0 +1,109 @@
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target [data-map-line] not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target [data-map-node] not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target [data-map-line] not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target [data-map-node] not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target [data-map-line] not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target [data-map-node] not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target [data-map-line] not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target [data-map-node] not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] Image with src "/image/servces.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] Image with src "/image/servces.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target [data-map-line] not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target [data-map-node] not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] Image with src "/image/servces.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] TypeError: Failed to fetch
+    at p (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127332)
+    at <unknown> (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127031) (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127519)
+[browser] TypeError: Failed to fetch
+    at p (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127332)
+    at <unknown> (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127031) (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127519)
+[browser] TypeError: Failed to fetch
+    at p (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127332)
+    at <unknown> (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127031) (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127519)
+[browser] TypeError: Failed to fetch
+    at p (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127332)
+    at <unknown> (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127031) (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127519)
+[browser] TypeError: Failed to fetch
+    at p (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127332)
+    at <unknown> (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127031) (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127519)
+[browser] TypeError: Failed to fetch
+    at p (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127332)
+    at <unknown> (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127031) (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127519)
+[browser] TypeError: Failed to fetch
+    at p (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127332)
+    at <unknown> (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127031) (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127519)
+[browser] TypeError: Failed to fetch
+    at p (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127332)
+    at <unknown> (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127031) (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127519)
+[browser] TypeError: Failed to fetch
+    at p (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127332)
+    at <unknown> (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127031) (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127519)
+[browser] TypeError: Failed to fetch
+    at p (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127332)
+    at <unknown> (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127031) (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127519)
+[browser] TypeError: Failed to fetch
+    at p (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127332)
+    at <unknown> (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127031) (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127519)
+[browser] TypeError: Failed to fetch
+    at p (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127332)
+    at <unknown> (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127031) (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127519)
+[browser] TypeError: Failed to fetch
+    at p (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127332)
+    at <unknown> (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127031) (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127519)
+[browser] TypeError: Failed to fetch
+    at p (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127332)
+    at <unknown> (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127031) (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127519)
+[browser] TypeError: Failed to fetch
+    at p (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127332)
+    at <unknown> (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127031) (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127519)
+[browser] TypeError: Failed to fetch
+    at p (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127332)
+    at <unknown> (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127031) (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127519)
+[browser] TypeError: Failed to fetch
+    at p (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127332)
+    at <unknown> (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127031) (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127519)
+[browser] TypeError: Failed to fetch
+    at p (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127332)
+    at <unknown> (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127031) (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127519)
+[browser] TypeError: Failed to fetch
+    at p (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127332)
+    at <unknown> (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127031) (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127519)
+[browser] TypeError: Failed to fetch
+    at p (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127332)
+    at <unknown> (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127031) (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127519)
+[browser] TypeError: Failed to fetch
+    at p (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127332)
+    at <unknown> (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127031) (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127519)
+[browser] TypeError: Failed to fetch
+    at p (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127332)
+    at <unknown> (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127031) (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127519)
+[browser] TypeError: Failed to fetch
+    at p (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127332)
+    at <unknown> (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127031) (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127519)
+[browser] TypeError: Failed to fetch
+    at p (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127332)
+    at <unknown> (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127031) (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127519)

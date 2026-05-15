@@ -15,8 +15,6 @@ import {
   siteSettings,
   solutionCategories,
   testimonials,
-  useCaseGroups,
-  useCaseProfiles,
 } from "@/data/site-content";
 import type {
   BlogPost,
@@ -34,8 +32,6 @@ import type {
   SiteSettings,
   SolutionCategory,
   Testimonial,
-  UseCaseGroup,
-  UseCaseProfile,
 } from "@/lib/types";
 import {
   blogPostQuery,
@@ -101,18 +97,6 @@ export async function getIndustries(): Promise<IndustryProfile[]> {
 
 export async function getIndustryBySlug(slug: string): Promise<IndustryProfile | null> {
   return industryProfiles.find((industry) => industry.slug === slug) ?? null;
-}
-
-export async function getUseCaseGroups(): Promise<UseCaseGroup[]> {
-  return useCaseGroups;
-}
-
-export async function getUseCases(): Promise<UseCaseProfile[]> {
-  return useCaseProfiles;
-}
-
-export async function getUseCaseBySlug(slug: string): Promise<UseCaseProfile | null> {
-  return useCaseProfiles.find((useCase) => useCase.slug === slug) ?? null;
 }
 
 export async function getResourceGroups(): Promise<ResourceGroup[]> {

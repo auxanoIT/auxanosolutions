@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from "react";
 
+import { TurnstileField } from "@/components/forms/turnstile-field";
 import { ButtonLink } from "@/components/ui/button-link";
 import { cn } from "@/lib/utils";
 
@@ -29,11 +30,19 @@ export function LeadForm({
 }: LeadFormProps) {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const [turnstileResetKey, setTurnstileResetKey] = useState(0);
   const [isPending, startTransition] = useTransition();
 
   async function handleSubmit(formData: FormData) {
     setStatus("idle");
     setMessage("");
+
+    if (process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && !turnstileToken) {
+      setStatus("error");
+      setMessage("Please complete the verification check.");
+      return;
+    }
 
     const payload = {
       name: formData.get("name"),
@@ -43,6 +52,7 @@ export function LeadForm({
       serviceInterest: formData.get("serviceInterest"),
       message: formData.get("message"),
       context,
+      turnstileToken,
     };
 
     const response = await fetch("/api/lead", {
@@ -57,6 +67,7 @@ export function LeadForm({
       const data = (await response.json().catch(() => null)) as { error?: string } | null;
       setStatus("error");
       setMessage(data?.error ?? "Something went wrong. Please try again.");
+      setTurnstileResetKey((current) => current + 1);
       return;
     }
 
@@ -66,6 +77,7 @@ export function LeadForm({
         ? "Consultation request received. The team can now coordinate the next discussion."
         : "Message received. Auxano can now review the brief and respond.",
     );
+    setTurnstileResetKey((current) => current + 1);
   }
 
   return (
@@ -145,6 +157,16 @@ export function LeadForm({
             className="rounded-[1.5rem] border border-[color:rgba(11,18,32,0.1)] bg-[var(--color-cloud)] px-4 py-4 outline-none transition focus:border-[var(--color-electric)]"
           />
         </label>
+        <div className="md:col-span-2 flex flex-wrap items-center gap-3">
+          <TurnstileField
+            onVerify={setTurnstileToken}
+            onError={() => {
+              setStatus("error");
+              setMessage("Verification could not load. Please refresh and try again.");
+            }}
+            resetKey={turnstileResetKey}
+          />
+        </div>
         <div className="md:col-span-2 flex flex-wrap items-center gap-3">
           <button
             type="submit"

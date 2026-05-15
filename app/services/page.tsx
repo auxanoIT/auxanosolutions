@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { PartnerLogoMarquee } from "@/components/sections/partner-logo-marquee";
 import { ServiceCategoryCarousel } from "@/components/sections/service-category-carousel";
 import { Container } from "@/components/ui/container";
 import { getServices, getSolutionCategories } from "@/lib/content";
@@ -120,6 +121,8 @@ export default async function ServicesPage() {
           </div>
         </Container>
       </section>
+
+      <PartnerLogoMarquee />
 
       <section className="bg-white py-20 sm:py-24">
         <Container className="text-center">

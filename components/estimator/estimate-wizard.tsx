@@ -3,6 +3,7 @@
 import { startTransition, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+import { TurnstileField } from "@/components/forms/turnstile-field";
 import type { EstimateAnswers, EstimateResult, EstimatorConfig } from "@/lib/types";
 import { cn, formatCurrencyNGN } from "@/lib/utils";
 
@@ -33,6 +34,8 @@ export function EstimateWizard({ config }: EstimateWizardProps) {
   const [result, setResult] = useState<EstimateResult | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const [turnstileResetKey, setTurnstileResetKey] = useState(0);
 
   const canContinue =
     step === 0
@@ -62,13 +65,19 @@ export function EstimateWizard({ config }: EstimateWizardProps) {
     setSubmitting(true);
     setError("");
 
+    if (process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && !turnstileToken) {
+      setError("Please complete the verification check.");
+      setSubmitting(false);
+      return;
+    }
+
     try {
       const response = await fetch("/api/estimate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(answers),
+        body: JSON.stringify({ ...answers, turnstileToken }),
       });
 
       const data = (await response.json()) as { result?: EstimateResult; error?: string };
@@ -76,6 +85,7 @@ export function EstimateWizard({ config }: EstimateWizardProps) {
       if (!response.ok || !data.result) {
         setError(data.error ?? "Unable to generate estimate.");
         setSubmitting(false);
+        setTurnstileResetKey((current) => current + 1);
         return;
       }
 
@@ -84,6 +94,7 @@ export function EstimateWizard({ config }: EstimateWizardProps) {
       setError("Unable to generate estimate.");
     } finally {
       setSubmitting(false);
+      setTurnstileResetKey((current) => current + 1);
     }
   }
 
@@ -246,6 +257,13 @@ export function EstimateWizard({ config }: EstimateWizardProps) {
                   value={answers.phone}
                   onChange={(value) => updateField("phone", value)}
                 />
+                <div className="md:col-span-2">
+                  <TurnstileField
+                    onVerify={setTurnstileToken}
+                    onError={() => setError("Verification could not load. Please refresh and try again.")}
+                    resetKey={turnstileResetKey}
+                  />
+                </div>
               </div>
             </div>
           ) : null}

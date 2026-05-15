@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, BookOpenText, Building2, FileQuestion, Layers3 } from "lucide-react";
+import { ArrowUpRight, BookOpenText, Building2, FileQuestion, ServerCog } from "lucide-react";
 
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
@@ -23,10 +23,10 @@ const discoveryLinks = [
     icon: BookOpenText,
   },
   {
-    label: "Use Cases",
-    href: "/use-cases",
-    description: "Outcome-led scenarios that connect multiple Auxano services into real buying situations.",
-    icon: Layers3,
+    label: "Solutions",
+    href: "/services",
+    description: "Service categories that connect infrastructure, security, networking, and support.",
+    icon: ServerCog,
   },
   {
     label: "Industries",

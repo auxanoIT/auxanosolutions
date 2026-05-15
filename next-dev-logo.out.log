@@ -1,0 +1,33 @@
+
+> auxo@0.1.0 dev
+> next dev --port 3000
+
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://10.249.97.17:3000
+✓ Ready in 1750ms
+Creating turbopack project {
+  dir: 'C:\\Users\\TechKing\\Desktop\\elijah\\all project\\auxo',
+  testMode: true
+}
+
+○ Compiling / ...
+ GET / 200 in 18.4s (next.js: 12.3s, application-code: 6.1s)
+ GET / 200 in 2.5s (next.js: 18ms, application-code: 2.5s)
+ GET /services 200 in 2.7s (next.js: 1995ms, application-code: 710ms)
+✓ Compiled in 471ms
+✓ Compiled in 433ms
+✓ Compiled in 1008ms
+ GET /services 200 in 4.9s (next.js: 563ms, application-code: 4.3s)
+ GET /services 200 in 3.7s (next.js: 1121ms, application-code: 2.6s)
+ GET /services 200 in 1698ms (next.js: 816ms, application-code: 882ms)
+✓ Compiled in 813ms
+ GET /services 200 in 1144ms (next.js: 389ms, application-code: 755ms)
+✓ Compiled in 411ms
+ GET /services 200 in 1878ms (next.js: 528ms, application-code: 1350ms)
+✓ Compiled in 353ms
+ GET /services 200 in 1836ms (next.js: 372ms, application-code: 1464ms)
+ GET / 200 in 349ms (next.js: 197ms, application-code: 153ms)
+ GET / 200 in 3.2s (next.js: 10ms, application-code: 3.2s)
+ GET / 200 in 3.2s (next.js: 1304ms, application-code: 1880ms)
+ GET / 200 in 1121ms (next.js: 24ms, application-code: 1098ms)

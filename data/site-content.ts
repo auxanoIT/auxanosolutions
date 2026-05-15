@@ -12,7 +12,6 @@ import type {
 
 export { services, solutionCategories } from "@/data/solution-catalog";
 export { industryProfiles } from "@/data/industry-catalog";
-export { useCaseGroups, useCaseProfiles } from "@/data/use-case-catalog";
 export { resourceGroups, resourceLinks } from "@/data/resource-catalog";
 
 export const siteSettings: SiteSettings = {
@@ -35,7 +34,6 @@ export const siteSettings: SiteSettings = {
 
 export const navigation: NavItem[] = [
   { label: "Solutions", href: "/services", kind: "solutions" },
-  { label: "Use Cases", href: "/use-cases", kind: "useCases" },
   { label: "Industries", href: "/industries", kind: "industries" },
   { label: "Resources", href: "/resources", kind: "resources" },
   { label: "About", href: "/about", kind: "link" },
@@ -304,7 +302,6 @@ export const footerColumns: FooterColumn[] = [
   {
     title: "Explore",
     links: [
-      { label: "Use Cases", href: "/use-cases" },
       { label: "Industries", href: "/industries" },
       { label: "Case Studies", href: "/case-studies" },
       { label: "Resources", href: "/resources" },
@@ -380,7 +377,7 @@ export const marketingPages: MarketingPage[] = [
               "CCTV, access control, cabling, storage, and operator handover are planned together so coverage works after installation day.",
             primaryCta: {
               label: "Explore Security Solutions",
-              href: "/use-cases/entryway-security",
+              href: "/services/door-access-control",
               variant: "primary",
             },
           },

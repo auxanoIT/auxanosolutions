@@ -393,7 +393,7 @@ const navigation = defineType({
               title: "Kind",
               type: "string",
               options: {
-                list: ["link", "solutions", "useCases", "industries", "resources"],
+                list: ["link", "solutions", "industries", "resources"],
               },
             }),
             defineField({ name: "description", title: "Description", type: "string" }),

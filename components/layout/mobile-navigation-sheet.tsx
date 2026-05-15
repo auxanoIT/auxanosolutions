@@ -13,7 +13,6 @@ import {
 } from "@/components/ui/accordion";
 import { ButtonLink } from "@/components/ui/button-link";
 import { IndustryIcon } from "@/components/ui/industry-icon";
-import { UseCaseIcon } from "@/components/ui/use-case-icon";
 import {
   Sheet,
   SheetClose,
@@ -26,8 +25,6 @@ import type {
   ResourceGroup,
   Service,
   SolutionCategory,
-  UseCaseGroup,
-  UseCaseProfile,
 } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -36,15 +33,13 @@ type MobileNavigationSheetProps = {
   setOpen: Dispatch<SetStateAction<boolean>>;
   navigation: NavItem[];
   categories: SolutionCategory[];
-  useCaseGroups: UseCaseGroup[];
-  useCases: UseCaseProfile[];
   industries: IndustryProfile[];
   resourceGroups: ResourceGroup[];
   services: Service[];
   trigger: ReactNode;
 };
 
-type MobileView = "root" | "solutions" | "useCases" | "industries" | "resources";
+type MobileView = "root" | "solutions" | "industries" | "resources";
 
 function getCategoryServices(category: SolutionCategory, services: Service[]) {
   return category.serviceSlugs
@@ -52,38 +47,20 @@ function getCategoryServices(category: SolutionCategory, services: Service[]) {
     .filter((service): service is Service => Boolean(service));
 }
 
-function getUseCaseSections(group: UseCaseGroup, useCases: UseCaseProfile[]) {
-  return group.sections
-    .map((section) => ({
-      ...section,
-      items: useCases.filter(
-        (useCase) =>
-          useCase.group === group.id && useCase.menuSection === section.id,
-      ),
-    }))
-    .filter((section) => section.items.length > 0);
-}
-
 export function MobileNavigationSheet({
   open,
   setOpen,
   navigation,
   categories,
-  useCaseGroups,
-  useCases,
   industries,
   resourceGroups,
   services,
   trigger,
 }: MobileNavigationSheetProps) {
   const defaultCategoryId = categories[0]?.id ?? "";
-  const defaultUseCaseGroupId = useCaseGroups[0]?.id ?? "";
   const defaultResourceGroupId = resourceGroups[0]?.id ?? "";
   const [view, setView] = useState<MobileView>("root");
   const [expandedCategoryId, setExpandedCategoryId] = useState<string>(defaultCategoryId);
-  const [expandedUseCaseGroupId, setExpandedUseCaseGroupId] = useState<string>(
-    defaultUseCaseGroupId,
-  );
   const [expandedResourceGroupId, setExpandedResourceGroupId] = useState<string>(
     defaultResourceGroupId,
   );
@@ -94,7 +71,6 @@ export function MobileNavigationSheet({
     if (!nextOpen) {
       setView("root");
       setExpandedCategoryId(defaultCategoryId);
-      setExpandedUseCaseGroupId(defaultUseCaseGroupId);
       setExpandedResourceGroupId(defaultResourceGroupId);
     }
   }
@@ -102,11 +78,6 @@ export function MobileNavigationSheet({
   function openSolutionsView() {
     setExpandedCategoryId(defaultCategoryId);
     setView("solutions");
-  }
-
-  function openUseCasesView() {
-    setExpandedUseCaseGroupId(defaultUseCaseGroupId);
-    setView("useCases");
   }
 
   function openIndustriesView() {
@@ -124,10 +95,9 @@ export function MobileNavigationSheet({
 
   const viewOffset = {
     root: "0%",
-    solutions: "20%",
-    useCases: "40%",
-    industries: "60%",
-    resources: "80%",
+    solutions: "25%",
+    industries: "50%",
+    resources: "75%",
   } satisfies Record<MobileView, string>;
 
   return (
@@ -140,21 +110,19 @@ export function MobileNavigationSheet({
       >
         <div className="relative h-full overflow-hidden">
           <div
-            className="flex h-full w-[500%] transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none"
+            className="flex h-full w-[400%] transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none"
             style={{ transform: `translateX(-${viewOffset[view]})` }}
           >
-            <section className="flex h-full w-1/5 shrink-0 flex-col bg-white">
+            <section className="flex h-full w-1/4 shrink-0 flex-col bg-white">
               <div className="flex items-center justify-between px-5 pb-4 pt-5">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[linear-gradient(145deg,var(--color-electric),var(--color-cyan))] text-sm font-semibold text-white shadow-[0_16px_36px_rgba(47,107,255,0.22)]">
-                    A
-                  </span>
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-electric)]">
-                      Auxano
-                    </p>
-                    <p className="text-sm text-[var(--color-muted)]">Menu</p>
-                  </div>
+                <div className="flex h-12 items-center">
+                  <Image
+                    src="/image/AUxano.webp"
+                    alt="Auxano Solutions"
+                    width={1711}
+                    height={704}
+                    className="h-10 w-auto object-contain"
+                  />
                 </div>
 
                 <SheetClose asChild>
@@ -182,20 +150,6 @@ export function MobileNavigationSheet({
                           key={item.href}
                           type="button"
                           onClick={openSolutionsView}
-                          className={rowClassName}
-                        >
-                          <span>{item.label}</span>
-                          <ChevronRight className="h-4 w-4 text-[var(--color-muted)]" />
-                        </button>
-                      );
-                    }
-
-                    if (item.kind === "useCases") {
-                      return (
-                        <button
-                          key={item.href}
-                          type="button"
-                          onClick={openUseCasesView}
                           className={rowClassName}
                         >
                           <span>{item.label}</span>
@@ -257,7 +211,7 @@ export function MobileNavigationSheet({
               </div>
             </section>
 
-            <section className="flex h-full w-1/5 shrink-0 flex-col bg-white">
+            <section className="flex h-full w-1/4 shrink-0 flex-col bg-white">
               <div className="grid grid-cols-[40px_1fr_40px] items-center border-b border-[color:rgba(11,18,32,0.08)] px-4 pb-4 pt-5">
                 <button
                   type="button"
@@ -358,95 +312,7 @@ export function MobileNavigationSheet({
               </div>
             </section>
 
-            <section className="flex h-full w-1/5 shrink-0 flex-col bg-white">
-              <div className="grid grid-cols-[40px_1fr_40px] items-center border-b border-[color:rgba(11,18,32,0.08)] px-4 pb-4 pt-5">
-                <button
-                  type="button"
-                  onClick={goBackToRoot}
-                  aria-label="Back to menu"
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full text-[var(--color-muted)] transition hover:bg-[color:rgba(11,18,32,0.04)] hover:text-[var(--color-ink)]"
-                >
-                  <ChevronLeft className="h-4 w-4" />
-                </button>
-                <p className="text-center text-sm font-semibold text-[var(--color-ink)]">
-                  Use Cases
-                </p>
-                <SheetClose asChild>
-                  <button
-                    type="button"
-                    aria-label="Close menu"
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-full text-[var(--color-muted)] transition hover:bg-[color:rgba(11,18,32,0.04)] hover:text-[var(--color-ink)]"
-                  >
-                    <X className="h-4 w-4" />
-                  </button>
-                </SheetClose>
-              </div>
-
-              <div className="flex-1 overflow-y-auto px-4 pb-5 pt-3">
-                <SheetClose asChild>
-                  <Link
-                    href="/use-cases"
-                    className="mb-4 inline-flex rounded-[1.2rem] border border-[color:rgba(11,18,32,0.08)] bg-white px-4 py-3 text-sm font-semibold text-[var(--color-electric)] transition hover:border-[color:rgba(47,107,255,0.22)]"
-                  >
-                    View all use cases
-                  </Link>
-                </SheetClose>
-
-                <Accordion
-                  type="single"
-                  collapsible
-                  value={expandedUseCaseGroupId}
-                  onValueChange={setExpandedUseCaseGroupId}
-                  className="w-full"
-                >
-                  {useCaseGroups.map((group) => {
-                    const sections = getUseCaseSections(group, useCases);
-
-                    return (
-                      <AccordionItem key={group.id} value={group.id}>
-                        <AccordionTrigger className="py-5 text-base font-semibold">
-                          {group.label}
-                        </AccordionTrigger>
-                        <AccordionContent className="pb-5">
-                          <div className="grid gap-4">
-                            {sections.map((section) => (
-                              <div key={section.id}>
-                                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-muted)]">
-                                  {section.title}
-                                </p>
-                                <div className="grid gap-2">
-                                  {section.items.map((useCase) => (
-                                    <SheetClose asChild key={useCase.slug}>
-                                      <Link
-                                        href={useCase.href}
-                                        className="flex items-center gap-4 rounded-[1.25rem] border border-[color:rgba(11,18,32,0.08)] bg-[var(--color-cloud)] px-4 py-3 transition hover:border-[color:rgba(47,107,255,0.22)] hover:bg-white"
-                                      >
-                                        <span className="flex h-11 w-11 items-center justify-center rounded-[1rem] border border-[color:rgba(11,18,32,0.08)] bg-white text-[var(--color-ink)]">
-                                          <UseCaseIcon
-                                            name={useCase.icon}
-                                            className="h-5 w-5"
-                                            strokeWidth={1.8}
-                                          />
-                                        </span>
-                                        <span className="text-sm font-semibold text-[var(--color-ink)]">
-                                          {useCase.title}
-                                        </span>
-                                      </Link>
-                                    </SheetClose>
-                                  ))}
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        </AccordionContent>
-                      </AccordionItem>
-                    );
-                  })}
-                </Accordion>
-              </div>
-            </section>
-
-            <section className="flex h-full w-1/5 shrink-0 flex-col bg-white">
+            <section className="flex h-full w-1/4 shrink-0 flex-col bg-white">
               <div className="grid grid-cols-[40px_1fr_40px] items-center border-b border-[color:rgba(11,18,32,0.08)] px-4 pb-4 pt-5">
                 <button
                   type="button"
@@ -517,7 +383,7 @@ export function MobileNavigationSheet({
               </div>
             </section>
 
-            <section className="flex h-full w-1/5 shrink-0 flex-col bg-white">
+            <section className="flex h-full w-1/4 shrink-0 flex-col bg-white">
               <div className="grid grid-cols-[40px_1fr_40px] items-center border-b border-[color:rgba(11,18,32,0.08)] px-4 pb-4 pt-5">
                 <button
                   type="button"
