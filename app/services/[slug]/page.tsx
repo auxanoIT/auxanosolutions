@@ -19,7 +19,12 @@ import { JsonLd } from "@/components/ui/json-ld";
 import { getServiceBySlug, getServices } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/utils";
-import type { Service, ServiceCapabilitySection, ServiceCategory } from "@/lib/types";
+import type {
+  Service,
+  ServiceCapabilitySection,
+  ServiceCategory,
+  ServiceNavMedia,
+} from "@/lib/types";
 
 type ServicePageProps = {
   params: Promise<{ slug: string }>;
@@ -122,6 +127,13 @@ function buildFallbackSections(
   ];
 }
 
+function getServiceHeroImage(
+  service: Service,
+  fallbackImage: ServiceNavMedia,
+): ServiceNavMedia {
+  return service.capabilitySections?.find((section) => section.image)?.image ?? fallbackImage;
+}
+
 export async function generateMetadata({
   params,
 }: ServicePageProps): Promise<Metadata> {
@@ -136,10 +148,18 @@ export async function generateMetadata({
     });
   }
 
+  const style = categoryStyles[service.category];
+  const heroImage = getServiceHeroImage(service, {
+    src: style.image,
+    alt: style.imageAlt,
+  });
+
   return buildMetadata({
     title: service.title,
     description: service.summary,
     path: `/services/${service.slug}`,
+    imagePath: heroImage.src,
+    imageAlt: heroImage.alt,
     keywords: [
       service.title,
       service.category,
@@ -165,9 +185,13 @@ export default async function ServicePage({ params }: ServicePageProps) {
     .filter((item) => item.slug !== service.slug && item.category === service.category)
     .slice(0, 3);
   const style = categoryStyles[service.category];
+  const heroImage = getServiceHeroImage(service, {
+    src: style.image,
+    alt: style.imageAlt,
+  });
   const capabilitySections =
     service.capabilitySections ??
-    buildFallbackSections(service, style.image, style.imageAlt);
+    buildFallbackSections(service, heroImage.src, heroImage.alt);
 
   return (
     <>
@@ -184,6 +208,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
           areaServed: "Nigeria",
           url: absoluteUrl(`/services/${service.slug}`),
           description: service.summary,
+          image: absoluteUrl(heroImage.src),
         }}
       />
 
@@ -209,8 +234,8 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
           <div className="relative min-h-[420px] overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5 shadow-[0_30px_90px_rgba(0,0,0,0.35)]">
             <Image
-              src={style.image}
-              alt={style.imageAlt}
+              src={heroImage.src}
+              alt={heroImage.alt}
               fill
               priority
               className="object-cover opacity-90"
