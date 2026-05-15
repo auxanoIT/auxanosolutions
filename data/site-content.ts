@@ -333,7 +333,7 @@ export const marketingPages: MarketingPage[] = [
       {
         _type: "hero",
         eyebrow: "Enterprise IT And Infrastructure",
-        title: "One partner for IT, CCTV, and network infrastructure.",
+        title: "One command view for IT, CCTV, and network infrastructure.",
         description:
           "Design, deployment, and support for business-critical environments.",
         mode: "videoCarousel",
@@ -363,9 +363,9 @@ export const marketingPages: MarketingPage[] = [
           {
             id: "hero-slide-1",
             wistiaMediaId: "jucjnef47l",
-            headline: "PHYSICAL SECURITY & ACCESS",
+            headline: "One command view for IT, CCTV, and network infrastructure.",
             description:
-              "Protecting critical assets requires a multi-layered approach. We integrate high-fidelity monitoring with intelligent access controls to create an impenetrable physical perimeter.",
+              "Auxano designs, deploys, and supports the systems that keep commercial environments secure, connected, and easier to operate.",
             primaryCta: {
               label: "Book Consultation",
               href: "/book-consultation",
@@ -375,9 +375,9 @@ export const marketingPages: MarketingPage[] = [
           {
             id: "hero-slide-2",
             wistiaMediaId: "jucjnef47l",
-            headline: "Expert Installation & Setup",
+            headline: "Physical security installed with network discipline.",
             description:
-              "Our technical teams ensure your hardware is integrated into your network with precision. Whether it's a centralized office or a distributed remote workforce.",
+              "CCTV, access control, cabling, storage, and operator handover are planned together so coverage works after installation day.",
             primaryCta: {
               label: "Explore Security Solutions",
               href: "/use-cases/entryway-security",
@@ -387,9 +387,9 @@ export const marketingPages: MarketingPage[] = [
           {
             id: "hero-slide-3",
             wistiaMediaId: "jucjnef47l",
-            headline: "Network Design & Architecture ",
+            headline: "Networks built for the devices and teams that rely on them.",
             description:
-              "We transform complex operational requirements into logical data flows. Our architectural planning ensures zero- bottleneck performance across global clusters.",
+              "From structured cabling to switching, wireless, firewall setup, and documentation, Auxano makes the live environment easier to manage.",
             primaryCta: {
               label: "Explore Network Infrastructure",
               href: "/services#networking",
@@ -401,7 +401,7 @@ export const marketingPages: MarketingPage[] = [
             wistiaMediaId: "jucjnef47l",
             headline: "Managed IT support with clearer ownership.",
             description:
-              "Users, devices, continuity, and escalation handled with enterprise discipline.",
+              "Users, devices, continuity, monitoring, and escalation stay under a support model that leadership can understand and track.",
             primaryCta: {
               label: "Explore Managed IT",
               href: "/services/it-managed-services-staff-outsourcing",

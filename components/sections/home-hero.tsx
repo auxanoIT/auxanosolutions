@@ -39,7 +39,7 @@ const schematicNodes = [
   { id: "branch", label: "Branch", top: "38%", left: "12%" },
 ];
 
-const HERO_COUNTDOWN_START = 20;
+const HERO_COUNTDOWN_START = 12;
 const SELECTOR_SIZE = 48;
 const SELECTOR_STROKE = 2.75;
 const SELECTOR_RADIUS = 20;
@@ -88,7 +88,8 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
   const headlineRef = useRef<HTMLHeadingElement | null>(null);
   const descriptionRef = useRef<HTMLParagraphElement | null>(null);
   const ctaWrapRef = useRef<HTMLDivElement | null>(null);
-  const ringRefs = useRef<Array<SVGCircleElement | null>>([]);
+  const desktopRingRefs = useRef<Array<SVGCircleElement | null>>([]);
+  const mobileRingRefs = useRef<Array<SVGCircleElement | null>>([]);
   const activeIndexRef = useRef(0);
   const pendingAdvanceTimeoutRef = useRef<number | null>(null);
   const syncRequestRef = useRef(0);
@@ -210,31 +211,35 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
   }, []);
 
   useLayoutEffect(() => {
-    const activeRing = ringRefs.current[activeIndex];
+    const ringSets = [desktopRingRefs.current, mobileRingRefs.current];
 
-    ringRefs.current.forEach((ring, index) => {
-      if (!ring || index === activeIndex) {
+    ringSets.forEach((rings) => {
+      const activeRing = rings[activeIndex];
+
+      rings.forEach((ring, index) => {
+        if (!ring || index === activeIndex) {
+          return;
+        }
+
+        gsap.set(ring, {
+          attr: { "stroke-dashoffset": SELECTOR_CIRCUMFERENCE },
+        });
+      });
+
+      if (!activeRing) {
         return;
       }
 
-      gsap.set(ring, {
-        attr: { "stroke-dashoffset": SELECTOR_CIRCUMFERENCE },
+      const ringOffset = shouldReduceMotion
+        ? SELECTOR_CIRCUMFERENCE
+        : SELECTOR_CIRCUMFERENCE * (1 - clampProgress(progress));
+
+      gsap.to(activeRing, {
+        attr: { "stroke-dashoffset": ringOffset },
+        duration: shouldReduceMotion ? 0 : 0.18,
+        ease: "none",
+        overwrite: true,
       });
-    });
-
-    if (!activeRing) {
-      return;
-    }
-
-    const ringOffset = shouldReduceMotion
-      ? SELECTOR_CIRCUMFERENCE
-      : SELECTOR_CIRCUMFERENCE * (1 - clampProgress(progress));
-
-    gsap.to(activeRing, {
-      attr: { "stroke-dashoffset": ringOffset },
-      duration: shouldReduceMotion ? 0 : 0.18,
-      ease: "none",
-      overwrite: true,
     });
   }, [activeIndex, progress, shouldReduceMotion]);
 
@@ -351,13 +356,16 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
   return (
     <section
       ref={rootRef}
-      className="relative overflow-hidden bg-[#041a29] text-white"
+      className="relative overflow-hidden bg-[#071b24] text-white"
     >
-      <div className="relative min-h-[16.5rem] sm:min-h-[28rem] lg:min-h-[42rem] xl:min-h-[46rem]">
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,#04182a_0%,#062338_100%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(25,213,255,0.14),transparent_26%),radial-gradient(circle_at_82%_12%,rgba(47,107,255,0.22),transparent_22%),linear-gradient(90deg,rgba(4,24,39,0.26),rgba(4,24,39,0.12)_34%,rgba(4,24,39,0.54))]" />
-        <div className="absolute left-[32%] top-[-11%] h-[132%] w-[46%] rounded-full border border-white/10 bg-[radial-gradient(circle,rgba(25,213,255,0.08),transparent_66%)]" />
-        <div className="absolute right-[-11%] top-[-22%] h-[94%] w-[34%] rounded-full bg-[radial-gradient(circle,rgba(25,213,255,0.15),transparent_68%)] blur-3xl" />
+      <div className="relative min-h-[18rem] sm:min-h-[31rem] lg:min-h-[44rem] xl:min-h-[47rem]">
+        <div className="absolute inset-0 bg-[#071b24]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,27,36,0.62)_0%,rgba(7,27,36,0.08)_38%,rgba(7,27,36,0.36)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,27,36,0.08)_0%,rgba(7,27,36,0.02)_48%,rgba(7,27,36,0.66)_100%)]" />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 opacity-[0.18] [background-image:linear-gradient(rgba(255,255,255,0.11)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.11)_1px,transparent_1px)] [background-size:88px_88px]"
+        />
 
         <div aria-hidden="true" className="absolute inset-0 overflow-hidden">
           <DecorativeWistiaPlayer
@@ -380,7 +388,7 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
             seo={false}
             playerColor="19d5ff"
             preload="metadata"
-            className="pointer-events-none absolute inset-0 block h-full w-full"
+            className="pointer-events-none absolute inset-0 block h-full w-full scale-[1.02]"
             style={{ width: "100%", height: "100%" }}
             onApiReady={handleApiReady}
             onLoadedMetadata={handleLoadedMetadata}
@@ -389,10 +397,10 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
           />
         </div>
 
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(3,18,31,0.08)_0%,rgba(3,19,31,0.18)_56%,rgba(4,24,39,0.72)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,27,36,0.08)_0%,rgba(7,27,36,0.18)_58%,rgba(7,27,36,0.78)_100%)]" />
         <div
           ref={stageTintRef}
-          className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,34,52,0.44)_0%,rgba(8,34,52,0.26)_56%,rgba(8,34,52,0.62)_100%)]"
+          className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,34,52,0.52)_0%,rgba(8,34,52,0.24)_56%,rgba(8,34,52,0.62)_100%)]"
         />
 
         <SlideSelectorRail
@@ -400,44 +408,59 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
           activeIndex={activeIndex}
           countdownValue={countdownValue}
           onSelect={handleSelectSlide}
-          ringRefs={ringRefs}
+          ringRefs={desktopRingRefs}
           orientation="vertical"
-          className="absolute right-5 top-1/2 hidden -translate-y-1/2 lg:flex xl:right-8"
+          className="absolute right-5 top-1/2 hidden -translate-y-1/2 lg:flex xl:right-9"
         />
       </div>
 
-      <div className="relative overflow-hidden bg-[linear-gradient(90deg,#07263a_0%,#0a3047_52%,#083148_100%)]">
-        <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(25,213,255,0.32),transparent)]" />
-        <div className="absolute left-[34%] top-[-4.25rem] h-40 w-40 rounded-full border border-white/8 sm:h-52 sm:w-52" />
+      <div className="relative overflow-hidden bg-[#082634]">
+        <div className="absolute inset-x-0 top-0 h-px bg-white/14" />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 opacity-[0.11] [background-image:linear-gradient(rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:96px_96px]"
+        />
 
-        <Container className="grid gap-8 py-8 sm:py-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(21rem,0.84fr)] lg:gap-16 lg:py-12">
+        <Container className="grid gap-8 py-8 sm:py-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(21rem,0.78fr)] lg:gap-20 lg:py-[3.25rem]">
           <div>
+            <div className="mb-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/66">
+              <span className="h-px w-8 bg-[#52d3a2]" />
+              Auxano command view
+            </div>
             <h1
               ref={headlineRef}
-              className="max-w-5xl text-balance text-[2.7rem] font-semibold leading-[0.94] tracking-[-0.075em] text-white sm:text-[3.55rem] lg:text-[4.35rem]"
+              className="max-w-5xl text-balance text-[2.85rem] font-semibold leading-[0.94] tracking-[-0.065em] text-white sm:text-[3.8rem] lg:text-[4.7rem]"
             >
               {activeSlide.headline}
             </h1>
           </div>
 
-          <div className="lg:pt-2">
+          <div className="lg:pt-10">
             <p
               ref={descriptionRef}
-              className="max-w-xl text-pretty text-lg leading-8 text-white/88 sm:text-[1.45rem] sm:leading-[1.48] lg:text-[1.1rem] lg:leading-8"
+              className="max-w-xl text-pretty text-lg leading-8 text-white/84 sm:text-[1.35rem] sm:leading-[1.55] lg:text-[1.08rem] lg:leading-8"
             >
               {activeSlide.description}
             </p>
 
             <div
               ref={ctaWrapRef}
-              className="mt-7 flex flex-wrap items-center gap-4"
+              className="mt-7 flex flex-wrap items-center gap-3"
             >
               <ButtonLink
                 href={activeSlide.primaryCta.href}
                 variant="secondary"
-                className="!border-transparent !bg-white !px-7 !py-3.5 !text-base !font-semibold !text-[#061a28] shadow-[0_22px_55px_rgba(3,18,31,0.22)] hover:!border-transparent hover:!text-[#061a28]"
+                className="!rounded-sm !border-transparent !bg-white !px-6 !py-3.5 !text-base !font-semibold !text-[#061a28] shadow-[0_22px_55px_rgba(3,18,31,0.2)] hover:!-translate-y-0.5 hover:!border-transparent hover:!text-[#061a28]"
               >
                 {activeSlide.primaryCta.label}
+              </ButtonLink>
+              <ButtonLink
+                href="/estimate"
+                variant="ghost"
+                className="!rounded-sm !px-5 !py-3.5 !text-base !font-semibold !text-white/86 hover:!bg-white/8 hover:!text-white"
+              >
+                Estimate project
+                <ArrowRight className="ml-2 h-4 w-4" />
               </ButtonLink>
             </div>
 
@@ -446,7 +469,7 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
               activeIndex={activeIndex}
               countdownValue={countdownValue}
               onSelect={handleSelectSlide}
-              ringRefs={ringRefs}
+              ringRefs={mobileRingRefs}
               orientation="horizontal"
               className="mt-8 lg:hidden"
             />

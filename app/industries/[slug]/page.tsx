@@ -30,8 +30,39 @@ function getMappedServices(serviceSlugs: string[], services: Service[]) {
     .filter((service): service is Service => Boolean(service));
 }
 
+const industrySolutionCardImages: Partial<Record<string, ServiceNavMedia>> = {
+  "it-managed-services-staff-outsourcing": {
+    src: "/image/service_section/Operational_support.jpg",
+    alt: "Managed IT support engineer reviewing infrastructure operations in a data room",
+  },
+  "it-consultancy-audit-services": {
+    src: "/image/It_management.jpg",
+    alt: "IT consultant reviewing operational technology requirements on a tablet",
+  },
+  "it-technical-services": {
+    src: "/image/service_section/Operational_support.jpg",
+    alt: "Technical services engineer supporting business infrastructure operations",
+  },
+  "firewall-sales-licenses": {
+    src: "/image/service_section/Licensed.jpg",
+    alt: "Cybersecurity and firewall licensing concept for protected business systems",
+  },
+  "server-operating-system-licenses": {
+    src: "/image/software_and_licenses.jpg",
+    alt: "Server and software licensing workspace for compliant infrastructure deployment",
+  },
+  "applications-licenses": {
+    src: "/image/software_and_licenses.jpg",
+    alt: "Business application licensing workspace with secure software management",
+  },
+};
+
 function getServiceCardImage(service: Service): ServiceNavMedia {
-  return service.capabilitySections?.[0]?.image ?? service.navImage;
+  return (
+    service.capabilitySections?.[0]?.image ??
+    industrySolutionCardImages[service.slug] ??
+    service.navImage
+  );
 }
 
 export async function generateStaticParams() {

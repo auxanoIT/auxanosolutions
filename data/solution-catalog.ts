@@ -1941,6 +1941,96 @@ export const services: Service[] = [
       "Warranty-backed fulfillment",
     ],
     industries: ["Professional services", "Education", "Healthcare", "Retail"],
+    detailEyebrow: "Desktop and laptop supply capabilities",
+    detailTitle: "Desktop and laptop procurement matched to the role, budget, and deployment plan.",
+    detailDescription:
+      "The PDF frames this service as original hardware with professional setup and ongoing support. This page expands the sales scope into device selection, role fit, bulk procurement, and accessory readiness.",
+    capabilitySections: [
+      {
+        id: "desktop-laptop-workstations",
+        navLabel: "Devices",
+        title: "HP, Dell, Lenovo, Apple, desktops, laptops, and workstations across all tiers.",
+        lead:
+          "Hardware supply should start with what each user needs to do, not a single generic device choice.",
+        body: [
+          "Auxano helps clients source business-ready desktops, laptops, and workstations from recognized hardware ecosystems, with attention to performance, warranty, durability, and role fit.",
+          "That makes the purchase easier to defend commercially and easier to support technically after delivery.",
+        ],
+        points: [
+          "Desktop, laptop, and workstation supply",
+          "Business-grade device options",
+          "Performance matched to real workloads",
+          "Warranty-aware procurement",
+        ],
+        image: {
+          src: "/image/service-details/hardware-desktop-laptop-devices.webp",
+          alt: "Business desktops laptops and workstations prepared for professional deployment",
+        },
+      },
+      {
+        id: "business-consumer-fit",
+        navLabel: "Role fit",
+        title: "Business and consumer device choices matched to each role and budget.",
+        lead:
+          "A finance user, designer, field worker, executive, and front-desk team should not be forced into the same specification.",
+        body: [
+          "Auxano compares user role, application load, mobility, screen needs, storage, memory, and support expectations before recommending a hardware tier.",
+          "This keeps procurement controlled without underspecifying the people whose work depends on performance.",
+        ],
+        points: [
+          "Role-based specification guidance",
+          "Budget and workload balancing",
+          "User group planning",
+          "Reduced overspend and underspecification",
+        ],
+        image: {
+          src: "/image/service-details/hardware-role-fit.webp",
+          alt: "IT procurement team comparing business device specifications for different employee roles",
+        },
+      },
+      {
+        id: "hardware-bulk-procurement",
+        navLabel: "Bulk supply",
+        title: "Bulk procurement that is asset-tagged, delivered, and deployment-ready.",
+        lead:
+          "Large device orders need organization, tracking, and handover discipline from the moment they arrive.",
+        body: [
+          "Auxano can coordinate bulk device supply for growing teams, schools, offices, clinics, and multi-user environments, including asset tagging and delivery organization.",
+          "This helps internal teams know what was supplied, where it goes, and how it should be supported.",
+        ],
+        points: [
+          "Bulk procurement coordination",
+          "Asset-tagged delivery",
+          "Organized handover",
+          "Deployment-ready device batches",
+        ],
+        image: {
+          src: "/image/service-details/hardware-bulk-procurement.webp",
+          alt: "Asset-tagged laptops and business hardware prepared for bulk deployment",
+        },
+      },
+      {
+        id: "hardware-accessories",
+        navLabel: "Accessories",
+        title: "Monitors, docking stations, bags, peripherals, and supporting accessories.",
+        lead:
+          "The device is only ready for work when the accessories needed by the user are included in the plan.",
+        body: [
+          "Auxano can bundle displays, docking stations, UPS units, storage, keyboards, mice, bags, and related accessories around each role.",
+          "That reduces day-one gaps and prevents teams from losing time chasing small but essential items after delivery.",
+        ],
+        points: [
+          "Monitors and docking stations",
+          "Bags, peripherals, and storage",
+          "Accessory bundles by role",
+          "Cleaner day-one readiness",
+        ],
+        image: {
+          src: "/image/service-details/hardware-accessories.webp",
+          alt: "Professional IT accessories monitors docking stations and peripherals prepared for deployment",
+        },
+      },
+    ],
   }),
   buildService({
     slug: "computer-installation-setup",
@@ -1967,6 +2057,96 @@ export const services: Service[] = [
       "Deployment and support notes",
     ],
     industries: ["Corporate offices", "Retail", "Education", "Healthcare"],
+    detailEyebrow: "Computer setup capabilities",
+    detailTitle: "Computer installation and setup that makes every device ready from day one.",
+    detailDescription:
+      "The PDF breaks this service into OS and software, network and email connection, security hardening, and data migration. This page expands those steps into a professional setup flow for one PC or a hundred.",
+    capabilitySections: [
+      {
+        id: "os-software-setup",
+        navLabel: "OS & apps",
+        title: "Licensed Windows, Office suite, antivirus, and business apps installed correctly.",
+        lead:
+          "A new computer should arrive ready for actual work, with licensed software and core applications configured properly.",
+        body: [
+          "Auxano handles operating system setup, productivity apps, antivirus, browser and business application readiness, and basic device configuration.",
+          "The setup is applied consistently whether the scope is one device or a larger deployment batch.",
+        ],
+        points: [
+          "Operating system setup",
+          "Office and business app installation",
+          "Antivirus deployment",
+          "Consistent setup standard across devices",
+        ],
+        image: {
+          src: "/image/service-details/computer-setup-os-software.webp",
+          alt: "Technician configuring operating system and business software on new office computers",
+        },
+      },
+      {
+        id: "network-email-setup",
+        navLabel: "Network & email",
+        title: "Devices connected to the network, email, printers, and shared drives.",
+        lead:
+          "A configured computer is not complete until it can reach the services and shared resources users depend on.",
+        body: [
+          "Auxano connects devices to wired or wireless networks, business email, printers, shared drives, and common collaboration tools.",
+          "This reduces first-day support issues and helps users start work without repeated manual fixes.",
+        ],
+        points: [
+          "Network and WiFi connection",
+          "Email profile setup",
+          "Printer and shared drive access",
+          "Collaboration tool readiness",
+        ],
+        image: {
+          src: "/image/service-details/computer-setup-network-email.webp",
+          alt: "New office computer connected to business network email printers and shared drives",
+        },
+      },
+      {
+        id: "computer-security-hardening",
+        navLabel: "Hardening",
+        title: "Security hardening with firewall, updates, and unnecessary services controlled.",
+        lead:
+          "Device setup should reduce avoidable exposure before users start storing business data on the machine.",
+        body: [
+          "Auxano enables security baselines such as firewall settings, update configuration, antivirus readiness, local account hygiene, and unnecessary service review.",
+          "This gives each new endpoint a stronger starting posture before it enters daily use.",
+        ],
+        points: [
+          "Firewall and update configuration",
+          "Endpoint protection readiness",
+          "Unnecessary service review",
+          "Practical security baseline",
+        ],
+        image: {
+          src: "/image/service-details/computer-setup-security-hardening.webp",
+          alt: "Endpoint security hardening dashboard for newly configured business computers",
+        },
+      },
+      {
+        id: "computer-data-migration",
+        navLabel: "Migration",
+        title: "Files, emails, and settings moved from old machines to new machines.",
+        lead:
+          "Hardware refresh should preserve the user’s working context instead of leaving them to rebuild everything manually.",
+        body: [
+          "Auxano supports data migration from old devices to new ones, including business files, selected settings, mail profiles, and practical user handover checks.",
+          "This is especially useful during refresh projects where productivity loss is as important as the device purchase itself.",
+        ],
+        points: [
+          "File and profile migration",
+          "Email and selected settings transfer",
+          "Old-to-new device transition",
+          "User handover checks",
+        ],
+        image: {
+          src: "/image/service-details/computer-setup-data-migration.webp",
+          alt: "Technician migrating files and settings from an old computer to a new business laptop",
+        },
+      },
+    ],
   }),
   buildService({
     slug: "server-sales-repair",
@@ -1993,6 +2173,96 @@ export const services: Service[] = [
       "Support and maintenance notes",
     ],
     industries: ["Enterprise offices", "Healthcare", "Financial services", "Education"],
+    detailEyebrow: "Server sales and repair capabilities",
+    detailTitle: "Servers supplied, installed, diagnosed, repaired, and maintained around the workload.",
+    detailDescription:
+      "The PDF breaks server work into new server supply, hardware repair, RAID configuration, and OS deployment. This page expands those into an infrastructure-ready service flow.",
+    capabilitySections: [
+      {
+        id: "new-server-supply",
+        navLabel: "New servers",
+        title: "Tower, rack, and blade servers sized for your workload.",
+        lead:
+          "Server selection should be shaped by workload, resilience, storage, power, operating system, and future growth.",
+        body: [
+          "Auxano helps clients choose server hardware around the role it must play: file services, applications, virtualization, databases, backup, or branch operations.",
+          "The goal is a server platform that is supportable from the beginning rather than oversized, undersized, or poorly matched.",
+        ],
+        points: [
+          "Tower, rack, and blade server options",
+          "Workload-based sizing",
+          "Growth and resilience considerations",
+          "Installation-ready specification",
+        ],
+        image: {
+          src: "/image/service-details/server-new-supply.webp",
+          alt: "Enterprise server hardware prepared for workload-based installation",
+        },
+      },
+      {
+        id: "server-hardware-repair",
+        navLabel: "Repair",
+        title: "RAM, drives, RAID controllers, PSUs, and cooling replaced where faults require it.",
+        lead:
+          "Server repair should isolate the fault quickly while protecting the workload and data it supports.",
+        body: [
+          "Auxano diagnoses server hardware faults and supports part replacement across memory, storage, controllers, power, and cooling components.",
+          "The service is built around transparent diagnosis and practical restoration, not blind replacement.",
+        ],
+        points: [
+          "Server diagnostics",
+          "RAM, drive, PSU, and cooling replacement",
+          "RAID controller fault support",
+          "Repair notes and restoration guidance",
+        ],
+        image: {
+          src: "/image/service-details/server-hardware-repair.webp",
+          alt: "Engineer repairing server hardware components in a professional equipment room",
+        },
+      },
+      {
+        id: "server-raid-configuration",
+        navLabel: "RAID",
+        title: "RAID configuration for data protection through RAID 1, 5, 6, and 10.",
+        lead:
+          "RAID planning should be intentional, documented, and tested against the recovery expectations of the business.",
+        body: [
+          "Auxano configures RAID based on workload, capacity, performance, and recovery needs, then documents the selected protection model.",
+          "This gives the client a clearer view of how storage failure risk is being reduced.",
+        ],
+        points: [
+          "RAID 1, 5, 6, and 10 planning",
+          "Performance and protection tradeoffs",
+          "Storage resilience configuration",
+          "Recovery-aware documentation",
+        ],
+        image: {
+          src: "/image/service-details/server-raid-configuration.webp",
+          alt: "Server RAID configuration with storage drives and redundancy planning dashboard",
+        },
+      },
+      {
+        id: "server-os-deployment",
+        navLabel: "OS deploy",
+        title: "Windows Server, Ubuntu, Red Hat, and VMware ESXi installed and hardened.",
+        lead:
+          "A server is not ready until the operating platform is installed, secured, and aligned to its role.",
+        body: [
+          "Auxano deploys server operating systems and virtualization platforms with baseline hardening, service configuration, and handover notes.",
+          "That includes the practical work needed to prepare the server for business services rather than leaving it as bare hardware.",
+        ],
+        points: [
+          "Windows Server and Linux deployment",
+          "VMware ESXi readiness",
+          "Baseline hardening",
+          "Role-aligned service setup",
+        ],
+        image: {
+          src: "/image/service-details/server-os-deployment.webp",
+          alt: "Engineer deploying and hardening a server operating system in a data room",
+        },
+      },
+    ],
   }),
   buildService({
     slug: "server-storage-provisioning-deployment",
@@ -2019,6 +2289,96 @@ export const services: Service[] = [
       "Capacity and support guidance",
     ],
     industries: ["Healthcare", "Enterprise offices", "Creative teams", "Professional services"],
+    detailEyebrow: "Server storage capabilities",
+    detailTitle: "Server storage provisioned for collaboration, performance, redundancy, and growth.",
+    detailDescription:
+      "The PDF defines storage as scalable and protected from day one. This page expands NAS, SAN, RAID deployment, and capacity planning into a complete storage delivery story.",
+    capabilitySections: [
+      {
+        id: "nas-solutions",
+        navLabel: "NAS",
+        title: "NAS solutions for file sharing, backup, and collaboration.",
+        lead:
+          "Network-attached storage gives teams a structured place to share, protect, and organize business data.",
+        body: [
+          "Auxano provisions NAS platforms around file access, user permissions, backup expectations, storage pools, and collaboration needs.",
+          "This is suitable for offices, creative teams, healthcare environments, and businesses that need centralized file storage without unnecessary complexity.",
+        ],
+        points: [
+          "NAS platform provisioning",
+          "File sharing and collaboration",
+          "Backup-aware storage setup",
+          "User and permission planning",
+        ],
+        image: {
+          src: "/image/service-details/storage-nas-solutions.webp",
+          alt: "NAS storage appliance provisioned for business file sharing and backup",
+        },
+      },
+      {
+        id: "san-solutions",
+        navLabel: "SAN",
+        title: "SAN solutions for virtualization, databases, and high-performance shared storage.",
+        lead:
+          "Performance-sensitive workloads need shared storage that is planned for throughput, resilience, and host access.",
+        body: [
+          "Auxano helps design and deploy SAN storage where virtualization, databases, and shared high-performance workloads require stronger storage architecture.",
+          "The scope considers connectivity, redundancy, workload profile, and the infrastructure that will consume the storage.",
+        ],
+        points: [
+          "SAN storage planning",
+          "Virtualization and database support",
+          "High-performance shared storage",
+          "Host and connectivity alignment",
+        ],
+        image: {
+          src: "/image/service-details/storage-san-solutions.webp",
+          alt: "SAN shared storage infrastructure connected to virtualization servers",
+        },
+      },
+      {
+        id: "storage-raid-deployment",
+        navLabel: "RAID",
+        title: "RAID deployment with redundant storage and tested recovery procedures.",
+        lead:
+          "Redundancy should be built into storage design, not bolted on after the first failure.",
+        body: [
+          "Auxano configures RAID and recovery procedures around the storage platform and the business impact of data loss or downtime.",
+          "Testing and documentation help confirm that protection is practical, not just theoretical.",
+        ],
+        points: [
+          "Redundant storage configuration",
+          "Recovery procedure planning",
+          "RAID testing and documentation",
+          "Reduced storage failure risk",
+        ],
+        image: {
+          src: "/image/service-details/storage-raid-deployment.webp",
+          alt: "RAID storage deployment with redundant drive bays and recovery procedure review",
+        },
+      },
+      {
+        id: "storage-capacity-planning",
+        navLabel: "Capacity",
+        title: "Capacity planning that forecasts storage needs before space runs out.",
+        lead:
+          "Storage projects should include the growth curve, not only the space needed on the day of installation.",
+        body: [
+          "Auxano estimates current use, growth rate, retention needs, backup requirements, and workload behavior before recommending capacity.",
+          "That helps the client avoid emergency expansion and protects the storage investment for longer.",
+        ],
+        points: [
+          "Storage growth forecasting",
+          "Retention and backup considerations",
+          "Capacity headroom planning",
+          "Expansion-ready recommendation",
+        ],
+        image: {
+          src: "/image/service-details/storage-capacity-planning.webp",
+          alt: "Storage capacity planning dashboard and server storage growth forecast",
+        },
+      },
+    ],
   }),
   buildService({
     slug: "printer-sales-installation",
@@ -2045,6 +2405,96 @@ export const services: Service[] = [
       "User and support notes",
     ],
     industries: ["Retail", "Warehousing", "Corporate offices", "Healthcare"],
+    detailEyebrow: "Printer supply and installation capabilities",
+    detailTitle: "Printers supplied, networked, managed, and tested before handover.",
+    detailDescription:
+      "The PDF breaks printer services into office printers, label and receipt printers, network setup, and print management. This page expands each item into a practical printer delivery flow.",
+    capabilitySections: [
+      {
+        id: "office-printer-supply",
+        navLabel: "Office printers",
+        title: "Laser, inkjet, and multifunction printers matched to business use.",
+        lead:
+          "The right printer depends on volume, output type, user behavior, maintenance expectations, and network integration.",
+        body: [
+          "Auxano supplies and installs office printers for teams that need dependable printing, scanning, copying, and shared use across departments.",
+          "The recommendation considers workload and operating cost instead of treating every printer as interchangeable.",
+        ],
+        points: [
+          "Laser, inkjet, and multifunction options",
+          "Office workload matching",
+          "Scanning and copying readiness",
+          "Installed and tested before handover",
+        ],
+        image: {
+          src: "/image/service-details/printer-office-supply.webp",
+          alt: "Modern office multifunction printer installed and ready for business use",
+        },
+      },
+      {
+        id: "label-receipt-printers",
+        navLabel: "Label printers",
+        title: "Thermal, barcode, label, and receipt printers for logistics, retail, and warehousing.",
+        lead:
+          "Specialist printers need to match the workflow, label size, media type, and application that drives them.",
+        body: [
+          "Auxano supports label and receipt printer deployment for logistics, warehousing, point-of-sale, inventory, and operational workflows.",
+          "The scope can include device selection, connection, driver setup, testing, and user handover.",
+        ],
+        points: [
+          "Thermal and barcode printer support",
+          "Receipt printer setup",
+          "Retail and warehouse workflows",
+          "Driver and media testing",
+        ],
+        image: {
+          src: "/image/service-details/printer-label-receipt.webp",
+          alt: "Label barcode and receipt printers set up for retail and warehouse operations",
+        },
+      },
+      {
+        id: "printer-network-setup",
+        navLabel: "Network setup",
+        title: "Printers shared across Windows, Mac, and mobile devices.",
+        lead:
+          "Printer installation is complete only when the right users can print reliably from the devices they actually use.",
+        body: [
+          "Auxano configures printer access across wired, wireless, Windows, Mac, and mobile environments, with testing before handover.",
+          "This reduces repeated support calls and makes shared printing more predictable.",
+        ],
+        points: [
+          "Network printer setup",
+          "Windows, Mac, and mobile support",
+          "Shared print access",
+          "Connectivity and print testing",
+        ],
+        image: {
+          src: "/image/service-details/printer-network-setup.webp",
+          alt: "Network printer setup across office laptops mobile devices and shared print users",
+        },
+      },
+      {
+        id: "print-management",
+        navLabel: "Management",
+        title: "Print management to track and reduce printing costs organization-wide.",
+        lead:
+          "Print environments are easier to control when usage, cost, access, and support are visible.",
+        body: [
+          "Auxano can help structure print management so organizations understand device usage, reduce waste, and support the right printer policy.",
+          "This matters for offices, schools, healthcare environments, and any business where printing cost or accountability is a recurring concern.",
+        ],
+        points: [
+          "Print usage visibility",
+          "Cost-reduction planning",
+          "User and policy control",
+          "Organization-wide print oversight",
+        ],
+        image: {
+          src: "/image/service-details/printer-print-management.webp",
+          alt: "Print management dashboard for tracking organization-wide printer usage and costs",
+        },
+      },
+    ],
   }),
   buildService({
     slug: "firewall-sales-licenses",
@@ -2071,6 +2521,96 @@ export const services: Service[] = [
       "Renewal and support guidance",
     ],
     industries: ["Professional services", "Healthcare", "Education", "Retail"],
+    detailEyebrow: "Firewall licensing capabilities",
+    detailTitle: "Firewall platforms licensed, configured, and managed for the environment they protect.",
+    detailDescription:
+      "The PDF positions firewall licensing as the first line of defence, properly configured. This flow breaks the service into platform fit, enterprise-grade options, and renewal management so protection does not lapse.",
+    capabilitySections: [
+      {
+        id: "firewall-performance-value",
+        navLabel: "Performance",
+        title: "Firewall platforms selected for performance, value, and real network demand.",
+        lead:
+          "A firewall should match bandwidth, user count, site risk, VPN needs, and inspection requirements before it is purchased.",
+        body: [
+          "Auxano helps clients choose firewall hardware and licenses around the actual environment instead of leaving the device at default assumptions.",
+          "The result is a security edge that is sized, licensed, and ready to be configured for the business.",
+        ],
+        points: [
+          "Firewall sizing and platform fit",
+          "Performance and value review",
+          "License feature alignment",
+          "Environment-specific recommendation",
+        ],
+        image: {
+          src: "/image/service-details/software-firewall-performance.webp",
+          alt: "Enterprise firewall appliance and security dashboard prepared for business network protection",
+        },
+      },
+      {
+        id: "firewall-endpoint-sync",
+        navLabel: "Endpoint sync",
+        title: "Synchronized security across firewall and endpoint protection.",
+        lead:
+          "Firewall value increases when the wider security stack can share visibility and response context.",
+        body: [
+          "Auxano can align firewall licensing with endpoint security needs, monitoring expectations, and user behavior so perimeter and device protection work together.",
+          "This supports stronger threat response than isolated tools managed in separate silos.",
+        ],
+        points: [
+          "Firewall and endpoint alignment",
+          "Central security visibility",
+          "Threat response context",
+          "Protection beyond default setup",
+        ],
+        image: {
+          src: "/image/service-details/software-firewall-endpoint-sync.webp",
+          alt: "Firewall and endpoint security monitoring displayed on a centralized operations dashboard",
+        },
+      },
+      {
+        id: "enterprise-firewall-complex",
+        navLabel: "Enterprise",
+        title: "Enterprise-grade firewall options for complex environments.",
+        lead:
+          "Larger environments need more than basic filtering; they need segmentation, inspection, policy control, and resilience.",
+        body: [
+          "Auxano scopes firewall needs for complex sites, multi-branch networks, regulated teams, and environments with heavier security requirements.",
+          "The service can support advanced firewall platforms where the network requires deeper controls and stronger governance.",
+        ],
+        points: [
+          "Complex environment support",
+          "Policy and segmentation planning",
+          "Enterprise security control fit",
+          "Governance-aware deployment",
+        ],
+        image: {
+          src: "/image/service-details/software-firewall-enterprise.webp",
+          alt: "Enterprise firewall architecture protecting a complex multi-site business network",
+        },
+      },
+      {
+        id: "firewall-renewal-management",
+        navLabel: "Renewals",
+        title: "Renewal management so firewall protection never quietly lapses.",
+        lead:
+          "Security licenses lose value when expiry dates are unmanaged and protection lapses unnoticed.",
+        body: [
+          "Auxano tracks renewal needs, expiry timing, license coverage, and upgrade windows so the client can plan before protection is interrupted.",
+          "That keeps the firewall useful as an active security control, not a forgotten appliance.",
+        ],
+        points: [
+          "Expiry tracking",
+          "Renewal planning",
+          "Coverage continuity",
+          "Upgrade and license guidance",
+        ],
+        image: {
+          src: "/image/service-details/software-firewall-renewals.webp",
+          alt: "Firewall license renewal calendar and security coverage dashboard",
+        },
+      },
+    ],
   }),
   buildService({
     slug: "antivirus-licenses",
@@ -2097,6 +2637,96 @@ export const services: Service[] = [
       "Coverage and renewal guidance",
     ],
     industries: ["Corporate offices", "Retail", "Education", "Healthcare"],
+    detailEyebrow: "Antivirus licensing capabilities",
+    detailTitle: "Endpoint protection licensed, deployed, and monitored across the business fleet.",
+    detailDescription:
+      "The PDF emphasizes that Auxano does not just sell a key. This page expands antivirus licensing into vendor fit, central console setup, ransomware protection, and deployment across devices.",
+    capabilitySections: [
+      {
+        id: "antivirus-vendor-fit",
+        navLabel: "Vendor fit",
+        title: "Endpoint protection matched to budget, risk profile, and device estate.",
+        lead:
+          "The best antivirus choice depends on how many devices need protection and what level of risk the business carries.",
+        body: [
+          "Auxano compares endpoint protection options against budget, management needs, risk exposure, and the support model expected after deployment.",
+          "The recommendation is practical: the goal is a solution the client can afford, manage, and trust.",
+        ],
+        points: [
+          "Budget and risk-profile review",
+          "Endpoint estate assessment",
+          "Vendor-fit recommendation",
+          "License coverage planning",
+        ],
+        image: {
+          src: "/image/service-details/software-antivirus-vendor-fit.webp",
+          alt: "Endpoint security product comparison and antivirus license planning workspace",
+        },
+      },
+      {
+        id: "antivirus-central-console",
+        navLabel: "Console",
+        title: "Central management console for monitoring all protected devices.",
+        lead:
+          "Endpoint security becomes more useful when coverage and incidents are visible from one place.",
+        body: [
+          "Auxano configures central management so administrators can see protected devices, coverage gaps, alerts, and policy status.",
+          "This helps the business move beyond one-by-one installation into fleet-level control.",
+        ],
+        points: [
+          "Central console setup",
+          "Device coverage visibility",
+          "Policy and alert monitoring",
+          "Fleet-level endpoint management",
+        ],
+        image: {
+          src: "/image/service-details/software-antivirus-console.webp",
+          alt: "Central antivirus management console monitoring protected business devices",
+        },
+      },
+      {
+        id: "ransomware-protection",
+        navLabel: "Ransomware",
+        title: "Ransomware protection treated as a critical business control.",
+        lead:
+          "Modern endpoint protection must account for ransomware, not only traditional virus detection.",
+        body: [
+          "Auxano helps configure endpoint protection around ransomware risk, user behavior, update discipline, and the response path when suspicious activity appears.",
+          "This gives businesses a stronger practical defence against one of the most disruptive endpoint threats.",
+        ],
+        points: [
+          "Ransomware protection coverage",
+          "Suspicious activity monitoring",
+          "User and device risk awareness",
+          "Endpoint response readiness",
+        ],
+        image: {
+          src: "/image/service-details/software-antivirus-ransomware.webp",
+          alt: "Ransomware protection dashboard showing protected endpoints and threat alerts",
+        },
+      },
+      {
+        id: "antivirus-deployment-included",
+        navLabel: "Deployment",
+        title: "Deployment included across the fleet, not left to the client.",
+        lead:
+          "A license is not the same as protection until it is installed, configured, and verified.",
+        body: [
+          "Auxano deploys antivirus software across business devices, confirms coverage, and provides practical guidance for ongoing monitoring and renewal.",
+          "That closes the gap between procurement and actual protection.",
+        ],
+        points: [
+          "Installation across user devices",
+          "Coverage verification",
+          "Baseline policy configuration",
+          "Renewal and support guidance",
+        ],
+        image: {
+          src: "/image/service-details/software-antivirus-deployment.webp",
+          alt: "Technician deploying endpoint protection across business laptops",
+        },
+      },
+    ],
   }),
   buildService({
     slug: "windows-operating-system-licenses",
@@ -2123,6 +2753,96 @@ export const services: Service[] = [
       "Organization-ready documentation",
     ],
     industries: ["Corporate offices", "Education", "Healthcare", "Professional services"],
+    detailEyebrow: "Windows licensing capabilities",
+    detailTitle: "Genuine Windows licensing with compliance visibility and clean documentation.",
+    detailDescription:
+      "The PDF frames Windows licensing around secure, updated, compliant systems. This page expands the service into edition selection, volume licensing, documentation, and audit clarity.",
+    capabilitySections: [
+      {
+        id: "windows-editions",
+        navLabel: "Editions",
+        title: "Windows editions selected for individuals, teams, and organizations.",
+        lead:
+          "The right Windows edition depends on device role, security needs, management requirements, and user type.",
+        body: [
+          "Auxano helps clients choose Windows licensing options for individual users, teams, and business environments that need genuine, supportable operating systems.",
+          "This keeps devices properly activated and easier to manage.",
+        ],
+        points: [
+          "Windows Home, Pro, and Business guidance",
+          "Role-based edition selection",
+          "Genuine license sourcing",
+          "Secure and update-ready devices",
+        ],
+        image: {
+          src: "/image/service-details/software-windows-editions.webp",
+          alt: "Genuine Windows operating system license planning for business devices",
+        },
+      },
+      {
+        id: "windows-volume-licensing",
+        navLabel: "Volume",
+        title: "Volume licensing for organizations with multiple devices.",
+        lead:
+          "Teams with several devices need a licensing approach that is easier to track than scattered individual keys.",
+        body: [
+          "Auxano supports volume licensing conversations where organizations need cost-effective, documented, and centrally understandable license coverage.",
+          "This is useful for refresh projects, new offices, schools, and growing businesses.",
+        ],
+        points: [
+          "Volume licensing guidance",
+          "Multi-device cost efficiency",
+          "Organization-level license planning",
+          "Procurement support for device fleets",
+        ],
+        image: {
+          src: "/image/service-details/software-windows-volume.webp",
+          alt: "Volume operating system licensing dashboard for a business device fleet",
+        },
+      },
+      {
+        id: "windows-compliance-documentation",
+        navLabel: "Compliance",
+        title: "Compliance documentation registered in the organization's name.",
+        lead:
+          "Licensing should leave the business with records it can defend during review or audit.",
+        body: [
+          "Auxano helps preserve license documentation and procurement records so the client has a cleaner compliance position.",
+          "That documentation is part of the value of buying properly, not a side detail.",
+        ],
+        points: [
+          "License record support",
+          "Organization-ready documentation",
+          "Proof of genuine software",
+          "Cleaner compliance posture",
+        ],
+        image: {
+          src: "/image/service-details/software-windows-compliance.webp",
+          alt: "Operating system license compliance documentation reviewed on a business workstation",
+        },
+      },
+      {
+        id: "windows-license-audit",
+        navLabel: "Audit",
+        title: "License audit visibility so the business knows where OS licensing stands.",
+        lead:
+          "An audit view helps teams identify gaps before licensing becomes a procurement or compliance problem.",
+        body: [
+          "Auxano can help review existing operating system license coverage, document device status, and recommend remediation where gaps exist.",
+          "This gives decision-makers a clearer view of what is compliant, what is missing, and what should be cleaned up.",
+        ],
+        points: [
+          "OS license estate review",
+          "Coverage gap identification",
+          "Audit-ready visibility",
+          "Remediation recommendation",
+        ],
+        image: {
+          src: "/image/service-details/software-windows-audit.webp",
+          alt: "Windows license audit dashboard showing business device compliance status",
+        },
+      },
+    ],
   }),
   buildService({
     slug: "server-operating-system-licenses",
@@ -2149,6 +2869,96 @@ export const services: Service[] = [
       "Security and support notes",
     ],
     industries: ["Enterprise offices", "Healthcare", "Financial services", "Education"],
+    detailEyebrow: "Server OS licensing capabilities",
+    detailTitle: "Server operating systems licensed, installed, hardened, and aligned to their infrastructure role.",
+    detailDescription:
+      "The PDF names Windows Server, Red Hat, Ubuntu Server LTS, and VMware vSphere/ESXi. This page expands each platform option into a practical deployment and licensing story.",
+    capabilitySections: [
+      {
+        id: "windows-server-platform",
+        navLabel: "Windows Server",
+        title: "Windows Server for Active Directory, RDS, Hyper-V, and file services.",
+        lead:
+          "Windows Server licensing should match the roles the business expects the server to carry.",
+        body: [
+          "Auxano supports Windows Server licensing, installation, and configuration around directory services, remote desktop services, virtualization, and shared file needs.",
+          "The deployment can include AD, DNS, DHCP, Group Policy, and baseline hardening where required.",
+        ],
+        points: [
+          "Windows Server licensing",
+          "AD, DNS, DHCP, and Group Policy",
+          "RDS, Hyper-V, and file services",
+          "Installation and hardening included",
+        ],
+        image: {
+          src: "/image/service-details/software-server-windows.webp",
+          alt: "Windows Server platform deployment dashboard in a business server room",
+        },
+      },
+      {
+        id: "red-hat-linux-platform",
+        navLabel: "Red Hat",
+        title: "Red Hat Enterprise Linux for critical Linux workloads.",
+        lead:
+          "Commercial Linux workloads often need supportability, lifecycle clarity, and hardened deployment.",
+        body: [
+          "Auxano helps clients license and deploy Red Hat Enterprise Linux where critical workloads require a commercially supported Linux platform.",
+          "The scope can include installation, baseline hardening, service readiness, and handover documentation.",
+        ],
+        points: [
+          "Commercial Linux licensing",
+          "Critical workload support",
+          "Secure installation",
+          "Operational handover notes",
+        ],
+        image: {
+          src: "/image/service-details/software-server-redhat.webp",
+          alt: "Enterprise Linux server deployment with secure command console and server racks",
+        },
+      },
+      {
+        id: "ubuntu-server-platform",
+        navLabel: "Ubuntu",
+        title: "Ubuntu Server LTS for web, database, and open-source environments.",
+        lead:
+          "Ubuntu Server fits many modern workloads when it is installed and governed properly.",
+        body: [
+          "Auxano deploys Ubuntu Server LTS for web, database, application, and open-source infrastructure needs, with the baseline setup required for production readiness.",
+          "The service helps avoid informal server builds that become hard to patch or support later.",
+        ],
+        points: [
+          "Ubuntu Server LTS deployment",
+          "Web and database workload readiness",
+          "Open-source environment support",
+          "Patch and hardening guidance",
+        ],
+        image: {
+          src: "/image/service-details/software-server-ubuntu.webp",
+          alt: "Ubuntu server deployment workstation connected to business server infrastructure",
+        },
+      },
+      {
+        id: "vmware-vsphere-platform",
+        navLabel: "VMware",
+        title: "VMware vSphere and ESXi for virtualized infrastructure.",
+        lead:
+          "Virtualization can reduce hardware cost and improve flexibility when it is planned around real workloads.",
+        body: [
+          "Auxano supports VMware licensing and deployment for organizations consolidating services, improving resilience, or modernizing server infrastructure.",
+          "The work can include host readiness, storage awareness, network planning, and handover of the virtualized platform.",
+        ],
+        points: [
+          "VMware vSphere and ESXi support",
+          "Infrastructure virtualization",
+          "Host and storage readiness",
+          "Hardware cost optimization",
+        ],
+        image: {
+          src: "/image/service-details/software-server-vmware.webp",
+          alt: "Virtualized server infrastructure dashboard with multiple virtual machines and host resources",
+        },
+      },
+    ],
   }),
   buildService({
     slug: "database-software-licenses",
@@ -2175,6 +2985,96 @@ export const services: Service[] = [
       "Operational support guidance",
     ],
     industries: ["Healthcare", "Professional services", "Financial services", "Operations-heavy SMEs"],
+    detailEyebrow: "Database software capabilities",
+    detailTitle: "Database software licensed, deployed, tuned, backed up, and managed for availability.",
+    detailDescription:
+      "The PDF groups database licensing around SQL Server, open-source relational databases, MongoDB, and backup/recovery configuration. This flow expands each database path into a practical delivery section.",
+    capabilitySections: [
+      {
+        id: "microsoft-sql-server",
+        navLabel: "SQL Server",
+        title: "Microsoft SQL Server licensing for business applications.",
+        lead:
+          "Business applications need a database platform that is correctly licensed, configured, and protected.",
+        body: [
+          "Auxano supports SQL Server licensing conversations and deployment planning for standard and enterprise application workloads.",
+          "The goal is a database environment that is supportable, performant, and aligned to the application it serves.",
+        ],
+        points: [
+          "SQL Server licensing support",
+          "Business application readiness",
+          "Standard and enterprise workload planning",
+          "Performance-aware deployment",
+        ],
+        image: {
+          src: "/image/service-details/software-database-sql.webp",
+          alt: "SQL Server database platform dashboard for business application workloads",
+        },
+      },
+      {
+        id: "open-source-relational-databases",
+        navLabel: "Relational",
+        title: "MySQL, MariaDB, and PostgreSQL for open-source relational workloads.",
+        lead:
+          "Open-source databases still need professional deployment, tuning, backup, and governance.",
+        body: [
+          "Auxano deploys relational database platforms around application requirements, user load, storage needs, and operational support expectations.",
+          "This helps clients use open-source databases without treating them as unmanaged technical shortcuts.",
+        ],
+        points: [
+          "MySQL, MariaDB, and PostgreSQL support",
+          "Application-aligned deployment",
+          "Performance and storage planning",
+          "Operational support guidance",
+        ],
+        image: {
+          src: "/image/service-details/software-database-relational.webp",
+          alt: "Open-source relational database architecture dashboard and server environment",
+        },
+      },
+      {
+        id: "mongodb-nosql",
+        navLabel: "NoSQL",
+        title: "MongoDB and NoSQL support for modern application workloads.",
+        lead:
+          "Modern application data may require flexible document storage instead of a purely relational model.",
+        body: [
+          "Auxano supports NoSQL database deployment where the application workload calls for flexible schema design, high-volume data, or modern development patterns.",
+          "The scope can include configuration, access planning, backup awareness, and support notes.",
+        ],
+        points: [
+          "MongoDB and NoSQL workload support",
+          "Modern application alignment",
+          "Access and configuration planning",
+          "Backup-aware deployment",
+        ],
+        image: {
+          src: "/image/service-details/software-database-mongodb.webp",
+          alt: "NoSQL database dashboard for modern application workloads",
+        },
+      },
+      {
+        id: "database-backup-recovery",
+        navLabel: "Recovery",
+        title: "Automated backup and tested recovery configuration.",
+        lead:
+          "A database is not properly managed until backup and restore behavior has been planned and tested.",
+        body: [
+          "Auxano configures backup schedules, retention expectations, restore procedures, and recovery checks around the criticality of the database.",
+          "This protects availability and reduces panic when data loss, corruption, or server failure occurs.",
+        ],
+        points: [
+          "Automated backup configuration",
+          "Retention and restore planning",
+          "Tested recovery procedures",
+          "Availability-focused management",
+        ],
+        image: {
+          src: "/image/service-details/software-database-backup.webp",
+          alt: "Database backup and recovery dashboard with protected server storage",
+        },
+      },
+    ],
   }),
   buildService({
     slug: "cloud-services-licenses",
@@ -2201,6 +3101,96 @@ export const services: Service[] = [
       "Subscription and support guidance",
     ],
     industries: ["Professional services", "Education", "Healthcare", "Retail"],
+    detailEyebrow: "Cloud licensing capabilities",
+    detailTitle: "Cloud services licensed, migrated, configured, and optimized by people who understand the platform.",
+    detailDescription:
+      "The PDF breaks cloud services into Microsoft 365, Google Workspace, Azure and AWS, and subscription management. This page turns that into an operational licensing and configuration flow.",
+    capabilitySections: [
+      {
+        id: "microsoft-365-services",
+        navLabel: "Microsoft 365",
+        title: "Microsoft 365 for Word, Excel, Teams, Outlook, SharePoint, and OneDrive.",
+        lead:
+          "Microsoft 365 value depends on licensing, identity, email, collaboration, storage, and user adoption being configured together.",
+        body: [
+          "Auxano supports Microsoft 365 licensing, tenant setup, user provisioning, email configuration, Teams readiness, SharePoint structure, and OneDrive adoption.",
+          "The service can include migration and practical configuration so the subscription becomes a working environment.",
+        ],
+        points: [
+          "Microsoft 365 licensing",
+          "Email, Teams, SharePoint, and OneDrive setup",
+          "Tenant and user provisioning",
+          "Migration and configuration support",
+        ],
+        image: {
+          src: "/image/service-details/software-cloud-microsoft-365.webp",
+          alt: "Microsoft 365 cloud workspace dashboard with email collaboration and document storage",
+        },
+      },
+      {
+        id: "google-workspace-services",
+        navLabel: "Google Workspace",
+        title: "Google Workspace for Gmail, Docs, Drive, Meet, and Calendar.",
+        lead:
+          "Google Workspace should be configured around users, files, meetings, identity, and administration.",
+        body: [
+          "Auxano helps clients license and configure Google Workspace for communication, collaboration, cloud storage, meetings, and team administration.",
+          "This gives organizations a cleaner path from subscription purchase to working cloud environment.",
+        ],
+        points: [
+          "Google Workspace licensing",
+          "Gmail, Drive, Docs, Meet, and Calendar setup",
+          "User and admin configuration",
+          "Collaboration-ready deployment",
+        ],
+        image: {
+          src: "/image/service-details/software-cloud-google-workspace.webp",
+          alt: "Cloud collaboration workspace dashboard with mail documents drive and calendar tools",
+        },
+      },
+      {
+        id: "azure-aws-services",
+        navLabel: "Azure & AWS",
+        title: "Microsoft Azure and AWS for cloud infrastructure and platform services.",
+        lead:
+          "Cloud infrastructure needs design discipline, cost awareness, security, and operational ownership.",
+        body: [
+          "Auxano supports Azure and AWS licensing and platform conversations around infrastructure, hosting, identity, storage, networking, and application needs.",
+          "The work can include environment configuration, migration planning, and operational guidance.",
+        ],
+        points: [
+          "Azure and AWS platform support",
+          "Cloud infrastructure planning",
+          "Security and cost-awareness",
+          "Migration and environment setup",
+        ],
+        image: {
+          src: "/image/service-details/software-cloud-azure-aws.webp",
+          alt: "Cloud infrastructure dashboard for Azure and AWS platform services",
+        },
+      },
+      {
+        id: "cloud-subscription-management",
+        navLabel: "Subscriptions",
+        title: "Subscription management so renewals, spend, and lapses stay under control.",
+        lead:
+          "Cloud subscriptions can waste money quickly when licenses are unmanaged or renewals are missed.",
+        body: [
+          "Auxano tracks subscriptions, renewal dates, user allocation, and optimization opportunities so the client avoids waste and service interruption.",
+          "That keeps the cloud environment commercially controlled as well as technically configured.",
+        ],
+        points: [
+          "Renewal tracking",
+          "License allocation review",
+          "Spend optimization",
+          "No waste and no lapses",
+        ],
+        image: {
+          src: "/image/service-details/software-cloud-subscriptions.webp",
+          alt: "Cloud subscription management dashboard showing renewal tracking and spend optimization",
+        },
+      },
+    ],
   }),
   buildService({
     slug: "applications-licenses",
@@ -2227,6 +3217,96 @@ export const services: Service[] = [
       "Renewal visibility where applicable",
     ],
     industries: ["Professional services", "Creative teams", "Engineering firms", "Corporate offices"],
+    detailEyebrow: "Application licensing capabilities",
+    detailTitle: "Business application licenses sourced, activated, documented, and ready for teams.",
+    detailDescription:
+      "The PDF lists Microsoft Office, Adobe Creative Cloud, AutoCAD and Autodesk, plus accounting, remote access, and PDF tools. This page expands each application category into a clear licensing path.",
+    capabilitySections: [
+      {
+        id: "microsoft-office-licenses",
+        navLabel: "Office",
+        title: "Microsoft Office perpetual and subscription licensing.",
+        lead:
+          "Office licensing should match how teams create documents, collaborate, and manage email or productivity workflows.",
+        body: [
+          "Auxano sources Office licenses and helps clients choose between perpetual and subscription models based on business requirements.",
+          "The goal is genuine, activated software with cleaner procurement records.",
+        ],
+        points: [
+          "Office perpetual and subscription options",
+          "Productivity software licensing",
+          "Activation and documentation support",
+          "Business-fit recommendation",
+        ],
+        image: {
+          src: "/image/service-details/software-app-office.webp",
+          alt: "Office productivity application licensing dashboard on a business laptop",
+        },
+      },
+      {
+        id: "adobe-creative-cloud-licenses",
+        navLabel: "Creative",
+        title: "Adobe Creative Cloud licensing for design, video, and marketing teams.",
+        lead:
+          "Creative teams need the right application access without compliance gaps or procurement confusion.",
+        body: [
+          "Auxano supports creative software licensing for design, video editing, marketing production, and content teams that need reliable access to professional tools.",
+          "The service helps align licenses with roles and renewal expectations.",
+        ],
+        points: [
+          "Creative suite license sourcing",
+          "Design and video workflow support",
+          "Role-based licensing",
+          "Renewal visibility",
+        ],
+        image: {
+          src: "/image/service-details/software-app-adobe.webp",
+          alt: "Creative design workstation with licensed design and video application tools",
+        },
+      },
+      {
+        id: "autocad-autodesk-licenses",
+        navLabel: "Engineering",
+        title: "AutoCAD and Autodesk licensing for engineers and architects.",
+        lead:
+          "Engineering and architecture tools need licensing that fits project teams, device performance, and compliance expectations.",
+        body: [
+          "Auxano sources CAD and engineering application licenses for teams that need specialist software for design, architecture, drawing, and technical production.",
+          "The recommendation can account for user roles, subscription needs, and procurement timing.",
+        ],
+        points: [
+          "CAD and Autodesk license sourcing",
+          "Architecture and engineering workflows",
+          "Specialist software procurement",
+          "User-role alignment",
+        ],
+        image: {
+          src: "/image/service-details/software-app-autodesk.webp",
+          alt: "Engineering workstation with CAD software license planning and technical drawings",
+        },
+      },
+      {
+        id: "business-tools-licenses",
+        navLabel: "Business tools",
+        title: "Accounting, remote access, PDF tools, and specialist software sourced on request.",
+        lead:
+          "Business teams often need practical tools beyond the headline software suites.",
+        body: [
+          "Auxano can source accounting software, remote access tools, PDF applications, and other specialist licenses when a team needs legitimate, documented software.",
+          "If a license is not listed, the team can still ask; the service is designed to support broad software sourcing.",
+        ],
+        points: [
+          "Accounting software licenses",
+          "Remote access and PDF tools",
+          "Specialist software sourcing",
+          "Procurement documentation",
+        ],
+        image: {
+          src: "/image/service-details/software-app-business-tools.webp",
+          alt: "Business software licensing workspace with accounting remote access and PDF tool dashboards",
+        },
+      },
+    ],
   }),
   buildService({
     slug: "it-technical-services",
@@ -2253,6 +3333,96 @@ export const services: Service[] = [
       "Operational follow-up guidance",
     ],
     industries: ["Corporate offices", "Retail", "Education", "Healthcare"],
+    detailEyebrow: "IT technical service capabilities",
+    detailTitle: "Technical support structured for quick response, clear ownership, and lower downtime.",
+    detailDescription:
+      "The PDF positions IT technical services as hands-on support that can work remotely or on site. This page turns that into a practical support model across help desk, field dispatch, system administration, and break/fix intervention.",
+    capabilitySections: [
+      {
+        id: "help-desk-support",
+        navLabel: "Help desk",
+        title: "First and second-line support for hardware, software, and network issues.",
+        lead:
+          "Users need a clear route to support when devices, applications, accounts, or connectivity interrupt the workday.",
+        body: [
+          "Auxano handles first-line triage and second-line escalation so issues are categorized, prioritized, and resolved without leaving users to chase multiple vendors.",
+          "The support path covers common endpoint problems, software faults, email issues, network symptoms, and user access concerns.",
+        ],
+        points: [
+          "First and second-line support",
+          "Hardware and software issue triage",
+          "Network fault escalation",
+          "Clear issue notes and follow-up",
+        ],
+        image: {
+          src: "/image/service-details/managed-technical-help-desk.webp",
+          alt: "IT help desk engineer resolving support tickets from a professional support workstation",
+        },
+      },
+      {
+        id: "onsite-engineer-dispatch",
+        navLabel: "On-site",
+        title: "Engineer dispatch when remote support is not enough.",
+        lead:
+          "Some problems need a qualified person at the desk, rack, device, or site before the root cause can be confirmed.",
+        body: [
+          "When remote diagnosis reaches its limit, Auxano can dispatch on-site engineers to inspect hardware, cabling, access, power, network points, and user workstations directly.",
+          "That field presence helps reduce delays when the issue is physical, location-specific, or tied to multiple systems in the environment.",
+        ],
+        points: [
+          "On-site engineer support",
+          "Physical fault inspection",
+          "Workstation and network checks",
+          "Faster resolution for site-bound issues",
+        ],
+        image: {
+          src: "/image/service-details/managed-technical-onsite-engineer.webp",
+          alt: "On-site IT engineer inspecting network equipment and workstation connectivity",
+        },
+      },
+      {
+        id: "system-administration",
+        navLabel: "Administration",
+        title: "System administration for users, email, servers, and directory services.",
+        lead:
+          "Daily IT operations depend on accounts, permissions, mailboxes, servers, and identity services staying clean and controlled.",
+        body: [
+          "Auxano supports user account administration, Active Directory tasks, email configuration, server care, and routine operational changes that keep teams productive.",
+          "The goal is disciplined administration, not casual changes that later become access, security, or support problems.",
+        ],
+        points: [
+          "User account administration",
+          "Active Directory support",
+          "Email and mailbox changes",
+          "Server care and operational checks",
+        ],
+        image: {
+          src: "/image/service-details/managed-services-monitoring.webp",
+          alt: "IT operations team monitoring server and account administration dashboards",
+        },
+      },
+      {
+        id: "break-fix-support",
+        navLabel: "Break/fix",
+        title: "Ad-hoc support without forcing a long-term commitment.",
+        lead:
+          "Some clients need expert intervention for a specific failure, not a full managed-service contract.",
+        body: [
+          "Auxano can handle break/fix work for urgent or isolated technical problems, then leave behind practical notes and recommendations for preventing repeat incidents.",
+          "This gives clients access to professional support even when the need is occasional, project-based, or incident-driven.",
+        ],
+        points: [
+          "Ad-hoc technical intervention",
+          "No long-term commitment required",
+          "Resolution notes after support",
+          "Practical prevention recommendations",
+        ],
+        image: {
+          src: "/image/service-details/managed-technical-onsite-engineer.webp",
+          alt: "Field engineer resolving a break fix issue at an office workstation and network cabinet",
+        },
+      },
+    ],
   }),
   buildService({
     slug: "it-managed-services-staff-outsourcing",
@@ -2260,7 +3430,7 @@ export const services: Service[] = [
     category: "Managed & Advisory",
     summary: "A predictable, SLA-backed managed service model with monitoring, security support, staffing, and leadership coverage.",
     description:
-      "Operate as the client’s external IT department or embed dedicated engineers on site, backed by proactive monitoring, reporting, and managed security disciplines.",
+      "Operate as the client's external IT department or embed dedicated engineers on site, backed by proactive monitoring, reporting, and managed security disciplines.",
     navDescription: "Managed IT operations, staff augmentation, and SLA-backed support coverage.",
     highlights: [
       "24/7 monitoring and alerting",
@@ -2279,6 +3449,96 @@ export const services: Service[] = [
       "Reporting and staffing structure",
     ],
     industries: ["Professional services", "Healthcare", "Retail", "Education"],
+    detailEyebrow: "Managed service capabilities",
+    detailTitle: "Managed IT coverage with predictable cost, SLA response, and visible performance.",
+    detailDescription:
+      "The PDF describes this scope as a complete IT department at a predictable cost. The detailed flow explains monitoring, managed security, staff outsourcing, and IT manager-as-a-service support.",
+    capabilitySections: [
+      {
+        id: "proactive-monitoring",
+        navLabel: "Monitoring",
+        title: "24/7 monitoring that detects risk before users feel the outage.",
+        lead:
+          "Networks and servers should be watched continuously, not only checked after a complaint arrives.",
+        body: [
+          "Auxano monitors key network, server, and availability signals so alerts can be reviewed before downtime becomes widespread.",
+          "This gives the client a more proactive operating posture and a clearer view of recurring issues across the environment.",
+        ],
+        points: [
+          "24/7 network monitoring",
+          "Server health visibility",
+          "Alert review before outages",
+          "Recurring issue tracking",
+        ],
+        image: {
+          src: "/image/service-details/managed-services-monitoring.webp",
+          alt: "Network operations team monitoring server and network health dashboards",
+        },
+      },
+      {
+        id: "managed-security",
+        navLabel: "Security",
+        title: "Managed security across firewall rules, patching, and threat visibility.",
+        lead:
+          "Security operations need routine control, not one-time configuration that slowly becomes outdated.",
+        body: [
+          "Auxano supports firewall management, patch update oversight, and threat monitoring so the protective layer remains active and reviewed.",
+          "The service helps clients maintain security hygiene without depending only on internal availability or informal checks.",
+        ],
+        points: [
+          "Firewall management support",
+          "Patch update oversight",
+          "Threat monitoring",
+          "Security hygiene reporting",
+        ],
+        image: {
+          src: "/image/service-details/managed-services-security.webp",
+          alt: "Security operations analysts reviewing firewall and patch monitoring dashboards",
+        },
+      },
+      {
+        id: "staff-outsourcing",
+        navLabel: "Outsourcing",
+        title: "Dedicated IT engineers at the client location on contract.",
+        lead:
+          "Some organizations need reliable IT presence without carrying every role as a permanent internal hire.",
+        body: [
+          "Auxano can provide outsourced IT staff who operate at the client's location while remaining backed by the wider technical team.",
+          "That model gives the business day-to-day support presence, clearer accountability, and access to broader expertise when escalation is required.",
+        ],
+        points: [
+          "Dedicated engineer placement",
+          "On-site client support",
+          "Backed by wider specialist expertise",
+          "Contract-based staffing flexibility",
+        ],
+        image: {
+          src: "/image/service-details/managed-services-staff-outsourcing.webp",
+          alt: "Dedicated outsourced IT engineer assisting an employee at a corporate workstation",
+        },
+      },
+      {
+        id: "it-manager-as-a-service",
+        navLabel: "Leadership",
+        title: "IT manager as a service for senior technical leadership without a full-time hire.",
+        lead:
+          "Operational teams often need senior technology direction, not just ticket closure.",
+        body: [
+          "Auxano can provide IT leadership coverage for prioritization, reporting, vendor alignment, risk review, and technology planning.",
+          "This gives decision-makers a senior point of view while keeping the commercial model predictable.",
+        ],
+        points: [
+          "Senior IT leadership coverage",
+          "Monthly performance reporting",
+          "Vendor and risk review",
+          "SLA-backed response cadence",
+        ],
+        image: {
+          src: "/image/service-details/managed-consultancy-audit.webp",
+          alt: "Senior IT advisor reviewing operational performance and technology priorities with client stakeholders",
+        },
+      },
+    ],
   }),
   buildService({
     slug: "it-consultancy-audit-services",
@@ -2305,6 +3565,96 @@ export const services: Service[] = [
       "Decision-support recommendations",
     ],
     industries: ["Financial services", "Healthcare", "Professional services", "Education"],
+    detailEyebrow: "Consultancy and audit capabilities",
+    detailTitle: "Independent IT advice before procurement, transformation, or risk exposure becomes expensive.",
+    detailDescription:
+      "The PDF breaks this service into infrastructure audits, cybersecurity audits, policy development, and vendor assessment. The page now explains each advisory lane as a decision-support engagement.",
+    capabilitySections: [
+      {
+        id: "infrastructure-audit",
+        navLabel: "Infrastructure",
+        title: "Infrastructure audit across hardware, network, cabling, risks, and gaps.",
+        lead:
+          "A technical environment should be assessed before major spend, expansion, or remediation decisions are made.",
+        body: [
+          "Auxano reviews the state of hardware, network architecture, cabling, server rooms, and support dependencies to identify risks and gaps.",
+          "The output helps leadership understand what is working, what is fragile, and what should be addressed first.",
+        ],
+        points: [
+          "Hardware and network review",
+          "Cabling and site readiness checks",
+          "Risk and gap identification",
+          "Prioritized remediation guidance",
+        ],
+        image: {
+          src: "/image/service-details/managed-consultancy-audit.webp",
+          alt: "IT consultant reviewing infrastructure audit diagrams and risk findings with a client team",
+        },
+      },
+      {
+        id: "cybersecurity-audit",
+        navLabel: "Cybersecurity",
+        title: "Cybersecurity audit of firewall rules, patch levels, access controls, and staff practices.",
+        lead:
+          "Security posture depends on configuration, maintenance, access discipline, and the habits of people using the systems.",
+        body: [
+          "Auxano reviews firewall posture, endpoint patch levels, access controls, admin practices, and user behavior risks that can expose the business.",
+          "The findings help the client move from assumptions to practical security actions.",
+        ],
+        points: [
+          "Firewall rule review",
+          "Patch level assessment",
+          "Access control checks",
+          "Staff practice risk review",
+        ],
+        image: {
+          src: "/image/service-details/managed-services-security.webp",
+          alt: "Cybersecurity analyst reviewing firewall rules patch status and threat monitoring dashboards",
+        },
+      },
+      {
+        id: "it-policy-development",
+        navLabel: "Policy",
+        title: "IT policy development for acceptable use, passwords, and data handling.",
+        lead:
+          "Technical controls are stronger when the people using the environment have clear operating rules.",
+        body: [
+          "Auxano helps define policies for acceptable use, password management, data handling, device behavior, and operational responsibility.",
+          "The aim is practical governance that users and managers can actually follow, not a document that sits unused.",
+        ],
+        points: [
+          "Acceptable-use policy support",
+          "Password management guidance",
+          "Data handling rules",
+          "Practical governance documentation",
+        ],
+        image: {
+          src: "/image/service-details/managed-consultancy-policy-vendor.webp",
+          alt: "Technology advisor developing IT policy and governance documents with stakeholders",
+        },
+      },
+      {
+        id: "vendor-assessment",
+        navLabel: "Vendors",
+        title: "Objective vendor assessment with no sales bias.",
+        lead:
+          "Vendor proposals should be evaluated against the client's requirements, risk, and long-term operating fit.",
+        body: [
+          "Auxano can review vendor proposals, technical claims, bill of materials, support terms, and delivery assumptions on the client's behalf.",
+          "This helps decision-makers compare options with a more independent technical view before committing budget.",
+        ],
+        points: [
+          "Proposal and BOM review",
+          "Technical claim validation",
+          "Operating-fit comparison",
+          "Independent recommendation",
+        ],
+        image: {
+          src: "/image/service-details/managed-consultancy-policy-vendor.webp",
+          alt: "Independent IT advisor comparing vendor proposal options with client stakeholders",
+        },
+      },
+    ],
   }),
   buildService({
     slug: "it-project-management",
@@ -2331,5 +3681,95 @@ export const services: Service[] = [
       "Post-implementation review and handover",
     ],
     industries: ["Enterprise offices", "Healthcare", "Education", "Operations-heavy SMEs"],
+    detailEyebrow: "IT project management capabilities",
+    detailTitle: "Technology projects coordinated from scope through vendor delivery and clean handover.",
+    detailDescription:
+      "The PDF describes IT project management as the control layer for complex delivery. This page breaks that into planning, vendor coordination, risk management, and post-implementation review.",
+    capabilitySections: [
+      {
+        id: "planning-and-scoping",
+        navLabel: "Planning",
+        title: "Planning and scoping before work begins.",
+        lead:
+          "Complex projects need a clear scope, timeline, resource plan, and decision structure before vendors start work.",
+        body: [
+          "Auxano defines the delivery scope, milestones, dependencies, roles, and resource requirements so everyone is working from the same project baseline.",
+          "That planning discipline reduces ambiguity and keeps procurement, engineering, and client stakeholders aligned.",
+        ],
+        points: [
+          "Clear project scope",
+          "Timeline and milestone planning",
+          "Resource requirement mapping",
+          "Decision and approval structure",
+        ],
+        image: {
+          src: "/image/service-details/managed-project-management.webp",
+          alt: "IT project manager leading a technology project planning session with timelines and system diagrams",
+        },
+      },
+      {
+        id: "vendor-coordination",
+        navLabel: "Vendors",
+        title: "Vendor coordination toward one delivery outcome.",
+        lead:
+          "Multi-supplier projects fail when each party optimizes for its own task instead of the shared result.",
+        body: [
+          "Auxano coordinates vendors, engineers, stakeholders, timelines, and dependencies so equipment, configuration, installation, and handover activities line up.",
+          "This gives the client one control point for progress, issues, and accountability.",
+        ],
+        points: [
+          "Multi-vendor coordination",
+          "Dependency tracking",
+          "Progress and issue cadence",
+          "Single delivery control point",
+        ],
+        image: {
+          src: "/image/service-details/managed-project-management.webp",
+          alt: "Technology project team coordinating vendors and engineers around a shared delivery plan",
+        },
+      },
+      {
+        id: "project-risk-management",
+        navLabel: "Risk",
+        title: "Risk management before small problems become project delays.",
+        lead:
+          "The best time to resolve project risk is before it becomes a visible escalation.",
+        body: [
+          "Auxano tracks assumptions, access constraints, supply issues, technical dependencies, and stakeholder blockers that can delay delivery.",
+          "Risks are made visible early, then managed through decisions, mitigations, and clear ownership.",
+        ],
+        points: [
+          "Risk register and ownership",
+          "Dependency and blocker review",
+          "Early escalation control",
+          "Mitigation planning",
+        ],
+        image: {
+          src: "/image/service-details/managed-consultancy-audit.webp",
+          alt: "IT project leaders reviewing risk findings and mitigation priorities with stakeholders",
+        },
+      },
+      {
+        id: "post-implementation-review",
+        navLabel: "Handover",
+        title: "Post-implementation review and clean handover to operations.",
+        lead:
+          "A project is not finished when installation ends; it is finished when operations can run and support it.",
+        body: [
+          "Auxano reviews delivered work against scope, confirms outstanding items, organizes operational notes, and supports a clean transition to the people who will own the environment.",
+          "That final review protects the value of the project after the vendors leave site.",
+        ],
+        points: [
+          "Post-implementation review",
+          "Outstanding item tracking",
+          "Operational handover notes",
+          "Supportable closeout",
+        ],
+        image: {
+          src: "/image/service-details/managed-technical-onsite-engineer.webp",
+          alt: "IT engineer completing handover checks after a technology project implementation",
+        },
+      },
+    ],
   }),
 ];

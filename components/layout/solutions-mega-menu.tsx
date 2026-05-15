@@ -27,6 +27,14 @@ function orderedServices(activeCategory: SolutionCategory, services: Service[]) 
     .filter((service): service is Service => Boolean(service));
 }
 
+function getServiceMenuImage(service: Service) {
+  return service.capabilitySections?.[0]?.image ?? service.navImage;
+}
+
+function getCategoryMenuImage(activeServices: Service[], activeCategory: SolutionCategory) {
+  return activeServices[0]?.capabilitySections?.[0]?.image ?? activeCategory.featuredImage;
+}
+
 export function SolutionsMegaMenu({
   categories,
   services,
@@ -45,6 +53,8 @@ export function SolutionsMegaMenu({
   if (!activeCategory) {
     return null;
   }
+
+  const activeCategoryImage = getCategoryMenuImage(activeServices, activeCategory);
 
   return (
     <NavigationMenuItem>
@@ -114,8 +124,8 @@ export function SolutionsMegaMenu({
                     </span>
                     <span className="relative mt-auto block h-[9.5rem] w-full overflow-hidden">
                       <Image
-                        src={activeCategory.featuredImage.src}
-                        alt={activeCategory.featuredImage.alt}
+                        src={activeCategoryImage.src}
+                        alt={activeCategoryImage.alt}
                         fill
                         sizes="255px"
                         className="object-cover transition duration-300 group-hover:scale-[1.03]"
@@ -124,31 +134,35 @@ export function SolutionsMegaMenu({
                   </Link>
                 </NavigationMenuLink>
 
-                {activeServices.map((service) => (
-                  <NavigationMenuLink
-                    key={service.slug}
-                    asChild
-                    className="group rounded-md bg-[color:rgba(247,249,252,0.92)] transition-colors hover:bg-[var(--color-cloud)]"
-                  >
-                    <Link
-                      href={`/services/${service.slug}`}
-                      className="flex min-w-0 items-center justify-between gap-4 px-4 py-3"
+                {activeServices.map((service) => {
+                  const serviceImage = getServiceMenuImage(service);
+
+                  return (
+                    <NavigationMenuLink
+                      key={service.slug}
+                      asChild
+                      className="group rounded-md bg-[color:rgba(247,249,252,0.92)] transition-colors hover:bg-[var(--color-cloud)]"
                     >
-                      <span className="min-w-0 text-[0.95rem] font-medium leading-snug text-[var(--color-ink)] transition-colors group-hover:text-[var(--color-electric)]">
-                        {service.title}
-                      </span>
-                      <span className="relative h-10 w-12 shrink-0 overflow-hidden rounded-md bg-white/80">
-                        <Image
-                          src={service.navImage.src}
-                          alt={service.navImage.alt}
-                          fill
-                          sizes="48px"
-                          className="object-cover"
-                        />
-                      </span>
-                    </Link>
-                  </NavigationMenuLink>
-                ))}
+                      <Link
+                        href={`/services/${service.slug}`}
+                        className="flex min-w-0 items-center justify-between gap-4 px-4 py-3"
+                      >
+                        <span className="min-w-0 text-[0.95rem] font-medium leading-snug text-[var(--color-ink)] transition-colors group-hover:text-[var(--color-electric)]">
+                          {service.title}
+                        </span>
+                        <span className="relative h-10 w-14 shrink-0 overflow-hidden rounded-md bg-white/80">
+                          <Image
+                            src={serviceImage.src}
+                            alt={serviceImage.alt}
+                            fill
+                            sizes="56px"
+                            className="object-cover"
+                          />
+                        </span>
+                      </Link>
+                    </NavigationMenuLink>
+                  );
+                })}
               </motion.div>
             </AnimatePresence>
           </Container>
