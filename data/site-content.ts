@@ -305,6 +305,7 @@ export const footerColumns: FooterColumn[] = [
       { label: "Industries", href: "/industries" },
       { label: "Case Studies", href: "/case-studies" },
       { label: "Resources", href: "/resources" },
+      { label: "Careers", href: "/careers" },
       { label: "Estimate Project Cost", href: "/estimate" },
     ],
   },
