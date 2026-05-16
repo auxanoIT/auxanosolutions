@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { ButtonLink } from "@/components/ui/button-link";
@@ -15,14 +16,15 @@ export function SiteFooter({ columns, settings }: SiteFooterProps) {
     <footer className="border-t border-white/6 bg-[var(--color-ink)] text-white">
       <Container className="grid gap-12 py-16 lg:grid-cols-[1.3fr_2fr]">
         <div className="space-y-6">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[var(--color-cyan)]">
-              Auxano Solutions
-            </p>
-            <h2 className="mt-4 max-w-lg text-3xl font-semibold tracking-[-0.04em]">
-              Enterprise-grade IT, security, and network delivery for environments that cannot run on guesswork.
-            </h2>
-          </div>
+          <Link href="/" aria-label="Auxano Solutions home" className="inline-flex h-16 items-center">
+            <Image
+              src="/image/AUxano.webp"
+              alt="Auxano Solutions"
+              width={100}
+              height={500}
+              className="h-14 w-auto object-contain"
+            />
+          </Link>
           <p className="max-w-xl text-sm leading-7 text-white/68">
             {settings.address}, {settings.city}, {settings.country}. Call{" "}
             <a href={`tel:${settings.phone}`} className="text-white">

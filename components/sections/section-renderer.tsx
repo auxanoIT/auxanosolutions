@@ -32,6 +32,19 @@ export function SectionRenderer({
   testimonials = fallbackTestimonials,
   faqs = fallbackFaqs,
 }: SectionRendererProps) {
+  const getFaqItems = (sectionIds?: string[]) => {
+    if (!sectionIds?.length) {
+      return faqs;
+    }
+
+    const itemsById = new Map(faqs.map((item) => [item.id, item]));
+    const selectedItems = sectionIds
+      .map((id) => itemsById.get(id))
+      .filter((item): item is FAQItem => Boolean(item));
+
+    return selectedItems.length ? selectedItems : faqs;
+  };
+
   return sections.map((section, index) => {
     const key = `${section._type}-${index}`;
 
@@ -77,7 +90,7 @@ export function SectionRenderer({
           <FAQBlock
             key={key}
             section={section}
-            items={faqs.filter((item) => section.ids.includes(item.id))}
+            items={getFaqItems(section.ids)}
           />
         );
       case "ctaBand":

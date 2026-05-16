@@ -392,6 +392,7 @@ export const footerColumns: FooterColumn[] = [
       { label: "Networking", href: "/services#networking" },
       { label: "Hardware Systems", href: "/services#hardware-systems" },
       { label: "Software & Licenses", href: "/services#software-licenses" },
+      { label: "Managed & Advisory", href: "/services#managed-advisory" },
     ],
   },
   {
@@ -399,7 +400,11 @@ export const footerColumns: FooterColumn[] = [
     links: [
       { label: "Industries", href: "/industries" },
       { label: "Case Studies", href: "/case-studies" },
+      { label: "Blog", href: "/blog" },
       { label: "Resources", href: "/resources" },
+      { label: "Knowledge Center", href: "/resources/knowledge-center" },
+      { label: "Support Center", href: "/resources/support-center" },
+      { label: "FAQ Library", href: "/resources/knowledge-center#faqs" },
       { label: "Careers", href: "/careers" },
     ],
   },
@@ -407,9 +412,7 @@ export const footerColumns: FooterColumn[] = [
     title: "Contact",
     links: [
       { label: "Book Consultation", href: "/book-consultation" },
-      { label: "Contact Sales", href: "/contact" },
       { label: "Privacy Policy", href: "/privacy" },
-      { label: "Terms", href: "/terms" },
     ],
   },
 ];

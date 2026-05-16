@@ -120,7 +120,40 @@ export async function getFooterColumns(): Promise<FooterColumn[]> {
     tags: ["footer"],
   });
 
-  return content ?? footerColumns;
+  if (!content?.length) {
+    return footerColumns;
+  }
+
+  return footerColumns.map((fallbackColumn) => {
+    const contentColumn = content.find((column) => column.title === fallbackColumn.title);
+
+    if (!contentColumn) {
+      return fallbackColumn;
+    }
+
+    const links = [...contentColumn.links];
+
+    for (const fallbackLink of fallbackColumn.links) {
+      const hasLink = links.some(
+        (link) => link.href === fallbackLink.href || link.label === fallbackLink.label,
+      );
+
+      if (!hasLink) {
+        links.push(fallbackLink);
+      }
+    }
+
+    return {
+      ...fallbackColumn,
+      ...contentColumn,
+      links: links.filter((link) =>
+        fallbackColumn.links.some(
+          (fallbackLink) =>
+            fallbackLink.href === link.href || fallbackLink.label === link.label,
+        ),
+      ),
+    };
+  });
 }
 
 export async function getMarketingPage(slug: string): Promise<MarketingPage | null> {
@@ -248,7 +281,7 @@ export async function getFaqs(): Promise<FAQItem[]> {
     tags: ["faqs"],
   });
 
-  return content ?? faqs;
+  return content?.length ? content : faqs;
 }
 
 export async function getEstimatorConfig(): Promise<EstimatorConfig> {
