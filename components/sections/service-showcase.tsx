@@ -366,6 +366,27 @@ export function ServiceShowcase({ section }: ServiceShowcaseProps) {
                 </button>
               </>
             ) : null}
+
+            {isCarouselActive && !isDesktopViewport ? (
+              <div className="mt-8 flex items-center justify-center gap-3">
+                <button
+                  type="button"
+                  onClick={animatePrevious}
+                  aria-label="Show previous service"
+                  className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[color:rgba(10,48,71,0.14)] bg-white text-[#0A3047] transition duration-200 hover:bg-[#f4f8ff] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0A3047]/25"
+                >
+                  <ArrowLeft className="h-4 w-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={animateNext}
+                  aria-label="Show next service"
+                  className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#0A3047] text-white transition duration-200 hover:bg-[#0d3c58] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0A3047]/25"
+                >
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+              </div>
+            ) : null}
           </div>
 
           <style jsx>{`

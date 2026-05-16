@@ -2,7 +2,6 @@
 
 import { gsap } from "gsap";
 import { useReducedMotion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
 import {
   useEffect,
   useId,
@@ -183,7 +182,7 @@ export function CategoryShowcase({ section }: CategoryShowcaseProps) {
     <section className="relative overflow-hidden bg-[linear-gradient(180deg,#0b1220_0%,#12365a_44%,#10324a_100%)] py-16 text-white sm:py-20">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(25,213,255,0.14),transparent_26%),radial-gradient(circle_at_84%_12%,rgba(47,107,255,0.18),transparent_24%)]" />
       <Container>
-        <h2 className="relative max-w-5xl text-balance text-[2rem] font-bold leading-[1.05] tracking-normal text-white sm:text-[2.55rem] lg:text-[3.1rem]">
+        <h2 className="relative text-balance text-center text-[1rem] font-bold leading-[1.05] tracking-normal text-white sm:text-[1.5rem] lg:text-[2.5rem]">
           {section.title}
         </h2>
 
@@ -238,29 +237,18 @@ export function CategoryShowcase({ section }: CategoryShowcaseProps) {
             className="mx-auto max-w-6xl overflow-hidden rounded-[1.5rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] shadow-[0_24px_70px_rgba(11,18,32,0.28)]"
           >
             <div className="grid min-h-[20rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01))] lg:min-h-[30rem] lg:grid-cols-2">
-              <article className="relative flex flex-col justify-between overflow-hidden bg-[linear-gradient(180deg,rgba(47,107,255,0.18),rgba(25,213,255,0.10),rgba(11,18,32,0.12)),linear-gradient(180deg,#12365a_0%,#0e2d49_100%)] p-6 sm:p-8 lg:p-9">
+              <article className="relative flex flex-col justify-start overflow-hidden bg-[linear-gradient(180deg,rgba(47,107,255,0.18),rgba(25,213,255,0.10),rgba(11,18,32,0.12)),linear-gradient(180deg,#12365a_0%,#0e2d49_100%)] p-6 sm:p-8 lg:p-9">
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(25,213,255,0.12),transparent_28%),radial-gradient(circle_at_85%_18%,rgba(47,107,255,0.16),transparent_26%)]" />
                 <div>
-                  <h3 className="relative max-w-xl text-balance text-2xl font-semibold leading-[1.1] tracking-normal text-white sm:text-[2rem] lg:text-[2.35rem]">
+                  <h3 className="relative max-w-xl text-balance text-xl font-semibold leading-[1.1] tracking-normal text-white sm:text-[1rem] lg:text-[1.9rem]">
                     {activeItem.title}
                   </h3>
-                  <p className="relative mt-4 max-w-xl text-sm leading-7 text-white/82">
+                  <p className="relative mt-8 max-w-xl text-lg leading-7 text-white/82">
                     {activeItem.description}
                   </p>
-
-                  <ul className="relative mt-6 space-y-3">
-                    {activeItem.bullets.map((bullet) => (
-                      <li key={bullet} className="flex gap-3">
-                        <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[var(--color-cyan)]" />
-                        <span className="text-xs leading-6 text-white/88 sm:text-sm">
-                          {bullet}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
 
-                <div className="relative mt-6">
+                <div className="relative mt-18">
                   <ButtonLink
                     href={activeItem.ctaHref}
                     variant="secondary"
