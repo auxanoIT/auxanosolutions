@@ -10,8 +10,8 @@
   --color-muted: #66748a;
   --color-steel: #93a4b8;
   --color-success: #18b67e;
-  --font-display: "Sora", sans-serif;
-  --font-sans: "Manrope", sans-serif;
+  --font-display: var(--font-poppins, "Poppins"), sans-serif;
+  --font-sans: var(--font-poppins, "Poppins"), sans-serif;
 }
 
 @theme inline {

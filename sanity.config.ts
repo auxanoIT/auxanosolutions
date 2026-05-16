@@ -7,6 +7,7 @@ import { schemaTypes } from "./sanity/schemaTypes";
 export default defineConfig({
   name: "auxano-studio",
   title: "Auxano Studio",
+  basePath: "/studio",
   projectId: projectId || "placeholder",
   dataset,
   plugins: [deskTool()],

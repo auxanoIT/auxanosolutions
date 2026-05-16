@@ -35,7 +35,6 @@ export const resourceGroups: ResourceGroup[] = [
     { id: "contact", label: "Contact", href: "/contact" },
   ]),
   buildGroup("commercial-tools", "Commercial Tools", [
-    { id: "estimate-cost", label: "Estimate Cost", href: "/estimate" },
     { id: "book-consultation", label: "Book Consultation", href: "/book-consultation" },
   ]),
 ];

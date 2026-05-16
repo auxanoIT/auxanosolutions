@@ -36,9 +36,6 @@ export default async function IndustriesPage() {
           />
           <div className="mt-10 flex flex-wrap gap-3">
             <ButtonLink href="/book-consultation">Book Consultation</ButtonLink>
-            <ButtonLink href="/estimate" variant="secondary">
-              Estimate Project Scope
-            </ButtonLink>
           </div>
         </Container>
       </section>
@@ -117,9 +114,6 @@ export default async function IndustriesPage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <ButtonLink href="/book-consultation">Book Consultation</ButtonLink>
-            <ButtonLink href="/estimate" variant="secondary">
-              Estimate Project Scope
-            </ButtonLink>
           </div>
         </Container>
       </section>

@@ -3,7 +3,6 @@
 import { useState, useTransition } from "react";
 
 import { TurnstileField } from "@/components/forms/turnstile-field";
-import { ButtonLink } from "@/components/ui/button-link";
 import { cn } from "@/lib/utils";
 
 type LeadFormProps = {
@@ -175,9 +174,6 @@ export function LeadForm({
           >
             {isPending ? "Sending..." : context === "consultation" ? "Request Consultation" : "Send Message"}
           </button>
-          <ButtonLink href="/estimate" variant="ghost" className="px-0">
-            Prefer a structured estimate first?
-          </ButtonLink>
         </div>
       </form>
 

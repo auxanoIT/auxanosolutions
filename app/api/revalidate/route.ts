@@ -9,7 +9,6 @@ const defaultPaths = [
   "/blog",
   "/contact",
   "/book-consultation",
-  "/estimate",
 ];
 
 export async function POST(request: Request) {

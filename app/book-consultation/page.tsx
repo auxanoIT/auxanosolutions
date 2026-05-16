@@ -82,9 +82,6 @@ export default async function BookConsultationPage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <ButtonLink href={settings.hubspotMeetingUrl}>Open Booking Calendar</ButtonLink>
-              <ButtonLink href="/estimate" variant="secondary">
-                Need a price range first?
-              </ButtonLink>
             </div>
           </div>
         </div>

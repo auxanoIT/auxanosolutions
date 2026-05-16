@@ -205,7 +205,7 @@ export function ServiceShowcase({ section }: ServiceShowcaseProps) {
         <div className="mx-auto max-w-4xl text-center">
           <h2
             id={headingId}
-            className="text-balance text-4xl font-semibold tracking-[-0.06em] text-[var(--color-ink)] sm:text-5xl lg:text-6xl"
+            className="text-balance text-3xl font-semibold tracking-[-0.06em] text-[var(--color-ink)] sm:text-4xl lg:text-5xl"
           >
             {section.title}
           </h2>
@@ -285,17 +285,17 @@ export function ServiceShowcase({ section }: ServiceShowcaseProps) {
                         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,48,71,0.04),rgba(10,48,71,0.22))]" />
                       </div>
                       <div className="flex flex-1 flex-col px-1 pt-6">
-                        <h3 className="min-h-[4.5rem] text-3xl font-semibold tracking-[-0.05em] text-[var(--color-ink)]">
+                        <h3 className="text-2xl font-semibold tracking-[-0.05em] text-[var(--color-ink)]">
                           {item.title}
                         </h3>
-                        <p className="mt-4 min-h-[8rem] text-base leading-8 text-[var(--color-muted)]">
+                        <p className=" min-h-[6rem] text-base leading-8 text-[var(--color-muted)]">
                           {item.description}
                         </p>
-                        <div className="mt-auto flex items-center pt-7">
+                        <div className="mt-auto flex items-center">
                           <ButtonLink
                             href={item.ctaHref}
                             variant="secondary"
-                            className="!rounded-full !border-[color:rgba(10,48,71,0.12)] !bg-white/92 !px-5 !py-3 !text-[1rem] !font-semibold !text-[#0A3047] shadow-[0_14px_34px_rgba(10,48,71,0.08)] hover:!border-[color:rgba(10,48,71,0.28)] hover:!text-[#0A3047]"
+                            className="!rounded-full !border-[color:rgba(10,48,71,0.12)] !bg-white/92 !px-5 !py-3 !text-[1rem] !font-semibold !text-[#ED6A39] shadow-[0_14px_34px_rgba(10,48,71,0.08)] hover:!border-[color:rgba(10,48,71,0.28)] hover:!text-[#f07c52]"
                           >
                             <span>{item.ctaLabel}</span>
                             <ArrowRight className="ml-2 h-4 w-4" />

@@ -78,9 +78,11 @@ Required/recommended fields:
 - `Category`: example `CCTV Planning`, `Managed IT`, `Networking`
 - `Published At`: publication date
 - `Reading Time`: example `5 min read`
+- `Author`: optional byline
+- `Cover Image`: image shown on blog cards and at the top of the article
 - `Excerpt`: short summary for blog listing and SEO
 - `Takeaways`: bullet points shown near the top of the article
-- `Body`: paragraphs for the full article
+- `Body`: add Heading, Paragraph, and Image blocks
 - `SEO`: optional meta title and description
 
 Published posts automatically appear at:
@@ -89,6 +91,12 @@ Published posts automatically appear at:
 /blog
 /blog/post-slug
 ```
+
+Headings in the body become clickable article sections. Set `Anchor ID` if you want a clean link such as `network-planning`; otherwise the site generates one from the heading text.
+
+To unpublish a post, open the post in Studio, then click the down arrow on the green `Published` status button in the top-right document header. Choose `Unpublish` there. If you do not see it, open the three-dot document actions menu in the right document toolbar. This removes the published version from the live site while keeping a draft you can edit or publish again later.
+
+Changing a Sanity document changes the content the site reads for that document, but it does not delete the fallback content stored in this codebase. For example, if you create a Sanity `Pages` document with slug `home`, the website uses that Sanity home page. If you delete or unpublish it, the site can fall back to the local `data/site-content.ts` version.
 
 ## Careers Page
 

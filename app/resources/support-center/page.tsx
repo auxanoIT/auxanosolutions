@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CalendarDays, Headset, Mail, MessageCircle, Phone, WalletCards } from "lucide-react";
+import { CalendarDays, Headset, Mail, MessageCircle, Phone } from "lucide-react";
 
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
@@ -11,7 +11,7 @@ import { createWhatsappLink } from "@/lib/utils";
 export const metadata = buildMetadata({
   title: "Support Center",
   description:
-    "Support and contact routes for consultations, estimates, WhatsApp support, and common pre-project questions.",
+    "Support and contact routes for consultations, WhatsApp support, and common pre-project questions.",
   path: "/resources/support-center",
 });
 
@@ -27,12 +27,6 @@ const supportRoutes = [
     href: "/book-consultation",
     description: "Use consultation-first when the environment needs discovery before implementation can be scoped.",
     icon: CalendarDays,
-  },
-  {
-    label: "Estimate Cost",
-    href: "/estimate",
-    description: "Start with a planning range when budget alignment needs to happen before a live discussion.",
-    icon: WalletCards,
   },
 ];
 
@@ -59,9 +53,9 @@ export default async function SupportCenterPage() {
           <SectionHeading
             eyebrow="Primary Routes"
             title="Choose the route that matches the urgency and the kind of help needed."
-            description="Support center links stay practical: contact, consultation, estimate, and direct messaging."
+            description="Support center links stay practical: contact, consultation, and direct messaging."
           />
-          <div className="mt-8 grid gap-4 xl:grid-cols-3">
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
             {supportRoutes.map((route) => {
               const Icon = route.icon;
 
@@ -103,7 +97,7 @@ export default async function SupportCenterPage() {
                 Route new commercial conversations directly.
               </h2>
               <p className="mt-4 text-sm leading-7 text-white/72">
-                Use this path for new rollout ideas, estimate follow-up, procurement questions, or consultation requests.
+                Use this path for new rollout ideas, procurement questions, or consultation requests.
               </p>
             </a>
 
@@ -183,7 +177,7 @@ export default async function SupportCenterPage() {
           <SectionHeading
             eyebrow="Help FAQs"
             title="Questions that usually come up before reaching out."
-            description="Support-oriented answers for consultation, estimation, and lead routing."
+            description="Support-oriented answers for consultation and lead routing."
             align="center"
           />
           <div className="mx-auto mt-10 max-w-4xl space-y-4">

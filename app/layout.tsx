@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope, Sora } from "next/font/google";
+import { Poppins } from "next/font/google";
 
 import "./globals.css";
 
@@ -17,14 +17,10 @@ import {
   getSolutionCategories,
 } from "@/lib/content";
 
-const sora = Sora({
-  variable: "--font-display",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
-});
-
-const manrope = Manrope({
-  variable: "--font-sans",
-  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -60,7 +56,7 @@ export default async function RootLayout({
   ]);
 
   return (
-    <html lang="en" className={`${sora.variable} ${manrope.variable} antialiased`}>
+    <html lang="en" className={`${poppins.variable} antialiased`}>
       <body className="min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)]">
         <div className="flex min-h-screen flex-col">
           <SiteHeader

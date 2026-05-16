@@ -316,6 +316,95 @@ const seo = defineType({
   ],
 });
 
+const blogHeading = defineType({
+  name: "blogHeading",
+  title: "Heading",
+  type: "object",
+  fields: [
+    defineField({ name: "text", title: "Text", type: "string", validation: (rule) => rule.required() }),
+    defineField({
+      name: "level",
+      title: "Level",
+      type: "number",
+      options: { list: [2, 3] },
+      initialValue: 2,
+    }),
+    defineField({
+      name: "anchor",
+      title: "Anchor ID",
+      type: "string",
+      description: "Optional. Use lowercase words with hyphens, for example: planning-the-system",
+    }),
+  ],
+  preview: {
+    select: {
+      title: "text",
+    },
+    prepare: ({ title }) => ({ title, subtitle: "Heading" }),
+  },
+});
+
+const blogParagraph = defineType({
+  name: "blogParagraph",
+  title: "Paragraph",
+  type: "object",
+  fields: [
+    defineField({ name: "text", title: "Text", type: "text", validation: (rule) => rule.required() }),
+  ],
+  preview: {
+    select: {
+      title: "text",
+    },
+    prepare: ({ title }) => ({ title, subtitle: "Paragraph" }),
+  },
+});
+
+const blogPlainText = defineType({
+  name: "blogPlainText",
+  title: "Plain Paragraph",
+  type: "object",
+  fields: [
+    defineField({ name: "text", title: "Text", type: "text", validation: (rule) => rule.required() }),
+  ],
+  preview: {
+    select: {
+      title: "text",
+    },
+    prepare: ({ title }) => ({ title, subtitle: "Plain paragraph" }),
+  },
+});
+
+const blogImageBlock = defineType({
+  name: "blogImageBlock",
+  title: "Image",
+  type: "object",
+  fields: [
+    defineField({
+      name: "image",
+      title: "Image",
+      type: "image",
+      options: { hotspot: true },
+      fields: [
+        defineField({
+          name: "alt",
+          title: "Alt Text",
+          type: "string",
+          validation: (rule) => rule.required(),
+        }),
+      ],
+      validation: (rule) => rule.required(),
+    }),
+    defineField({ name: "caption", title: "Caption", type: "string" }),
+  ],
+  preview: {
+    select: {
+      title: "caption",
+      media: "image",
+    },
+    prepare: ({ title, media }) => ({ title: title || "Image", subtitle: "Image block", media }),
+  },
+});
+
 const page = defineType({
   name: "page",
   title: "Pages",
@@ -513,9 +602,34 @@ const post = defineType({
     defineField({ name: "category", title: "Category", type: "string" }),
     defineField({ name: "publishedAt", title: "Published At", type: "datetime" }),
     defineField({ name: "readingTime", title: "Reading Time", type: "string" }),
+    defineField({ name: "author", title: "Author", type: "string" }),
+    defineField({
+      name: "coverImage",
+      title: "Cover Image",
+      type: "image",
+      options: { hotspot: true },
+      fields: [
+        defineField({
+          name: "alt",
+          title: "Alt Text",
+          type: "string",
+          validation: (rule) => rule.required(),
+        }),
+      ],
+    }),
     defineField({ name: "excerpt", title: "Excerpt", type: "text" }),
     defineField({ name: "takeaways", title: "Takeaways", type: "array", of: [defineArrayMember({ type: "string" })] }),
-    defineField({ name: "body", title: "Body", type: "array", of: [defineArrayMember({ type: "text" })] }),
+    defineField({
+      name: "body",
+      title: "Body",
+      type: "array",
+      of: [
+        defineArrayMember({ type: "blogPlainText" }),
+        defineArrayMember({ type: "blogHeading" }),
+        defineArrayMember({ type: "blogParagraph" }),
+        defineArrayMember({ type: "blogImageBlock" }),
+      ],
+    }),
     defineField({ name: "seo", title: "SEO", type: "seo" }),
   ],
 });
@@ -620,6 +734,10 @@ export const schemaTypes = [
   networkNode,
   partnerLogo,
   seo,
+  blogHeading,
+  blogParagraph,
+  blogPlainText,
+  blogImageBlock,
   heroSection,
   logoStripSection,
   metricBandSection,

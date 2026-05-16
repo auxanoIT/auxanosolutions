@@ -162,10 +162,34 @@ export type BlogPost = {
   category: string;
   publishedAt: string;
   readingTime: string;
+  author?: string;
   excerpt: string;
+  coverImage?: ServiceNavMedia;
   takeaways: string[];
-  body: string[];
+  body: BlogBodyBlock[];
 };
+
+export type BlogBodyBlock =
+  | string
+  | {
+      _type: "blogPlainText";
+      text: string;
+    }
+  | {
+      _type: "blogHeading";
+      text: string;
+      level?: 2 | 3;
+      anchor?: string;
+    }
+  | {
+      _type: "blogParagraph";
+      text: string;
+    }
+  | {
+      _type: "blogImageBlock";
+      image: ServiceNavMedia;
+      caption?: string;
+    };
 
 export type FooterColumn = {
   title: string;

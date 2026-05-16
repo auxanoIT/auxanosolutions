@@ -29,7 +29,7 @@ export default async function ResourcesPage() {
           <SectionHeading
             eyebrow="Resources"
             title="One structured resource directory for learning, proof, support, and commercial next steps."
-            description="Browse Auxano resources by intent: understand the environment, review delivery proof, find support paths, or move directly into estimate and consultation routes."
+            description="Browse Auxano resources by intent: understand the environment, review delivery proof, find support paths, or move directly into consultation."
           />
         </Container>
       </section>
@@ -151,13 +151,11 @@ export default async function ResourcesPage() {
               Move from research into a scoped conversation when the timing is right.
             </h2>
             <p className="mt-4 max-w-2xl text-sm leading-7 text-white/72 sm:text-base">
-              Estimate first if you need range clarity. Book consultation first if the brief already needs commercial and technical review together.
+              Book a consultation when the brief needs commercial and technical review together.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <ButtonLink href="/estimate">Estimate Cost</ButtonLink>
               <ButtonLink
                 href="/book-consultation"
-                variant="secondary"
                 className="border-white/12 bg-white/8 text-white hover:border-white/22 hover:text-white"
               >
                 Book Consultation

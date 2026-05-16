@@ -104,6 +104,7 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
       : document.visibilityState === "visible",
   );
   const activeSlide = slides[activeIndex] ?? slides[0];
+  const hasServiceCta = activeSlide.primaryCta.href !== "/book-consultation";
   const countdownValue = shouldReduceMotion
     ? HERO_COUNTDOWN_START
     : getCountdownValue(progress);
@@ -425,52 +426,50 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
         />
       </div>
 
-      <div className="relative overflow-hidden bg-[#082634]">
+      <div className="relative overflow-hidden bg-[linear-gradient(135deg,#355C9A_100%,#4E73B8_50%,#6C8FD6_100%)]">
         <div className="absolute inset-x-0 top-0 h-px bg-white/14" />
         <div
           aria-hidden="true"
           className="absolute inset-0 opacity-[0.11] [background-image:linear-gradient(rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:96px_96px]"
         />
 
-        <Container className="grid gap-8 py-8 sm:py-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(21rem,0.78fr)] lg:gap-20 lg:py-[3.25rem]">
+        <Container className="grid gap-6 py-6 sm:py-8 lg:grid-cols-[minmax(0,0.86fr)_minmax(26rem,1fr)] lg:items-start lg:gap-10 lg:py-8 xl:grid-cols-[minmax(0,0.9fr)_minmax(30rem,1fr)] xl:gap-12">
           <div className="min-w-0">
-            <div className="mb-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/66">
-              <span className="h-px w-8 bg-[#52d3a2]" />
-              Auxano command view
-            </div>
             <h1
               ref={headlineRef}
-              className="max-w-full break-words text-[2.45rem] font-semibold leading-[0.96] tracking-[-0.045em] text-white sm:max-w-5xl sm:text-balance sm:text-[3.8rem] sm:leading-[0.94] sm:tracking-[-0.065em] lg:text-[4.7rem]"
+              className="max-w-full break-words text-[2rem] font-medium leading-[1.08] tracking-[-0.025em] text-white sm:max-w-3xl sm:text-balance sm:text-[2.25rem] lg:max-w-[34rem] lg:text-[2.1rem] xl:text-[2.3rem]"
             >
               {activeSlide.headline}
             </h1>
           </div>
 
-          <div className="min-w-0 lg:pt-10">
+          <div className="min-w-0">
             <p
               ref={descriptionRef}
-              className="max-w-full text-lg leading-8 text-white/84 sm:max-w-xl sm:text-pretty sm:text-[1.35rem] sm:leading-[1.55] lg:text-[1.08rem] lg:leading-8"
+              className="max-w-full text-sm leading-7 text-white/84 sm:max-w-2xl sm:text-pretty sm:text-[0.95rem] sm:leading-[1.6] lg:text-[1rem] lg:leading-8"
             >
               {activeSlide.description}
             </p>
 
             <div
               ref={ctaWrapRef}
-              className="mt-7 flex flex-wrap items-center gap-3"
+              className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center"
             >
+              {hasServiceCta ? (
+                <ButtonLink
+                  href={activeSlide.primaryCta.href}
+                  variant="secondary"
+                  className="w-full whitespace-nowrap rounded-sm border-transparent bg-white px-5 py-3 text-sm font-semibold !text-[#061a28] shadow-[0_22px_55px_rgba(3,18,31,0.2)] hover:-translate-y-0.5 hover:border-transparent hover:!text-[#061a28] sm:w-auto"
+                >
+                  {activeSlide.primaryCta.label}
+                </ButtonLink>
+              ) : null}
               <ButtonLink
-                href={activeSlide.primaryCta.href}
-                variant="secondary"
-                className="!w-full !rounded-sm !border-transparent !bg-white !px-6 !py-3.5 !text-base !font-semibold !text-[#061a28] shadow-[0_22px_55px_rgba(3,18,31,0.2)] hover:!-translate-y-0.5 hover:!border-transparent hover:!text-[#061a28] sm:!w-auto"
-              >
-                {activeSlide.primaryCta.label}
-              </ButtonLink>
-              <ButtonLink
-                href="/estimate"
+                href="/book-consultation"
                 variant="ghost"
-                className="!w-full !justify-start !rounded-sm !px-0 !py-3.5 !text-base !font-semibold !text-white/86 hover:!bg-transparent hover:!text-white sm:!w-auto sm:!justify-center sm:!px-5 sm:hover:!bg-white/8"
+                className="w-full justify-start rounded-sm px-0 py-3 text-sm font-semibold text-white/86 hover:bg-transparent hover:text-white sm:w-auto sm:justify-center sm:px-4 sm:hover:bg-white/8"
               >
-                Estimate project
+                Book Consultation
                 <ArrowRight className="ml-2 h-4 w-4" />
               </ButtonLink>
             </div>

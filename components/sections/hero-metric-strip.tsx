@@ -1,28 +1,39 @@
 import { Container } from "@/components/ui/container";
+import { StatMetricIcon, type StatMetricIconKind } from "@/components/ui/stat-metric-icon";
 import type { Metric } from "@/lib/types";
 
 type HeroMetricStripProps = {
   metrics: Metric[];
 };
 
+const metricIcons: StatMetricIconKind[] = ["award", "clipboard", "users", "headset"];
+
 export function HeroMetricStrip({ metrics }: HeroMetricStripProps) {
   return (
-    <section className="bg-white mt-8 md:mt-16">
+    <section className="bg-white py-14 sm:py-16">
       <Container>
-        <div className="grid divide-y divide-[#0A3047] border-y border-[#0A3047] md:grid-cols-4 md:divide-x md:divide-y-0">
-          {metrics.map((metric) => (
-            <div
-              key={metric.label}
-              className="flex min-h-[8.5rem] flex-col items-center justify-center px-6 py-8 text-center md:min-h-[9.75rem] md:px-5"
-            >
-              <p className="text-[2.85rem] font-semibold leading-none tracking-[-0.07em] text-[#0A3047] sm:text-[3.45rem]">
-                {metric.value}
-              </p>
-              <p className="mt-3 text-sm font-medium leading-6 text-[#0A3047] sm:text-base">
-                {metric.label}
-              </p>
-            </div>
-          ))}
+        <div className="overflow-hidden rounded-[1.75rem] border border-[color:rgba(11,18,32,0.08)] bg-white">
+          <div className="grid divide-y divide-[color:rgba(53,92,154,0.18)] md:grid-cols-4 md:divide-x md:divide-y-0">
+            {metrics.map((metric, index) => {
+              const icon = metricIcons[index % metricIcons.length];
+
+              return (
+                <article
+                  key={metric.label}
+                  className="relative flex min-h-[16rem] flex-col items-center justify-center px-6 py-9 text-center"
+                >
+                  <StatMetricIcon kind={icon} />
+                  <p className="mt-8 text-[1.5rem] font-semibold leading-none tracking-normal text-[#123f91] sm:text-[2.5rem]">
+                    {metric.value}
+                  </p>
+                  <span className="mt-6 h-1 w-16 rounded-full bg-[#f97316]" />
+                  <p className="mt-6 text-lg font-semibold text-[#1f2937]">
+                    {metric.label}
+                  </p>
+                </article>
+              );
+            })}
+          </div>
         </div>
       </Container>
     </section>

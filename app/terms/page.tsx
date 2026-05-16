@@ -10,7 +10,7 @@ export const metadata = buildMetadata({
 
 const termsPoints = [
   "Website content is provided for informational and commercial communication purposes only and does not create a binding service agreement by itself.",
-  "Submitted estimates are indicative commercial ranges, not final quotations or procurement commitments.",
+  "Submitted consultation requests are starting points for scoping, not final quotations or procurement commitments.",
   "Project scope, schedule, and pricing remain subject to discovery, site review, and commercial approval.",
   "Website downtime, third-party tooling outages, or form delivery issues do not create liability beyond reasonable operational remediation.",
 ];

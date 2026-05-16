@@ -111,3 +111,1376 @@ Read more: https://nextjs.org/docs/app/api-reference/components/image#loading (f
 [browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
 [browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
 [browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getNavigation (lib\content.ts:69:36)
+    at async RootLayout (app\layout.tsx:52:7)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '1355026180'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getMarketingPage (lib\content.ts:127:36)
+    at async HomePage (app\page.tsx:19:61)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '4141267245'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getNavigation (lib\content.ts:69:36)
+    at async RootLayout (app\layout.tsx:52:7)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '1355026180'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getMarketingPage (lib\content.ts:127:36)
+    at async HomePage (app\page.tsx:19:61)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '4141267245'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getNavigation (lib\content.ts:69:36)
+    at async RootLayout (app\layout.tsx:52:7)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '1355026180'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getMarketingPage (lib\content.ts:127:36)
+    at async HomePage (app\page.tsx:19:61)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '4141267245'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getNavigation (lib\content.ts:69:36)
+    at async RootLayout (app\layout.tsx:52:7)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '1355026180'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getNavigation (lib\content.ts:69:36)
+    at async RootLayout (app\layout.tsx:52:7)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '1355026180'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getMarketingPage (lib\content.ts:127:36)
+    at async HomePage (app\page.tsx:19:61)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '4141267245'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getNavigation (lib\content.ts:69:36)
+    at async RootLayout (app\layout.tsx:52:7)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '1355026180'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getMarketingPage (lib\content.ts:127:36)
+    at async HomePage (app\page.tsx:19:61)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '4141267245'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getNavigation (lib\content.ts:69:36)
+    at async RootLayout (app\layout.tsx:52:7)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '1355026180'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getMarketingPage (lib\content.ts:127:36)
+    at async HomePage (app\page.tsx:19:61)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '4141267245'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getNavigation (lib\content.ts:69:36)
+    at async RootLayout (app\layout.tsx:52:7)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '1355026180'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getNavigation (lib\content.ts:69:36)
+    at async RootLayout (app\layout.tsx:52:7)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '1355026180'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getMarketingPage (lib\content.ts:127:36)
+    at async HomePage (app\page.tsx:19:61)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '4141267245'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getNavigation (lib\content.ts:69:36)
+    at async RootLayout (app\layout.tsx:52:7)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '1355026180'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getMarketingPage (lib\content.ts:127:36)
+    at async HomePage (app\page.tsx:19:61)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '4141267245'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getNavigation (lib\content.ts:69:36)
+    at async RootLayout (app\layout.tsx:52:7)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '1355026180'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getMarketingPage (lib\content.ts:127:36)
+    at async HomePage (app\page.tsx:19:61)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '4141267245'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getNavigation (lib\content.ts:69:36)
+    at async RootLayout (app\layout.tsx:52:7)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '1355026180'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getNavigation (lib\content.ts:69:36)
+    at async RootLayout (app\layout.tsx:52:7)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '1355026180'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getNavigation (lib\content.ts:69:36)
+    at async RootLayout (app\layout.tsx:52:7)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '1355026180'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getNavigation (lib\content.ts:69:36)
+    at async RootLayout (app\layout.tsx:52:7)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '1355026180'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getMarketingPage (lib\content.ts:127:36)
+    at async HomePage (app\page.tsx:19:61)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '4141267245'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getNavigation (lib\content.ts:69:36)
+    at async RootLayout (app\layout.tsx:52:7)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '1355026180'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getMarketingPage (lib\content.ts:127:36)
+    at async HomePage (app\page.tsx:19:61)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '4141267245'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getNavigation (lib\content.ts:69:36)
+    at async RootLayout (app\layout.tsx:52:7)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '1355026180'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getMarketingPage (lib\content.ts:127:36)
+    at async HomePage (app\page.tsx:19:61)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '4141267245'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getNavigation (lib\content.ts:69:36)
+    at async RootLayout (app\layout.tsx:52:7)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '1355026180'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getMarketingPage (lib\content.ts:127:36)
+    at async HomePage (app\page.tsx:19:61)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '4141267245'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getNavigation (lib\content.ts:69:36)
+    at async RootLayout (app\layout.tsx:52:7)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '1355026180'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getMarketingPage (lib\content.ts:127:36)
+    at async HomePage (app\page.tsx:19:61)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '4141267245'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getNavigation (lib\content.ts:69:36)
+    at async RootLayout (app\layout.tsx:52:7)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '1355026180'
+}
+⨯ Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getMarketingPage (lib\content.ts:127:36)
+    at async HomePage (app\page.tsx:19:61)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion, {
+  digest: '4141267245'
+}
+[browser] Uncaught Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getNavigation (lib\content.ts:69:36)
+    at  RootLayout (app\layout.tsx:52:7)
+    at resolveErrorDev (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:1919:150)
+    at processFullStringRow (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:2434:29)
+    at processFullBinaryRow (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:2393:9)
+    at processBinaryChunk (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:2502:221)
+    at progress (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:2689:13)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion,
+[browser] Uncaught Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getNavigation (lib\content.ts:69:36)
+    at  RootLayout (app\layout.tsx:52:7)
+    at resolveErrorDev (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:1919:150)
+    at processFullStringRow (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:2434:29)
+    at processFullBinaryRow (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:2393:9)
+    at processBinaryChunk (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:2502:221)
+    at progress (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:2689:13)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion,
+[browser] Uncaught Error: `projectId` can only contain only a-z, 0-9 and dashes
+    at getSanityClient (sanity\lib\client.ts:15:22)
+    at sanityFetch (sanity\lib\client.ts:38:18)
+    at getNavigation (lib\content.ts:69:36)
+    at  RootLayout (app\layout.tsx:52:7)
+    at resolveErrorDev (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:1919:150)
+    at processFullStringRow (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:2434:29)
+    at processFullBinaryRow (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:2393:9)
+    at processBinaryChunk (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:2502:221)
+    at progress (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:2689:13)
+  13 |   }
+  14 |
+> 15 |   return createClient({
+     |                      ^
+  16 |     projectId,
+  17 |     dataset,
+  18 |     apiVersion,
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target [data-map-line] not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target [data-map-node] not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target [data-map-line] not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target [data-map-node] not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target [data-map-line] not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target [data-map-node] not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/about" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" className="sora_834ab...">
+                          <body
+                            className="min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)]"
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+ 
+    at <unknown> (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3439:25)
+    at runWithFiberInDEV (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at emitPendingHydrationWarnings (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3438:13)
+    at completeWork (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6885:102)
+    at runWithFiberInDEV (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:131)
+    at completeUnitOfWork (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9622:23)
+    at performUnitOfWork (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9557:28)
+    at workLoopConcurrentByScheduler (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9551:58)
+    at renderRootConcurrent (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9534:71)
+    at performWorkOnRoot (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:2647:64) (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3439:25)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/studio" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" className="sora_834ab...">
+                          <body
+                            className="min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)]"
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+ 
+    at <unknown> (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3439:25)
+    at runWithFiberInDEV (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at emitPendingHydrationWarnings (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3438:13)
+    at completeWork (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6885:102)
+    at runWithFiberInDEV (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:131)
+    at completeUnitOfWork (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9622:23)
+    at performUnitOfWork (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9557:28)
+    at workLoopSync (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9449:40)
+    at renderRootSync (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9433:13)
+    at performWorkOnRoot (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9061:186)
+    at performWorkOnRootViaSchedulerTask (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:2647:64) (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3439:25)
+[browser] Because you set `withCredentials` to true, we will override your `useCdn` setting to be false since (cookie-based) credentials are never set on the CDN (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] Building schema for synchronization took more than 1 second (4022.9000000059605ms) (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/studio/post" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" className="sora_834ab...">
+                          <body
+                            className="min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)]"
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+ 
+    at <unknown> (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3439:25)
+    at runWithFiberInDEV (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at emitPendingHydrationWarnings (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3438:13)
+    at completeWork (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6885:102)
+    at runWithFiberInDEV (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:131)
+    at completeUnitOfWork (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9622:23)
+    at performUnitOfWork (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9557:28)
+    at workLoopConcurrentByScheduler (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9551:58)
+    at renderRootConcurrent (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9534:71)
+    at performWorkOnRoot (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:2647:64) (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3439:25)
+[browser] Building schema for synchronization took more than 1 second (3872.5ms) (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/structure" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" className="sora_834ab...">
+                          <body
+                            className="min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)]"
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+ 
+    at <unknown> (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3439:25)
+    at runWithFiberInDEV (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at emitPendingHydrationWarnings (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3438:13)
+    at completeWork (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6885:102)
+    at runWithFiberInDEV (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:131)
+    at completeUnitOfWork (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9622:23)
+    at performUnitOfWork (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9557:28)
+    at workLoopConcurrentByScheduler (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9551:58)
+    at renderRootConcurrent (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9534:71)
+    at performWorkOnRoot (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:2647:64) (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3439:25)
+[browser] Building schema for synchronization took more than 1 second (1877.300000011921ms) (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target [data-map-line] not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target [data-map-node] not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] styled-components: it looks like an unknown prop "items" is being sent through to the DOM, which will likely trigger a React console error. If you would like automatic filtering of unknown props, you can opt-into that behavior via `<StyleSheetManager shouldForwardProp={...}>` (connect an API like `@emotion/is-prop-valid`) or consider using transient props (`$` prefix for automatic filtering.) (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+⨯ TypeError: Cannot read properties of null (reading '_type')
+    at <unknown> (app\blog\[slug]\page.tsx:52:89)
+    at Array.filter (<anonymous>)
+    at BlogPostPage (app\blog\[slug]\page.tsx:52:6)
+  50 | ...
+  51 | ...
+> 52 | ...yBlock, { _type: "blogHeading" }> => block._type === "blogHeading")
+     |                                               ^
+  53 | ...
+  54 | ...
+  55 | ... {
+  digest: '389180523'
+}
+⨯ TypeError: Cannot read properties of null (reading '_type')
+    at <unknown> (app\blog\[slug]\page.tsx:52:89)
+    at Array.filter (<anonymous>)
+    at BlogPostPage (app\blog\[slug]\page.tsx:52:6)
+  50 | ...
+  51 | ...
+> 52 | ...yBlock, { _type: "blogHeading" }> => block._type === "blogHeading")
+     |                                               ^
+  53 | ...
+  54 | ...
+  55 | ... {
+  digest: '389180523'
+}
+⨯ TypeError: Cannot read properties of null (reading '_type')
+    at <unknown> (app\blog\[slug]\page.tsx:52:89)
+    at Array.filter (<anonymous>)
+    at BlogPostPage (app\blog\[slug]\page.tsx:52:6)
+  50 | ...
+  51 | ...
+> 52 | ...yBlock, { _type: "blogHeading" }> => block._type === "blogHeading")
+     |                                               ^
+  53 | ...
+  54 | ...
+  55 | ... {
+  digest: '389180523'
+}
+⨯ TypeError: Cannot read properties of null (reading '_type')
+    at <unknown> (app\blog\[slug]\page.tsx:52:89)
+    at Array.filter (<anonymous>)
+    at BlogPostPage (app\blog\[slug]\page.tsx:52:6)
+  50 | ...
+  51 | ...
+> 52 | ...yBlock, { _type: "blogHeading" }> => block._type === "blogHeading")
+     |                                               ^
+  53 | ...
+  54 | ...
+  55 | ... {
+  digest: '389180523'
+}
+⨯ TypeError: Cannot read properties of null (reading '_type')
+    at <unknown> (app\blog\[slug]\page.tsx:52:89)
+    at Array.filter (<anonymous>)
+    at BlogPostPage (app\blog\[slug]\page.tsx:52:6)
+  50 | ...
+  51 | ...
+> 52 | ...yBlock, { _type: "blogHeading" }> => block._type === "blogHeading")
+     |                                               ^
+  53 | ...
+  54 | ...
+  55 | ... {
+  digest: '389180523'
+}
+⨯ TypeError: Cannot read properties of null (reading '_type')
+    at <unknown> (app\blog\[slug]\page.tsx:52:89)
+    at Array.filter (<anonymous>)
+    at BlogPostPage (app\blog\[slug]\page.tsx:52:6)
+  50 | ...
+  51 | ...
+> 52 | ...yBlock, { _type: "blogHeading" }> => block._type === "blogHeading")
+     |                                               ^
+  53 | ...
+  54 | ...
+  55 | ... {
+  digest: '389180523'
+}
+⨯ TypeError: Cannot read properties of null (reading '_type')
+    at <unknown> (app\blog\[slug]\page.tsx:52:89)
+    at Array.filter (<anonymous>)
+    at BlogPostPage (app\blog\[slug]\page.tsx:52:6)
+  50 | ...
+  51 | ...
+> 52 | ...yBlock, { _type: "blogHeading" }> => block._type === "blogHeading")
+     |                                               ^
+  53 | ...
+  54 | ...
+  55 | ... {
+  digest: '389180523'
+}
+⨯ TypeError: Cannot read properties of null (reading '_type')
+    at <unknown> (app\blog\[slug]\page.tsx:52:89)
+    at Array.filter (<anonymous>)
+    at BlogPostPage (app\blog\[slug]\page.tsx:52:6)
+  50 | ...
+  51 | ...
+> 52 | ...yBlock, { _type: "blogHeading" }> => block._type === "blogHeading")
+     |                                               ^
+  53 | ...
+  54 | ...
+  55 | ... {
+  digest: '389180523'
+}
+⨯ TypeError: Cannot read properties of null (reading '_type')
+    at <unknown> (app\blog\[slug]\page.tsx:52:89)
+    at Array.filter (<anonymous>)
+    at BlogPostPage (app\blog\[slug]\page.tsx:52:6)
+  50 | ...
+  51 | ...
+> 52 | ...yBlock, { _type: "blogHeading" }> => block._type === "blogHeading")
+     |                                               ^
+  53 | ...
+  54 | ...
+  55 | ... {
+  digest: '389180523'
+}
+⨯ TypeError: Cannot read properties of null (reading '_type')
+    at <unknown> (app\blog\[slug]\page.tsx:52:89)
+    at Array.filter (<anonymous>)
+    at BlogPostPage (app\blog\[slug]\page.tsx:52:6)
+  50 | ...
+  51 | ...
+> 52 | ...yBlock, { _type: "blogHeading" }> => block._type === "blogHeading")
+     |                                               ^
+  53 | ...
+  54 | ...
+  55 | ... {
+  digest: '389180523'
+}
+⨯ TypeError: Cannot read properties of null (reading '_type')
+    at <unknown> (app\blog\[slug]\page.tsx:52:89)
+    at Array.filter (<anonymous>)
+    at BlogPostPage (app\blog\[slug]\page.tsx:52:6)
+  50 | ...
+  51 | ...
+> 52 | ...yBlock, { _type: "blogHeading" }> => block._type === "blogHeading")
+     |                                               ^
+  53 | ...
+  54 | ...
+  55 | ... {
+  digest: '389180523'
+}
+⨯ TypeError: Cannot read properties of null (reading '_type')
+    at <unknown> (app\blog\[slug]\page.tsx:52:89)
+    at Array.filter (<anonymous>)
+    at BlogPostPage (app\blog\[slug]\page.tsx:52:6)
+  50 | ...
+  51 | ...
+> 52 | ...yBlock, { _type: "blogHeading" }> => block._type === "blogHeading")
+     |                                               ^
+  53 | ...
+  54 | ...
+  55 | ... {
+  digest: '389180523'
+}
+[browser] TypeError: Failed to fetch
+    at f (http://fast.wistia.net/assets/external/engines/hls_video.js@0.6.16:1:73908)
+    at <unknown> (http://fast.wistia.net/assets/external/engines/hls_video.js@0.6.16:1:73607) (http://fast.wistia.net/assets/external/engines/hls_video.js@0.6.16:1:74095)
+[browser] Uncaught TypeError: Cannot read properties of null (reading '_type')
+    at <anonymous> (app\blog\[slug]\page.tsx:52:89)
+    at Array.filter (<anonymous>:1:21)
+    at BlogPostPage (app\blog\[slug]\page.tsx:52:6)
+    at resolveErrorDev (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:1919:150)
+    at processFullStringRow (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:2434:29)
+    at processFullBinaryRow (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:2393:9)
+    at processBinaryChunk (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:2502:221)
+    at progress (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:2689:13)
+  50 | ...
+  51 | ...
+> 52 | ...yBlock, { _type: "blogHeading" }> => block._type === "blogHeading")
+     |                                               ^
+  53 | ...
+  54 | ...
+  55 | ...
+[browser] TypeError: Failed to fetch
+    at p (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127332)
+    at <unknown> (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127031) (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127519)
+[browser] TypeError: Failed to fetch
+    at p (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127332)
+    at <unknown> (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127031) (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127519)
+[browser] TypeError: Failed to fetch
+    at p (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127332)
+    at <unknown> (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127031) (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127519)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+⨯ TypeError: Cannot read properties of null (reading '_type')
+    at <unknown> (app\blog\[slug]\page.tsx:52:89)
+    at Array.filter (<anonymous>)
+    at BlogPostPage (app\blog\[slug]\page.tsx:52:6)
+  50 | ...
+  51 | ...
+> 52 | ...yBlock, { _type: "blogHeading" }> => block._type === "blogHeading")
+     |                                               ^
+  53 | ...
+  54 | ...
+  55 | ... {
+  digest: '389180523'
+}
+[browser] Uncaught TypeError: Cannot read properties of null (reading '_type')
+    at <anonymous> (app\blog\[slug]\page.tsx:52:89)
+    at Array.filter (<anonymous>:1:21)
+    at BlogPostPage (app\blog\[slug]\page.tsx:52:6)
+    at resolveErrorDev (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:1919:150)
+    at processFullStringRow (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:2434:29)
+    at processFullBinaryRow (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:2393:9)
+    at processBinaryChunk (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:2502:221)
+    at progress (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:2689:13)
+  50 | ...
+  51 | ...
+> 52 | ...yBlock, { _type: "blogHeading" }> => block._type === "blogHeading")
+     |                                               ^
+  53 | ...
+  54 | ...
+  55 | ...
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/blog" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" className="sora_834ab...">
+                          <body
+                            className="min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)]"
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+ 
+    at <unknown> (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3439:25)
+    at runWithFiberInDEV (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at emitPendingHydrationWarnings (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3438:13)
+    at completeWork (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6885:102)
+    at runWithFiberInDEV (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:131)
+    at completeUnitOfWork (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9622:23)
+    at performUnitOfWork (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9557:28)
+    at workLoopConcurrentByScheduler (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9551:58)
+    at renderRootConcurrent (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9534:71)
+    at performWorkOnRoot (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:2647:64) (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3439:25)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/structure..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" className="sora_834ab...">
+                          <body
+                            className="min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)]"
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+ 
+    at <unknown> (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3439:25)
+    at runWithFiberInDEV (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at emitPendingHydrationWarnings (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3438:13)
+    at completeWork (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6885:102)
+    at runWithFiberInDEV (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:131)
+    at completeUnitOfWork (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9622:23)
+    at performUnitOfWork (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9557:28)
+    at workLoopConcurrentByScheduler (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9551:58)
+    at renderRootConcurrent (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9534:71)
+    at performWorkOnRoot (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:2647:64) (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3439:25)
+⨯ TypeError: Cannot read properties of null (reading '_type')
+    at <unknown> (app\blog\[slug]\page.tsx:52:89)
+    at Array.filter (<anonymous>)
+    at BlogPostPage (app\blog\[slug]\page.tsx:52:6)
+  50 | ...
+  51 | ...
+> 52 | ...yBlock, { _type: "blogHeading" }> => block._type === "blogHeading")
+     |                                               ^
+  53 | ...
+  54 | ...
+  55 | ... {
+  digest: '389180523'
+}
+[browser] Uncaught TypeError: Cannot read properties of null (reading '_type')
+    at <anonymous> (app\blog\[slug]\page.tsx:52:89)
+    at Array.filter (<anonymous>:1:21)
+    at BlogPostPage (app\blog\[slug]\page.tsx:52:6)
+    at resolveErrorDev (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:1919:105)
+    at processFullStringRow (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:2434:29)
+    at processFullBinaryRow (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:2393:9)
+    at processBinaryChunk (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:2502:221)
+    at progress (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:2689:13)
+  50 | ...
+  51 | ...
+> 52 | ...yBlock, { _type: "blogHeading" }> => block._type === "blogHeading")
+     |                                               ^
+  53 | ...
+  54 | ...
+  55 | ...
+[browser] Building schema for synchronization took more than 1 second (1849.7999999821186ms) (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] styled-components: it looks like an unknown prop "items" is being sent through to the DOM, which will likely trigger a React console error. If you would like automatic filtering of unknown props, you can opt-into that behavior via `<StyleSheetManager shouldForwardProp={...}>` (connect an API like `@emotion/is-prop-valid`) or consider using transient props (`$` prefix for automatic filtering.) (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+⨯ Error [SchemaError]: SchemaError
+    at ignore-listed frames {
+  schema: Schema {
+    _original: { name: 'auxano-studio', types: [], parent: [Schema] },
+    _registry: [Object: null prototype] {
+      any: [Object],
+      array: [Object],
+      block: [Object],
+      boolean: [Object],
+      crossDatasetReference: [Object],
+      date: [Object],
+      datetime: [Object],
+      document: [Object],
+      email: [Object],
+      file: [Object],
+      globalDocumentReference: [Object],
+      image: [Object],
+      number: [Object],
+      object: [Object],
+      reference: [Object],
+      span: [Object],
+      string: [Object],
+      text: [Object],
+      url: [Object],
+      'sanity.assetSourceData': [Object],
+      slug: [Object],
+      geopoint: [Object],
+      'sanity.imageAsset': [Object],
+      'sanity.fileAsset': [Object],
+      'sanity.imageCrop': [Object],
+      'sanity.imageHotspot': [Object],
+      'sanity.imageMetadata': [Object],
+      'sanity.imageDimensions': [Object],
+      'sanity.imagePalette': [Object],
+      'sanity.imagePaletteSwatch': [Object]
+    },
+    _validation: [ [Object] ]
+  },
+  digest: '1881249713'
+}
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] TypeError: Failed to fetch
+    at p (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127332)
+    at <unknown> (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127031) (http://fast.wistia.com/assets/external/publicApi.js@0.6.16:1:127519)
+⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/client/image-component.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/client/image-component.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⨯ ReferenceError: useScroll is not defined
+    at AboutGeneaInspired (components\sections\about-genea-inspired.tsx:261:31)
+  259 | export function AboutGeneaInspired() {
+  260 |   const reduceMotion = useReducedMotion();
+> 261 |   const { scrollYProgress } = useScroll();
+      |                               ^
+  262 |   const heroY = useTransform(scrollYProgress, [0, 0.22], [0, reduceMotion ? 0 : -46]);
+  263 |   const mediaScale = useTransform(scrollYProgress, [0, 0.22], [1, reduceMotion ? 1 : 1.03...
+  264 | {
+  digest: '3903141675'
+}
+⨯ ReferenceError: useScroll is not defined
+    at AboutGeneaInspired (components\sections\about-genea-inspired.tsx:261:31)
+  259 | export function AboutGeneaInspired() {
+  260 |   const reduceMotion = useReducedMotion();
+> 261 |   const { scrollYProgress } = useScroll();
+      |                               ^
+  262 |   const heroY = useTransform(scrollYProgress, [0, 0.22], [0, reduceMotion ? 0 : -46]);
+  263 |   const mediaScale = useTransform(scrollYProgress, [0, 0.22], [1, reduceMotion ? 1 : 1.03...
+  264 | {
+  digest: '3903141675'
+}
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⨯ ReferenceError: useScroll is not defined
+    at AboutGeneaInspired (components\sections\about-genea-inspired.tsx:261:31)
+  259 | export function AboutGeneaInspired() {
+  260 |   const reduceMotion = useReducedMotion();
+> 261 |   const { scrollYProgress } = useScroll();
+      |                               ^
+  262 |   const heroY = useTransform(scrollYProgress, [0, 0.22], [0, reduceMotion ? 0 : -46]);
+  263 |   const mediaScale = useTransform(scrollYProgress, [0, 0.22], [1, reduceMotion ? 1 : 1.03...
+  264 | {
+  digest: '3903141675'
+}
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⨯ ReferenceError: useScroll is not defined
+    at AboutGeneaInspired (components\sections\about-genea-inspired.tsx:261:31)
+  259 | export function AboutGeneaInspired() {
+  260 |   const reduceMotion = useReducedMotion();
+> 261 |   const { scrollYProgress } = useScroll();
+      |                               ^
+  262 |   const heroY = useTransform(scrollYProgress, [0, 0.22], [0, reduceMotion ? 0 : -46]);
+  263 |   const mediaScale = useTransform(scrollYProgress, [0, 0.22], [1, reduceMotion ? 1 : 1.03...
+  264 | {
+  digest: '3903141675'
+}
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⨯ Error: Module [project]/node_modules/lucide-react/dist/esm/icons/arrow-down.js [app-ssr] (ecmascript) <export default as ArrowDown> was instantiated because it was required from module [project]/components/sections/about-genea-inspired.tsx [app-ssr] (ecmascript), but the module factory is not available.
+This is often caused by a stale browser cache, misconfigured Cache-Control headers, or a service worker serving outdated responses.
+To fix this, make sure your Cache-Control headers allow revalidation of chunks and review your service worker configuration. As an immediate workaround, try hard-reloading the page, clearing the browser cache, or unregistering any service workers.
+    at module evaluation (components\sections\about-genea-inspired.tsx:5:1)
+  3 | import Image from "next/image";
+  4 | import Link from "next/link";
+> 5 | import {
+    | ^
+  6 |   ArrowDown,
+  7 |   ArrowRight,
+  8 |   BadgeCheck, {
+  digest: '3888287859'
+}
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload when ./components/sections/about-genea-inspired.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[browser] Image with src "/image/It_management.jpg" has "fill" prop and "sizes" prop of "100vw", but image is not rendered at full viewport width. Please adjust "sizes" to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] Image with src "/image/It_management.jpg" has "fill" prop and "sizes" prop of "100vw", but image is not rendered at full viewport width. Please adjust "sizes" to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] Image with src "/image/It_management.jpg" has "fill" prop and "sizes" prop of "100vw", but image is not rendered at full viewport width. Please adjust "sizes" to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] Image with src "/image/It_management.jpg" has "fill" prop and "sizes" prop of "100vw", but image is not rendered at full viewport width. Please adjust "sizes" to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/about" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" className="sora_834ab...">
+                          <body
+                            className="min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)]"
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+ 
+    at <unknown> (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3439:25)
+    at runWithFiberInDEV (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at emitPendingHydrationWarnings (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3438:13)
+    at completeWork (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6885:102)
+    at runWithFiberInDEV (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:131)
+    at completeUnitOfWork (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9622:23)
+    at performUnitOfWork (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9557:28)
+    at workLoopConcurrentByScheduler (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9551:58)
+    at renderRootConcurrent (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9534:71)
+    at performWorkOnRoot (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:2647:64) (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3439:25)
+[browser] Image with src "/image/It_management.jpg" has "fill" prop and "sizes" prop of "100vw", but image is not rendered at full viewport width. Please adjust "sizes" to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+[browser] Uncaught Error: Switched to client rendering because the server rendering errored:
+
+SchemaError
+    at <unknown> (C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\server\chunks\ssr\node_modules_sanity_lib_index_0i_mm3l.js:95957:82)
+    at Array.map (<anonymous>)
+    at <unknown> (C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\server\chunks\ssr\node_modules_sanity_lib_index_0i_mm3l.js:95933:21)
+    at Array.map (<anonymous>)
+    at prepareConfig (C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\server\chunks\ssr\node_modules_sanity_lib_index_0i_mm3l.js:95918:38)
+    at WorkspacesProvider (C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\server\chunks\ssr\node_modules_sanity_lib_index_0i_mm3l.js:96481:50)
+[browser] react-i18next:: useTranslation: You will need to pass in an i18next instance by using initReactI18next { code: [32m'NO_I18NEXT_INSTANCE'[39m } (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)
+⨯ Error [SchemaError]: SchemaError
+    at ignore-listed frames {
+  schema: Schema {
+    _original: { name: 'auxano-studio', types: [], parent: [Schema] },
+    _registry: [Object: null prototype] {
+      any: [Object],
+      array: [Object],
+      block: [Object],
+      boolean: [Object],
+      crossDatasetReference: [Object],
+      date: [Object],
+      datetime: [Object],
+      document: [Object],
+      email: [Object],
+      file: [Object],
+      globalDocumentReference: [Object],
+      image: [Object],
+      number: [Object],
+      object: [Object],
+      reference: [Object],
+      span: [Object],
+      string: [Object],
+      text: [Object],
+      url: [Object],
+      'sanity.assetSourceData': [Object],
+      slug: [Object],
+      geopoint: [Object],
+      'sanity.imageAsset': [Object],
+      'sanity.fileAsset': [Object],
+      'sanity.imageCrop': [Object],
+      'sanity.imageHotspot': [Object],
+      'sanity.imageMetadata': [Object],
+      'sanity.imageDimensions': [Object],
+      'sanity.imagePalette': [Object],
+      'sanity.imagePaletteSwatch': [Object]
+    },
+    _validation: [ [Object] ]
+  },
+  digest: '1881249713'
+}
+[browser] Uncaught Error: Switched to client rendering because the server rendering errored:
+
+SchemaError
+    at <unknown> (C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\server\chunks\ssr\node_modules_sanity_lib_index_0i_mm3l.js:95957:82)
+    at Array.map (<anonymous>)
+    at <unknown> (C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\server\chunks\ssr\node_modules_sanity_lib_index_0i_mm3l.js:95933:21)
+    at Array.map (<anonymous>)
+    at prepareConfig (C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\server\chunks\ssr\node_modules_sanity_lib_index_0i_mm3l.js:95918:38)
+    at WorkspacesProvider (C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\server\chunks\ssr\node_modules_sanity_lib_index_0i_mm3l.js:96481:50)
+[browser] react-i18next:: useTranslation: You will need to pass in an i18next instance by using initReactI18next { code: [32m'NO_I18NEXT_INSTANCE'[39m } (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2477:13)

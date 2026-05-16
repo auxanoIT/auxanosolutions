@@ -196,14 +196,12 @@ export function MobileNavigationSheet({
                   })}
                 </div>
 
-                <div className="mt-auto grid gap-3 pt-8">
+                <div className="mt-auto grid gap-3 pt-8 text-white">
                   <SheetClose asChild>
-                    <ButtonLink href="/estimate" variant="secondary" className="w-full">
-                      Estimate Cost
-                    </ButtonLink>
-                  </SheetClose>
-                  <SheetClose asChild>
-                    <ButtonLink href="/book-consultation" className="w-full">
+                    <ButtonLink
+                      href="/book-consultation"
+                      className="w-full bg-[linear-gradient(135deg,#355C9A_0%,#4E73B8_50%,#6C8FD6_100%)] text-white"
+                    >
                       Book Consultation
                     </ButtonLink>
                   </SheetClose>

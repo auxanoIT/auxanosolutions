@@ -128,9 +128,40 @@ export const blogPostsQuery = groq`
     category,
     publishedAt,
     readingTime,
+    author,
     excerpt,
+    "coverImage": select(
+      defined(coverImage.asset) => {
+        "src": coverImage.asset->url,
+        "alt": coverImage.alt
+      }
+    ),
     takeaways,
-    body,
+    body[]{
+      _type == "string" => @,
+      _type == "blogPlainText" => {
+        _type,
+        text
+      },
+      _type == "blogHeading" => {
+        _type,
+        text,
+        level,
+        anchor
+      },
+      _type == "blogParagraph" => {
+        _type,
+        text
+      },
+      _type == "blogImageBlock" => {
+        _type,
+        caption,
+        "image": {
+          "src": image.asset->url,
+          "alt": image.alt
+        }
+      }
+    },
     "slug": slug.current
   }
 `;
@@ -141,9 +172,40 @@ export const blogPostQuery = groq`
     category,
     publishedAt,
     readingTime,
+    author,
     excerpt,
+    "coverImage": select(
+      defined(coverImage.asset) => {
+        "src": coverImage.asset->url,
+        "alt": coverImage.alt
+      }
+    ),
     takeaways,
-    body,
+    body[]{
+      _type == "string" => @,
+      _type == "blogPlainText" => {
+        _type,
+        text
+      },
+      _type == "blogHeading" => {
+        _type,
+        text,
+        level,
+        anchor
+      },
+      _type == "blogParagraph" => {
+        _type,
+        text
+      },
+      _type == "blogImageBlock" => {
+        _type,
+        caption,
+        "image": {
+          "src": image.asset->url,
+          "alt": image.alt
+        }
+      }
+    },
     "slug": slug.current
   }
 `;

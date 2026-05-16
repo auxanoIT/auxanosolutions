@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -6,6 +7,7 @@ import { Container } from "@/components/ui/container";
 import { JsonLd } from "@/components/ui/json-ld";
 import { getBlogPostBySlug } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
+import type { BlogBodyBlock, BlogPost } from "@/lib/types";
 import { absoluteUrl, formatDate } from "@/lib/utils";
 
 type BlogPostPageProps = {
@@ -33,6 +35,7 @@ export async function generateMetadata({
     type: "article",
     publishedTime: post.publishedAt,
     modifiedTime: post.publishedAt,
+    imagePath: post.coverImage?.src,
     keywords: [post.category, post.title],
   });
 }
@@ -45,6 +48,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
+  const headings = post.body
+    .filter(
+      (block): block is Extract<BlogBodyBlock, { _type: "blogHeading" }> =>
+        typeof block !== "string" && block._type === "blogHeading",
+    )
+    .map((block) => ({
+      text: block.text,
+      id: getHeadingId(block),
+    }));
+
   return (
     <>
       <JsonLd
@@ -54,56 +67,174 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           headline: post.title,
           datePublished: post.publishedAt,
           description: post.excerpt,
+          image: post.coverImage ? absoluteUrl(post.coverImage.src) : undefined,
           url: absoluteUrl(`/blog/${post.slug}`),
           author: {
             "@type": "Organization",
-            name: "Auxano Solutions Technology Limited",
+            name: post.author ?? "Auxano Solutions Technology Limited",
           },
         }}
       />
-      <article className="py-20 sm:py-24">
-        <Container className="max-w-4xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-electric)]">
-            {post.category}
-          </p>
-          <h1 className="mt-6 text-balance text-5xl font-semibold tracking-[-0.06em] text-[var(--color-ink)] sm:text-6xl">
-            {post.title}
-          </h1>
-          <div className="mt-6 flex flex-wrap items-center gap-3 text-sm text-[var(--color-muted)]">
-            <span>{formatDate(post.publishedAt)}</span>
-            <span>•</span>
-            <span>{post.readingTime}</span>
-          </div>
-          <p className="mt-8 text-lg leading-8 text-[var(--color-muted)]">{post.excerpt}</p>
+      <article>
+        <header className="bg-[var(--color-cloud)] py-16 sm:py-20">
+          <Container className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-electric)]">
+                {post.category}
+              </p>
+              <h1 className="mt-6 text-balance text-5xl font-semibold tracking-[-0.06em] text-[var(--color-ink)] sm:text-6xl">
+                {post.title}
+              </h1>
+              <div className="mt-6 flex flex-wrap items-center gap-3 text-sm text-[var(--color-muted)]">
+                <span>{formatDate(post.publishedAt)}</span>
+                <span aria-hidden="true">/</span>
+                <span>{post.readingTime}</span>
+                {post.author ? (
+                  <>
+                    <span aria-hidden="true">/</span>
+                    <span>{post.author}</span>
+                  </>
+                ) : null}
+              </div>
+              <p className="mt-8 text-lg leading-8 text-[var(--color-muted)]">{post.excerpt}</p>
+            </div>
 
-          <div className="mt-10 rounded-[2rem] border border-[color:rgba(11,18,32,0.08)] bg-[var(--color-cloud)] p-7">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-electric)]">
-              Key takeaways
-            </p>
-            <ul className="mt-4 space-y-3 text-sm leading-7 text-[var(--color-ink)]">
-              {post.takeaways.map((takeaway) => (
-                <li key={takeaway} className="flex gap-3">
-                  <span className="mt-[0.55rem] h-1.5 w-1.5 rounded-full bg-[var(--color-cyan)]" />
-                  <span>{takeaway}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+            <div className="relative aspect-[16/10] overflow-hidden rounded-[2rem] border border-white bg-white shadow-[0_24px_70px_rgba(11,18,32,0.08)]">
+              <PostImage post={post} priority />
+            </div>
+          </Container>
+        </header>
 
-          <div className="mt-10 space-y-6 text-base leading-8 text-[var(--color-muted)]">
-            {post.body.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
+        <section className="py-16 sm:py-20">
+          <Container className="grid gap-10 lg:grid-cols-[18rem_minmax(0,1fr)]">
+            <aside className="lg:sticky lg:top-28 lg:self-start">
+              {headings.length ? (
+                <nav className="rounded-[1.5rem] border border-[color:rgba(11,18,32,0.08)] bg-white p-5 shadow-[0_16px_40px_rgba(11,18,32,0.05)]">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-electric)]">
+                    In this article
+                  </p>
+                  <div className="mt-4 grid gap-2">
+                    {headings.map((heading) => (
+                      <a
+                        key={heading.id}
+                        href={`#${heading.id}`}
+                        className="rounded-xl px-3 py-2 text-sm leading-6 text-[var(--color-muted)] transition hover:bg-[var(--color-cloud)] hover:text-[var(--color-ink)]"
+                      >
+                        {heading.text}
+                      </a>
+                    ))}
+                  </div>
+                </nav>
+              ) : null}
+            </aside>
 
-          <div className="mt-12 flex flex-wrap gap-4 border-t border-[color:rgba(11,18,32,0.08)] pt-8">
-            <ButtonLink href="/book-consultation">Book Consultation</ButtonLink>
-            <ButtonLink href="/services" variant="secondary">
-              Explore services
-            </ButtonLink>
-          </div>
-        </Container>
+            <div className="min-w-0">
+              <div className="rounded-[2rem] border border-[color:rgba(11,18,32,0.08)] bg-[var(--color-cloud)] p-7">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-electric)]">
+                  Key takeaways
+                </p>
+                <ul className="mt-4 space-y-3 text-sm leading-7 text-[var(--color-ink)]">
+                  {post.takeaways.map((takeaway) => (
+                    <li key={takeaway} className="flex gap-3">
+                      <span className="mt-[0.55rem] h-1.5 w-1.5 rounded-full bg-[var(--color-cyan)]" />
+                      <span>{takeaway}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="mt-10 space-y-8">
+                {post.body.map((block, index) => (
+                  <BlogBlock
+                    key={`${typeof block === "string" ? "plain-paragraph" : block._type}-${index}`}
+                    block={block}
+                  />
+                ))}
+              </div>
+
+              <div className="mt-12 flex flex-wrap gap-4 border-t border-[color:rgba(11,18,32,0.08)] pt-8">
+                <ButtonLink href="/book-consultation">Book Consultation</ButtonLink>
+                <ButtonLink href="/services" variant="secondary">
+                  Explore services
+                </ButtonLink>
+              </div>
+            </div>
+          </Container>
+        </section>
       </article>
     </>
   );
+}
+
+function BlogBlock({ block }: { block: BlogBodyBlock }) {
+  if (typeof block === "string") {
+    return <p className="text-base leading-8 text-[var(--color-muted)]">{block}</p>;
+  }
+
+  if (block._type === "blogPlainText") {
+    return <p className="text-base leading-8 text-[var(--color-muted)]">{block.text}</p>;
+  }
+
+  if (block._type === "blogHeading") {
+    const id = getHeadingId(block);
+    const HeadingTag = block.level === 3 ? "h3" : "h2";
+
+    return (
+      <HeadingTag id={id} className="group scroll-mt-28 text-3xl font-semibold tracking-[-0.05em] text-[var(--color-ink)]">
+        <a href={`#${id}`} className="transition hover:text-[var(--color-electric)]">
+          {block.text}
+        </a>
+      </HeadingTag>
+    );
+  }
+
+  if (block._type === "blogImageBlock") {
+    return (
+      <figure>
+        <div className="relative aspect-[16/9] overflow-hidden rounded-[1.5rem] bg-[var(--color-cloud)]">
+          <Image
+            src={block.image.src}
+            alt={block.image.alt}
+            fill
+            sizes="(min-width: 1024px) 760px, 100vw"
+            className="object-cover"
+          />
+        </div>
+        {block.caption ? (
+          <figcaption className="mt-3 text-sm leading-6 text-[var(--color-muted)]">{block.caption}</figcaption>
+        ) : null}
+      </figure>
+    );
+  }
+
+  return <p className="text-base leading-8 text-[var(--color-muted)]">{block.text}</p>;
+}
+
+function PostImage({ post, priority = false }: { post: BlogPost; priority?: boolean }) {
+  const image = post.coverImage ?? {
+    src: "/image/service-details/network-design-diagrams.webp",
+    alt: post.title,
+  };
+
+  return (
+    <Image
+      src={image.src}
+      alt={image.alt}
+      fill
+      priority={priority}
+      sizes="(min-width: 1024px) 55vw, 100vw"
+      className="object-cover"
+    />
+  );
+}
+
+function getHeadingId(block: Extract<BlogBodyBlock, { _type: "blogHeading" }>) {
+  return block.anchor || slugify(block.text);
+}
+
+function slugify(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
 }

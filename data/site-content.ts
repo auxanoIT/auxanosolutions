@@ -140,6 +140,11 @@ export const blogPosts: BlogPost[] = [
     category: "Physical Security",
     publishedAt: "2026-03-10",
     readingTime: "6 min read",
+    author: "Auxano Solutions Team",
+    coverImage: {
+      src: "/image/service-details/cctv-camera-coverage.webp",
+      alt: "CCTV camera installed for commercial security coverage",
+    },
     excerpt:
       "Coverage quality depends on network design, operator workflow, retention planning, and post-installation discipline.",
     takeaways: [
@@ -148,9 +153,41 @@ export const blogPosts: BlogPost[] = [
       "Your network topology shapes CCTV performance more than most teams expect.",
     ],
     body: [
-      "Most CCTV projects fail long before installation day. The failure starts when teams think in terms of camera count instead of operational coverage. Entrances, corridors, dispatch lanes, and sensitive areas all require different logic. When that logic is skipped, the final system looks busy but performs poorly during real incidents.",
-      "The second blind spot is retention and retrieval. Businesses often buy hardware first, then discover later that the footage archive is too short, too fragmented, or too hard to review quickly. A surveillance system is only useful when operators can trust what was recorded and retrieve it fast.",
-      "The third issue is networking. Cameras do not exist outside the network environment. Poor switching, weak uplinks, or unplanned wireless reliance can turn a security project into an ongoing reliability problem. CCTV planning should sit alongside network planning, not after it.",
+      {
+        _type: "blogHeading",
+        text: "Plan coverage before counting cameras",
+        anchor: "plan-coverage-before-counting-cameras",
+      },
+      {
+        _type: "blogParagraph",
+        text: "Most CCTV projects fail long before installation day. The failure starts when teams think in terms of camera count instead of operational coverage. Entrances, corridors, dispatch lanes, and sensitive areas all require different logic. When that logic is skipped, the final system looks busy but performs poorly during real incidents.",
+      },
+      {
+        _type: "blogHeading",
+        text: "Retention and retrieval shape the real value",
+        anchor: "retention-and-retrieval",
+      },
+      {
+        _type: "blogParagraph",
+        text: "The second blind spot is retention and retrieval. Businesses often buy hardware first, then discover later that the footage archive is too short, too fragmented, or too hard to review quickly. A surveillance system is only useful when operators can trust what was recorded and retrieve it fast.",
+      },
+      {
+        _type: "blogImageBlock",
+        image: {
+          src: "/image/service-details/cctv-storage-retention.webp",
+          alt: "Network video recorder and storage planning for CCTV retention",
+        },
+        caption: "Storage planning should happen before installation, not after footage is already needed.",
+      },
+      {
+        _type: "blogHeading",
+        text: "CCTV performance depends on the network",
+        anchor: "cctv-performance-depends-on-network",
+      },
+      {
+        _type: "blogParagraph",
+        text: "The third issue is networking. Cameras do not exist outside the network environment. Poor switching, weak uplinks, or unplanned wireless reliance can turn a security project into an ongoing reliability problem. CCTV planning should sit alongside network planning, not after it.",
+      },
     ],
   },
   {
@@ -159,6 +196,11 @@ export const blogPosts: BlogPost[] = [
     category: "Managed Services",
     publishedAt: "2026-03-18",
     readingTime: "7 min read",
+    author: "Auxano Solutions Team",
+    coverImage: {
+      src: "/image/service-details/managed-technical-help-desk.webp",
+      alt: "Managed IT support desk for business users",
+    },
     excerpt:
       "Support budgets fail when leadership only prices tickets and ignores visibility, onboarding, continuity, and user enablement.",
     takeaways: [
@@ -167,9 +209,33 @@ export const blogPosts: BlogPost[] = [
       "Managed support should be budgeted against business interruption, not only headcount.",
     ],
     body: [
-      "A common budgeting mistake is treating IT support like a reactive call center. That model ignores the work required to keep devices healthy, users onboarded properly, and risk visible to leadership. Support quality is not only about response speed. It is also about how much operational friction is prevented before users feel it.",
-      "Good managed support includes device standards, endpoint visibility, escalation ownership, and repeatable reporting. Without those pieces, your support bill may look smaller on paper while the business absorbs hidden cost through interruptions, shadow fixes, and poor accountability.",
-      "When planning budget, leadership should ask a more useful question: what level of interruption can the business tolerate? That answer usually determines whether support should stay basic, move to business-critical coverage, or include a stronger continuity posture.",
+      {
+        _type: "blogHeading",
+        text: "Do not price support like a call center",
+        anchor: "do-not-price-support-like-call-center",
+      },
+      {
+        _type: "blogParagraph",
+        text: "A common budgeting mistake is treating IT support like a reactive call center. That model ignores the work required to keep devices healthy, users onboarded properly, and risk visible to leadership. Support quality is not only about response speed. It is also about how much operational friction is prevented before users feel it.",
+      },
+      {
+        _type: "blogHeading",
+        text: "Look for visibility and ownership",
+        anchor: "look-for-visibility-and-ownership",
+      },
+      {
+        _type: "blogParagraph",
+        text: "Good managed support includes device standards, endpoint visibility, escalation ownership, and repeatable reporting. Without those pieces, your support bill may look smaller on paper while the business absorbs hidden cost through interruptions, shadow fixes, and poor accountability.",
+      },
+      {
+        _type: "blogHeading",
+        text: "Budget against interruption risk",
+        anchor: "budget-against-interruption-risk",
+      },
+      {
+        _type: "blogParagraph",
+        text: "When planning budget, leadership should ask a more useful question: what level of interruption can the business tolerate? That answer usually determines whether support should stay basic, move to business-critical coverage, or include a stronger continuity posture.",
+      },
     ],
   },
   {
@@ -178,6 +244,11 @@ export const blogPosts: BlogPost[] = [
     category: "Networking",
     publishedAt: "2026-03-24",
     readingTime: "5 min read",
+    author: "Auxano Solutions Team",
+    coverImage: {
+      src: "/image/service-details/managed-services-monitoring.webp",
+      alt: "Network monitoring dashboard for multi-site operations",
+    },
     excerpt:
       "Once a business spreads across floors or sites, undocumented network issues become operational problems, not just technical ones.",
     takeaways: [
@@ -186,9 +257,33 @@ export const blogPosts: BlogPost[] = [
       "Documentation and alert tuning matter as much as the monitoring dashboard itself.",
     ],
     body: [
-      "Small networks can survive on memory and habit for a while. Multi-site environments cannot. The moment an organization adds floors, branches, or high-dependency endpoints like CCTV and access systems, network problems become harder to isolate and slower to resolve.",
-      "Monitoring adds value because it turns symptoms into evidence. Instead of hearing that the internet is slow somewhere, teams can see device status, latency patterns, and repeated failure points. That changes both technical response and leadership confidence.",
-      "However, monitoring is not only a tool purchase. It works best when paired with network documentation, clear escalation paths, and realistic thresholds. Otherwise, the dashboard fills up while the team still struggles to act.",
+      {
+        _type: "blogHeading",
+        text: "Multi-site networks need shared visibility",
+        anchor: "multi-site-networks-need-shared-visibility",
+      },
+      {
+        _type: "blogParagraph",
+        text: "Small networks can survive on memory and habit for a while. Multi-site environments cannot. The moment an organization adds floors, branches, or high-dependency endpoints like CCTV and access systems, network problems become harder to isolate and slower to resolve.",
+      },
+      {
+        _type: "blogHeading",
+        text: "Monitoring turns symptoms into evidence",
+        anchor: "monitoring-turns-symptoms-into-evidence",
+      },
+      {
+        _type: "blogParagraph",
+        text: "Monitoring adds value because it turns symptoms into evidence. Instead of hearing that the internet is slow somewhere, teams can see device status, latency patterns, and repeated failure points. That changes both technical response and leadership confidence.",
+      },
+      {
+        _type: "blogHeading",
+        text: "Documentation keeps alerts useful",
+        anchor: "documentation-keeps-alerts-useful",
+      },
+      {
+        _type: "blogParagraph",
+        text: "However, monitoring is not only a tool purchase. It works best when paired with network documentation, clear escalation paths, and realistic thresholds. Otherwise, the dashboard fills up while the team still struggles to act.",
+      },
     ],
   },
 ];
@@ -306,7 +401,6 @@ export const footerColumns: FooterColumn[] = [
       { label: "Case Studies", href: "/case-studies" },
       { label: "Resources", href: "/resources" },
       { label: "Careers", href: "/careers" },
-      { label: "Estimate Project Cost", href: "/estimate" },
     ],
   },
   {
@@ -353,8 +447,8 @@ export const marketingPages: MarketingPage[] = [
           variant: "primary",
         },
         secondaryCta: {
-          label: "Estimate Your Project",
-          href: "/estimate",
+          label: "Contact Sales",
+          href: "/contact",
           variant: "secondary",
         },
         slides: [
@@ -363,7 +457,7 @@ export const marketingPages: MarketingPage[] = [
             wistiaMediaId: "jucjnef47l",
             headline: "One command view for IT, CCTV, and network infrastructure.",
             description:
-              "Auxano designs, deploys, and supports the systems that keep commercial environments secure, connected, and easier to operate.",
+              "Auxano connects IT, CCTV, networking, and support into one easier operating view.",
             primaryCta: {
               label: "Book Consultation",
               href: "/book-consultation",
@@ -375,7 +469,7 @@ export const marketingPages: MarketingPage[] = [
             wistiaMediaId: "jucjnef47l",
             headline: "Physical security installed with network discipline.",
             description:
-              "CCTV, access control, cabling, storage, and operator handover are planned together so coverage works after installation day.",
+              "CCTV, access, cabling, storage, and handover are planned together for reliable coverage from day one.",
             primaryCta: {
               label: "Explore Security Solutions",
               href: "/services/door-access-control",
@@ -387,7 +481,7 @@ export const marketingPages: MarketingPage[] = [
             wistiaMediaId: "jucjnef47l",
             headline: "Networks built for the devices and teams that rely on them.",
             description:
-              "From structured cabling to switching, wireless, firewall setup, and documentation, Auxano makes the live environment easier to manage.",
+              "Structured cabling, switching, wireless, firewalls, and documentation built for easier daily management.",
             primaryCta: {
               label: "Explore Network Infrastructure",
               href: "/services#networking",
@@ -399,26 +493,13 @@ export const marketingPages: MarketingPage[] = [
             wistiaMediaId: "jucjnef47l",
             headline: "Managed IT support with clearer ownership.",
             description:
-              "Users, devices, continuity, monitoring, and escalation stay under a support model that leadership can understand and track.",
+              "Users, devices, monitoring, and escalation stay under one support model leadership can track.",
             primaryCta: {
               label: "Explore Managed IT",
               href: "/services/it-managed-services-staff-outsourcing",
               variant: "primary",
             },
           },
-        ],
-      },
-      {
-        _type: "logoStrip",
-        title:
-          "Built for critical teams across healthcare, operations, offices, education, retail, and multi-site businesses",
-        logos: [
-          { name: "Healthcare" },
-          { name: "Warehousing" },
-          { name: "Professional Services" },
-          { name: "Education" },
-          { name: "Retail" },
-          { name: "Multi-Site Operations" },
         ],
       },
       {
@@ -775,13 +856,13 @@ export const marketingPages: MarketingPage[] = [
         description:
           "Partner with Auxano to deploy reliable infrastructure, strengthen security, and create technology systems built for long-term growth.",
         primaryCta: {
-          label: "Open Estimator",
-          href: "/estimate",
+          label: "Book Consultation",
+          href: "/book-consultation",
           variant: "primary",
         },
         secondaryCta: {
-          label: "Talk to Sales",
-          href: "/book-consultation",
+          label: "Contact Sales",
+          href: "/contact",
           variant: "secondary",
         },
         dark: true,

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
+  ArrowDown,
   ArrowRight,
   BadgeCheck,
   Building2,
@@ -21,10 +22,11 @@ import {
   Target,
   Users2,
 } from "lucide-react";
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 import { PartnerLogoMarquee } from "@/components/sections/partner-logo-marquee";
 import { Container } from "@/components/ui/container";
+import { StatMetricIcon, type StatMetricIconKind } from "@/components/ui/stat-metric-icon";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 34 },
@@ -32,11 +34,15 @@ const fadeUp = {
 };
 
 const metrics = [
-  { value: "2012", label: "Founded" },
-  { value: "12+", label: "Years ICT delivery" },
-  { value: "35%", label: "Client cost savings" },
-  { value: "24/7", label: "Dedicated support" },
-];
+  { value: "2012", label: "Founded", icon: "clipboard" },
+  { value: "12+", label: "Years ICT delivery", icon: "award" },
+  { value: "35%", label: "Client cost savings", icon: "savings" },
+  { value: "24/7", label: "Dedicated support", icon: "headset" },
+] satisfies Array<{
+  value: string;
+  label: string;
+  icon: StatMetricIconKind;
+}>;
 
 const values = [
   {
@@ -257,77 +263,135 @@ function CtaLink({
 
 export function AboutGeneaInspired() {
   const reduceMotion = useReducedMotion();
-  const { scrollYProgress } = useScroll();
-  const heroY = useTransform(scrollYProgress, [0, 0.22], [0, reduceMotion ? 0 : -46]);
-  const mediaScale = useTransform(scrollYProgress, [0, 0.22], [1, reduceMotion ? 1 : 1.035]);
 
   return (
     <div className="overflow-hidden bg-[#f7faff] text-[var(--color-ink)]">
-      <section className="relative bg-[#0A3047] pb-10 pt-20 text-white sm:pb-12 lg:pt-24">
-        <div className="absolute inset-0 opacity-70 [background:radial-gradient(circle_at_16%_18%,rgba(25,213,255,0.22),transparent_28%),radial-gradient(circle_at_88%_12%,rgba(249,115,22,0.2),transparent_24%)]" />
-        <Container className="relative overflow-hidden">
-          <motion.div
-            style={{ y: heroY }}
-            className="mx-auto max-w-xs text-center sm:max-w-5xl"
-            initial={reduceMotion ? false : { opacity: 0, y: 28 }}
-            animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-200">
-              About Auxano
-            </p>
-            <h1 className="mt-5 text-balance text-2xl font-semibold leading-[1.1] sm:text-5xl lg:text-6xl">
-              Meet Auxano, your ICT solutions and support partner.
-            </h1>
-            <p className="mx-auto mt-6 max-w-xs text-pretty text-sm leading-7 text-white/78 sm:max-w-3xl sm:text-xl sm:leading-8">
-              Reliable and affordable ICT solutions for organizations that need infrastructure,
-              security, support, and continuity delivered with serious operational discipline.
-            </p>
-            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
-              <CtaLink href="/book-consultation">Book Consultation</CtaLink>
-              <CtaLink href="/services" variant="secondary">
-                Explore Services
-              </CtaLink>
-            </div>
-          </motion.div>
+      <section className="overflow-hidden bg-white">
+        <div className="relative hidden min-h-[35rem] md:block">
+          <Image
+            src="/image/It_management.jpg"
+            alt="Auxano ICT support specialist reviewing a mobile work order"
+            fill
+            priority
+            className="object-cover object-[center_36%]"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,#fff_0%,rgba(255,255,255,0.96)_30%,rgba(255,255,255,0.72)_48%,rgba(255,255,255,0.18)_68%,rgba(255,255,255,0)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.88)_0%,rgba(255,255,255,0)_22%,rgba(255,255,255,0)_78%,rgba(255,255,255,0.75)_100%)]" />
 
-          <motion.div
-            style={{ scale: mediaScale, maxWidth: "calc(100vw - 40px)" }}
-            className="relative mx-auto mt-10 h-96 w-full max-w-sm overflow-hidden rounded-lg border border-white/14 bg-white/8 shadow-[0_34px_95px_rgba(0,0,0,0.28)] sm:max-w-none"
-            initial={reduceMotion ? false : { opacity: 0, y: 44 }}
-            animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-          >
+          <Container className="relative flex min-h-[35rem] items-center">
+            <motion.div
+              className="max-w-[34rem]"
+              initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+              animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+              transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-[color:rgba(11,18,32,0.08)] bg-white/86 text-[var(--color-ink)] shadow-[0_12px_32px_rgba(11,18,32,0.08)] backdrop-blur">
+                <Building2 className="h-5 w-5" strokeWidth={1.8} />
+              </div>
+              <p className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-electric)]">
+                About Auxano
+              </p>
+              <h1 className="mt-4 max-w-[30rem] text-balance text-[2.65rem] font-semibold leading-[1.06] tracking-[-0.04em] text-[var(--color-ink)] lg:text-[3.2rem]">
+                Reliable ICT support since 2012.
+              </h1>
+              <p className="mt-5 max-w-xl text-base leading-7 text-[var(--color-muted)]">
+                Auxano Solutions Technology Limited delivers specialized and cost-effective
+                ICT services that help organizations streamline operations, secure assets,
+                and scale efficiently.
+              </p>
+              <div className="mt-8 flex items-center gap-5">
+                <Link
+                  href="/book-consultation"
+                  className="inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-semibold !text-white transition hover:-translate-y-0.5"
+                >
+                  Book Consultation
+                </Link>
+                <a
+                  href="#about-purpose"
+                  aria-label="Scroll to about purpose"
+                  className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-black/18 bg-white/70 text-black backdrop-blur transition hover:-translate-y-0.5 hover:bg-white"
+                >
+                  <ArrowDown className="h-5 w-5" />
+                </a>
+              </div>
+            </motion.div>
+          </Container>
+        </div>
+
+        <div className="md:hidden">
+          <div className="relative min-h-[19rem] bg-[var(--color-cloud)]">
             <Image
               src="/image/It_management.jpg"
               alt="Auxano ICT support specialist reviewing a mobile work order"
               fill
               priority
-              className="object-cover object-[center_36%]"
-              sizes="(min-width: 1280px) 1216px, 100vw"
+              className="object-cover object-[center_32%]"
+              sizes="100vw"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,48,71,0.02),rgba(10,48,71,0.78))]" />
-            <div className="absolute bottom-4 left-4 right-4 grid grid-cols-2 gap-2 sm:bottom-5 sm:left-5 sm:right-5 sm:grid-cols-4 sm:gap-3">
-              {metrics.map((metric, index) => (
-                <motion.div
-                  key={metric.label}
-                  initial={reduceMotion ? false : { opacity: 0, y: 18 }}
-                  animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.35 + index * 0.08 }}
-                  className="min-w-0 rounded-lg border border-white/18 bg-white/12 p-3 backdrop-blur-md sm:p-4"
-                >
-                  <div className="text-2xl font-semibold text-white">{metric.value}</div>
-                  <div className="mt-1 break-words text-[0.66rem] font-medium uppercase leading-4 tracking-[0.08em] text-white/68 sm:text-xs sm:tracking-[0.12em]">
-                    {metric.label}
-                  </div>
-                </motion.div>
-              ))}
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.1)_0%,rgba(255,255,255,0.78)_100%)]" />
+          </div>
+
+          <Container className="overflow-hidden bg-[#f4f6f8] py-10">
+            <div className="flex h-14 w-14 items-center justify-center rounded-lg border border-[color:rgba(11,18,32,0.08)] bg-[var(--color-cloud)] text-[var(--color-ink)]">
+              <Building2 className="h-6 w-6" strokeWidth={1.8} />
             </div>
-          </motion.div>
+            <p className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-electric)]">
+              About Auxano
+            </p>
+            <h1 className="mt-4 max-w-[20rem] text-[1.65rem] font-semibold leading-[1.12] tracking-[-0.04em] text-[var(--color-ink)]">
+              Reliable ICT support since 2012.
+            </h1>
+            <p className="mt-5 max-w-[20rem] text-sm leading-7 text-[var(--color-muted)]">
+              Auxano delivers cost-effective ICT services that help organizations streamline
+              operations, secure assets, and scale efficiently.
+            </p>
+            <div className="mt-7 flex items-center gap-4">
+              <Link
+                href="/book-consultation"
+                className="inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-semibold !text-white transition hover:-translate-y-0.5"
+              >
+                Book Consultation
+              </Link>
+              <a
+                href="#about-purpose"
+                aria-label="Scroll to about purpose"
+                className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-black/18 bg-white text-black"
+              >
+                <ArrowDown className="h-5 w-5" />
+              </a>
+            </div>
+          </Container>
+        </div>
+      </section>
+
+      <section className="bg-white pb-14 pt-4 sm:pb-18">
+        <Container>
+          <div className="overflow-hidden rounded-[1.75rem] border border-[color:rgba(11,18,32,0.08)] bg-white">
+            <div className="grid divide-y divide-[color:rgba(53,92,154,0.18)] md:grid-cols-4 md:divide-x md:divide-y-0">
+              {metrics.map((metric) => {
+                return (
+                  <article
+                    key={metric.label}
+                    className="relative flex min-h-[16rem] flex-col items-center justify-center px-6 py-9 text-center"
+                  >
+                    <StatMetricIcon kind={metric.icon} />
+                    <p className="mt-8 text-[3.5rem] font-semibold leading-none tracking-normal text-[#123f91] sm:text-[4rem]">
+                      {metric.value}
+                    </p>
+                    <span className="mt-6 h-1 w-16 rounded-full bg-[#f97316]" />
+                    <p className="mt-6 text-lg font-semibold text-[#1f2937]">
+                      {metric.label}
+                    </p>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
         </Container>
       </section>
 
-      <section className="bg-white py-16 sm:py-24">
+      <section id="about-purpose" className="bg-white py-16 sm:py-24">
         <Container>
           <Reveal className="mx-auto max-w-5xl text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-electric)]">
@@ -548,7 +612,7 @@ export function AboutGeneaInspired() {
               Next Step
             </p>
             <h2 className="mt-4 max-w-3xl text-balance text-3xl font-semibold leading-tight sm:text-5xl">
-              Let’s design the right ICT solution for your business.
+              Let&apos;s design the right ICT solution for your business.
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-8 text-white/72">
               Talk to Auxano about infrastructure, networking, security, managed support,
@@ -557,9 +621,6 @@ export function AboutGeneaInspired() {
           </Reveal>
           <Reveal delay={0.08} className="flex flex-wrap gap-3 lg:justify-end">
             <CtaLink href="/book-consultation">Talk to Sales</CtaLink>
-            <CtaLink href="/estimate" variant="secondary">
-              Estimate Project
-            </CtaLink>
           </Reveal>
         </Container>
       </section>

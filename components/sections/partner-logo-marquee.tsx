@@ -66,7 +66,7 @@ export function PartnerLogoMarquee() {
   }
 
   return (
-    <section className="overflow-hidden bg-[#0A3047] py-10 text-white sm:py-12">
+    <section className="overflow-hidden bg-[linear-gradient(135deg,#355C9A_100%,#4E73B8_50%,#6C8FD6_100%)] py-10 text-white sm:py-12">
       <Container>
         <div className="mx-auto max-w-5xl text-center">
           <h2 className="text-balance text-[2rem] font-medium leading-tight tracking-[-0.035em] sm:text-[2.7rem] lg:text-[3.25rem]">

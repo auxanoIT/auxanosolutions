@@ -60,7 +60,7 @@ export function NetworkMap({ section }: NetworkMapProps) {
   }, [shouldReduceMotion]);
 
   return (
-    <section className="bg-[var(--color-ink)] py-20 text-white sm:py-24">
+    <section className="bg-[linear-gradient(135deg,#1a3d66_100%,#2d4578_50%,#3d5a9d_100%)] py-20 text-white sm:py-24">
       <div ref={rootRef}>
         <Container className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <div>

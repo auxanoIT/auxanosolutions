@@ -137,11 +137,13 @@ export function SiteHeader({
           </NavigationMenu>
         </div>
 
-        <div className="hidden items-center gap-3 lg:flex">
-          <ButtonLink href="/estimate" variant="ghost">
-            Estimate Cost
+        <div className="hidden items-center gap-3 lg:flex text-white">
+          <ButtonLink
+            href="/book-consultation"
+            className="bg-[linear-gradient(135deg,#355C9A_100%,#4E73B8_50%,#6C8FD6_100%)] text-white"
+          >
+            Book Consultation
           </ButtonLink>
-          <ButtonLink href="/book-consultation">Book Consultation</ButtonLink>
         </div>
 
         <div className="lg:hidden">

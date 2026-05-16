@@ -130,9 +130,6 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             />
             <div className="mt-8 flex flex-wrap gap-4">
               <ButtonLink href="/book-consultation">Discuss a similar project</ButtonLink>
-              <ButtonLink href="/estimate" variant="secondary">
-                Estimate your scope
-              </ButtonLink>
             </div>
           </div>
           {related.length ? (
