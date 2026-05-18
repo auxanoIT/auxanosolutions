@@ -97,7 +97,7 @@ export default async function ServicesPage() {
 
   return (
     <>
-      <section className="overflow-hidden bg-[#08111f] text-white">
+      <section className="overflow-hidden bg-[linear-gradient(135deg,#355C9A_100%,#4E73B8_50%,#6C8FD6_100%)] text-white">
         <Container className="grid min-h-[calc(100vh-5rem)] gap-10 py-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:py-16">
           <div className="max-w-3xl">
             <h1 className="text-balance text-3xl font-semibold tracking-[-0.06em] sm:text-4xl lg:text-5xl">
