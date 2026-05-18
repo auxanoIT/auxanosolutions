@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { ArrowRight, Eye, RadioTower, ShieldCheck, type LucideIcon } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import { useMemo, useState } from "react";
 
 import { ButtonLink } from "@/components/ui/button-link";
@@ -132,16 +133,12 @@ export function IndustryChallengeTabs({
   const tabs = useMemo(() => buildTabs(industry, services), [industry, services]);
   const [activeTabId, setActiveTabId] = useState(tabs[0]?.id ?? "");
   const activeTab = tabs.find((tab) => tab.id === activeTabId) ?? tabs[0];
-  const ActiveIcon = activeTab.icon;
 
   return (
     <section className="bg-white py-14 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-electric)]">
-            Operating challenges
-          </p>
-          <h2 className="mx-auto mt-4 max-w-3xl text-balance text-[2.15rem] font-semibold leading-[1.08] tracking-[-0.045em] text-[var(--color-ink)] sm:text-5xl sm:leading-[1.05]">
+          <h2 className="mx-auto max-w-3xl text-balance text-[2.15rem] font-semibold leading-[1.08] tracking-[-0.045em] text-[var(--color-ink)] sm:text-5xl sm:leading-[1.05]">
             Solving {industry.title.toLowerCase()} infrastructure challenges
           </h2>
           <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-[var(--color-muted)] sm:text-lg">
@@ -177,48 +174,66 @@ export function IndustryChallengeTabs({
           </div>
         </div>
 
-        <div className="mt-10 grid gap-9 lg:mt-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
-          <div className="relative min-h-[17rem] overflow-hidden rounded-lg bg-[var(--color-cloud)] shadow-[0_22px_60px_rgba(11,18,32,0.08)] sm:min-h-[24rem] lg:order-2">
-            <Image
-              key={activeTab.image.src}
-              src={activeTab.image.src}
-              alt={activeTab.image.alt}
-              fill
-              className="object-cover"
-              sizes="(min-width: 1024px) 50vw, 100vw"
-            />
-          </div>
-
-          <div>
-            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#e9f7f0] text-[#0f766e]">
-              <ActiveIcon className="h-6 w-6" strokeWidth={1.8} />
-            </div>
-            <h3 className="mt-5 text-balance text-3xl font-semibold tracking-[-0.045em] text-[var(--color-ink)] sm:text-4xl">
-              {activeTab.title}
-            </h3>
-            <p className="mt-4 max-w-2xl text-base leading-8 text-[var(--color-muted)]">
-              {activeTab.description}
-            </p>
-
-            <div className="mt-7 grid gap-4">
-              {activeTab.points.map((point) => (
-                <div key={point.title} className="grid gap-2 border-l-2 border-[#19d5ff] pl-4">
-                  <h4 className="text-base font-semibold text-[var(--color-ink)]">
-                    {point.title}
-                  </h4>
-                  <p className="text-sm leading-7 text-[var(--color-muted)]">
-                    {point.description}
-                  </p>
-                </div>
-              ))}
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={activeTab.id}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.26, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-10 grid gap-9 lg:mt-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-center"
+          >
+            <div className="relative min-h-[17rem] overflow-hidden rounded-lg bg-[var(--color-cloud)] shadow-[0_22px_60px_rgba(11,18,32,0.08)] sm:min-h-[24rem] lg:order-2">
+              <Image
+                src={activeTab.image.src}
+                alt={activeTab.image.alt}
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 50vw, 100vw"
+              />
             </div>
 
-            <ButtonLink href="/book-consultation" variant="ghost" className="mt-7 px-0">
-              Connect with an expert
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </ButtonLink>
-          </div>
-        </div>
+            <div>
+              <h3 className="text-balance text-3xl font-semibold tracking-[-0.045em] text-[var(--color-ink)] sm:text-4xl">
+                {activeTab.title}
+              </h3>
+              <p className="mt-4 max-w-2xl text-base leading-8 text-[var(--color-muted)]">
+                {activeTab.description}
+              </p>
+
+              <div className="mt-7 grid gap-4">
+                {activeTab.points.map((point, index) => (
+                  <motion.div
+                    key={point.title}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{
+                      duration: 0.22,
+                      delay: 0.06 + index * 0.04,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
+                    className="grid gap-2 border-l-2 border-[#19d5ff] pl-4"
+                  >
+                    <h4 className="text-base font-semibold text-[var(--color-ink)]">
+                      {point.title}
+                    </h4>
+                    <p className="text-sm leading-7 text-[var(--color-muted)]">
+                      {point.description}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+
+              <ButtonLink
+                href="/book-consultation"
+                className="mt-7 !bg-[#ED6A39] !bg-none !px-5 !text-white !shadow-[0_18px_44px_rgba(237,106,57,0.24)] hover:!-translate-y-0.5 hover:!bg-[#d95c2e] hover:!text-white"
+              >
+                Connect with an expert
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </ButtonLink>
+            </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );

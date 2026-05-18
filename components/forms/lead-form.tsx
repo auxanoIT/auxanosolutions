@@ -10,6 +10,8 @@ type LeadFormProps = {
   title?: string;
   description?: string;
   className?: string;
+  headingAlign?: "left" | "center";
+  showEyebrow?: boolean;
 };
 
 const serviceInterests = [
@@ -26,6 +28,8 @@ export function LeadForm({
   title = "Start the conversation",
   description = "Tell Auxano what needs attention and the team can shape the next step around your environment.",
   className,
+  headingAlign = "left",
+  showEyebrow = true,
 }: LeadFormProps) {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
@@ -86,11 +90,23 @@ export function LeadForm({
         className,
       )}
     >
-      <div className="max-w-xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-electric)]">
-          {context === "consultation" ? "Book Consultation" : "Contact Auxano"}
-        </p>
-        <h3 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-[var(--color-ink)]">
+      <div
+        className={cn(
+          "max-w-xl",
+          headingAlign === "center" && "mx-auto text-center",
+        )}
+      >
+        {showEyebrow ? (
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-electric)]">
+            {context === "consultation" ? "Book Consultation" : "Contact Auxano"}
+          </p>
+        ) : null}
+        <h3
+          className={cn(
+            "text-3xl font-semibold tracking-[-0.04em] text-[var(--color-ink)]",
+            showEyebrow && "mt-4",
+          )}
+        >
           {title}
         </h3>
         <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">{description}</p>

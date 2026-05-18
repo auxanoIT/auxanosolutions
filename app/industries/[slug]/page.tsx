@@ -5,7 +5,6 @@ import { notFound } from "next/navigation";
 import {
   ArrowDown,
   ArrowRight,
-  BadgeCheck,
   ClipboardCheck,
   Network,
   ShieldCheck,
@@ -14,7 +13,6 @@ import {
 import { LeadForm } from "@/components/forms/lead-form";
 import { IndustryChallengeTabs } from "@/components/sections/industry-challenge-tabs";
 import { Container } from "@/components/ui/container";
-import { IndustryIcon } from "@/components/ui/industry-icon";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { getIndustryBySlug, getIndustries, getServices } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
@@ -150,13 +148,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
 
           <Container className="relative flex min-h-[35rem] items-center">
             <div className="max-w-[34rem]">
-              <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-[color:rgba(11,18,32,0.08)] bg-white/86 text-[var(--color-ink)] shadow-[0_12px_32px_rgba(11,18,32,0.08)] backdrop-blur">
-                <IndustryIcon name={industry.icon} className="h-5 w-5" strokeWidth={1.8} />
-              </div>
-              <p className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-electric)]">
-                {industry.title}
-              </p>
-              <h1 className="mt-4 max-w-[30rem] text-balance text-[2.65rem] font-semibold leading-[1.06] tracking-[-0.04em] text-[var(--color-ink)] lg:text-[3.2rem]">
+              <h1 className="max-w-[30rem] text-balance text-[2.65rem] font-semibold leading-[1.06] tracking-[-0.04em] text-[var(--color-ink)] lg:text-[3.2rem]">
                 Infrastructure for {industry.title}
               </h1>
               <p className="mt-5 max-w-xl text-base leading-7 text-[var(--color-muted)]">
@@ -195,13 +187,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
           </div>
 
           <Container className="bg-[#f4f6f8] py-10">
-            <div className="flex h-14 w-14 items-center justify-center rounded-lg border border-[color:rgba(11,18,32,0.08)] bg-[var(--color-cloud)] text-[var(--color-ink)]">
-              <IndustryIcon name={industry.icon} className="h-6 w-6" strokeWidth={1.8} />
-            </div>
-            <p className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-electric)]">
-              {industry.title}
-            </p>
-            <h1 className="mt-4 text-balance text-[2.1rem] font-semibold leading-[1.08] tracking-[-0.04em] text-[var(--color-ink)]">
+            <h1 className="text-balance text-[2.1rem] font-semibold leading-[1.08] tracking-[-0.04em] text-[var(--color-ink)]">
               Infrastructure for {industry.title}
             </h1>
             <p className="mt-5 text-base leading-7 text-[var(--color-muted)]">
@@ -226,24 +212,6 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
         </div>
       </section>
 
-      <section className="border-y border-[color:rgba(11,18,32,0.08)] bg-[#f8fbff] py-9">
-        <Container>
-          <p className="text-center text-sm font-semibold text-[var(--color-ink)]">
-            Built for operating contexts like these
-          </p>
-          <div className="mt-5 flex flex-wrap justify-center gap-3">
-            {industry.environmentExamples.map((environment) => (
-              <span
-                key={environment}
-                className="rounded-full border border-[color:rgba(11,18,32,0.1)] bg-white px-4 py-2 text-sm font-medium text-[var(--color-muted)]"
-              >
-                {environment}
-              </span>
-            ))}
-          </div>
-        </Container>
-      </section>
-
       <div id="industry-challenges">
         <IndustryChallengeTabs industry={industry} services={featuredServices} />
       </div>
@@ -262,10 +230,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
           </div>
 
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-electric)]">
-              Auxano delivery approach
-            </p>
-            <h2 className="mt-4 text-balance text-4xl font-semibold tracking-[-0.05em] text-[var(--color-ink)] sm:text-5xl">
+            <h2 className="text-balance text-4xl font-semibold tracking-[-0.05em] text-[var(--color-ink)] sm:text-5xl">
               Why choose Auxano for {industry.title.toLowerCase()}
             </h2>
             <p className="mt-5 text-base leading-8 text-[var(--color-muted)]">
@@ -301,9 +266,9 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
       <section className="bg-white py-16 sm:py-24">
         <Container>
           <SectionHeading
-            eyebrow="Mapped solutions"
             title={`Solutions for ${industry.title.toLowerCase()}`}
-            description="A focused set of Auxano services is shown here instead of the full catalog, so the page stays close to the sector's most likely needs."
+            description="Smart, secure, and scalable IT solutions designed for modern operating environments."
+            align="center"
           />
 
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
@@ -325,11 +290,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
                     />
                   </div>
                   <div className="p-6">
-                    <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-electric)]">
-                      <BadgeCheck className="h-4 w-4" />
-                      Auxano solution
-                    </div>
-                    <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-[var(--color-ink)]">
+                    <h3 className="text-2xl font-semibold tracking-[-0.04em] text-[var(--color-ink)]">
                       {service.title}
                     </h3>
                     <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
@@ -357,6 +318,8 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
             title="Have questions? We can help"
             description={`Tell Auxano what your ${industry.title.toLowerCase()} environment needs to solve, and the team can shape the right consultation path.`}
             className="mx-auto max-w-5xl rounded-lg"
+            headingAlign="center"
+            showEyebrow={false}
           />
         </Container>
       </section>
