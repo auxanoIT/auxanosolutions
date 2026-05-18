@@ -134,7 +134,9 @@ export function ServiceCategoryCarousel({
     <section id={id} className="scroll-mt-28 bg-white py-12 sm:py-16">
       <div
         className={`grid gap-8 lg:grid-cols-[1fr_0.95fr] lg:items-stretch ${
-          reverse ? "lg:[&>*:first-child]:order-2 lg:[&>*:last-child]:order-1" : ""
+          reverse
+            ? "lg:[&>*:first-child]:order-2 lg:[&>*:last-child]:order-1"
+            : ""
         }`}
       >
         <div className="flex min-w-0 flex-col">
@@ -169,8 +171,11 @@ export function ServiceCategoryCarousel({
                       href={card.href}
                       className="group shrink-0 min-h-[10rem] rounded-lg border border-[rgba(14,31,52,0.18)] bg-white p-5 transition hover:border-[#ED6A39] hover:shadow-[0_18px_42px_rgba(237,106,57,0.12)] sm:min-h-[10.75rem] sm:p-6 lg:min-h-[11.5rem]"
                       style={{
-                        width: cardsPerView === 1 ? 'calc(100vw - 3rem)' : `calc((100% - ${(cards.length - 1) * 1}rem) / ${cards.length})`,
-                        maxWidth: cardsPerView === 1 ? '100%' : 'none',
+                        width:
+                          cardsPerView === 1
+                            ? "calc(100vw - 3rem)"
+                            : `calc((100% - ${(cards.length - 1) * 1}rem) / ${cards.length})`,
+                        maxWidth: cardsPerView === 1 ? "100%" : "none",
                       }}
                     >
                       <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#ED6A39] text-white">
