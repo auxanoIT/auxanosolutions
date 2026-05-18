@@ -155,10 +155,10 @@ export function ServiceCategoryCarousel({
           </div>
 
           <div className="relative mt-4">
-            <div className="overflow-hidden">
+            <div className="overflow-x-auto overflow-y-hidden scrollbar-hide lg:overflow-hidden">
               <div
-                className="flex gap-3 transition-transform duration-500 ease-out sm:gap-4"
-                style={railStyle}
+                className="flex gap-3 transition-transform duration-500 ease-out sm:gap-4 lg:transition-transform"
+                style={cardsPerView === 1 ? {} : railStyle}
               >
                 {cards.map((card) => {
                   const Icon = serviceIconMap[card.slug] ?? fallbackIcon;
@@ -167,12 +167,13 @@ export function ServiceCategoryCarousel({
                     <Link
                       key={card.slug}
                       href={card.href}
-                      className="group min-h-[10rem] rounded-lg border border-[rgba(14,31,52,0.18)] bg-white p-5 transition hover:border-[#22ABFF] hover:shadow-[0_18px_42px_rgba(34,171,255,0.12)] sm:min-h-[10.75rem] sm:p-6 lg:min-h-[11.5rem]"
+                      className="group shrink-0 min-h-[10rem] rounded-lg border border-[rgba(14,31,52,0.18)] bg-white p-5 transition hover:border-[#ED6A39] hover:shadow-[0_18px_42px_rgba(237,106,57,0.12)] sm:min-h-[10.75rem] sm:p-6 lg:min-h-[11.5rem]"
                       style={{
-                        width: `calc((100% - ${(cards.length - 1) * 1}rem) / ${cards.length})`,
+                        width: cardsPerView === 1 ? 'calc(100vw - 3rem)' : `calc((100% - ${(cards.length - 1) * 1}rem) / ${cards.length})`,
+                        maxWidth: cardsPerView === 1 ? '100%' : 'none',
                       }}
                     >
-                      <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#087EA8] text-white">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#ED6A39] text-white">
                         <Icon className="h-5 w-5" />
                       </div>
                       <h3 className="mt-5 text-lg font-semibold leading-tight text-[var(--color-ink)] sm:text-xl">
@@ -189,7 +190,7 @@ export function ServiceCategoryCarousel({
               onClick={() => goToIndex(activeIndex - 1)}
               disabled={!hasPrev}
               aria-label="Previous service"
-              className="absolute left-0 top-1/2 z-10 hidden h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-[5px] border-[#22ABFF] bg-white text-[#22ABFF] transition hover:bg-[#22ABFF] hover:text-white disabled:cursor-not-allowed disabled:border-[#BFEAFF] disabled:text-[#BFEAFF] disabled:hover:bg-white lg:flex"
+              className="absolute left-0 top-1/2 z-10 hidden h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-[5px] border-[#ED6A39] bg-white text-[#ED6A39] transition hover:bg-[#ED6A39] hover:text-white disabled:cursor-not-allowed disabled:border-[#FDBCA8] disabled:text-[#FDBCA8] disabled:hover:bg-white lg:flex"
             >
               <FiArrowLeft className="h-6 w-6" />
             </button>
@@ -198,7 +199,7 @@ export function ServiceCategoryCarousel({
               onClick={() => goToIndex(activeIndex + 1)}
               disabled={!hasNext}
               aria-label="Next service"
-              className="absolute right-0 top-1/2 z-10 hidden h-14 w-14 translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-[5px] border-[#22ABFF] bg-white text-[#22ABFF] transition hover:bg-[#22ABFF] hover:text-white disabled:cursor-not-allowed disabled:border-[#BFEAFF] disabled:text-[#BFEAFF] disabled:hover:bg-white lg:flex"
+              className="absolute right-0 top-1/2 z-10 hidden h-14 w-14 translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-[5px] border-[#ED6A39] bg-white text-[#ED6A39] transition hover:bg-[#ED6A39] hover:text-white disabled:cursor-not-allowed disabled:border-[#FDBCA8] disabled:text-[#FDBCA8] disabled:hover:bg-white lg:flex"
             >
               <FiArrowRight className="h-6 w-6" />
             </button>
@@ -213,21 +214,21 @@ export function ServiceCategoryCarousel({
                 aria-label={`Go to ${card.title}`}
                 className={`h-2 rounded-full transition ${
                   index === activeIndex
-                    ? "w-8 bg-[#22ABFF]"
-                    : "w-2 bg-[rgba(44,121,255,0.25)]"
+                    ? "w-8 bg-[#ED6A39]"
+                    : "w-2 bg-[rgba(237,106,57,0.25)]"
                 }`}
               />
             ))}
           </div>
         </div>
 
-        <div className="relative min-h-[17rem] overflow-hidden rounded-lg sm:min-h-[22rem] lg:min-h-0">
+        <div className="relative min-h-[17rem] w-full overflow-hidden rounded-lg sm:min-h-[22rem] lg:min-h-0">
           <Image
             src={imageSrc}
             alt={imageAlt}
             fill
-            className="object-cover"
-            sizes="(min-width: 1024px) 46vw, 100vw"
+            className="object-contain sm:object-cover"
+            sizes="(min-width: 1024px) 46vw, (min-width: 640px) 100vw, calc(100vw - 3rem)"
           />
         </div>
       </div>
