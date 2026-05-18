@@ -3,7 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
-import { useState, type Dispatch, type ReactNode, type SetStateAction } from "react";
+import {
+  useState,
+  type Dispatch,
+  type ReactNode,
+  type SetStateAction,
+} from "react";
 
 import {
   Accordion,
@@ -60,10 +65,10 @@ export function MobileNavigationSheet({
   const defaultCategoryId = categories[0]?.id ?? "";
   const defaultResourceGroupId = resourceGroups[0]?.id ?? "";
   const [view, setView] = useState<MobileView>("root");
-  const [expandedCategoryId, setExpandedCategoryId] = useState<string>(defaultCategoryId);
-  const [expandedResourceGroupId, setExpandedResourceGroupId] = useState<string>(
-    defaultResourceGroupId,
-  );
+  const [expandedCategoryId, setExpandedCategoryId] =
+    useState<string>(defaultCategoryId);
+  const [expandedResourceGroupId, setExpandedResourceGroupId] =
+    useState<string>(defaultResourceGroupId);
 
   function handleOpenChange(nextOpen: boolean) {
     setOpen(nextOpen);
@@ -115,13 +120,13 @@ export function MobileNavigationSheet({
           >
             <section className="flex h-full w-1/4 shrink-0 flex-col bg-white">
               <div className="flex items-center justify-between px-5 pb-4 pt-5">
-                <div className="flex h-12 items-center">
+                <div className="flex items-center">
                   <Image
                     src="/image/AUxano.webp"
                     alt="Auxano Solutions"
-                    width={1711}
+                    width={100}
                     height={704}
-                    className="h-10 w-auto object-contain"
+                    className="h-3 w-auto object-contain"
                   />
                 </div>
 
@@ -141,7 +146,8 @@ export function MobileNavigationSheet({
                   {navigation.map((item, index) => {
                     const rowClassName = cn(
                       "flex min-h-16 w-full items-center justify-between gap-4 py-4 text-left text-base font-semibold text-[var(--color-ink)]",
-                      index > 0 && "border-t border-[color:rgba(11,18,32,0.08)]",
+                      index > 0 &&
+                        "border-t border-[color:rgba(11,18,32,0.08)]",
                     );
 
                     if (item.kind === "solutions") {
@@ -242,7 +248,10 @@ export function MobileNavigationSheet({
                   className="w-full"
                 >
                   {categories.map((category) => {
-                    const categoryServices = getCategoryServices(category, services);
+                    const categoryServices = getCategoryServices(
+                      category,
+                      services,
+                    );
 
                     return (
                       <AccordionItem key={category.id} value={category.id}>

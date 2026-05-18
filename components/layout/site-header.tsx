@@ -60,7 +60,7 @@ export function SiteHeader({
         <Link
           href="/"
           aria-label="Auxano Solutions home"
-          className="flex h-14 items-center"
+          className="flex items-center"
           onClick={() => setOpen(false)}
         >
           <Image
@@ -69,7 +69,7 @@ export function SiteHeader({
             width={100}
             height={500}
             priority
-            className="h-12 w-auto object-contain"
+            className="h-8 w-auto object-contain md:h-12"
           />
         </Link>
 
