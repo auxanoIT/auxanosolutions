@@ -115,7 +115,7 @@ export default async function ServicesPage() {
               alt="Auxano services platform visual"
               fill
               priority
-              className="object-cover"
+              className="object-contain lg:object-cover"
               sizes="(min-width: 1024px) 54vw, 100vw"
             />
           </div>

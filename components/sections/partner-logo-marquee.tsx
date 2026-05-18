@@ -50,7 +50,7 @@ const partnerLogos = [
     alt: "Sharp Healthcare",
   },
   { src: "/image/patner_logo/toshiba_icon.jpeg.png", alt: "Toshiba" },
-  { src: "/image/patner_logo/vmware_icon.jpeg.png", alt: "VMware" },
+  { src: "/image/patner_logo/vmware_icon.jpeg.svg", alt: "VMware" },
 ];
 
 const marqueeLogos = [...partnerLogos, ...partnerLogos];

@@ -2,7 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type PointerEvent,
+} from "react";
 import {
   FiArrowLeft,
   FiArrowRight,
@@ -83,6 +89,7 @@ const serviceIconMap: Record<string, IconType> = {
 };
 
 const fallbackIcon = FiGrid;
+const SCROLL_EDGE_TOLERANCE = 2;
 
 export function ServiceCategoryCarousel({
   id,
@@ -93,41 +100,142 @@ export function ServiceCategoryCarousel({
   cards,
   reverse = false,
 }: ServiceCategoryCarouselProps) {
-  const [cardsPerView, setCardsPerView] = useState(3);
+  const scrollerRef = useRef<HTMLDivElement | null>(null);
+  const dragStartXRef = useRef(0);
+  const dragStartScrollLeftRef = useRef(0);
+  const didDragRef = useRef(false);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [canScrollPrevious, setCanScrollPrevious] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
 
-  useEffect(() => {
-    function syncLayout() {
-      const nextCardsPerView = window.innerWidth >= 1024 ? 3 : 1;
+  const syncScrollState = useCallback(() => {
+    const scroller = scrollerRef.current;
 
-      setCardsPerView(nextCardsPerView);
-      setActiveIndex((current) =>
-        Math.min(current, Math.max(cards.length - nextCardsPerView, 0)),
-      );
+    if (!scroller) {
+      return;
     }
 
-    syncLayout();
-    window.addEventListener("resize", syncLayout);
+    const maxScrollLeft = scroller.scrollWidth - scroller.clientWidth;
+    const cardElements = Array.from(
+      scroller.querySelectorAll<HTMLElement>("[data-service-card]"),
+    );
+    const closestCardIndex = cardElements.reduce(
+      (closestIndex, card, index) => {
+        const closestCard = cardElements[closestIndex];
+        const closestDistance = closestCard
+          ? Math.abs(closestCard.offsetLeft - scroller.scrollLeft)
+          : Number.POSITIVE_INFINITY;
+        const cardDistance = Math.abs(card.offsetLeft - scroller.scrollLeft);
+
+        return cardDistance < closestDistance ? index : closestIndex;
+      },
+      0,
+    );
+
+    setActiveIndex(closestCardIndex);
+    setCanScrollPrevious(scroller.scrollLeft > SCROLL_EDGE_TOLERANCE);
+    setCanScrollNext(
+      scroller.scrollLeft < maxScrollLeft - SCROLL_EDGE_TOLERANCE,
+    );
+  }, []);
+
+  useEffect(() => {
+    const scroller = scrollerRef.current;
+
+    if (!scroller) {
+      return;
+    }
+
+    syncScrollState();
+
+    const observer = new ResizeObserver(syncScrollState);
+
+    observer.observe(scroller);
+    scroller.addEventListener("scroll", syncScrollState, { passive: true });
 
     return () => {
-      window.removeEventListener("resize", syncLayout);
+      observer.disconnect();
+      scroller.removeEventListener("scroll", syncScrollState);
     };
-  }, [cards.length]);
-
-  const maxIndex = Math.max(cards.length - cardsPerView, 0);
-  const hasPrev = activeIndex > 0;
-  const hasNext = activeIndex < maxIndex;
-
-  const railStyle = useMemo(
-    () => ({
-      width: `${(cards.length / cardsPerView) * 100}%`,
-      transform: `translateX(-${(100 / cards.length) * activeIndex}%)`,
-    }),
-    [activeIndex, cards.length, cardsPerView],
-  );
+  }, [syncScrollState]);
 
   function goToIndex(index: number) {
-    setActiveIndex(Math.max(0, Math.min(index, maxIndex)));
+    const scroller = scrollerRef.current;
+    const card = scroller?.querySelectorAll<HTMLElement>("[data-service-card]")[
+      index
+    ];
+
+    if (!scroller || !card) {
+      return;
+    }
+
+    scroller.scrollTo({
+      left: card.offsetLeft,
+      behavior: "smooth",
+    });
+  }
+
+  function scrollCards(direction: "previous" | "next") {
+    const scroller = scrollerRef.current;
+
+    if (!scroller) {
+      return;
+    }
+
+    scroller.scrollBy({
+      left:
+        direction === "previous"
+          ? -scroller.clientWidth * 0.86
+          : scroller.clientWidth * 0.86,
+      behavior: "smooth",
+    });
+  }
+
+  function handlePointerDown(event: PointerEvent<HTMLDivElement>) {
+    const target = event.target;
+
+    if (target instanceof Element && target.closest("button")) {
+      return;
+    }
+
+    const scroller = scrollerRef.current;
+
+    if (!scroller) {
+      return;
+    }
+
+    didDragRef.current = false;
+    dragStartXRef.current = event.clientX;
+    dragStartScrollLeftRef.current = scroller.scrollLeft;
+    setIsDragging(true);
+    scroller.setPointerCapture(event.pointerId);
+  }
+
+  function handlePointerMove(event: PointerEvent<HTMLDivElement>) {
+    const scroller = scrollerRef.current;
+
+    if (!isDragging || !scroller) {
+      return;
+    }
+
+    const deltaX = event.clientX - dragStartXRef.current;
+
+    if (Math.abs(deltaX) > 4) {
+      didDragRef.current = true;
+    }
+
+    scroller.scrollLeft = dragStartScrollLeftRef.current - deltaX;
+  }
+
+  function endPointerDrag(event: PointerEvent<HTMLDivElement>) {
+    const scroller = scrollerRef.current;
+
+    if (scroller?.hasPointerCapture(event.pointerId)) {
+      scroller.releasePointerCapture(event.pointerId);
+    }
+
+    setIsDragging(false);
   }
 
   return (
@@ -157,11 +265,27 @@ export function ServiceCategoryCarousel({
           </div>
 
           <div className="relative mt-4">
-            <div className="overflow-x-auto overflow-y-hidden scrollbar-hide lg:overflow-hidden">
-              <div
-                className="flex gap-3 transition-transform duration-500 ease-out sm:gap-4 lg:transition-transform"
-                style={cardsPerView === 1 ? {} : railStyle}
-              >
+            <div
+              ref={scrollerRef}
+              className="cursor-grab overflow-x-auto overflow-y-hidden scroll-smooth pb-4 scrollbar-hide active:cursor-grabbing"
+              onPointerDown={handlePointerDown}
+              onPointerMove={handlePointerMove}
+              onPointerUp={endPointerDrag}
+              onPointerCancel={endPointerDrag}
+              onPointerLeave={(event) => {
+                if (isDragging) {
+                  endPointerDrag(event);
+                }
+              }}
+              onClickCapture={(event) => {
+                if (didDragRef.current) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                  didDragRef.current = false;
+                }
+              }}
+            >
+              <div className="flex snap-x snap-mandatory gap-3 sm:gap-4">
                 {cards.map((card) => {
                   const Icon = serviceIconMap[card.slug] ?? fallbackIcon;
 
@@ -169,16 +293,11 @@ export function ServiceCategoryCarousel({
                     <Link
                       key={card.slug}
                       href={card.href}
-                      className="group shrink-0 min-h-[10rem] rounded-lg border border-[rgba(14,31,52,0.18)] bg-white p-5 transition hover:border-[#ED6A39] hover:shadow-[0_18px_42px_rgba(237,106,57,0.12)] sm:min-h-[10.75rem] sm:p-6 lg:min-h-[11.5rem]"
-                      style={{
-                        width:
-                          cardsPerView === 1
-                            ? "calc(100vw - 3rem)"
-                            : `calc((100% - ${(cards.length - 1) * 1}rem) / ${cards.length})`,
-                        maxWidth: cardsPerView === 1 ? "100%" : "none",
-                      }}
+                      data-service-card
+                      className="group min-h-[10rem] w-[calc(100vw_-_3rem)] max-w-[20rem] shrink-0 snap-start rounded-lg border border-[rgba(14,31,52,0.18)] bg-white p-5 transition hover:border-[#ED6A39] hover:shadow-[0_18px_42px_rgba(237,106,57,0.12)] sm:min-h-[10.75rem] sm:w-[19rem] sm:p-6 lg:min-h-[11.5rem] lg:w-[calc((100%_-_2rem)/3)] lg:max-w-none"
+                      draggable={false}
                     >
-                      <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#ED6A39] text-white">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[rgba(237,106,57,0.1)] text-[#ED6A39]">
                         <Icon className="h-5 w-5" />
                       </div>
                       <h3 className="mt-5 text-lg font-semibold leading-tight text-[var(--color-ink)] sm:text-xl">
@@ -190,24 +309,27 @@ export function ServiceCategoryCarousel({
               </div>
             </div>
 
-            <button
-              type="button"
-              onClick={() => goToIndex(activeIndex - 1)}
-              disabled={!hasPrev}
-              aria-label="Previous service"
-              className="absolute left-0 top-1/2 z-10 hidden h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-[5px] border-[#ED6A39] bg-white text-[#ED6A39] transition hover:bg-[#ED6A39] hover:text-white disabled:cursor-not-allowed disabled:border-[#FDBCA8] disabled:text-[#FDBCA8] disabled:hover:bg-white lg:flex"
-            >
-              <FiArrowLeft className="h-6 w-6" />
-            </button>
-            <button
-              type="button"
-              onClick={() => goToIndex(activeIndex + 1)}
-              disabled={!hasNext}
-              aria-label="Next service"
-              className="absolute right-0 top-1/2 z-10 hidden h-14 w-14 translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-[5px] border-[#ED6A39] bg-white text-[#ED6A39] transition hover:bg-[#ED6A39] hover:text-white disabled:cursor-not-allowed disabled:border-[#FDBCA8] disabled:text-[#FDBCA8] disabled:hover:bg-white lg:flex"
-            >
-              <FiArrowRight className="h-6 w-6" />
-            </button>
+            {canScrollPrevious ? (
+              <button
+                type="button"
+                onClick={() => scrollCards("previous")}
+                aria-label="Previous service"
+                className="absolute left-0 top-1/2 z-10 hidden h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-[5px] border-[#ED6A39] bg-white text-[#ED6A39] transition hover:bg-[#ED6A39] hover:text-white lg:flex"
+              >
+                <FiArrowLeft className="h-6 w-6" />
+              </button>
+            ) : null}
+
+            {canScrollNext ? (
+              <button
+                type="button"
+                onClick={() => scrollCards("next")}
+                aria-label="Next service"
+                className="absolute right-0 top-1/2 z-10 hidden h-14 w-14 translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-[5px] border-[#ED6A39] bg-white text-[#ED6A39] transition hover:bg-[#ED6A39] hover:text-white lg:flex"
+              >
+                <FiArrowRight className="h-6 w-6" />
+              </button>
+            ) : null}
           </div>
 
           <div className="mt-5 flex items-center justify-center gap-2 lg:hidden">
