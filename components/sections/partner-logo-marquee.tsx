@@ -28,7 +28,7 @@ const partnerLogos = [
   },
   { src: "/image/patner_logo/fortigate-awscom_logo.svg.png", alt: "Fortigate" },
   { src: "/image/patner_logo/Frame 50.png", alt: "Auxano partner" },
-  { src: "/image/patner_logo/Icon.jpeg (1).png", alt: "Auxano client" },
+  { src: "/image/patner_logo/Icon.jpeg (1).svg", alt: "Auxano client" },
   { src: "/image/patner_logo/Icon.jpeg (2).png", alt: "Auxano client" },
   { src: "/image/patner_logo/Icon.jpeg (3).png", alt: "Auxano client" },
   { src: "/image/patner_logo/Icon.jpeg (4).png", alt: "Auxano client" },

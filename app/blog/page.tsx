@@ -27,6 +27,7 @@ export default async function BlogPage() {
       <section className="bg-[var(--color-cloud)] py-16 sm:py-20">
         <Container>
           <SectionHeading
+            align="center"
             eyebrow="Insights"
             title="Practical content for teams buying, planning, and governing infrastructure."
             description="Articles on CCTV planning, managed IT, network monitoring, infrastructure decisions, and operational risk."

@@ -195,7 +195,7 @@ export function ServiceCategoryCarousel({
   function handlePointerDown(event: PointerEvent<HTMLDivElement>) {
     const target = event.target;
 
-    if (target instanceof Element && target.closest("button")) {
+    if (target instanceof Element && target.closest("a, button")) {
       return;
     }
 
@@ -293,6 +293,7 @@ export function ServiceCategoryCarousel({
                     <Link
                       key={card.slug}
                       href={card.href}
+                      scroll
                       data-service-card
                       className="group min-h-[10rem] w-[calc(100vw_-_3rem)] max-w-[20rem] shrink-0 snap-start rounded-lg border border-[rgba(14,31,52,0.18)] bg-white p-5 transition hover:border-[#ED6A39] hover:shadow-[0_18px_42px_rgba(237,106,57,0.12)] sm:min-h-[10.75rem] sm:w-[19rem] sm:p-6 lg:min-h-[11.5rem] lg:w-[calc((100%_-_2rem)/3)] lg:max-w-none"
                       draggable={false}

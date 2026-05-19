@@ -45,7 +45,8 @@ const categoryStyles: Record<
     accent: "#2f6bff",
     tint: "rgba(47,107,255,0.1)",
     image: "/image/IT Infrastructure.png",
-    imageAlt: "Biometric access control device in a secure infrastructure environment",
+    imageAlt:
+      "Biometric access control device in a secure infrastructure environment",
   },
   Networking: {
     icon: Network,
@@ -99,8 +100,7 @@ function buildFallbackSections(
       id: "handover-control",
       navLabel: "Handover",
       title: "What should be clear at completion.",
-      lead:
-        "A finished scope should leave the environment usable, supportable, and easier to govern.",
+      lead: "A finished scope should leave the environment usable, supportable, and easier to govern.",
       body: [
         "Auxano documents the technical outcome in a way that helps internal teams, external vendors, and future support work from the same operating picture.",
       ],
@@ -131,7 +131,10 @@ function getServiceHeroImage(
   service: Service,
   fallbackImage: ServiceNavMedia,
 ): ServiceNavMedia {
-  return service.capabilitySections?.find((section) => section.image)?.image ?? fallbackImage;
+  return (
+    service.capabilitySections?.find((section) => section.image)?.image ??
+    fallbackImage
+  );
 }
 
 export async function generateMetadata({
@@ -175,14 +178,20 @@ export async function generateMetadata({
 
 export default async function ServicePage({ params }: ServicePageProps) {
   const { slug } = await params;
-  const [service, services] = await Promise.all([getServiceBySlug(slug), getServices()]);
+  const [service, services] = await Promise.all([
+    getServiceBySlug(slug),
+    getServices(),
+  ]);
 
   if (!service) {
     notFound();
   }
 
   const related = services
-    .filter((item) => item.slug !== service.slug && item.category === service.category)
+    .filter(
+      (item) =>
+        item.slug !== service.slug && item.category === service.category,
+    )
     .slice(0, 3);
   const style = categoryStyles[service.category];
   const heroImage = getServiceHeroImage(service, {
@@ -212,7 +221,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
         }}
       />
 
-      <section className="overflow-hidden bg-[#08111f] text-white">
+      <section className="overflow-hidden bg-[linear-gradient(135deg,#355C9A_100%,#4E73B8_50%,#6C8FD6_100%)] text-white">
         <Container className="py-6">
           <Link
             href="/services"
@@ -246,54 +255,6 @@ export default async function ServicePage({ params }: ServicePageProps) {
       </section>
 
       <ServiceCapabilityFlow service={service} sections={capabilitySections} />
-
-      {related.length ? (
-        <section className="bg-white py-20 sm:py-24">
-          <Container>
-            <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
-              <div>
-                <h2 className="max-w-2xl text-4xl font-semibold tracking-[-0.05em] text-[var(--color-ink)] sm:text-5xl">
-                  Adjacent scopes in the same service category.
-                </h2>
-              </div>
-            </div>
-            <div className="mt-10 grid gap-4 lg:grid-cols-3">
-              {related.map((item) => (
-                <article
-                  key={item.slug}
-                  className="group rounded-[1.25rem] border border-[color:rgba(11,18,32,0.08)] bg-[#f8fbff] p-6 transition hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(11,18,32,0.1)]"
-                >
-                  <h3 className="text-2xl font-semibold tracking-[-0.04em] text-[var(--color-ink)]">
-                    {item.title}
-                  </h3>
-                  <ButtonLink
-                    href={`/services/${item.slug}`}
-                    variant="ghost"
-                    className="mt-6 justify-start px-0 text-[var(--color-electric)] hover:bg-transparent"
-                  >
-                    View service
-                    <ArrowRight className="ml-2 h-4 w-4 transition group-hover:translate-x-1" />
-                  </ButtonLink>
-                </article>
-              ))}
-            </div>
-          </Container>
-        </section>
-      ) : null}
-
-      <section className="bg-[#08111f] py-20 text-white sm:py-24">
-        <Container className="grid gap-8 lg:grid-cols-[1fr_0.75fr] lg:items-center">
-          <div>
-            <h2 className="max-w-3xl text-4xl font-semibold tracking-[-0.05em] sm:text-5xl">
-              Turn this service into a scoped engagement.
-            </h2>
-            <p className="mt-5 max-w-2xl text-base leading-8 text-slate-300">
-              Bring the site details, business priorities, timelines, and constraints. Auxano will
-              help define the right technical and commercial path.
-            </p>
-          </div>
-        </Container>
-      </section>
     </>
   );
 }

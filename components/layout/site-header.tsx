@@ -123,7 +123,7 @@ export function SiteHeader({
                       asChild
                       className={cn(
                         navigationMenuTriggerStyle(),
-                        "text-[var(--color-muted)]",
+                        "text-[var(--color-muted)] hover:text-[var(--color-ink)]",
                         active &&
                           "bg-white text-[var(--color-ink)] shadow-[0_12px_30px_rgba(11,18,32,0.08)]",
                       )}

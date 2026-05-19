@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
 import { ButtonLink } from "@/components/ui/button-link";
@@ -19,7 +19,10 @@ export function ServiceCapabilityFlow({
   sections,
 }: ServiceCapabilityFlowProps) {
   const [activeSection, setActiveSection] = useState(sections[0]?.id ?? "");
-  const sectionIds = useMemo(() => sections.map((section) => section.id), [sections]);
+  const sectionIds = useMemo(
+    () => sections.map((section) => section.id),
+    [sections],
+  );
 
   useEffect(() => {
     if (!sectionIds.length) {
@@ -38,7 +41,9 @@ export function ServiceCapabilityFlow({
       const activationOffset = 190;
       const currentSection =
         sectionNodes
-          .filter((node) => node.getBoundingClientRect().top <= activationOffset)
+          .filter(
+            (node) => node.getBoundingClientRect().top <= activationOffset,
+          )
           .at(-1) ?? sectionNodes[0];
 
       if (currentSection?.id) {
@@ -72,27 +77,12 @@ export function ServiceCapabilityFlow({
   }, [sectionIds]);
 
   return (
-    <section className="bg-white py-16 sm:py-24">
-      <Container className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-electric)]">
-            {service.detailEyebrow ?? "Service capabilities"}
-          </p>
-          <h2 className="mt-4 text-balance text-4xl font-semibold tracking-[-0.05em] text-[var(--color-ink)] sm:text-5xl">
-            {service.detailTitle ?? `${service.title}: the operating detail behind the scope.`}
-          </h2>
-        </div>
-        <p className="max-w-3xl text-base leading-8 text-[var(--color-muted)]">
-          {service.detailDescription ??
-            "This service is structured around the decisions, checks, and delivery controls that keep a technical scope dependable after installation or rollout."}
-        </p>
-      </Container>
-
-      <div className="sticky top-20 z-30 mt-10 border-y border-white/10 bg-[#11131a]/95 backdrop-blur">
+    <section className="bg-white">
+      <div className="sticky top-20 z-30 border-y border-white/10 bg-[linear-gradient(135deg,#355C9A_100%,#4E73B8_50%,#6C8FD6_100%)] backdrop-blur">
         <Container className="overflow-x-auto">
           <nav
             aria-label={`${service.title} capability navigation`}
-            className="flex min-w-max items-center gap-8 py-4 text-sm font-semibold text-white sm:gap-12"
+            className="mx-auto flex w-max min-w-full items-center justify-center gap-12 py-4 text-sm font-semibold text-white sm:gap-16 lg:gap-20"
           >
             {sections.map((section) => {
               const isActive = activeSection === section.id;
@@ -161,18 +151,6 @@ export function ServiceCapabilityFlow({
                     ))}
                   </div>
 
-                  <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-                    {section.points.map((point) => (
-                      <li
-                        key={point}
-                        className="flex gap-3 rounded-[0.9rem] border border-[color:rgba(11,18,32,0.08)] bg-white px-4 py-3 text-sm leading-6 text-[var(--color-muted)]"
-                      >
-                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-success)]" />
-                        <span>{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-
                   <ButtonLink href="/contact" className="mt-7">
                     Make an enquiry
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -184,42 +162,6 @@ export function ServiceCapabilityFlow({
         })}
       </Container>
 
-      <Container className="mt-16 grid gap-5 lg:grid-cols-[1fr_0.92fr]">
-        <div className="rounded-[1.25rem] border border-[color:rgba(11,18,32,0.08)] bg-white p-6 shadow-[0_18px_60px_rgba(11,18,32,0.05)] sm:p-8">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-electric)]">
-            Best-fit environments
-          </p>
-          <div className="mt-5 grid gap-3 sm:grid-cols-2">
-            {service.industries.map((industry) => (
-              <div
-                key={industry}
-                className="rounded-[0.9rem] border border-[color:rgba(11,18,32,0.08)] bg-[#f8fbff] px-4 py-3 text-sm font-semibold text-[var(--color-ink)]"
-              >
-                {industry}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="rounded-[1.25rem] bg-[#08111f] p-6 text-white sm:p-8">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-200">
-            Commercial next step
-          </p>
-          <h3 className="mt-4 text-3xl font-semibold tracking-[-0.045em] sm:text-4xl">
-            Scope the right path before procurement or deployment begins.
-          </h3>
-          <p className="mt-4 text-sm leading-7 text-slate-300 sm:text-base">
-            Auxano can turn this service into a reviewed requirement, a site-ready plan, and a
-            clearer delivery timeline tied to your actual environment.
-          </p>
-          <div className="mt-7 flex flex-wrap gap-3">
-            <ButtonLink href="/contact">Make an enquiry</ButtonLink>
-            <ButtonLink href="/book-consultation" variant="secondary">
-              Book consultation
-            </ButtonLink>
-          </div>
-        </div>
-      </Container>
     </section>
   );
 }

@@ -5,28 +5,30 @@ import Link from "next/link";
 import {
   ArrowDown,
   ArrowRight,
-  BadgeCheck,
   Building2,
-  CheckCircle2,
+  ClipboardCheck,
   DatabaseBackup,
   Handshake,
   KeyRound,
   LifeBuoy,
+  Lightbulb,
   Mail,
   MapPin,
   Network,
   Phone,
   Server,
   ShieldCheck,
-  Sparkles,
-  Target,
-  Users2,
+  TrendingUp,
+  UserCheck,
 } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 
 import { PartnerLogoMarquee } from "@/components/sections/partner-logo-marquee";
 import { Container } from "@/components/ui/container";
-import { StatMetricIcon, type StatMetricIconKind } from "@/components/ui/stat-metric-icon";
+import {
+  StatMetricIcon,
+  type StatMetricIconKind,
+} from "@/components/ui/stat-metric-icon";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 34 },
@@ -46,19 +48,19 @@ const metrics = [
 
 const values = [
   {
-    icon: Users2,
+    icon: UserCheck,
     title: "Customer-centric",
     description:
       "Every solution is shaped around the client environment, budget, operating pressure, and long-term support need.",
   },
   {
-    icon: Target,
+    icon: TrendingUp,
     title: "Results-driven",
     description:
       "We focus on measurable outcomes: lower operating cost, better uptime, clearer controls, and simpler vendor management.",
   },
   {
-    icon: Sparkles,
+    icon: Lightbulb,
     title: "Innovative",
     description:
       "Auxano blends proven infrastructure with modern IP-based, cloud, security, and hybrid technology where it makes business sense.",
@@ -70,7 +72,7 @@ const values = [
       "Our engineers, project leads, and client teams work with open communication from discovery through handover and support.",
   },
   {
-    icon: BadgeCheck,
+    icon: ClipboardCheck,
     title: "Transparent",
     description:
       "Scope, risk, documentation, commercial decisions, and post-deployment ownership stay visible throughout the engagement.",
@@ -81,32 +83,38 @@ const services = [
   {
     icon: ShieldCheck,
     title: "Surveillance & Access Control",
-    description: "Design, installation, remediation, door access, and operator-ready security environments.",
+    description:
+      "Design, installation, remediation, door access, and operator-ready security environments.",
   },
   {
     icon: Network,
     title: "Network Infrastructure",
-    description: "Structured LAN cabling, wireless, switching, routing, IP telephony, and documentation.",
+    description:
+      "Structured LAN cabling, wireless, switching, routing, IP telephony, and documentation.",
   },
   {
     icon: LifeBuoy,
     title: "Managed IT Support",
-    description: "Helpdesk, vendor management, staff augmentation, monitoring, and strategic planning.",
+    description:
+      "Helpdesk, vendor management, staff augmentation, monitoring, and strategic planning.",
   },
   {
     icon: Server,
     title: "Data Centre & Servers",
-    description: "Server build-out, virtualization, HVAC readiness, storage, and resource migration.",
+    description:
+      "Server build-out, virtualization, HVAC readiness, storage, and resource migration.",
   },
   {
     icon: KeyRound,
     title: "Cybersecurity",
-    description: "Security reviews, threat mitigation, incident response, audits, and compliance support.",
+    description:
+      "Security reviews, threat mitigation, incident response, audits, and compliance support.",
   },
   {
     icon: DatabaseBackup,
     title: "Backup & Recovery",
-    description: "Proactive data protection, recovery planning, post-crash retrieval, and continuity support.",
+    description:
+      "Proactive data protection, recovery planning, post-crash retrieval, and continuity support.",
   },
 ];
 
@@ -157,7 +165,8 @@ const offices = [
   {
     title: "Cairo Office",
     location: "Cairo, Egypt",
-    address: "53, Capital Mall, behind the Court, Fifth Settlement, New Cairo, Egypt.",
+    address:
+      "53, Capital Mall, behind the Court, Fifth Settlement, New Cairo, Egypt.",
     phone: "+20 101 639 7193",
     email: "mahmoudk@auxanosolutions.net",
   },
@@ -203,15 +212,6 @@ function SectionIntro({
 }) {
   return (
     <Reveal className={center ? "mx-auto max-w-4xl text-center" : "max-w-3xl"}>
-      <p
-        className={
-          inverse
-            ? "text-sm font-semibold uppercase tracking-[0.22em] text-cyan-200"
-            : "text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-electric)]"
-        }
-      >
-        {eyebrow}
-      </p>
       <h2
         className={
           inverse
@@ -286,19 +286,13 @@ export function AboutGeneaInspired() {
               animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
               transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-[color:rgba(11,18,32,0.08)] bg-white/86 text-[var(--color-ink)] shadow-[0_12px_32px_rgba(11,18,32,0.08)] backdrop-blur">
-                <Building2 className="h-5 w-5" strokeWidth={1.8} />
-              </div>
-              <p className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-electric)]">
-                About Auxano
-              </p>
               <h1 className="mt-4 max-w-[30rem] text-balance text-[2.65rem] font-semibold leading-[1.06] tracking-[-0.04em] text-[var(--color-ink)] lg:text-[3.2rem]">
                 Reliable ICT support since 2012.
               </h1>
               <p className="mt-5 max-w-xl text-base leading-7 text-[var(--color-muted)]">
-                Auxano Solutions Technology Limited delivers specialized and cost-effective
-                ICT services that help organizations streamline operations, secure assets,
-                and scale efficiently.
+                Auxano Solutions Technology Limited delivers specialized and
+                cost-effective ICT services that help organizations streamline
+                operations, secure assets, and scale efficiently.
               </p>
               <div className="mt-8 flex items-center gap-5">
                 <Link
@@ -333,18 +327,13 @@ export function AboutGeneaInspired() {
           </div>
 
           <Container className="overflow-hidden bg-[#f4f6f8] py-10">
-            <div className="flex h-14 w-14 items-center justify-center rounded-lg border border-[color:rgba(11,18,32,0.08)] bg-[var(--color-cloud)] text-[var(--color-ink)]">
-              <Building2 className="h-6 w-6" strokeWidth={1.8} />
-            </div>
-            <p className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-electric)]">
-              About Auxano
-            </p>
             <h1 className="mt-4 max-w-[20rem] text-[1.65rem] font-semibold leading-[1.12] tracking-[-0.04em] text-[var(--color-ink)]">
               Reliable ICT support since 2012.
             </h1>
             <p className="mt-5 max-w-[20rem] text-sm leading-7 text-[var(--color-muted)]">
-              Auxano delivers cost-effective ICT services that help organizations streamline
-              operations, secure assets, and scale efficiently.
+              Auxano delivers cost-effective ICT services that help
+              organizations streamline operations, secure assets, and scale
+              efficiently.
             </p>
             <div className="mt-7 flex items-center gap-4">
               <Link
@@ -394,12 +383,12 @@ export function AboutGeneaInspired() {
       <section id="about-purpose" className="bg-white py-16 sm:py-24">
         <Container>
           <Reveal className="mx-auto max-w-5xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-electric)]">
+            <p className="text-sm font-semibold uppercase tracking-[0.22em]  text-[#ed6a39]">
               Our Purpose
             </p>
             <h2 className="mt-5 text-balance text-3xl font-semibold leading-tight text-[var(--color-ink)] sm:text-5xl lg:text-6xl">
-              Enhancing productivity, reducing operating costs, and helping organizations grow
-              through dependable ICT systems.
+              Enhancing productivity, reducing operating costs, and helping
+              organizations grow through dependable ICT systems.
             </h2>
           </Reveal>
         </Container>
@@ -422,35 +411,22 @@ export function AboutGeneaInspired() {
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-electric)]">
-              About Us
-            </p>
             <h2 className="mt-4 text-balance text-3xl font-semibold leading-tight text-[var(--color-ink)] sm:text-5xl">
-              Specialized, cost-effective ICT services across Nigeria and North Africa.
+              Specialized, cost-effective ICT services across Nigeria and North
+              Africa.
             </h2>
             <div className="mt-6 space-y-5 text-base leading-8 text-[var(--color-muted)] sm:text-lg">
               <p>
-                Auxano Solutions Technology Limited delivers ICT services that help businesses
-                streamline operations, secure assets, and scale efficiently.
+                Auxano Solutions Technology Limited delivers ICT services that
+                help businesses streamline operations, secure assets, and scale
+                efficiently.
               </p>
               <p>
-                Since 2012, our team has deployed enterprise-grade IT infrastructure, surveillance,
-                access control, networks, software, hardware, and managed support for organizations
-                across telecoms, finance, energy, manufacturing, and services.
+                Since 2012, our team has deployed enterprise-grade IT
+                infrastructure, surveillance, access control, networks,
+                software, hardware, and managed support for organizations across
+                telecoms, finance, energy, manufacturing, and services.
               </p>
-            </div>
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
-              {[
-                "Strategic partnerships with Dell, Microsoft, VMware, McAfee, Paxton, and more",
-                "All-in-one model that simplifies vendor management and reduces overhead",
-                "Tailored hybrid solutions integrating analogue and IP-based technologies",
-                "OEM procurement, configuration, installation, support, and project management",
-              ].map((item) => (
-                <div key={item} className="flex gap-3 text-sm leading-6 text-[#0A3047]">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#f97316]" />
-                  <span>{item}</span>
-                </div>
-              ))}
             </div>
           </Reveal>
         </Container>
@@ -472,9 +448,11 @@ export function AboutGeneaInspired() {
 
               return (
                 <Reveal key={value.title} delay={index * 0.04}>
-                  <article className="group h-full rounded-lg border border-[color:rgba(10,48,71,0.1)] bg-white p-5 shadow-[0_18px_48px_rgba(10,48,71,0.06)] transition duration-300 hover:-translate-y-1 hover:border-[color:rgba(47,107,255,0.34)]">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#eaf3ff] text-[var(--color-electric)] transition group-hover:bg-[#0A3047] group-hover:text-white">
-                      <Icon className="h-6 w-6" />
+                  <article className="group h-full rounded-lg border border-[color:rgba(10,48,71,0.1)] bg-white p-5 shadow-[0_18px_48px_rgba(10,48,71,0.06)] transition duration-300 hover:-translate-y-1 hover:border-[#ed6a39]/40">
+                    <div className="relative flex h-14 w-14 items-center justify-center overflow-hidden rounded-2xl border border-[#ed6a39]/15 bg-[#ed6a39]/10 text-[#ed6a39] shadow-[0_14px_30px_rgba(237,106,57,0.14)] transition duration-300 group-hover:border-[#ed6a39] group-hover:bg-[#ed6a39] group-hover:text-white">
+                      <span className="absolute right-2 top-2 h-2 w-2 rounded-full bg-[#ed6a39] transition group-hover:bg-white/85" />
+                      <span className="absolute -bottom-3 -left-3 h-9 w-9 rounded-full border border-[#ed6a39]/20 transition group-hover:border-white/30" />
+                      <Icon className="relative h-6 w-6 stroke-[2.2]" />
                     </div>
                     <h3 className="mt-5 text-lg font-semibold text-[var(--color-ink)]">
                       {value.title}
@@ -490,7 +468,7 @@ export function AboutGeneaInspired() {
         </Container>
       </section>
 
-      <section className="bg-[#0A3047] py-16 text-white sm:py-24">
+      <section className="bg-[linear-gradient(135deg,#355C9A_100%,#4E73B8_50%,#6C8FD6_100%)] py-16 text-white sm:py-24">
         <Container className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="lg:sticky lg:top-28 lg:self-start">
             <SectionIntro
@@ -510,8 +488,12 @@ export function AboutGeneaInspired() {
                     <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-white text-[#0A3047]">
                       <Icon className="h-6 w-6" />
                     </div>
-                    <h3 className="mt-5 text-xl font-semibold text-white">{service.title}</h3>
-                    <p className="mt-3 text-sm leading-7 text-white/72">{service.description}</p>
+                    <h3 className="mt-5 text-xl font-semibold text-white">
+                      {service.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-7 text-white/72">
+                      {service.description}
+                    </p>
                   </article>
                 </Reveal>
               );
@@ -525,7 +507,6 @@ export function AboutGeneaInspired() {
           <SectionIntro
             eyebrow="Leadership"
             title="Office and technical leads for client success."
-            description="Portraits are placeholders for now, ready to be replaced with real executive images when available."
             center
           />
           <div className="mt-11 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -542,7 +523,9 @@ export function AboutGeneaInspired() {
                     />
                   </div>
                   <div className="p-5">
-                    <p className="text-sm font-semibold text-[#f97316]">{leader.role}</p>
+                    <p className="text-sm font-semibold text-[#f97316]">
+                      {leader.role}
+                    </p>
                     <h3 className="mt-2 text-xl font-semibold text-[var(--color-ink)]">
                       {leader.name}
                     </h3>
@@ -575,9 +558,6 @@ export function AboutGeneaInspired() {
             {offices.map((office, index) => (
               <Reveal key={office.title} delay={index * 0.06}>
                 <article className="h-full rounded-lg border border-[color:rgba(10,48,71,0.1)] bg-[#f7faff] p-6 shadow-[0_18px_50px_rgba(10,48,71,0.06)]">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#0A3047] text-white">
-                    <Building2 className="h-6 w-6" />
-                  </div>
                   <h3 className="mt-5 text-2xl font-semibold text-[var(--color-ink)]">
                     {office.title}
                   </h3>
@@ -605,18 +585,16 @@ export function AboutGeneaInspired() {
         </Container>
       </section>
 
-      <section className="bg-[#0A3047] py-16 text-white sm:py-20">
+      <section className="bg-[linear-gradient(135deg,#355C9A_100%,#4E73B8_50%,#6C8FD6_100%)] py-16 text-white sm:py-20">
         <Container className="grid items-center gap-8 lg:grid-cols-[1fr_auto]">
           <Reveal>
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-cyan-200">
-              Next Step
-            </p>
             <h2 className="mt-4 max-w-3xl text-balance text-3xl font-semibold leading-tight sm:text-5xl">
               Let&apos;s design the right ICT solution for your business.
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-8 text-white/72">
-              Talk to Auxano about infrastructure, networking, security, managed support,
-              audits, relocation, procurement, or a phased technical rollout.
+              Talk to Auxano about infrastructure, networking, security, managed
+              support, audits, relocation, procurement, or a phased technical
+              rollout.
             </p>
           </Reveal>
           <Reveal delay={0.08} className="flex flex-wrap gap-3 lg:justify-end">

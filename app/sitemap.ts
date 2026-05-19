@@ -31,11 +31,6 @@ const staticRoutes: SitemapEntryInput[] = [
     priority: 0.95,
   },
   {
-    path: "/industries",
-    changeFrequency: "weekly",
-    priority: 0.86,
-  },
-  {
     path: "/book-consultation",
     changeFrequency: "monthly",
     priority: 0.82,
@@ -49,16 +44,6 @@ const staticRoutes: SitemapEntryInput[] = [
     path: "/case-studies",
     changeFrequency: "monthly",
     priority: 0.74,
-  },
-  {
-    path: "/resources",
-    changeFrequency: "monthly",
-    priority: 0.72,
-  },
-  {
-    path: "/resources/knowledge-center",
-    changeFrequency: "weekly",
-    priority: 0.7,
   },
   {
     path: "/resources/support-center",

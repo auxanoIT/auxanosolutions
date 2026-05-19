@@ -35,7 +35,7 @@ export const siteSettings: SiteSettings = {
 export const navigation: NavItem[] = [
   { label: "Solutions", href: "/services", kind: "solutions" },
   { label: "Industries", href: "/industries", kind: "industries" },
-  { label: "Resources", href: "/resources", kind: "resources" },
+  { label: "Blog", href: "/blog", kind: "link" },
   { label: "About", href: "/about", kind: "link" },
 ];
 
@@ -398,13 +398,9 @@ export const footerColumns: FooterColumn[] = [
   {
     title: "Explore",
     links: [
-      { label: "Industries", href: "/industries" },
       { label: "Case Studies", href: "/case-studies" },
       { label: "Blog", href: "/blog" },
-      { label: "Resources", href: "/resources" },
-      { label: "Knowledge Center", href: "/resources/knowledge-center" },
       { label: "Support Center", href: "/resources/support-center" },
-      { label: "FAQ Library", href: "/resources/knowledge-center#faqs" },
       { label: "Careers", href: "/careers" },
     ],
   },
