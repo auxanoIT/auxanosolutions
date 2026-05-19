@@ -136,9 +136,6 @@ export default async function CareersPage() {
 
         <Container className="relative pb-8 pt-20 sm:pt-24 lg:pt-28">
           <div className="max-w-2xl">
-            <p className="text-xs font-semibold uppercase tracking-normal text-[#2f6bff]">
-              Careers at Auxano
-            </p>
             <h1 className="mt-5 text-balance text-4xl font-semibold leading-tight tracking-normal sm:text-5xl lg:text-6xl">
               Build technology environments businesses{" "}
               <span className="text-[#2f6bff]">depend on.</span>
@@ -228,7 +225,10 @@ export default async function CareersPage() {
             </p>
             <div className="mt-6 space-y-3">
               {lifeBullets.map((bullet) => (
-                <div key={bullet} className="flex gap-3 text-sm text-[var(--color-ink)]">
+                <div
+                  key={bullet}
+                  className="flex gap-3 text-sm text-[var(--color-ink)]"
+                >
                   <CircleCheck className="mt-0.5 h-4 w-4 shrink-0 text-[#2f6bff]" />
                   <span>{bullet}</span>
                 </div>
@@ -284,9 +284,6 @@ export default async function CareersPage() {
         <Container>
           <div className="flex items-end justify-between gap-6">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-normal text-[#2f6bff]">
-                Careers
-              </p>
               <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-normal sm:text-4xl">
                 Open Positions
               </h2>
