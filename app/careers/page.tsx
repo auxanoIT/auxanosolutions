@@ -26,6 +26,8 @@ export const metadata = buildMetadata({
   path: "/careers",
 });
 
+export const revalidate = 120;
+
 const heroStats = [
   {
     icon: BriefcaseBusiness,

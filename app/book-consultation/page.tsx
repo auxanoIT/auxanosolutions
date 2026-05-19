@@ -1,10 +1,7 @@
 import Image from "next/image";
 import {
   BriefcaseBusiness,
-  CheckCircle2,
   Headphones,
-  LockKeyhole,
-  Settings,
   ShieldCheck,
   UsersRound,
 } from "lucide-react";
@@ -36,21 +33,6 @@ const stats = [
     icon: ShieldCheck,
     value: "End-to-End",
     label: "Deployment & Support",
-  },
-];
-
-const assurances = [
-  {
-    icon: ShieldCheck,
-    text: "Trusted by businesses across industries",
-  },
-  {
-    icon: Settings,
-    text: "Tailored solutions designed for your unique needs",
-  },
-  {
-    icon: LockKeyhole,
-    text: "Secure, reliable & built for long-term performance",
   },
 ];
 

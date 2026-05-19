@@ -4,7 +4,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   ArrowLeft,
-  ArrowRight,
   Network,
   ShieldCheck,
   Wrench,
@@ -13,10 +12,9 @@ import {
 } from "lucide-react";
 
 import { ServiceCapabilityFlow } from "@/components/sections/service-capability-flow";
-import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
 import { JsonLd } from "@/components/ui/json-ld";
-import { getServiceBySlug, getServices } from "@/lib/content";
+import { getServiceBySlug, getServiceSlugs } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/utils";
 import type {
@@ -29,6 +27,8 @@ import type {
 type ServicePageProps = {
   params: Promise<{ slug: string }>;
 };
+
+export const revalidate = 120;
 
 const categoryStyles: Record<
   ServiceCategory,
@@ -137,6 +137,14 @@ function getServiceHeroImage(
   );
 }
 
+export async function generateStaticParams() {
+  const slugs = await getServiceSlugs();
+
+  return slugs.map((slug) => ({
+    slug,
+  }));
+}
+
 export async function generateMetadata({
   params,
 }: ServicePageProps): Promise<Metadata> {
@@ -148,6 +156,7 @@ export async function generateMetadata({
       title: "Service not found",
       description: "The requested service page could not be found.",
       path: `/services/${slug}`,
+      noIndex: true,
     });
   }
 
@@ -178,21 +187,12 @@ export async function generateMetadata({
 
 export default async function ServicePage({ params }: ServicePageProps) {
   const { slug } = await params;
-  const [service, services] = await Promise.all([
-    getServiceBySlug(slug),
-    getServices(),
-  ]);
+  const service = await getServiceBySlug(slug);
 
   if (!service) {
     notFound();
   }
 
-  const related = services
-    .filter(
-      (item) =>
-        item.slug !== service.slug && item.category === service.category,
-    )
-    .slice(0, 3);
   const style = categoryStyles[service.category];
   const heroImage = getServiceHeroImage(service, {
     src: style.image,
@@ -205,20 +205,46 @@ export default async function ServicePage({ params }: ServicePageProps) {
   return (
     <>
       <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "Service",
-          name: service.title,
-          serviceType: service.category,
-          provider: {
-            "@type": "Organization",
-            name: "Auxano Solutions Technology Limited",
+        data={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: service.title,
+            serviceType: service.category,
+            provider: {
+              "@type": "Organization",
+              name: "Auxano Solutions Technology Limited",
+            },
+            areaServed: "Nigeria",
+            url: absoluteUrl(`/services/${service.slug}`),
+            description: service.summary,
+            image: absoluteUrl(heroImage.src),
           },
-          areaServed: "Nigeria",
-          url: absoluteUrl(`/services/${service.slug}`),
-          description: service.summary,
-          image: absoluteUrl(heroImage.src),
-        }}
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: absoluteUrl("/"),
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Services",
+                item: absoluteUrl("/services"),
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: service.title,
+                item: absoluteUrl(`/services/${service.slug}`),
+              },
+            ],
+          },
+        ]}
       />
 
       <section className="overflow-hidden bg-[linear-gradient(135deg,#355C9A_100%,#4E73B8_50%,#6C8FD6_100%)] text-white">

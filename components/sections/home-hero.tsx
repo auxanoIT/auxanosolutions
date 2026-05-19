@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { gsap } from "gsap";
@@ -94,8 +93,6 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
   const desktopRingRefs = useRef<Array<SVGCircleElement | null>>([]);
   const mobileRingRefs = useRef<Array<SVGCircleElement | null>>([]);
   const activeIndexRef = useRef(0);
-  const pendingAdvanceTimeoutRef = useRef<number | null>(null);
-  const syncRequestRef = useRef(0);
   const [activeIndex, setActiveIndex] = useState(0);
   const [progress, setProgress] = useState(0);
   const [isDocumentVisible, setIsDocumentVisible] = useState(() =>
@@ -104,43 +101,25 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
       : document.visibilityState === "visible",
   );
   const activeSlide = slides[activeIndex] ?? slides[0];
+  const shouldHideActiveContent = Boolean(activeSlide.hideContent);
   const hasServiceCta = activeSlide.primaryCta.href !== "/book-consultation";
   const countdownValue = shouldReduceMotion
     ? HERO_COUNTDOWN_START
     : getCountdownValue(progress);
 
-  const clearPendingAdvance = () => {
-    if (!pendingAdvanceTimeoutRef.current) {
-      return;
-    }
-
-    window.clearTimeout(pendingAdvanceTimeoutRef.current);
-    pendingAdvanceTimeoutRef.current = null;
-  };
-
-  const syncPlayerToSlide = async (index: number, forceRestart = false) => {
-    const player = playerRef.current;
-
+  const playPlayer = async (
+    player: WistiaPlayerElement | null,
+    forceRestart = false,
+  ) => {
     if (!player) {
       return;
     }
 
-    const nextSlide = slides[index] ?? slides[0];
-    const requestId = ++syncRequestRef.current;
-
     applyDecorativePlayerStyles(player);
 
     try {
-      await player.pause();
-
-      if (player.mediaId !== nextSlide.wistiaMediaId) {
-        await player.replaceWithMedia(nextSlide.wistiaMediaId);
-      } else if (forceRestart || player.currentTime > 0) {
+      if (forceRestart || player.currentTime > 0) {
         player.currentTime = 0;
-      }
-
-      if (syncRequestRef.current !== requestId) {
-        return;
       }
 
       player.muted = true;
@@ -153,14 +132,31 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
 
       await player.play();
     } catch {
-      if (syncRequestRef.current !== requestId) {
-        return;
-      }
-
       if (!shouldReduceMotion && isDocumentVisible) {
         void player.play().catch(() => undefined);
       }
     }
+  };
+
+  const playActiveVideo = (forceRestart = false) => {
+    void playPlayer(playerRef.current, forceRestart);
+  };
+
+  const handlePlayable = (event: WistiaPlayerEvent) => {
+    playerRef.current = event.target;
+    applyDecorativePlayerStyles(event.target);
+    event.target.muted = true;
+
+    if (shouldReduceMotion) {
+      void event.target.pause().catch(() => undefined);
+      return;
+    }
+
+    void event.target.play().catch(() => undefined);
+
+    window.requestAnimationFrame(() => {
+      void event.target.play().catch(() => undefined);
+    });
   };
 
   useEffect(() => {
@@ -195,6 +191,7 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
       return;
     }
 
+    player.muted = true;
     void player.play().catch(() => undefined);
   }, [isDocumentVisible, shouldReduceMotion]);
 
@@ -203,16 +200,10 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
       return;
     }
 
-    void syncPlayerToSlide(activeIndex, true);
+    playActiveVideo(true);
     // active slide sync intentionally depends only on slide changes
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeIndex]);
-
-  useEffect(() => {
-    return () => {
-      clearPendingAdvance();
-    };
-  }, []);
 
   useLayoutEffect(() => {
     const ringSets = [desktopRingRefs.current, mobileRingRefs.current];
@@ -248,6 +239,11 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
   }, [activeIndex, progress, shouldReduceMotion]);
 
   useLayoutEffect(() => {
+    if (shouldHideActiveContent) {
+      gsap.set(stageTintRef.current, { clearProps: "all" });
+      return;
+    }
+
     if (shouldReduceMotion) {
       gsap.set(
         [headlineRef.current, descriptionRef.current, ctaWrapRef.current],
@@ -292,14 +288,13 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
     return () => {
       timeline.kill();
     };
-  }, [activeIndex, shouldReduceMotion]);
+  }, [activeIndex, shouldHideActiveContent, shouldReduceMotion]);
 
   const handleSelectSlide = (index: number) => {
-    clearPendingAdvance();
     setProgress(0);
 
     if (index === activeIndexRef.current) {
-      void syncPlayerToSlide(index, true);
+      playActiveVideo(true);
       return;
     }
 
@@ -310,20 +305,12 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
     playerRef.current = event.target;
     applyDecorativePlayerStyles(event.target);
     event.target.muted = true;
-    activeIndexRef.current = 0;
-    clearPendingAdvance();
-    setActiveIndex(0);
     setProgress(0);
-    void syncPlayerToSlide(0, true);
+    void playPlayer(event.target, true);
   };
 
   const handleLoadedMetadata = (event: WistiaPlayerEvent) => {
-    playerRef.current = event.target;
-    applyDecorativePlayerStyles(event.target);
-
-    if (shouldReduceMotion) {
-      void event.target.pause().catch(() => undefined);
-    }
+    handlePlayable(event);
   };
 
   const handleTimeUpdate = (event: WistiaPlayerEvent) => {
@@ -347,14 +334,8 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
       return;
     }
 
-    clearPendingAdvance();
     setProgress(1);
-
-    pendingAdvanceTimeoutRef.current = window.setTimeout(() => {
-      pendingAdvanceTimeoutRef.current = null;
-      setProgress(0);
-      setActiveIndex((currentIndex) => (currentIndex + 1) % slides.length);
-    }, 160);
+    setActiveIndex((currentIndex) => (currentIndex + 1) % slides.length);
   };
 
   return (
@@ -364,14 +345,6 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
     >
       <div className="relative min-h-[14rem] sm:min-h-[25rem] lg:min-h-[33rem] xl:min-h-[36rem]">
         <div className="absolute inset-0 bg-[#071b24]" />
-        <Image
-          src="/image/servces.png"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center opacity-80"
-        />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,27,36,0.62)_0%,rgba(7,27,36,0.08)_38%,rgba(7,27,36,0.36)_100%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,27,36,0.08)_0%,rgba(7,27,36,0.02)_48%,rgba(7,27,36,0.66)_100%)]" />
         <div
@@ -381,8 +354,9 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
 
         <div aria-hidden="true" className="absolute inset-0 overflow-hidden">
           <DecorativeWistiaPlayer
-            mediaId={slides[0]?.wistiaMediaId ?? ""}
-            autoplay={false}
+            key={activeSlide.wistiaMediaId}
+            mediaId={activeSlide.wistiaMediaId}
+            autoplay
             muted
             silentAutoplay="allow"
             branding={false}
@@ -399,10 +373,13 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
             transparentLetterbox
             seo={false}
             playerColor="19d5ff"
-            preload="metadata"
+            preload="auto"
             className="pointer-events-none absolute inset-0 block h-full w-full scale-[1.02]"
             style={{ width: "100%", height: "100%" }}
             onApiReady={handleApiReady}
+            onCanPlay={handlePlayable}
+            onCanPlayThrough={handlePlayable}
+            onLoadedData={handlePlayable}
             onLoadedMetadata={handleLoadedMetadata}
             onTimeUpdate={handleTimeUpdate}
             onEnded={handleEnded}
@@ -424,68 +401,82 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
           orientation="vertical"
           className="absolute right-5 top-1/2 hidden -translate-y-1/2 lg:flex xl:right-9"
         />
+
+        {shouldHideActiveContent ? (
+          <SlideSelectorRail
+            slides={slides}
+            activeIndex={activeIndex}
+            countdownValue={countdownValue}
+            onSelect={handleSelectSlide}
+            ringRefs={mobileRingRefs}
+            orientation="horizontal"
+            className="absolute bottom-5 left-1/2 -translate-x-1/2 lg:hidden"
+          />
+        ) : null}
       </div>
 
-      <div className="relative overflow-hidden bg-[linear-gradient(135deg,#355C9A_100%,#4E73B8_50%,#6C8FD6_100%)]">
-        <div className="absolute inset-x-0 top-0 h-px bg-white/14" />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 opacity-[0.11] [background-image:linear-gradient(rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:96px_96px]"
-        />
+      {shouldHideActiveContent ? null : (
+        <div className="relative overflow-hidden bg-[linear-gradient(135deg,#355C9A_100%,#4E73B8_50%,#6C8FD6_100%)]">
+          <div className="absolute inset-x-0 top-0 h-px bg-white/14" />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 opacity-[0.11] [background-image:linear-gradient(rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:96px_96px]"
+          />
 
-        <Container className="grid gap-6 py-6 sm:py-8 lg:grid-cols-[minmax(0,0.86fr)_minmax(26rem,1fr)] lg:items-start lg:gap-10 lg:py-8 xl:grid-cols-[minmax(0,0.9fr)_minmax(30rem,1fr)] xl:gap-12">
-          <div className="min-w-0">
-            <h1
-              ref={headlineRef}
-              className="max-w-full break-words text-[2rem] font-medium leading-[1.08] tracking-[-0.025em] text-white sm:max-w-3xl sm:text-balance sm:text-[2.25rem] lg:max-w-[34rem] lg:text-[2.1rem] xl:text-[2.3rem]"
-            >
-              {activeSlide.headline}
-            </h1>
-          </div>
-
-          <div className="min-w-0">
-            <p
-              ref={descriptionRef}
-              className="max-w-full text-sm leading-7 text-white/84 sm:max-w-2xl sm:text-pretty sm:text-[0.95rem] sm:leading-[1.6] lg:text-[1rem] lg:leading-8"
-            >
-              {activeSlide.description}
-            </p>
-
-            <div
-              ref={ctaWrapRef}
-              className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center"
-            >
-              {hasServiceCta ? (
-                <ButtonLink
-                  href={activeSlide.primaryCta.href}
-                  variant="secondary"
-                  className="w-full whitespace-nowrap rounded-sm border-transparent bg-white px-5 py-3 text-sm font-semibold !text-[#061a28] shadow-[0_22px_55px_rgba(3,18,31,0.2)] hover:-translate-y-0.5 hover:border-transparent hover:!text-[#061a28] sm:w-auto"
-                >
-                  {activeSlide.primaryCta.label}
-                </ButtonLink>
-              ) : null}
-              <ButtonLink
-                href="/book-consultation"
-                variant="ghost"
-                className="w-full justify-start rounded-sm px-0 py-3 text-sm font-semibold text-white/86 hover:bg-transparent hover:text-white sm:w-auto sm:justify-center sm:px-4 sm:hover:bg-white/8"
+          <Container className="grid gap-6 py-6 sm:py-8 lg:grid-cols-[minmax(0,0.86fr)_minmax(26rem,1fr)] lg:items-start lg:gap-10 lg:py-8 xl:grid-cols-[minmax(0,0.9fr)_minmax(30rem,1fr)] xl:gap-12">
+            <div className="min-w-0">
+              <h1
+                ref={headlineRef}
+                className="max-w-full break-words text-[2rem] font-medium leading-[1.08] tracking-[-0.025em] text-white sm:max-w-3xl sm:text-balance sm:text-[2.25rem] lg:max-w-[34rem] lg:text-[2.1rem] xl:text-[2.3rem]"
               >
-                Book Consultation
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </ButtonLink>
+                {activeSlide.headline}
+              </h1>
             </div>
 
-            <SlideSelectorRail
-              slides={slides}
-              activeIndex={activeIndex}
-              countdownValue={countdownValue}
-              onSelect={handleSelectSlide}
-              ringRefs={mobileRingRefs}
-              orientation="horizontal"
-              className="mt-8 lg:hidden"
-            />
-          </div>
-        </Container>
-      </div>
+            <div className="min-w-0">
+              <p
+                ref={descriptionRef}
+                className="max-w-full text-sm leading-7 text-white/84 sm:max-w-2xl sm:text-pretty sm:text-[0.95rem] sm:leading-[1.6] lg:text-[1rem] lg:leading-8"
+              >
+                {activeSlide.description}
+              </p>
+
+              <div
+                ref={ctaWrapRef}
+                className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center"
+              >
+                {hasServiceCta ? (
+                  <ButtonLink
+                    href={activeSlide.primaryCta.href}
+                    variant="secondary"
+                    className="w-full whitespace-nowrap rounded-sm border-transparent bg-white px-5 py-3 text-sm font-semibold !text-[#061a28] shadow-[0_22px_55px_rgba(3,18,31,0.2)] hover:-translate-y-0.5 hover:border-transparent hover:!text-[#061a28] sm:w-auto"
+                  >
+                    {activeSlide.primaryCta.label}
+                  </ButtonLink>
+                ) : null}
+                <ButtonLink
+                  href="/book-consultation"
+                  variant="ghost"
+                  className="w-full justify-start rounded-sm px-0 py-3 text-sm font-semibold text-white/86 hover:bg-transparent hover:text-white sm:w-auto sm:justify-center sm:px-4 sm:hover:bg-white/8"
+                >
+                  Book Consultation
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </ButtonLink>
+              </div>
+
+              <SlideSelectorRail
+                slides={slides}
+                activeIndex={activeIndex}
+                countdownValue={countdownValue}
+                onSelect={handleSelectSlide}
+                ringRefs={mobileRingRefs}
+                orientation="horizontal"
+                className="mt-8 lg:hidden"
+              />
+            </div>
+          </Container>
+        </div>
+      )}
     </section>
   );
 }

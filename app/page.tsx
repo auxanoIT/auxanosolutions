@@ -34,21 +34,6 @@ export default async function HomePage() {
         data={[
           {
             "@context": "https://schema.org",
-            "@type": "Organization",
-            name: "Auxano Solutions Technology Limited",
-            url: absoluteUrl("/"),
-            email: "info@auxanosolutions.net",
-            telephone: "+234 8062 218 546",
-            address: {
-              "@type": "PostalAddress",
-              streetAddress:
-                "26A Adeshina Street, Off Oluwole Phillips, Obafemi Awolowo Way, Ikeja",
-              addressLocality: "Lagos",
-              addressCountry: "NG",
-            },
-          },
-          {
-            "@context": "https://schema.org",
             "@type": "ProfessionalService",
             name: "Auxano Solutions",
             url: absoluteUrl("/"),

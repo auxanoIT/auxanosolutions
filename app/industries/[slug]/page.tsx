@@ -13,14 +13,18 @@ import {
 import { LeadForm } from "@/components/forms/lead-form";
 import { IndustryChallengeTabs } from "@/components/sections/industry-challenge-tabs";
 import { Container } from "@/components/ui/container";
+import { JsonLd } from "@/components/ui/json-ld";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { getIndustryBySlug, getIndustries, getServices } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
+import { absoluteUrl } from "@/lib/utils";
 import type { Service, ServiceNavMedia } from "@/lib/types";
 
 type IndustryPageProps = {
   params: Promise<{ slug: string }>;
 };
+
+export const revalidate = 120;
 
 function getMappedServices(serviceSlugs: string[], services: Service[]) {
   return serviceSlugs
@@ -82,6 +86,7 @@ export async function generateMetadata({
       title: "Industry not found",
       description: "The requested industry page could not be found.",
       path: `/industries/${slug}`,
+      noIndex: true,
     });
   }
 
@@ -89,6 +94,8 @@ export async function generateMetadata({
     title: industry.title,
     description: industry.heroDescription,
     path: industry.href,
+    imagePath: industry.heroImage.src,
+    imageAlt: industry.heroImage.alt,
     keywords: [
       industry.title,
       ...industry.environmentExamples,
@@ -133,6 +140,41 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
 
   return (
     <>
+      <JsonLd
+        data={[
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: `Infrastructure for ${industry.title}`,
+            description: industry.heroDescription,
+            url: absoluteUrl(industry.href),
+            image: absoluteUrl(industry.heroImage.src),
+            about: industry.environmentExamples,
+            provider: {
+              "@type": "Organization",
+              name: "Auxano Solutions Technology Limited",
+            },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: absoluteUrl("/"),
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: industry.title,
+                item: absoluteUrl(industry.href),
+              },
+            ],
+          },
+        ]}
+      />
       <section className="overflow-hidden bg-white">
         <div className="relative hidden min-h-[35rem] md:block">
           <Image

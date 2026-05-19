@@ -40,6 +40,7 @@ export function CategoryShowcase({ section }: CategoryShowcaseProps) {
   const timelineRef = useRef<gsap.core.Timeline | null>(null);
   const tabsId = useId();
   const activeItem = section.items[activeIndex] ?? section.items[0] ?? null;
+  const activeMediaId = activeItem?.wistiaMediaId ?? section.wistiaMediaId;
 
   useEffect(() => {
     return () => {
@@ -263,7 +264,8 @@ export function CategoryShowcase({ section }: CategoryShowcaseProps) {
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_18%,rgba(255,255,255,0.28),transparent_24%),linear-gradient(180deg,rgba(47,107,255,0.05)_0%,rgba(25,213,255,0.04)_45%,rgba(11,18,32,0.08)_100%)]" />
                 <div className="relative h-full min-h-[18rem]">
                   <DecorativeWistiaPlayer
-                    mediaId={section.wistiaMediaId}
+                    key={activeMediaId}
+                    mediaId={activeMediaId}
                     autoplay
                     muted
                     silentAutoplay="allow"
@@ -282,7 +284,7 @@ export function CategoryShowcase({ section }: CategoryShowcaseProps) {
                     transparentLetterbox
                     seo={false}
                     playerColor="19d5ff"
-                    preload="auto"
+                    preload="metadata"
                     onEnded={handleVideoReady}
                     onApiReady={handleVideoReady}
                     onLoadedMetadata={handleVideoReady}

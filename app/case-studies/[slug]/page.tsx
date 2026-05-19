@@ -5,13 +5,23 @@ import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
 import { JsonLd } from "@/components/ui/json-ld";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { getCaseStudies, getCaseStudyBySlug } from "@/lib/content";
+import { getCaseStudyBySlug, getCaseStudySlugs, getCaseStudies } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/utils";
 
 type CaseStudyPageProps = {
   params: Promise<{ slug: string }>;
 };
+
+export const revalidate = 120;
+
+export async function generateStaticParams() {
+  const slugs = await getCaseStudySlugs();
+
+  return slugs.map((slug) => ({
+    slug,
+  }));
+}
 
 export async function generateMetadata({
   params,
@@ -24,6 +34,7 @@ export async function generateMetadata({
       title: "Case study not found",
       description: "The requested case study could not be found.",
       path: `/case-studies/${slug}`,
+      noIndex: true,
     });
   }
 
@@ -56,13 +67,45 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
   return (
     <>
       <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "CreativeWork",
-          headline: caseStudy.title,
-          description: caseStudy.summary,
-          url: absoluteUrl(`/case-studies/${caseStudy.slug}`),
-        }}
+        data={[
+          {
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            headline: caseStudy.title,
+            description: caseStudy.summary,
+            url: absoluteUrl(`/case-studies/${caseStudy.slug}`),
+            about: caseStudy.industry,
+            locationCreated: caseStudy.location,
+            publisher: {
+              "@type": "Organization",
+              name: "Auxano Solutions Technology Limited",
+            },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: absoluteUrl("/"),
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Case Studies",
+                item: absoluteUrl("/case-studies"),
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: caseStudy.title,
+                item: absoluteUrl(`/case-studies/${caseStudy.slug}`),
+              },
+            ],
+          },
+        ]}
       />
       <section className="bg-[linear-gradient(180deg,#F7FAFF_0%,#EEF4FF_100%)] py-20 sm:py-24">
         <Container className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr]">

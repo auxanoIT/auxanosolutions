@@ -68,7 +68,6 @@ export function SiteHeader({
             alt="Auxano Solutions"
             width={100}
             height={500}
-            priority
             className="h-8 w-auto object-contain md:h-12"
           />
         </Link>

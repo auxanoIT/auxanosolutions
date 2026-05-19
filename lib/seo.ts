@@ -17,6 +17,8 @@ type MetadataOptions = {
 
 const defaultKeywords = [
   "Auxano Solutions",
+  "Auxano Solutions Technology Limited",
+  "IT solutions Nigeria",
   "managed IT support Nigeria",
   "CCTV installation Lagos",
   "network infrastructure Nigeria",
@@ -39,15 +41,26 @@ export function buildMetadata({
 }: MetadataOptions): Metadata {
   const pageUrl = absoluteUrl(path);
   const imageUrl = absoluteUrl(imagePath);
+  const mergedKeywords = Array.from(
+    new Set([...defaultKeywords, ...keywords].filter(Boolean)),
+  );
 
   return {
     title,
     description,
-    keywords: [...defaultKeywords, ...keywords],
+    keywords: mergedKeywords,
     applicationName: "Auxano Solutions",
     authors: [{ name: "Auxano Solutions Technology Limited" }],
+    category: "Technology services",
+    classification: "Business",
     creator: "Auxano Solutions Technology Limited",
     publisher: "Auxano Solutions Technology Limited",
+    referrer: "origin-when-cross-origin",
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
     robots: {
       index: !noIndex,
       follow: !noIndex,
@@ -69,6 +82,7 @@ export function buildMetadata({
       siteName: "Auxano Solutions",
       type,
       locale: "en_NG",
+      countryName: "Nigeria",
       ...(publishedTime ? { publishedTime } : {}),
       ...(modifiedTime ? { modifiedTime } : {}),
       images: [

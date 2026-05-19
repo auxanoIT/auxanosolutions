@@ -229,6 +229,7 @@ export type HeroVideoSlide = {
   wistiaMediaId: string;
   headline: string;
   description: string;
+  hideContent?: boolean;
   primaryCta: CTA;
 };
 
@@ -290,6 +291,7 @@ export type CategoryShowcaseItem = {
   bullets: string[];
   ctaLabel: string;
   ctaHref: string;
+  wistiaMediaId?: string;
 };
 
 export type CategoryShowcaseSection = {

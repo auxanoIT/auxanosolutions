@@ -70,6 +70,10 @@ export const servicesQuery = groq`
   }
 `;
 
+export const serviceSlugsQuery = groq`
+  *[_type == "service" && defined(slug.current)].slug.current
+`;
+
 export const serviceQuery = groq`
   *[_type == "service" && slug.current == $slug][0]{
     title,
@@ -104,6 +108,10 @@ export const caseStudiesQuery = groq`
     relatedServices,
     "slug": slug.current
   }
+`;
+
+export const caseStudySlugsQuery = groq`
+  *[_type == "caseStudy" && defined(slug.current)].slug.current
 `;
 
 export const caseStudyQuery = groq`
@@ -164,6 +172,10 @@ export const blogPostsQuery = groq`
     },
     "slug": slug.current
   }
+`;
+
+export const blogPostSlugsQuery = groq`
+  *[_type == "post" && defined(slug.current)].slug.current
 `;
 
 export const blogPostQuery = groq`

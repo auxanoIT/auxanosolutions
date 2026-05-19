@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
 import { JsonLd } from "@/components/ui/json-ld";
-import { getBlogPostBySlug } from "@/lib/content";
+import { getBlogPostBySlug, getBlogPostSlugs } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
 import type { BlogBodyBlock, BlogPost } from "@/lib/types";
 import { absoluteUrl, formatDate } from "@/lib/utils";
@@ -13,6 +13,16 @@ import { absoluteUrl, formatDate } from "@/lib/utils";
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
 };
+
+export const revalidate = 120;
+
+export async function generateStaticParams() {
+  const slugs = await getBlogPostSlugs();
+
+  return slugs.map((slug) => ({
+    slug,
+  }));
+}
 
 export async function generateMetadata({
   params,
@@ -25,6 +35,7 @@ export async function generateMetadata({
       title: "Article not found",
       description: "The requested article could not be found.",
       path: `/blog/${slug}`,
+      noIndex: true,
     });
   }
 
@@ -61,19 +72,57 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   return (
     <>
       <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "Article",
-          headline: post.title,
-          datePublished: post.publishedAt,
-          description: post.excerpt,
-          image: post.coverImage ? absoluteUrl(post.coverImage.src) : undefined,
-          url: absoluteUrl(`/blog/${post.slug}`),
-          author: {
-            "@type": "Organization",
-            name: post.author ?? "Auxano Solutions Technology Limited",
+        data={[
+          {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: post.title,
+            datePublished: post.publishedAt,
+            dateModified: post.publishedAt,
+            description: post.excerpt,
+            image: post.coverImage
+              ? absoluteUrl(post.coverImage.src)
+              : undefined,
+            url: absoluteUrl(`/blog/${post.slug}`),
+            mainEntityOfPage: absoluteUrl(`/blog/${post.slug}`),
+            author: {
+              "@type": "Organization",
+              name: post.author ?? "Auxano Solutions Technology Limited",
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "Auxano Solutions Technology Limited",
+              logo: {
+                "@type": "ImageObject",
+                url: absoluteUrl("/image/AUxano.webp"),
+              },
+            },
           },
-        }}
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: absoluteUrl("/"),
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Blog",
+                item: absoluteUrl("/blog"),
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: post.title,
+                item: absoluteUrl(`/blog/${post.slug}`),
+              },
+            ],
+          },
+        ]}
       />
       <article>
         <header className="bg-[var(--color-cloud)] py-16 sm:py-20">

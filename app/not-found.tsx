@@ -1,5 +1,13 @@
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  title: "Page not found",
+  description: "The requested Auxano Solutions page could not be found.",
+  path: "/404",
+  noIndex: true,
+});
 
 export default function NotFound() {
   return (

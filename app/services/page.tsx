@@ -14,6 +14,8 @@ export const metadata = buildMetadata({
   path: "/services",
 });
 
+export const revalidate = 120;
+
 const categoryNarratives: Record<
   ServiceCategory,
   {

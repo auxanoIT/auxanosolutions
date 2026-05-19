@@ -32,7 +32,10 @@ export type DecorativeWistiaPlayerProps = {
   transparentLetterbox?: boolean;
   volumeControl?: boolean;
   onApiReady?: (event: WistiaPlayerEvent) => void;
+  onCanPlay?: (event: WistiaPlayerEvent) => void;
+  onCanPlayThrough?: (event: WistiaPlayerEvent) => void;
   onEnded?: (event: WistiaPlayerEvent) => void;
+  onLoadedData?: (event: WistiaPlayerEvent) => void;
   onLoadedMetadata?: (event: WistiaPlayerEvent) => void;
   onTimeUpdate?: (event: WistiaPlayerEvent) => void;
 };
@@ -45,7 +48,7 @@ const WistiaPlayer = dynamic<DecorativeWistiaPlayerProps>(
   {
     ssr: false,
     loading: () => (
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_42%_28%,rgba(25,213,255,0.14),transparent_22%),linear-gradient(180deg,rgba(4,24,39,0.92),rgba(6,35,56,0.98))]" />
+      <div className="absolute inset-0 bg-[#071b24]" />
     ),
   },
 );

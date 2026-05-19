@@ -5,7 +5,6 @@ import Link from "next/link";
 import {
   ArrowDown,
   ArrowRight,
-  Building2,
   ClipboardCheck,
   DatabaseBackup,
   Handshake,
@@ -212,6 +211,15 @@ function SectionIntro({
 }) {
   return (
     <Reveal className={center ? "mx-auto max-w-4xl text-center" : "max-w-3xl"}>
+      <p
+        className={
+          inverse
+            ? "text-sm font-semibold uppercase tracking-normal text-white/70"
+            : "text-sm font-semibold uppercase tracking-normal text-[#ed6a39]"
+        }
+      >
+        {eyebrow}
+      </p>
       <h2
         className={
           inverse

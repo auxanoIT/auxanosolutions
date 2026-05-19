@@ -13,6 +13,8 @@ export const metadata = buildMetadata({
   path: "/case-studies",
 });
 
+export const revalidate = 120;
+
 export default async function CaseStudiesPage() {
   const caseStudies = await getCaseStudies();
 

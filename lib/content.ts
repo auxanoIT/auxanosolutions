@@ -36,9 +36,11 @@ import type {
 } from "@/lib/types";
 import {
   blogPostQuery,
+  blogPostSlugsQuery,
   blogPostsQuery,
   caseStudiesQuery,
   caseStudyQuery,
+  caseStudySlugsQuery,
   careerOpeningsQuery,
   estimatorConfigQuery,
   faqsQuery,
@@ -46,11 +48,13 @@ import {
   marketingPageQuery,
   navigationQuery,
   serviceQuery,
+  serviceSlugsQuery,
   servicesQuery,
   siteSettingsQuery,
   testimonialsQuery,
 } from "@/sanity/lib/queries";
 import { sanityFetch } from "@/sanity/lib/client";
+import { applyHomeWistiaMedia } from "@/lib/wistia-media";
 
 async function isPreviewEnabled() {
   const preview = await draftMode();
@@ -166,7 +170,9 @@ export async function getMarketingPage(slug: string): Promise<MarketingPage | nu
     tags: ["pages"],
   });
 
-  return content ?? marketingPages.find((page) => page.slug === slug) ?? null;
+  const page = content ?? marketingPages.find((item) => item.slug === slug) ?? null;
+
+  return page ? applyHomeWistiaMedia(page) : null;
 }
 
 export async function getCareerOpenings(): Promise<CareerOpening[]> {
@@ -202,6 +208,21 @@ export async function getServices(): Promise<Service[]> {
         }
       : fallbackService;
   });
+}
+
+export async function getServiceSlugs(): Promise<string[]> {
+  const content = await sanityFetch<string[]>({
+    query: serviceSlugsQuery,
+    tags: ["services"],
+  });
+
+  if (!content?.length) {
+    return services.map((service) => service.slug);
+  }
+
+  return Array.from(
+    new Set([...services.map((service) => service.slug), ...content]),
+  );
 }
 
 export async function getServiceBySlug(slug: string): Promise<Service | null> {
@@ -244,6 +265,19 @@ export async function getCaseStudies(): Promise<CaseStudy[]> {
   return content ?? caseStudies;
 }
 
+export async function getCaseStudySlugs(): Promise<string[]> {
+  const content = await sanityFetch<string[]>({
+    query: caseStudySlugsQuery,
+    tags: ["caseStudies"],
+  });
+
+  if (!content?.length) {
+    return caseStudies.map((item) => item.slug);
+  }
+
+  return content;
+}
+
 export async function getCaseStudyBySlug(slug: string): Promise<CaseStudy | null> {
   const content = await sanityFetch<CaseStudy>({
     query: caseStudyQuery,
@@ -263,6 +297,19 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
   });
 
   return content ?? blogPosts;
+}
+
+export async function getBlogPostSlugs(): Promise<string[]> {
+  const content = await sanityFetch<string[]>({
+    query: blogPostSlugsQuery,
+    tags: ["posts"],
+  });
+
+  if (!content?.length) {
+    return blogPosts.map((post) => post.slug);
+  }
+
+  return content;
 }
 
 export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
