@@ -454,7 +454,7 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
         <div
           aria-hidden="true"
           className={cn(
-            "pointer-events-none absolute inset-0 bg-[#071b24] transition-opacity duration-700 ease-out",
+            "pointer-events-none absolute inset-0 bg-[#071b24] transition-opacity duration-500 ease-out",
             isVideoReady ? "opacity-0" : "opacity-100",
           )}
         />
