@@ -8,6 +8,8 @@ type HubSpotSubmitOptions = {
   fields: HubSpotField[];
   pageUri: string;
   pageName: string;
+  hutk?: string;
+  ipAddress?: string;
 };
 
 export async function verifyTurnstile(token?: string) {
@@ -41,6 +43,8 @@ export async function submitToHubSpot({
   fields,
   pageUri,
   pageName,
+  hutk,
+  ipAddress,
 }: HubSpotSubmitOptions) {
   const portalId = process.env.HUBSPOT_PORTAL_ID;
   const finalFormId = formId ?? process.env.HUBSPOT_FORM_ID;
@@ -59,6 +63,8 @@ export async function submitToHubSpot({
       body: JSON.stringify({
         fields,
         context: {
+          ...(hutk ? { hutk } : {}),
+          ...(ipAddress ? { ipAddress } : {}),
           pageUri,
           pageName,
         },
@@ -67,6 +73,18 @@ export async function submitToHubSpot({
   );
 
   return response.ok;
+}
+
+export function getRequestIpAddress(request: Request) {
+  const forwardedFor = request.headers.get("x-forwarded-for");
+  const firstForwardedIp = forwardedFor?.split(",")[0]?.trim();
+
+  return (
+    request.headers.get("cf-connecting-ip") ??
+    request.headers.get("x-real-ip") ??
+    firstForwardedIp ??
+    undefined
+  );
 }
 
 export async function sendFallbackEmail(subject: string, lines: string[]) {

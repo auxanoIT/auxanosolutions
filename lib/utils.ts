@@ -28,3 +28,14 @@ export function createWhatsappLink(number: string, message: string) {
   const sanitized = number.replace(/\D/g, "");
   return `https://wa.me/${sanitized}?text=${encodeURIComponent(message)}`;
 }
+
+export function getBrowserCookie(name: string) {
+  if (typeof document === "undefined") {
+    return undefined;
+  }
+
+  return document.cookie
+    .split("; ")
+    .find((cookie) => cookie.startsWith(`${name}=`))
+    ?.split("=")[1];
+}

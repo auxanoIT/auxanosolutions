@@ -1,6 +1,11 @@
 import { NextResponse } from "next/server";
 
-import { sendFallbackEmail, submitToHubSpot, verifyTurnstile } from "@/lib/integrations";
+import {
+  getRequestIpAddress,
+  sendFallbackEmail,
+  submitToHubSpot,
+  verifyTurnstile,
+} from "@/lib/integrations";
 import { leadSchema } from "@/lib/schemas";
 
 export async function POST(request: Request) {
@@ -29,6 +34,8 @@ export async function POST(request: Request) {
     ],
     pageUri: request.url,
     pageName: parsed.data.context === "consultation" ? "Book Consultation" : "Contact",
+    hutk: parsed.data.hubspotTrackingCookie,
+    ipAddress: getRequestIpAddress(request),
   });
 
   if (!hubSpotSuccess) {

@@ -5,7 +5,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import { TurnstileField } from "@/components/forms/turnstile-field";
 import type { EstimateAnswers, EstimateResult, EstimatorConfig } from "@/lib/types";
-import { cn, formatCurrencyNGN } from "@/lib/utils";
+import { cn, formatCurrencyNGN, getBrowserCookie } from "@/lib/utils";
 
 type EstimateWizardProps = {
   config: EstimatorConfig;
@@ -77,7 +77,11 @@ export function EstimateWizard({ config }: EstimateWizardProps) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ ...answers, turnstileToken }),
+        body: JSON.stringify({
+          ...answers,
+          turnstileToken,
+          hubspotTrackingCookie: getBrowserCookie("hubspotutk"),
+        }),
       });
 
       const data = (await response.json()) as { result?: EstimateResult; error?: string };

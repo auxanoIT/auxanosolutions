@@ -37,6 +37,14 @@ export type Testimonial = {
   company: string;
 };
 
+export type CareerOpening = {
+  title: string;
+  location?: string;
+  employmentType?: string;
+  department?: string;
+  summary?: string;
+};
+
 export type ServiceCategory =
   | "Infrastructure"
   | "Networking"

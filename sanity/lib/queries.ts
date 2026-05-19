@@ -240,3 +240,13 @@ export const estimatorConfigQuery = groq`
     contingencyHigh
   }
 `;
+
+export const careerOpeningsQuery = groq`
+  *[_type == "careerOpening" && coalesce(isOpen, true) == true] | order(order asc, _createdAt desc) {
+    title,
+    location,
+    employmentType,
+    department,
+    summary
+  }
+`;

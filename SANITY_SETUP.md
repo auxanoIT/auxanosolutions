@@ -100,20 +100,25 @@ Changing a Sanity document changes the content the site reads for that document,
 
 ## Careers Page
 
-The site now has a fallback careers page at:
+The careers page is available at:
 
 ```txt
 /careers
 ```
 
-To control the top page content from Sanity, create a `Pages` document:
+Open positions are controlled only by Sanity. Create a document with type `Career Openings` for each role you want to show.
 
-```txt
-Title: Careers
-Slug: careers
-```
+Required/recommended fields:
 
-Add sections such as `Hero Section`, `Content Split`, `FAQ Block`, or `CTA Band`. The built-in fallback career sections will still render underneath the Sanity-controlled sections.
+- `Job Title`: role name shown on the card
+- `Department`: optional label above the role name
+- `Location`: example `Lagos, Nigeria`
+- `Employment Type`: example `Full Time` or `Contract`
+- `Role Summary`: short role description
+- `Open Position`: keep enabled to show the role on the live site
+- `Display Order`: optional; lower numbers appear first
+
+If there are no published open roles, the careers page shows `No open position. Please try checking again later.`
 
 ## Publishing Changes
 

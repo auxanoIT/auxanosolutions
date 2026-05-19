@@ -646,6 +646,59 @@ const testimonial = defineType({
   ],
 });
 
+const careerOpening = defineType({
+  name: "careerOpening",
+  title: "Career Openings",
+  type: "document",
+  fields: [
+    defineField({
+      name: "title",
+      title: "Job Title",
+      type: "string",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({ name: "department", title: "Department", type: "string" }),
+    defineField({ name: "location", title: "Location", type: "string" }),
+    defineField({
+      name: "employmentType",
+      title: "Employment Type",
+      type: "string",
+      options: {
+        list: ["Full Time", "Part Time", "Contract", "Internship", "Remote"],
+      },
+    }),
+    defineField({
+      name: "summary",
+      title: "Role Summary",
+      type: "text",
+      rows: 4,
+    }),
+    defineField({
+      name: "isOpen",
+      title: "Open Position",
+      type: "boolean",
+      initialValue: true,
+    }),
+    defineField({
+      name: "order",
+      title: "Display Order",
+      type: "number",
+      description: "Lower numbers appear first.",
+    }),
+  ],
+  preview: {
+    select: {
+      title: "title",
+      location: "location",
+      employmentType: "employmentType",
+    },
+    prepare: ({ title, location, employmentType }) => ({
+      title,
+      subtitle: [location, employmentType].filter(Boolean).join(" | "),
+    }),
+  },
+});
+
 const faq = defineType({
   name: "faq",
   title: "FAQs",
@@ -764,6 +817,7 @@ export const schemaTypes = [
   caseStudy,
   post,
   testimonial,
+  careerOpening,
   faq,
   estimatorConfig,
   contactSettings,

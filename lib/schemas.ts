@@ -9,6 +9,7 @@ export const leadSchema = z.object({
   message: z.string().min(10),
   context: z.enum(["contact", "consultation"]),
   turnstileToken: z.string().optional(),
+  hubspotTrackingCookie: z.string().optional(),
 });
 
 export const estimateSchema = z.object({
@@ -25,4 +26,5 @@ export const estimateSchema = z.object({
   serviceMix: z.array(z.string()).min(1),
   notes: z.string().optional(),
   turnstileToken: z.string().optional(),
+  hubspotTrackingCookie: z.string().optional(),
 });

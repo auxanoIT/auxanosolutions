@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useTransition } from "react";
+import { CalendarDays } from "lucide-react";
 
 import { TurnstileField } from "@/components/forms/turnstile-field";
-import { cn } from "@/lib/utils";
+import { cn, getBrowserCookie } from "@/lib/utils";
 
 type LeadFormProps = {
   context: "contact" | "consultation";
@@ -12,6 +13,8 @@ type LeadFormProps = {
   className?: string;
   headingAlign?: "left" | "center";
   showEyebrow?: boolean;
+  submitLabel?: string;
+  fullWidthSubmit?: boolean;
 };
 
 const serviceInterests = [
@@ -30,6 +33,8 @@ export function LeadForm({
   className,
   headingAlign = "left",
   showEyebrow = true,
+  submitLabel,
+  fullWidthSubmit = false,
 }: LeadFormProps) {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
@@ -56,6 +61,7 @@ export function LeadForm({
       message: formData.get("message"),
       context,
       turnstileToken,
+      hubspotTrackingCookie: getBrowserCookie("hubspotutk"),
     };
 
     const response = await fetch("/api/lead", {
@@ -121,6 +127,7 @@ export function LeadForm({
           <input
             name="name"
             required
+            placeholder="Enter your full name"
             className="h-12 rounded-2xl border border-[color:rgba(11,18,32,0.1)] bg-[var(--color-cloud)] px-4 outline-none transition focus:border-[var(--color-electric)]"
           />
         </label>
@@ -129,6 +136,7 @@ export function LeadForm({
           <input
             name="company"
             required
+            placeholder="Enter your company name"
             className="h-12 rounded-2xl border border-[color:rgba(11,18,32,0.1)] bg-[var(--color-cloud)] px-4 outline-none transition focus:border-[var(--color-electric)]"
           />
         </label>
@@ -138,6 +146,7 @@ export function LeadForm({
             name="email"
             type="email"
             required
+            placeholder="Enter your email address"
             className="h-12 rounded-2xl border border-[color:rgba(11,18,32,0.1)] bg-[var(--color-cloud)] px-4 outline-none transition focus:border-[var(--color-electric)]"
           />
         </label>
@@ -146,6 +155,7 @@ export function LeadForm({
           <input
             name="phone"
             required
+            placeholder="Enter your phone number"
             className="h-12 rounded-2xl border border-[color:rgba(11,18,32,0.1)] bg-[var(--color-cloud)] px-4 outline-none transition focus:border-[var(--color-electric)]"
           />
         </label>
@@ -169,6 +179,7 @@ export function LeadForm({
             name="message"
             rows={6}
             required
+            placeholder="Example: Access control installation for a 3-floor office building, network upgrade, CCTV deployment, managed IT support, etc."
             className="rounded-[1.5rem] border border-[color:rgba(11,18,32,0.1)] bg-[var(--color-cloud)] px-4 py-4 outline-none transition focus:border-[var(--color-electric)]"
           />
         </label>
@@ -186,9 +197,15 @@ export function LeadForm({
           <button
             type="submit"
             disabled={isPending}
-            className="inline-flex h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,var(--color-electric),var(--color-cyan))] px-6 text-sm font-semibold text-white shadow-[0_18px_50px_rgba(47,107,255,0.25)] transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70"
+            className={cn(
+              "inline-flex h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,var(--color-electric),var(--color-cyan))] px-6 text-sm font-semibold text-white shadow-[0_18px_50px_rgba(47,107,255,0.25)] transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70",
+              fullWidthSubmit && "w-full",
+            )}
           >
-            {isPending ? "Sending..." : context === "consultation" ? "Request Consultation" : "Send Message"}
+            {context === "consultation" ? <CalendarDays className="mr-2 h-4 w-4" /> : null}
+            {isPending
+              ? "Sending..."
+              : submitLabel ?? (context === "consultation" ? "Request Consultation" : "Send Message")}
           </button>
         </div>
       </form>

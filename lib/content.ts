@@ -19,6 +19,7 @@ import {
 import type {
   BlogPost,
   CaseStudy,
+  CareerOpening,
   EstimatorConfig,
   FAQItem,
   FooterColumn,
@@ -38,6 +39,7 @@ import {
   blogPostsQuery,
   caseStudiesQuery,
   caseStudyQuery,
+  careerOpeningsQuery,
   estimatorConfigQuery,
   faqsQuery,
   footerQuery,
@@ -165,6 +167,16 @@ export async function getMarketingPage(slug: string): Promise<MarketingPage | nu
   });
 
   return content ?? marketingPages.find((page) => page.slug === slug) ?? null;
+}
+
+export async function getCareerOpenings(): Promise<CareerOpening[]> {
+  const content = await sanityFetch<CareerOpening[]>({
+    query: careerOpeningsQuery,
+    preview: await isPreviewEnabled(),
+    tags: ["careerOpenings"],
+  });
+
+  return content ?? [];
 }
 
 export async function getServices(): Promise<Service[]> {

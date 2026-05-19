@@ -86,7 +86,7 @@ export function NetworkMap({ section }: NetworkMapProps) {
           <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-6 shadow-[0_30px_80px_rgba(0,0,0,0.35)]">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(25,213,255,0.22),transparent_24%),radial-gradient(circle_at_85%_15%,rgba(47,107,255,0.28),transparent_22%)]" />
             {section.imageSrc ? (
-              <div className="relative h-[30rem] overflow-hidden rounded-[1.5rem]">
+              <div className="relative h-[30rem] overflow-hidden rounded-[1.5rem] bg-[#214d7c] sm:bg-transparent">
                 <Image
                   src={section.imageSrc}
                   alt={
@@ -94,7 +94,7 @@ export function NetworkMap({ section }: NetworkMapProps) {
                   }
                   fill
                   sizes="(min-width: 1024px) 55vw, 100vw"
-                  className="object-cover"
+                  className="object-contain p-2 sm:object-cover sm:p-0"
                   priority={false}
                 />
               </div>

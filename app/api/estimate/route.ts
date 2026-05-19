@@ -2,7 +2,12 @@ import { NextResponse } from "next/server";
 
 import { getEstimatorConfig } from "@/lib/content";
 import { calculateEstimate } from "@/lib/estimator";
-import { sendFallbackEmail, submitToHubSpot, verifyTurnstile } from "@/lib/integrations";
+import {
+  getRequestIpAddress,
+  sendFallbackEmail,
+  submitToHubSpot,
+  verifyTurnstile,
+} from "@/lib/integrations";
 import { estimateSchema } from "@/lib/schemas";
 import { formatCurrencyNGN } from "@/lib/utils";
 
@@ -38,6 +43,8 @@ export async function POST(request: Request) {
     ],
     pageUri: request.url,
     pageName: "Estimator",
+    hutk: parsed.data.hubspotTrackingCookie,
+    ipAddress: getRequestIpAddress(request),
   });
 
   if (!hubSpotSuccess) {
