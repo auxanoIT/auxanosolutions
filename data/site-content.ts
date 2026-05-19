@@ -177,7 +177,8 @@ export const blogPosts: BlogPost[] = [
           src: "/image/service-details/cctv-storage-retention.webp",
           alt: "Network video recorder and storage planning for CCTV retention",
         },
-        caption: "Storage planning should happen before installation, not after footage is already needed.",
+        caption:
+          "Storage planning should happen before installation, not after footage is already needed.",
       },
       {
         _type: "blogHeading",
@@ -454,7 +455,8 @@ export const marketingPages: MarketingPage[] = [
           {
             id: "hero-slide-1",
             wistiaMediaId: "jucjnef47l",
-            headline: "One command view for IT, CCTV, and network infrastructure.",
+            headline:
+              "One command view for IT, CCTV, and network infrastructure.",
             description:
               "Auxano connects IT, CCTV, networking, and support into one easier operating view.",
             primaryCta: {
@@ -478,7 +480,8 @@ export const marketingPages: MarketingPage[] = [
           {
             id: "hero-slide-3",
             wistiaMediaId: "jucjnef47l",
-            headline: "Networks built for the devices and teams that rely on them.",
+            headline:
+              "Networks built for the devices and teams that rely on them.",
             description:
               "Structured cabling, switching, wireless, firewalls, and documentation built for easier daily management.",
             primaryCta: {
