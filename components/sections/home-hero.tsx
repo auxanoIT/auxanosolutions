@@ -93,6 +93,7 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
   const desktopRingRefs = useRef<Array<SVGCircleElement | null>>([]);
   const mobileRingRefs = useRef<Array<SVGCircleElement | null>>([]);
   const activeIndexRef = useRef(0);
+  const videoRevealTimeoutRef = useRef<number | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [progress, setProgress] = useState(0);
   const [isDocumentVisible, setIsDocumentVisible] = useState(() =>
@@ -101,11 +102,32 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
       : document.visibilityState === "visible",
   );
   const activeSlide = slides[activeIndex] ?? slides[0];
+  const [isVideoReady, setIsVideoReady] = useState(false);
   const shouldHideActiveContent = Boolean(activeSlide.hideContent);
   const hasServiceCta = activeSlide.primaryCta.href !== "/book-consultation";
   const countdownValue = shouldReduceMotion
     ? HERO_COUNTDOWN_START
     : getCountdownValue(progress);
+  const clearVideoRevealTimeout = () => {
+    if (!videoRevealTimeoutRef.current) {
+      return;
+    }
+
+    window.clearTimeout(videoRevealTimeoutRef.current);
+    videoRevealTimeoutRef.current = null;
+  };
+
+  const revealVideoWhenSettled = (mediaId: string) => {
+    clearVideoRevealTimeout();
+
+    videoRevealTimeoutRef.current = window.setTimeout(() => {
+      videoRevealTimeoutRef.current = null;
+
+      if (playerRef.current?.mediaId === mediaId) {
+        setIsVideoReady(true);
+      }
+    }, 520);
+  };
 
   const playPlayer = async (
     player: WistiaPlayerElement | null,
@@ -143,11 +165,17 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
   };
 
   const handlePlayable = (event: WistiaPlayerEvent) => {
+    if (event.target.mediaId !== activeSlide.wistiaMediaId) {
+      return;
+    }
+
     playerRef.current = event.target;
     applyDecorativePlayerStyles(event.target);
     event.target.muted = true;
 
     if (shouldReduceMotion) {
+      clearVideoRevealTimeout();
+      setIsVideoReady(true);
       void event.target.pause().catch(() => undefined);
       return;
     }
@@ -156,12 +184,21 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
 
     window.requestAnimationFrame(() => {
       void event.target.play().catch(() => undefined);
+      revealVideoWhenSettled(event.target.mediaId);
     });
   };
 
   useEffect(() => {
     activeIndexRef.current = activeIndex;
+    clearVideoRevealTimeout();
+    setIsVideoReady(false);
   }, [activeIndex]);
+
+  useEffect(() => {
+    return () => {
+      clearVideoRevealTimeout();
+    };
+  }, []);
 
   useEffect(() => {
     if (typeof document === "undefined") {
@@ -292,6 +329,8 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
 
   const handleSelectSlide = (index: number) => {
     setProgress(0);
+    clearVideoRevealTimeout();
+    setIsVideoReady(false);
 
     if (index === activeIndexRef.current) {
       playActiveVideo(true);
@@ -302,6 +341,10 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
   };
 
   const handleApiReady = (event: WistiaPlayerEvent) => {
+    if (event.target.mediaId !== activeSlide.wistiaMediaId) {
+      return;
+    }
+
     playerRef.current = event.target;
     applyDecorativePlayerStyles(event.target);
     event.target.muted = true;
@@ -314,6 +357,10 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
   };
 
   const handleTimeUpdate = (event: WistiaPlayerEvent) => {
+    if (event.target.mediaId !== activeSlide.wistiaMediaId) {
+      return;
+    }
+
     if (shouldReduceMotion || !isDocumentVisible) {
       return;
     }
@@ -326,6 +373,7 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
     }
 
     setProgress(clampProgress(currentTime / duration));
+    revealVideoWhenSettled(event.target.mediaId);
   };
 
   const handleEnded = () => {
@@ -335,6 +383,8 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
     }
 
     setProgress(1);
+    clearVideoRevealTimeout();
+    setIsVideoReady(false);
     setActiveIndex((currentIndex) => (currentIndex + 1) % slides.length);
   };
 
@@ -356,6 +406,7 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
           <DecorativeWistiaPlayer
             key={activeSlide.wistiaMediaId}
             mediaId={activeSlide.wistiaMediaId}
+            aspect={1.7877094972067038}
             autoplay
             muted
             silentAutoplay="allow"
@@ -375,7 +426,16 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
             playerColor="19d5ff"
             preload="auto"
             className="pointer-events-none absolute inset-0 block h-full w-full scale-[1.02]"
-            style={{ width: "100%", height: "100%" }}
+            style={{
+              aspectRatio: "auto",
+              display: "block",
+              inset: 0,
+              minHeight: "100%",
+              minWidth: "100%",
+              position: "absolute",
+              width: "100%",
+              height: "100%",
+            }}
             onApiReady={handleApiReady}
             onCanPlay={handlePlayable}
             onCanPlayThrough={handlePlayable}
@@ -390,6 +450,13 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
         <div
           ref={stageTintRef}
           className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,34,52,0.52)_0%,rgba(8,34,52,0.24)_56%,rgba(8,34,52,0.62)_100%)]"
+        />
+        <div
+          aria-hidden="true"
+          className={cn(
+            "pointer-events-none absolute inset-0 bg-[#071b24] transition-opacity duration-700 ease-out",
+            isVideoReady ? "opacity-0" : "opacity-100",
+          )}
         />
 
         <SlideSelectorRail

@@ -10,6 +10,7 @@ export type WistiaPlayerEvent = CustomEvent & {
 
 export type DecorativeWistiaPlayerProps = {
   mediaId: string;
+  aspect?: number;
   autoplay?: boolean;
   branding?: boolean;
   bigPlayButton?: boolean;
@@ -65,6 +66,18 @@ export function applyDecorativePlayerStyles(player: WistiaPlayerElement) {
   const style = document.createElement("style");
   style.id = WISTIA_STYLE_ID;
   style.textContent = `
+    :host {
+      display: block !important;
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      min-width: 100% !important;
+      min-height: 100% !important;
+      overflow: hidden !important;
+      aspect-ratio: auto !important;
+    }
+
     .w-ui-container,
     .click-for-sound-btn,
     .w-vulcan-v2-button,
@@ -81,6 +94,8 @@ export function applyDecorativePlayerStyles(player: WistiaPlayerElement) {
       visibility: hidden !important;
     }
 
+    .w-vulcan-v2,
+    .w-vulcan-v2-wrapper,
     .w-video-wrapper,
     video {
       display: block !important;
