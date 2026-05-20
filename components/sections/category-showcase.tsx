@@ -9,13 +9,12 @@ import {
   useRef,
   useState,
   type KeyboardEvent,
+  type SyntheticEvent,
 } from "react";
 import { flushSync } from "react-dom";
 
-import { DecorativeWistiaPlayer } from "@/components/ui/decorative-wistia-player";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
-import type { WistiaPlayerEvent } from "@/components/ui/decorative-wistia-player";
 import type { CategoryShowcaseSection } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -40,7 +39,8 @@ export function CategoryShowcase({ section }: CategoryShowcaseProps) {
   const timelineRef = useRef<gsap.core.Timeline | null>(null);
   const tabsId = useId();
   const activeItem = section.items[activeIndex] ?? section.items[0] ?? null;
-  const activeMediaId = activeItem?.wistiaMediaId ?? section.wistiaMediaId;
+  const activeVideoPublicId = activeItem?.videoPublicId ?? section.videoPublicId;
+  const activeVideoUrl = activeItem?.videoUrl ?? section.videoUrl;
 
   useEffect(() => {
     return () => {
@@ -168,9 +168,9 @@ export function CategoryShowcase({ section }: CategoryShowcaseProps) {
     handleSelect(nextIndex);
   }
 
-  function handleVideoReady(event: WistiaPlayerEvent) {
-    event.target.endVideoBehavior = "loop";
-    void event.target.play().catch(() => {
+  function handleVideoReady(event: SyntheticEvent<HTMLVideoElement>) {
+    event.currentTarget.muted = true;
+    void event.currentTarget.play().catch(() => {
       // Browsers can still block autoplay in some contexts; muted playback props remain the fallback.
     });
   }
@@ -263,33 +263,26 @@ export function CategoryShowcase({ section }: CategoryShowcaseProps) {
               <div className="relative min-h-[18rem] bg-[linear-gradient(180deg,#d9dde4_0%,#cdd5de_100%)] lg:min-h-[30rem]">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_18%,rgba(255,255,255,0.28),transparent_24%),linear-gradient(180deg,rgba(47,107,255,0.05)_0%,rgba(25,213,255,0.04)_45%,rgba(11,18,32,0.08)_100%)]" />
                 <div className="relative h-full min-h-[18rem]">
-                  <DecorativeWistiaPlayer
-                    key={activeMediaId}
-                    mediaId={activeMediaId}
-                    autoplay
+                  <video
+                    key={activeVideoPublicId}
+                    src={activeVideoUrl}
+                    autoPlay
+                    disablePictureInPicture
+                    loop
                     muted
-                    silentAutoplay="allow"
-                    branding={false}
-                    bigPlayButton={false}
-                    controlsVisibleOnLoad={false}
-                    copyLinkAndThumbnail={false}
-                    endVideoBehavior="loop"
-                    fullscreenControl={false}
-                    playBarControl={false}
-                    playPauseControl={false}
-                    playPauseNotifier={false}
-                    settingsControl={false}
-                    volumeControl={false}
-                    playbackRateControl={false}
-                    transparentLetterbox
-                    seo={false}
-                    playerColor="19d5ff"
-                    preload="metadata"
+                    playsInline
+                    preload="auto"
                     onEnded={handleVideoReady}
-                    onApiReady={handleVideoReady}
+                    onCanPlay={handleVideoReady}
+                    onLoadedData={handleVideoReady}
                     onLoadedMetadata={handleVideoReady}
                     className="pointer-events-none absolute inset-0 block h-full w-full"
-                    style={{ width: "100%", height: "100%" }}
+                    style={{
+                      height: "100%",
+                      objectFit: "cover",
+                      objectPosition: "center center",
+                      width: "100%",
+                    }}
                   />
                 </div>
               </div>

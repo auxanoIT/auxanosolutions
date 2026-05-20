@@ -454,7 +454,8 @@ export const marketingPages: MarketingPage[] = [
         slides: [
           {
             id: "hero-slide-1",
-            wistiaMediaId: "jucjnef47l",
+            videoPublicId: "placeholder",
+            videoUrl: "",
             headline:
               "One command view for IT, CCTV, and network infrastructure.",
             description:
@@ -467,7 +468,8 @@ export const marketingPages: MarketingPage[] = [
           },
           {
             id: "hero-slide-2",
-            wistiaMediaId: "jucjnef47l",
+            videoPublicId: "placeholder",
+            videoUrl: "",
             headline: "Physical security installed with network discipline.",
             description:
               "CCTV, access, cabling, storage, and handover are planned together for reliable coverage from day one.",
@@ -479,7 +481,8 @@ export const marketingPages: MarketingPage[] = [
           },
           {
             id: "hero-slide-3",
-            wistiaMediaId: "jucjnef47l",
+            videoPublicId: "placeholder",
+            videoUrl: "",
             headline:
               "Networks built for the devices and teams that rely on them.",
             description:
@@ -492,7 +495,8 @@ export const marketingPages: MarketingPage[] = [
           },
           {
             id: "hero-slide-4",
-            wistiaMediaId: "jucjnef47l",
+            videoPublicId: "placeholder",
+            videoUrl: "",
             headline: "Managed IT support with clearer ownership.",
             description:
               "Users, devices, monitoring, and escalation stay under one support model leadership can track.",
@@ -620,7 +624,8 @@ export const marketingPages: MarketingPage[] = [
         eyebrow: "",
         title: "Why organizations choose Auxano Solutions",
         description: "",
-        wistiaMediaId: "jucjnef47l",
+        videoPublicId: "placeholder",
+        videoUrl: "",
         items: [
           {
             id: "installed-right",

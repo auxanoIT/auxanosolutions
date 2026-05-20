@@ -1,0 +1,746 @@
+[browser] Uncaught Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndMaybeFocusHandler cacheNode={{rsc:{...}, ...}}>
+        <InnerScrollAndFocusHandlerOld focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary name="services/" loading={null}>
+              <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <InnerLayoutRouter url="/services#..." tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} ...>
+                      <SegmentViewNode type="page" pagePath="services/p...">
+                        <SegmentTrieNode>
+                        <ServicesPage>
+                          <section>
+                          <PartnerLogoMarquee>
+                            <section
++                             className="overflow-hidden bg-[#0A3047] py-10 text-white sm:py-12"
+-                             className="overflow-hidden bg-[linear-gradient(135deg,var(--color-electric),var(--color-..."
+                            >
+                              <Container>
+                              <div
++                               className="partner-logo-viewport relative mt-9 h-20 overflow-hidden sm:mt-11 sm:h-24"
+-                               className="partner-logo-viewport relative mt-9 hidden h-24 overflow-hidden sm:mt-11 sm..."
+                              >
+                                <div
++                                 className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-[linear-gradie..."
+-                                 className="partner-logo-marquee flex h-full w-max items-center gap-12 px-6 sm:gap-20..."
+-                                 aria-label="Auxano client and partner logos"
+                                >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+-                                 <div
+-                                   className="group mt-7 flex h-14 w-[7.5rem] shrink-0 items-center justify-center sm..."
+-                                 >
+                                ...
+                          ...
+                      ...
+                    ...
+          ...
+
+    at <unknown> (https://react.dev/link/hydration-mismatch)
+    at throwOnHydrationMismatch (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3318:56)
+    at popHydrationState (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3403:13)
+    at completeWork (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6922:25)
+    at runWithFiberInDEV (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at completeUnitOfWork (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9622:23)
+    at performUnitOfWork (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9557:28)
+    at workLoopConcurrentByScheduler (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9551:58)
+    at renderRootConcurrent (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9534:71)
+    at performWorkOnRoot (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:2647:64)
+    at div (<anonymous>)
+    at PartnerLogoMarquee (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/components_sections_0i4ff~h._.js:152:223)
+    at ServicesPage (app\services\page.tsx:127:7)
+  125 |       </section>
+  126 |
+> 127 |       <PartnerLogoMarquee />
+      |       ^
+  128 |
+  129 |       <section className="bg-white py-20 sm:py-24">
+  130 |         <Container className="text-center">
+⨯ The requested resource isn't a valid image for /image/patner_logo/Frame 50.png received null
+⨯ The requested resource isn't a valid image for /image/patner_logo/Icon.jpeg (1).png received null
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2431:13)
+[browser] GSAP target [data-map-line] not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2431:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2431:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2431:13)
+[browser] GSAP target [data-map-node] not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2431:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2431:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2431:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2431:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2431:13)
+⨯ The requested resource isn't a valid image for /image/patner_logo/Frame 50.png received null
+[browser] GSAP target [data-map-line] not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2431:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2431:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2431:13)
+[browser] GSAP target [data-map-node] not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2431:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2431:13)
+⨯ The requested resource isn't a valid image for /image/patner_logo/Icon.jpeg (1).png received null
+⨯ The requested resource isn't a valid image for /image/patner_logo/vmware_icon.jpeg.png received null
+⨯ The requested resource isn't a valid image for /image/patner_logo/Frame 50.png received null
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2431:13)
+[browser] GSAP target  not found. https://gsap.com (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2431:13)
+
+thread '<unnamed>' (46664) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "get_source_map_rope_operation", global_name: "next_napi_bindings::next_api::project::get_source_map_rope_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), "node:fs") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00004407.meta
+    1: Unable to open static sorted file 00004403.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00004403.sst
+    3: The system cannot find the path specified. (os error 3)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+⨯ Error: ENOENT: no such file or directory, open 'C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\server\app\services\page\build-manifest.json'
+    at ignore-listed frames {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\TechKing\\Desktop\\elijah\\all project\\auxo\\.next\\dev\\server\\app\\services\\page\\build-manifest.json'
+}
+
+thread 'tokio-runtime-worker' (46696) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:225:17:
+Failed to restore task data (corrupted database or bug): Data for batch of 4 tasks
+
+Caused by:
+    0: Looking up typed data for 4 tasks from database failed
+    1: Unable to open static sorted file referenced from 00008539.meta
+    2: Unable to open static sorted file 00008537.sst
+    3: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00008537.sst
+    4: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (38388) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:197:17:
+Failed to restore task data (corrupted database or bug): Data for TaskId 788517)
+
+Caused by:
+    0: Looking up task storage for TaskId 788517 from database failed
+    1: Unable to open static sorted file referenced from 00005267.meta
+    2: Unable to open static sorted file 00005265.sst
+    3: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00005265.sst
+    4: The system cannot find the path specified. (os error 3)
+Persisting failed: Unable to write SST file 00009584.sst
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+Compaction failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Compaction failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+
+thread '<unnamed>' (46664) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "get_source_map_rope_operation", global_name: "next_napi_bindings::next_api::project::get_source_map_rope_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), "node:fs") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00004407.meta
+    1: Unable to open static sorted file 00004403.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00004403.sst
+    3: The system cannot find the path specified. (os error 3)
+⨯ Error: ENOENT: no such file or directory, open 'C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\server\app\page\build-manifest.json'
+    at ignore-listed frames {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\TechKing\\Desktop\\elijah\\all project\\auxo\\.next\\dev\\server\\app\\page\\build-manifest.json'
+}
+
+thread '<unnamed>' (46664) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "get_source_map_rope_operation", global_name: "next_napi_bindings::next_api::project::get_source_map_rope_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), "node:fs") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00004407.meta
+    1: Unable to open static sorted file 00004403.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00004403.sst
+    3: The system cannot find the path specified. (os error 3)
+⨯ Error: ENOENT: no such file or directory, open 'C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\server\app\_not-found\page\build-manifest.json'
+    at ignore-listed frames {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\TechKing\\Desktop\\elijah\\all project\\auxo\\.next\\dev\\server\\app\\_not-found\\page\\build-manifest.json'
+}
+
+thread 'tokio-runtime-worker' (29320) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "project_trace_source_operation", global_name: "next_napi_bindings::next_api::project::project_trace_source_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), StackFrame { is_server: false, is_ignored: None, original_file: None, file: "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js", line: Some(7928), column: Some(27), method_name: Some("fetchServerResponse") }, "file:///C:/Users/TechKing/Desktop/elijah/all%20project/auxo") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00004190.meta
+    1: Unable to open static sorted file 00004188.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00004188.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (16824) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "project_trace_source_operation", global_name: "next_napi_bindings::next_api::project::project_trace_source_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), StackFrame { is_server: false, is_ignored: None, original_file: None, file: "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js", line: Some(9953), column: Some(12), method_name: Some("navigate") }, "file:///C:/Users/TechKing/Desktop/elijah/all%20project/auxo") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00005616.meta
+    1: Unable to open static sorted file 00005614.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00005614.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (16824) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "project_trace_source_operation", global_name: "next_napi_bindings::next_api::project::project_trace_source_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), StackFrame { is_server: false, is_ignored: None, original_file: None, file: "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js", line: Some(11629), column: Some(40), method_name: Some("Object.dispatch") }, "file:///C:/Users/TechKing/Desktop/elijah/all%20project/auxo") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00008517.meta
+    1: Unable to open static sorted file 00008515.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00008515.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (46696) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "project_trace_source_operation", global_name: "next_napi_bindings::next_api::project::project_trace_source_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), StackFrame { is_server: false, is_ignored: None, original_file: None, file: "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js", line: Some(9989), column: Some(12), method_name: Some("navigateImpl") }, "file:///C:/Users/TechKing/Desktop/elijah/all%20project/auxo") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00006622.meta
+    1: Unable to open static sorted file 00006620.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00006620.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (47732) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "project_trace_source_operation", global_name: "next_napi_bindings::next_api::project::project_trace_source_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), StackFrame { is_server: false, is_ignored: None, original_file: None, file: "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js", line: Some(10530), column: Some(37), method_name: Some("navigateReducer") }, "file:///C:/Users/TechKing/Desktop/elijah/all%20project/auxo") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00001992.meta
+    1: Unable to open static sorted file 00001990.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00001990.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (16824) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "project_trace_source_operation", global_name: "next_napi_bindings::next_api::project::project_trace_source_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), StackFrame { is_server: false, is_ignored: None, original_file: None, file: "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js", line: Some(963), column: Some(29), method_name: Some("<unknown>") }, "file:///C:/Users/TechKing/Desktop/elijah/all%20project/auxo") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00002136.meta
+    1: Unable to open static sorted file 00002132.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00002132.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (46696) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "project_trace_source_operation", global_name: "next_napi_bindings::next_api::project::project_trace_source_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), StackFrame { is_server: false, is_ignored: None, original_file: None, file: "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js", line: Some(11688), column: Some(49), method_name: Some("dispatchNavigateAction") }, "file:///C:/Users/TechKing/Desktop/elijah/all%20project/auxo") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00008431.meta
+    1: Unable to open static sorted file 00008429.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00008429.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (29804) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "project_trace_source_operation", global_name: "next_napi_bindings::next_api::project::project_trace_source_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), StackFrame { is_server: false, is_ignored: None, original_file: None, file: "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js", line: Some(10355), column: Some(41), method_name: Some("processDispatchQueue") }, "file:///C:/Users/TechKing/Desktop/elijah/all%20project/auxo") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00005429.meta
+    1: Unable to open static sorted file 00005427.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00005427.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (29320) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "get_source_map_rope", global_name: "next_napi_bindings::next_api::project::get_source_map_rope", .. }, this: None, arg: (Vc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00005328.meta
+    1: Unable to open static sorted file 00005325.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00005325.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (22984) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "get_source_map_rope", global_name: "next_napi_bindings::next_api::project::get_source_map_rope", .. }, this: None, arg: (Vc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00005328.meta
+    1: Unable to open static sorted file 00005325.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00005325.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (22984) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "get_source_map_rope", global_name: "next_napi_bindings::next_api::project::get_source_map_rope", .. }, this: None, arg: (Vc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00005328.meta
+    1: Unable to open static sorted file 00005325.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00005325.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (29780) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "project_trace_source_operation", global_name: "next_napi_bindings::next_api::project::project_trace_source_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), StackFrame { is_server: false, is_ignored: None, original_file: None, file: "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js", line: Some(10530), column: Some(37), method_name: Some("navigateReducer") }, "file:///C:/Users/TechKing/Desktop/elijah/all%20project/auxo") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00001992.meta
+    1: Unable to open static sorted file 00001990.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00001990.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (16824) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "get_source_map_rope", global_name: "next_napi_bindings::next_api::project::get_source_map_rope", .. }, this: None, arg: (Vc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00005328.meta
+    1: Unable to open static sorted file 00005325.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00005325.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (46696) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "project_trace_source_operation", global_name: "next_napi_bindings::next_api::project::project_trace_source_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), StackFrame { is_server: false, is_ignored: None, original_file: None, file: "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js", line: Some(1279), column: Some(31), method_name: Some("Object.startTransition") }, "file:///C:/Users/TechKing/Desktop/elijah/all%20project/auxo") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00002725.meta
+    1: Unable to open static sorted file 00002721.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00002721.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (29804) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "get_source_map_rope", global_name: "next_napi_bindings::next_api::project::get_source_map_rope", .. }, this: None, arg: (Vc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00005328.meta
+    1: Unable to open static sorted file 00005325.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00005325.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (29320) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "project_trace_source_operation", global_name: "next_napi_bindings::next_api::project::project_trace_source_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), StackFrame { is_server: false, is_ignored: None, original_file: None, file: "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js", line: Some(11629), column: Some(40), method_name: Some("Object.dispatch") }, "file:///C:/Users/TechKing/Desktop/elijah/all%20project/auxo") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00008517.meta
+    1: Unable to open static sorted file 00008515.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00008515.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (38388) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "project_trace_source_operation", global_name: "next_napi_bindings::next_api::project::project_trace_source_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), StackFrame { is_server: false, is_ignored: None, original_file: None, file: "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js", line: Some(9953), column: Some(12), method_name: Some("navigate") }, "file:///C:/Users/TechKing/Desktop/elijah/all%20project/auxo") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00005616.meta
+    1: Unable to open static sorted file 00005614.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00005614.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (47732) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "project_trace_source_operation", global_name: "next_napi_bindings::next_api::project::project_trace_source_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), StackFrame { is_server: false, is_ignored: None, original_file: None, file: "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js", line: Some(963), column: Some(29), method_name: Some("<unknown>") }, "file:///C:/Users/TechKing/Desktop/elijah/all%20project/auxo") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00002136.meta
+    1: Unable to open static sorted file 00002132.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00002132.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (22984) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "get_source_map_rope", global_name: "next_napi_bindings::next_api::project::get_source_map_rope", .. }, this: None, arg: (Vc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00005328.meta
+    1: Unable to open static sorted file 00005325.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00005325.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (29780) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "project_trace_source_operation", global_name: "next_napi_bindings::next_api::project::project_trace_source_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), StackFrame { is_server: false, is_ignored: None, original_file: None, file: "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js", line: Some(13002), column: Some(37), method_name: Some("dispatchEvent") }, "file:///C:/Users/TechKing/Desktop/elijah/all%20project/auxo") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00005636.meta
+    1: Unable to open static sorted file 00005632.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00005632.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (16824) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "get_source_map_rope", global_name: "next_napi_bindings::next_api::project::get_source_map_rope", .. }, this: None, arg: (Vc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_124gkx7._.js") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00005675.meta
+    1: Unable to open static sorted file 00005673.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00005673.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (46696) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:197:17:
+Failed to restore task data (corrupted database or bug): Meta for TaskId 1146013)
+
+Caused by:
+    0: Looking up task storage for TaskId 1146013 from database failed
+    1: Unable to open static sorted file referenced from 00009551.meta
+    2: Unable to open static sorted file 00009547.sst
+    3: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00009547.sst
+    4: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (29804) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "project_trace_source_operation", global_name: "next_napi_bindings::next_api::project::project_trace_source_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), StackFrame { is_server: false, is_ignored: None, original_file: None, file: "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js", line: Some(11688), column: Some(49), method_name: Some("dispatchNavigateAction") }, "file:///C:/Users/TechKing/Desktop/elijah/all%20project/auxo") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00008431.meta
+    1: Unable to open static sorted file 00008429.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00008429.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (29320) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "project_trace_source_operation", global_name: "next_napi_bindings::next_api::project::project_trace_source_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), StackFrame { is_server: false, is_ignored: None, original_file: None, file: "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js", line: Some(1279), column: Some(31), method_name: Some("Object.startTransition") }, "file:///C:/Users/TechKing/Desktop/elijah/all%20project/auxo") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00002725.meta
+    1: Unable to open static sorted file 00002721.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00002721.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (38388) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "project_trace_source_operation", global_name: "next_napi_bindings::next_api::project::project_trace_source_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), StackFrame { is_server: false, is_ignored: None, original_file: None, file: "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js", line: Some(7928), column: Some(27), method_name: Some("fetchServerResponse") }, "file:///C:/Users/TechKing/Desktop/elijah/all%20project/auxo") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00004190.meta
+    1: Unable to open static sorted file 00004188.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00004188.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (47732) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:197:17:
+Failed to restore task data (corrupted database or bug): Meta for TaskId 1146013)
+
+Caused by:
+    0: Looking up task storage for TaskId 1146013 from database failed
+    1: Unable to open static sorted file referenced from 00009551.meta
+    2: Unable to open static sorted file 00009547.sst
+    3: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00009547.sst
+    4: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (22984) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "project_trace_source_operation", global_name: "next_napi_bindings::next_api::project::project_trace_source_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), StackFrame { is_server: false, is_ignored: None, original_file: None, file: "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_124gkx7._.js", line: Some(4490), column: Some(13), method_name: Some("onClick") }, "file:///C:/Users/TechKing/Desktop/elijah/all%20project/auxo") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00007942.meta
+    1: Unable to open static sorted file 00007940.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00007940.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (29780) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "project_trace_source_operation", global_name: "next_napi_bindings::next_api::project::project_trace_source_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), StackFrame { is_server: false, is_ignored: None, original_file: None, file: "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js", line: Some(12984), column: Some(64), method_name: Some("dispatchDiscreteEvent") }, "file:///C:/Users/TechKing/Desktop/elijah/all%20project/auxo") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00002932.meta
+    1: Unable to open static sorted file 00002928.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00002928.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (16824) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "project_trace_source_operation", global_name: "next_napi_bindings::next_api::project::project_trace_source_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), StackFrame { is_server: false, is_ignored: None, original_file: None, file: "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js", line: Some(10355), column: Some(41), method_name: Some("processDispatchQueue") }, "file:///C:/Users/TechKing/Desktop/elijah/all%20project/auxo") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00005429.meta
+    1: Unable to open static sorted file 00005427.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00005427.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (46696) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "project_trace_source_operation", global_name: "next_napi_bindings::next_api::project::project_trace_source_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), StackFrame { is_server: false, is_ignored: None, original_file: None, file: "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_124gkx7._.js", line: Some(4490), column: Some(13), method_name: Some("onClick") }, "file:///C:/Users/TechKing/Desktop/elijah/all%20project/auxo") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00007942.meta
+    1: Unable to open static sorted file 00007940.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00007940.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (29804) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "project_trace_source_operation", global_name: "next_napi_bindings::next_api::project::project_trace_source_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), StackFrame { is_server: false, is_ignored: None, original_file: None, file: "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js", line: Some(13002), column: Some(37), method_name: Some("dispatchEvent") }, "file:///C:/Users/TechKing/Desktop/elijah/all%20project/auxo") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00005636.meta
+    1: Unable to open static sorted file 00005632.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00005632.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (38388) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "project_trace_source_operation", global_name: "next_napi_bindings::next_api::project::project_trace_source_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), StackFrame { is_server: false, is_ignored: None, original_file: None, file: "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js", line: Some(12984), column: Some(64), method_name: Some("dispatchDiscreteEvent") }, "file:///C:/Users/TechKing/Desktop/elijah/all%20project/auxo") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00002932.meta
+    1: Unable to open static sorted file 00002928.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00002928.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (47732) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "get_source_map_rope", global_name: "next_napi_bindings::next_api::project::get_source_map_rope", .. }, this: None, arg: (Vc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00005328.meta
+    1: Unable to open static sorted file 00005325.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00005325.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (22984) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "project_trace_source_operation", global_name: "next_napi_bindings::next_api::project::project_trace_source_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), StackFrame { is_server: false, is_ignored: None, original_file: None, file: "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js", line: Some(9989), column: Some(12), method_name: Some("navigateImpl") }, "file:///C:/Users/TechKing/Desktop/elijah/all%20project/auxo") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00006622.meta
+    1: Unable to open static sorted file 00006620.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00006620.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (16824) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "get_source_map_rope", global_name: "next_napi_bindings::next_api::project::get_source_map_rope", .. }, this: None, arg: (Vc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00005328.meta
+    1: Unable to open static sorted file 00005325.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00005325.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (38388) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "project_trace_source_operation", global_name: "next_napi_bindings::next_api::project::project_trace_source_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), StackFrame { is_server: false, is_ignored: None, original_file: None, file: "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js", line: Some(8005), column: Some(21), method_name: Some("fetchServerResponse") }, "file:///C:/Users/TechKing/Desktop/elijah/all%20project/auxo") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00008272.meta
+    1: Unable to open static sorted file 00008270.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00008270.sst
+    3: The system cannot find the path specified. (os error 3)
+
+thread 'tokio-runtime-worker' (22984) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "get_source_map_rope", global_name: "next_napi_bindings::next_api::project::get_source_map_rope", .. }, this: None, arg: (Vc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), "file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00005328.meta
+    1: Unable to open static sorted file 00005325.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00005325.sst
+    3: The system cannot find the path specified. (os error 3)
+[browser] Failed to fetch RSC payload for http://localhost:3001/services#infrastructure. Falling back to browser navigation. TypeError: Failed to fetch
+    at createFetch (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:8084:21)
+    at fetchServerResponse (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:7928:27)
+    at navigateToUnknownRoute (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:10094:90)
+    at navigateImpl (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:9989:12)
+    at navigate (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:9953:12)
+    at navigateReducer (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:10530:37)
+    at clientReducer (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:11382:61)
+    at Object.action (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:11631:55)
+    at runAction (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:11536:38)
+    at dispatchAction (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:11599:9)
+    at Object.dispatch (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:11629:40)
+    at <unknown> (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:963:29)
+    at startTransition (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:5469:31)
+    at nextDispatch (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:962:13)
+    at dispatchAppRouterAction (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:922:5)
+    at dispatchNavigateAction (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:11688:49)
+    at <unknown> (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_124gkx7._.js:4251:13)
+    at Object.startTransition (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:1279:31)
+    at linkClicked (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_124gkx7._.js:4250:24)
+    at onClick (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_124gkx7._.js:4490:13)
+    at executeDispatch (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10329:13)
+    at runWithFiberInDEV (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at processDispatchQueue (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10355:41)
+    at <unknown> (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10633:13)
+    at batchedUpdates$1 (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:2253:44)
+    at dispatchEventForPluginEventSystem (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10431:9)
+    at dispatchEvent (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:13002:37)
+    at dispatchDiscreteEvent (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:12984:64) (file://C:/Users/TechKing/Desktop/elijah/all project/auxo/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:8005:21)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Compaction failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Compaction failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+
+thread '<unnamed>' (46664) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "get_source_map_rope_operation", global_name: "next_napi_bindings::next_api::project::get_source_map_rope_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), "node:fs") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00004407.meta
+    1: Unable to open static sorted file 00004403.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00004403.sst
+    3: The system cannot find the path specified. (os error 3)
+⨯ Error: ENOENT: no such file or directory, open 'C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\server\app\page\build-manifest.json'
+    at ignore-listed frames {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\TechKing\\Desktop\\elijah\\all project\\auxo\\.next\\dev\\server\\app\\page\\build-manifest.json'
+}
+
+thread '<unnamed>' (46664) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "get_source_map_rope_operation", global_name: "next_napi_bindings::next_api::project::get_source_map_rope_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), "node:fs") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00004407.meta
+    1: Unable to open static sorted file 00004403.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00004403.sst
+    3: The system cannot find the path specified. (os error 3)
+⨯ Error: ENOENT: no such file or directory, open 'C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\server\app\_not-found\page\build-manifest.json'
+    at ignore-listed frames {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\TechKing\\Desktop\\elijah\\all project\\auxo\\.next\\dev\\server\\app\\_not-found\\page\\build-manifest.json'
+}
+
+thread '<unnamed>' (46664) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "get_source_map_rope_operation", global_name: "next_napi_bindings::next_api::project::get_source_map_rope_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), "node:fs") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00004407.meta
+    1: Unable to open static sorted file 00004403.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00004403.sst
+    3: The system cannot find the path specified. (os error 3)
+⨯ Error: ENOENT: no such file or directory, open 'C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\server\app\_not-found\page\build-manifest.json'
+    at ignore-listed frames {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\TechKing\\Desktop\\elijah\\all project\\auxo\\.next\\dev\\server\\app\\_not-found\\page\\build-manifest.json'
+}
+
+thread '<unnamed>' (46664) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "get_source_map_rope_operation", global_name: "next_napi_bindings::next_api::project::get_source_map_rope_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), "node:fs") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00004407.meta
+    1: Unable to open static sorted file 00004403.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00004403.sst
+    3: The system cannot find the path specified. (os error 3)
+⨯ Error: ENOENT: no such file or directory, open 'C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\server\app\_not-found\page\build-manifest.json'
+    at ignore-listed frames {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\TechKing\\Desktop\\elijah\\all project\\auxo\\.next\\dev\\server\\app\\_not-found\\page\\build-manifest.json'
+}
+
+thread '<unnamed>' (46664) panicked at turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:619:14:
+Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "get_source_map_rope_operation", global_name: "next_napi_bindings::next_api::project::get_source_map_rope_operation", .. }, this: None, arg: (ResolvedVc(RawVc::TaskCell(1, "next_api::project::ProjectContainer#0")), "node:fs") } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00004407.meta
+    1: Unable to open static sorted file 00004403.sst
+    2: Failed to open SST file C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\cache/turbopack\ee6e79b1\00004403.sst
+    3: The system cannot find the path specified. (os error 3)
+⨯ Error: ENOENT: no such file or directory, open 'C:\Users\TechKing\Desktop\elijah\all project\auxo\.next\dev\server\app\page\build-manifest.json'
+    at ignore-listed frames {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\TechKing\\Desktop\\elijah\\all project\\auxo\\.next\\dev\\server\\app\\page\\build-manifest.json'
+}

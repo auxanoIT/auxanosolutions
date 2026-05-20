@@ -104,19 +104,6 @@
 
 **Talking point:** "This isn't just a list of services—it's an interactive experience that shows how everything connects."
 
-#### **Case Studies**
-- **Real proof of results** - Shows actual client wins with metrics
-- **Example:**
-  - "Security modernization: 38% reduction in blind coverage areas"
-  - "Healthcare network: 42% fewer connectivity incidents"
-- **Builds confidence** - "We've done this before and delivered results"
-
-**Talking point:** "These aren't hypothetical scenarios—these are real clients with real challenges, and we delivered measurable improvements."
-
-#### **Testimonials & Trust Signals**
-- **Social proof** - What previous clients say about us
-- **Builds credibility** - Third-party validation
-- **Reduces buying anxiety** - "Others have chosen Auxano and were happy"
 
 #### **Industry Spotlight Sections**
 - **Targeted messaging** - "Here's what we do for [Industry]"

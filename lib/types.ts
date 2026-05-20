@@ -226,7 +226,8 @@ export type HeroSection = {
 
 export type HeroVideoSlide = {
   id: string;
-  wistiaMediaId: string;
+  videoPublicId: string;
+  videoUrl: string;
   headline: string;
   description: string;
   hideContent?: boolean;
@@ -291,7 +292,8 @@ export type CategoryShowcaseItem = {
   bullets: string[];
   ctaLabel: string;
   ctaHref: string;
-  wistiaMediaId?: string;
+  videoPublicId?: string;
+  videoUrl?: string;
 };
 
 export type CategoryShowcaseSection = {
@@ -299,7 +301,8 @@ export type CategoryShowcaseSection = {
   eyebrow: string;
   title: string;
   description: string;
-  wistiaMediaId: string;
+  videoPublicId: string;
+  videoUrl: string;
   items: CategoryShowcaseItem[];
 };
 

@@ -54,7 +54,7 @@ import {
   testimonialsQuery,
 } from "@/sanity/lib/queries";
 import { sanityFetch } from "@/sanity/lib/client";
-import { applyHomeWistiaMedia } from "@/lib/wistia-media";
+import { applyHomeCloudinaryMedia } from "@/lib/cloudinary-media";
 
 async function isPreviewEnabled() {
   const preview = await draftMode();
@@ -172,7 +172,7 @@ export async function getMarketingPage(slug: string): Promise<MarketingPage | nu
 
   const page = content ?? marketingPages.find((item) => item.slug === slug) ?? null;
 
-  return page ? applyHomeWistiaMedia(page) : null;
+  return page ? applyHomeCloudinaryMedia(page) : null;
 }
 
 export async function getCareerOpenings(): Promise<CareerOpening[]> {
