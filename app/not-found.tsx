@@ -25,7 +25,7 @@ export default function NotFound() {
               </h1>
               <p className="mt-6 text-lg leading-8 text-[var(--color-muted)]">
                 Use the core navigation to return to the service platform, the
-                estimator, or the consultation flow.
+                estimator, or the consultation flow
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <ButtonLink href="/">Return home</ButtonLink>
