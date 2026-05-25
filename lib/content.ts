@@ -262,7 +262,7 @@ export async function getCaseStudies(): Promise<CaseStudy[]> {
     tags: ["caseStudies"],
   });
 
-  return content ?? caseStudies;
+  return content?.length ? content : caseStudies;
 }
 
 export async function getCaseStudySlugs(): Promise<string[]> {

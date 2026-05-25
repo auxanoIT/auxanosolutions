@@ -70,7 +70,7 @@ export default async function CaseStudiesPage() {
         </Container>
       </section>
 
-      <section className="py-18 sm:py-20">
+      <section className="py-20">
         <Container>
           <div className="grid gap-5 lg:grid-cols-3">
             {[

@@ -47,7 +47,7 @@ export function getCaseStudyMedia(caseStudy: CaseStudy): ServiceNavMedia {
 
   return (
     caseStudyMediaBySlug[caseStudy.slug] ??
-    caseStudyMediaByIndustry[industryKey] ??
+    (industryKey ? caseStudyMediaByIndustry[industryKey] : undefined) ??
     defaultCaseStudyMedia
   );
 }

@@ -9,7 +9,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 const CONSENT_KEY = "auxano_cookie_consent";
 const CONSENT_MAX_AGE = 60 * 60 * 24 * 365;
 
-type CookieConsent = "accepted" | "declined";
+type CookieConsent = "accepted";
 
 function persistConsent(value: CookieConsent) {
   window.localStorage.setItem(CONSENT_KEY, value);
@@ -19,7 +19,7 @@ function persistConsent(value: CookieConsent) {
 function readConsent(): CookieConsent | null {
   const stored = window.localStorage.getItem(CONSENT_KEY);
 
-  if (stored === "accepted" || stored === "declined") {
+  if (stored === "accepted") {
     return stored;
   }
 
@@ -28,9 +28,7 @@ function readConsent(): CookieConsent | null {
     .find((cookie) => cookie.startsWith(`${CONSENT_KEY}=`))
     ?.split("=")[1];
 
-  return cookieValue === "accepted" || cookieValue === "declined"
-    ? cookieValue
-    : null;
+  return cookieValue === "accepted" ? cookieValue : null;
 }
 
 function TrackingScripts() {
@@ -84,6 +82,7 @@ export function CookieConsentManager() {
   const [consent, setConsent] = useState<CookieConsent | null | undefined>(
     undefined,
   );
+  const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
     queueMicrotask(() => {
@@ -91,16 +90,16 @@ export function CookieConsentManager() {
     });
   }, []);
 
-  function handleConsent(value: CookieConsent) {
-    persistConsent(value);
-    setConsent(value);
+  function handleAccept() {
+    persistConsent("accepted");
+    setConsent("accepted");
   }
 
   if (consent === "accepted") {
     return <TrackingScripts />;
   }
 
-  if (consent === "declined" || consent === undefined) {
+  if (consent === undefined || dismissed) {
     return null;
   }
 
@@ -110,23 +109,22 @@ export function CookieConsentManager() {
         <div className="max-w-3xl">
           <p className="text-sm font-semibold">Cookie privacy</p>
           <p className="mt-2 text-sm leading-6 text-white/72">
-            We use cookies and tracking tools to understand website visits,
-            improve performance, support live chat, and follow up on service
-            enquiries. You can accept or decline. Your choice will be remembered
-            on this device.
+            We use cookies to improve your experience, help our website work
+            better, support live chat, and respond to enquiries. You can choose
+            to accept or decline, and we’ll remember your choice on this device.
           </p>
         </div>
         <div className="flex shrink-0 gap-3">
           <button
             type="button"
-            onClick={() => handleConsent("declined")}
+            onClick={() => setDismissed(true)}
             className="inline-flex min-h-11 items-center justify-center rounded-md border border-white/16 px-5 text-sm font-semibold text-white transition hover:border-white/34 hover:bg-white/8"
           >
             Decline
           </button>
           <button
             type="button"
-            onClick={() => handleConsent("accepted")}
+            onClick={handleAccept}
             className="inline-flex min-h-11 items-center justify-center rounded-md bg-[var(--color-electric)] px-5 text-sm font-semibold text-white transition hover:bg-[#2557d8]"
           >
             Accept
