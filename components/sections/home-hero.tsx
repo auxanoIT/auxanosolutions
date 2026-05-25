@@ -2,13 +2,11 @@
 
 import {
   useEffect,
-  useLayoutEffect,
   useRef,
   useState,
   type SyntheticEvent,
 } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { gsap } from "gsap";
 import { ArrowRight, ShieldCheck } from "lucide-react";
 
 import { ButtonLink } from "@/components/ui/button-link";
@@ -25,11 +23,11 @@ type HomeHeroProps = {
 type SlideSelectorRailProps = {
   slides: HeroVideoSlide[];
   activeIndex: number;
+  progress: number;
   countdownValue: number;
   onSelect: (index: number) => void;
   orientation?: "horizontal" | "vertical";
   className?: string;
-  ringRefs: React.MutableRefObject<Array<SVGCircleElement | null>>;
 };
 
 const schematicNodes = [
@@ -85,13 +83,6 @@ export function HomeHero({ section }: HomeHeroProps) {
 function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
   const shouldReduceMotion = useReducedMotion();
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const rootRef = useRef<HTMLDivElement | null>(null);
-  const stageTintRef = useRef<HTMLDivElement | null>(null);
-  const headlineRef = useRef<HTMLHeadingElement | null>(null);
-  const descriptionRef = useRef<HTMLParagraphElement | null>(null);
-  const ctaWrapRef = useRef<HTMLDivElement | null>(null);
-  const desktopRingRefs = useRef<Array<SVGCircleElement | null>>([]);
-  const mobileRingRefs = useRef<Array<SVGCircleElement | null>>([]);
   const activeIndexRef = useRef(0);
   const videoRevealTimeoutRef = useRef<number | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -240,91 +231,6 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeIndex]);
 
-  useLayoutEffect(() => {
-    const ringSets = [desktopRingRefs.current, mobileRingRefs.current];
-
-    ringSets.forEach((rings) => {
-      const activeRing = rings[activeIndex];
-
-      rings.forEach((ring, index) => {
-        if (!ring || index === activeIndex) {
-          return;
-        }
-
-        gsap.set(ring, {
-          attr: { "stroke-dashoffset": SELECTOR_CIRCUMFERENCE },
-        });
-      });
-
-      if (!activeRing) {
-        return;
-      }
-
-      const ringOffset = shouldReduceMotion
-        ? SELECTOR_CIRCUMFERENCE
-        : SELECTOR_CIRCUMFERENCE * (1 - clampProgress(progress));
-
-      gsap.to(activeRing, {
-        attr: { "stroke-dashoffset": ringOffset },
-        duration: shouldReduceMotion ? 0 : 0.18,
-        ease: "none",
-        overwrite: true,
-      });
-    });
-  }, [activeIndex, progress, shouldReduceMotion]);
-
-  useLayoutEffect(() => {
-    if (shouldHideActiveContent) {
-      gsap.set(stageTintRef.current, { clearProps: "all" });
-      return;
-    }
-
-    if (shouldReduceMotion) {
-      gsap.set(
-        [headlineRef.current, descriptionRef.current, ctaWrapRef.current],
-        {
-          clearProps: "all",
-        },
-      );
-      gsap.set(stageTintRef.current, { clearProps: "all" });
-      return;
-    }
-
-    const timeline = gsap.timeline({
-      defaults: { ease: "power3.out" },
-    });
-
-    timeline
-      .fromTo(
-        stageTintRef.current,
-        { autoAlpha: 0.36 },
-        { autoAlpha: 0, duration: 0.75 },
-        0,
-      )
-      .fromTo(
-        headlineRef.current,
-        { autoAlpha: 0, y: 46 },
-        { autoAlpha: 1, y: 0, duration: 0.78 },
-        0.08,
-      )
-      .fromTo(
-        descriptionRef.current,
-        { autoAlpha: 0, y: 26 },
-        { autoAlpha: 1, y: 0, duration: 0.64 },
-        0.16,
-      )
-      .fromTo(
-        ctaWrapRef.current,
-        { autoAlpha: 0, y: 18 },
-        { autoAlpha: 1, y: 0, duration: 0.6 },
-        0.24,
-      );
-
-    return () => {
-      timeline.kill();
-    };
-  }, [activeIndex, shouldHideActiveContent, shouldReduceMotion]);
-
   const handleSelectSlide = (index: number) => {
     setProgress(0);
     clearVideoRevealTimeout();
@@ -377,10 +283,7 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
   };
 
   return (
-    <section
-      ref={rootRef}
-      className="relative overflow-hidden bg-[#071b24] text-white"
-    >
+    <section className="relative overflow-hidden bg-[#071b24] text-white">
       <div className="relative min-h-[14rem] sm:min-h-[25rem] lg:min-h-[33rem] xl:min-h-[36rem]">
         <div className="absolute inset-0 bg-[#071b24]" />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,27,36,0.62)_0%,rgba(7,27,36,0.08)_38%,rgba(7,27,36,0.36)_100%)]" />
@@ -415,7 +318,6 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
 
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,27,36,0.08)_0%,rgba(7,27,36,0.18)_58%,rgba(7,27,36,0.78)_100%)]" />
         <div
-          ref={stageTintRef}
           className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,34,52,0.52)_0%,rgba(8,34,52,0.24)_56%,rgba(8,34,52,0.62)_100%)]"
         />
         <div
@@ -429,9 +331,9 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
         <SlideSelectorRail
           slides={slides}
           activeIndex={activeIndex}
+          progress={shouldReduceMotion ? 0 : progress}
           countdownValue={countdownValue}
           onSelect={handleSelectSlide}
-          ringRefs={desktopRingRefs}
           orientation="vertical"
           className="absolute right-5 top-1/2 hidden -translate-y-1/2 lg:flex xl:right-9"
         />
@@ -440,9 +342,9 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
           <SlideSelectorRail
             slides={slides}
             activeIndex={activeIndex}
+            progress={shouldReduceMotion ? 0 : progress}
             countdownValue={countdownValue}
             onSelect={handleSelectSlide}
-            ringRefs={mobileRingRefs}
             orientation="horizontal"
             className="absolute bottom-5 left-1/2 -translate-x-1/2 lg:hidden"
           />
@@ -459,26 +361,17 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
 
           <Container className="grid gap-6 py-6 sm:py-8 lg:grid-cols-[minmax(0,0.86fr)_minmax(26rem,1fr)] lg:items-start lg:gap-10 lg:py-8 xl:grid-cols-[minmax(0,0.9fr)_minmax(30rem,1fr)] xl:gap-12">
             <div className="min-w-0">
-              <h1
-                ref={headlineRef}
-                className="max-w-full break-words text-[2rem] font-medium leading-[1.08] tracking-[-0.025em] text-white sm:max-w-3xl sm:text-balance sm:text-[2.25rem] lg:max-w-[34rem] lg:text-[2.1rem] xl:text-[2.3rem]"
-              >
+              <h1 className="max-w-full break-words text-[2rem] font-medium leading-[1.08] tracking-[-0.025em] text-white sm:max-w-3xl sm:text-balance sm:text-[2.25rem] lg:max-w-[34rem] lg:text-[2.1rem] xl:text-[2.3rem]">
                 {activeSlide.headline}
               </h1>
             </div>
 
             <div className="min-w-0">
-              <p
-                ref={descriptionRef}
-                className="max-w-full text-sm leading-7 text-white/84 sm:max-w-2xl sm:text-pretty sm:text-[0.95rem] sm:leading-[1.6] lg:text-[1rem] lg:leading-8"
-              >
+              <p className="max-w-full text-sm leading-7 text-white/84 sm:max-w-2xl sm:text-pretty sm:text-[0.95rem] sm:leading-[1.6] lg:text-[1rem] lg:leading-8">
                 {activeSlide.description}
               </p>
 
-              <div
-                ref={ctaWrapRef}
-                className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center"
-              >
+              <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
                 {hasServiceCta ? (
                   <ButtonLink
                     href={activeSlide.primaryCta.href}
@@ -501,9 +394,9 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
               <SlideSelectorRail
                 slides={slides}
                 activeIndex={activeIndex}
+                progress={shouldReduceMotion ? 0 : progress}
                 countdownValue={countdownValue}
                 onSelect={handleSelectSlide}
-                ringRefs={mobileRingRefs}
                 orientation="horizontal"
                 className="mt-8 lg:hidden"
               />
@@ -518,11 +411,11 @@ function VideoCarouselHero({ slides }: { slides: HeroVideoSlide[] }) {
 function SlideSelectorRail({
   slides,
   activeIndex,
+  progress,
   countdownValue,
   onSelect,
   orientation = "vertical",
   className,
-  ringRefs,
 }: SlideSelectorRailProps) {
   return (
     <div
@@ -566,9 +459,6 @@ function SlideSelectorRail({
                     strokeWidth={SELECTOR_STROKE}
                   />
                   <circle
-                    ref={(node) => {
-                      ringRefs.current[index] = node;
-                    }}
                     cx={SELECTOR_SIZE / 2}
                     cy={SELECTOR_SIZE / 2}
                     r={SELECTOR_RADIUS}
@@ -577,7 +467,10 @@ function SlideSelectorRail({
                     strokeLinecap="round"
                     strokeWidth={SELECTOR_STROKE}
                     strokeDasharray={SELECTOR_CIRCUMFERENCE}
-                    strokeDashoffset={SELECTOR_CIRCUMFERENCE}
+                    strokeDashoffset={
+                      SELECTOR_CIRCUMFERENCE *
+                      (1 - clampProgress(progress))
+                    }
                   />
                 </svg>
                 <span className="absolute inset-[4px] rounded-full border border-white/10 bg-[rgba(6,28,41,0.88)]" />
@@ -596,63 +489,10 @@ function SlideSelectorRail({
 }
 
 function DefaultHomeHero({ section }: HomeHeroProps) {
-  const rootRef = useRef<HTMLDivElement | null>(null);
   const shouldReduceMotion = useReducedMotion();
 
-  useEffect(() => {
-    if (!rootRef.current || shouldReduceMotion) {
-      return;
-    }
-
-    const ctx = gsap.context(() => {
-      gsap.from("[data-hero-copy]", {
-        opacity: 0,
-        y: 22,
-        duration: 0.8,
-        stagger: 0.08,
-        ease: "power3.out",
-      });
-
-      gsap.from("[data-hero-panel]", {
-        opacity: 0,
-        scale: 0.96,
-        duration: 0.9,
-        ease: "power3.out",
-        delay: 0.15,
-      });
-
-      gsap.from("[data-node]", {
-        opacity: 0,
-        scale: 0,
-        duration: 0.6,
-        stagger: 0.08,
-        ease: "back.out(1.7)",
-        delay: 0.4,
-      });
-
-      gsap.fromTo(
-        "[data-line]",
-        { scaleX: 0, opacity: 0.24 },
-        {
-          scaleX: 1,
-          opacity: 1,
-          duration: 0.9,
-          stagger: 0.08,
-          ease: "power3.out",
-          delay: 0.45,
-          transformOrigin: "left center",
-        },
-      );
-    }, rootRef);
-
-    return () => ctx.revert();
-  }, [shouldReduceMotion]);
-
   return (
-    <section
-      ref={rootRef}
-      className="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(25,213,255,0.28),transparent_28%),radial-gradient(circle_at_95%_10%,rgba(47,107,255,0.24),transparent_22%),linear-gradient(180deg,#F7FAFF_0%,#EEF4FF_100%)] pb-20 pt-14 sm:pb-24 sm:pt-18"
-    >
+    <section className="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(25,213,255,0.28),transparent_28%),radial-gradient(circle_at_95%_10%,rgba(47,107,255,0.24),transparent_22%),linear-gradient(180deg,#F7FAFF_0%,#EEF4FF_100%)] pb-20 pt-14 sm:pb-24 sm:pt-18">
       <Container className="grid items-center gap-16 lg:grid-cols-[1.05fr_0.95fr]">
         <div>
           <div

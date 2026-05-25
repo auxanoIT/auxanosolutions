@@ -1,67 +1,19 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
-import { useReducedMotion } from "framer-motion";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import type { NetworkMapSection } from "@/lib/types";
-
-gsap.registerPlugin(ScrollTrigger);
 
 type NetworkMapProps = {
   section: NetworkMapSection;
 };
 
 export function NetworkMap({ section }: NetworkMapProps) {
-  const rootRef = useRef<HTMLDivElement | null>(null);
-  const shouldReduceMotion = useReducedMotion();
-
-  useEffect(() => {
-    if (!rootRef.current || shouldReduceMotion) {
-      return;
-    }
-
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        "[data-map-line]",
-        { scaleX: 0, opacity: 0.16 },
-        {
-          scaleX: 1,
-          opacity: 1,
-          stagger: 0.12,
-          duration: 1,
-          ease: "power3.out",
-          transformOrigin: "left center",
-          scrollTrigger: {
-            trigger: rootRef.current,
-            start: "top 72%",
-          },
-        },
-      );
-
-      gsap.from("[data-map-node]", {
-        scale: 0.3,
-        opacity: 0,
-        stagger: 0.12,
-        duration: 0.8,
-        ease: "back.out(1.4)",
-        scrollTrigger: {
-          trigger: rootRef.current,
-          start: "top 68%",
-        },
-      });
-    }, rootRef);
-
-    return () => ctx.revert();
-  }, [shouldReduceMotion]);
-
   return (
     <section className="bg-[linear-gradient(135deg,#1a3d66_100%,#2d4578_50%,#3d5a9d_100%)] py-20 text-white sm:py-24">
-      <div ref={rootRef}>
+      <div>
         <Container className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <SectionHeading
@@ -101,26 +53,21 @@ export function NetworkMap({ section }: NetworkMapProps) {
             ) : (
               <div className="relative h-[30rem]">
                 <div
-                  data-map-line
                   className="absolute left-[18%] top-[38%] h-px w-[34%] bg-[linear-gradient(90deg,rgba(25,213,255,0.2),rgba(25,213,255,1))]"
                 />
                 <div
-                  data-map-line
                   className="absolute left-[49%] top-[18%] h-[21%] w-px bg-[linear-gradient(180deg,rgba(25,213,255,1),rgba(25,213,255,0.18))]"
                 />
                 <div
-                  data-map-line
                   className="absolute left-[49%] top-[40%] h-px w-[28%] bg-[linear-gradient(90deg,rgba(25,213,255,1),rgba(47,107,255,1))]"
                 />
                 <div
-                  data-map-line
                   className="absolute left-[28%] top-[70%] h-px w-[42%] bg-[linear-gradient(90deg,rgba(47,107,255,0.4),rgba(25,213,255,1))]"
                 />
 
                 {section.nodes.map((node) => (
                   <div
                     key={node.label}
-                    data-map-node
                     className="absolute w-40 -translate-x-1/2 -translate-y-1/2"
                     style={{ left: `${node.x}%`, top: `${node.y}%` }}
                   >

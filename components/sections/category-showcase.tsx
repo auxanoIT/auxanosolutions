@@ -1,17 +1,14 @@
 "use client";
 
-import { gsap } from "gsap";
 import { useReducedMotion } from "framer-motion";
 import {
   useEffect,
   useId,
-  useLayoutEffect,
   useRef,
   useState,
   type KeyboardEvent,
   type SyntheticEvent,
 } from "react";
-import { flushSync } from "react-dom";
 
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
@@ -22,31 +19,15 @@ type CategoryShowcaseProps = {
   section: CategoryShowcaseSection;
 };
 
-const PANEL_OFFSET = 56;
-const PANEL_EXIT_DURATION = 0.18;
-const PANEL_ENTER_DURATION = 0.32;
-const PANEL_EXIT_OPACITY = 0.34;
-
 export function CategoryShowcase({ section }: CategoryShowcaseProps) {
   const shouldReduceMotion = useReducedMotion();
   const [activeIndex, setActiveIndex] = useState(0);
-  const [pendingIndex, setPendingIndex] = useState<number | null>(null);
-  const [direction, setDirection] = useState<1 | -1>(1);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const panelRef = useRef<HTMLDivElement | null>(null);
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const hasSelectedTabRef = useRef(false);
-  const timelineRef = useRef<gsap.core.Timeline | null>(null);
   const tabsId = useId();
   const activeItem = section.items[activeIndex] ?? section.items[0] ?? null;
   const activeVideoPublicId = activeItem?.videoPublicId ?? section.videoPublicId;
   const activeVideoUrl = activeItem?.videoUrl ?? section.videoUrl;
-
-  useEffect(() => {
-    return () => {
-      timelineRef.current?.kill();
-    };
-  }, []);
 
   useEffect(() => {
     if (!hasSelectedTabRef.current) {
@@ -60,89 +41,19 @@ export function CategoryShowcase({ section }: CategoryShowcaseProps) {
     });
   }, [activeIndex, shouldReduceMotion]);
 
-  useLayoutEffect(() => {
-    if (pendingIndex === null || shouldReduceMotion) {
-      return;
-    }
-
-    const panel = panelRef.current;
-    const nextIndex = pendingIndex;
-
-    if (!panel) {
-      return;
-    }
-
-    const exitOffset = direction === 1 ? -PANEL_OFFSET : PANEL_OFFSET;
-    const enterOffset = -exitOffset;
-
-    timelineRef.current?.kill();
-
-    const timeline = gsap.timeline({
-      defaults: { overwrite: true },
-      onComplete: () => {
-        timelineRef.current = null;
-        setPendingIndex(null);
-        setIsAnimating(false);
-        gsap.set(panel, { clearProps: "transform,opacity" });
-      },
-    });
-
-    timelineRef.current = timeline;
-
-    timeline
-      .to(panel, {
-        x: exitOffset,
-        opacity: PANEL_EXIT_OPACITY,
-        duration: PANEL_EXIT_DURATION,
-        ease: "power2.in",
-      })
-      .add(() => {
-        flushSync(() => {
-          setActiveIndex(nextIndex);
-        });
-
-        gsap.set(panel, {
-          x: enterOffset,
-          opacity: PANEL_EXIT_OPACITY,
-        });
-      })
-      .to(panel, {
-        x: 0,
-        opacity: 1,
-        duration: PANEL_ENTER_DURATION,
-        ease: "power3.out",
-      });
-
-    return () => {
-      timeline.kill();
-    };
-  }, [direction, pendingIndex, shouldReduceMotion]);
-
   function handleSelect(index: number) {
-    if (index === activeIndex || isAnimating) {
+    if (index === activeIndex) {
       return;
     }
 
     hasSelectedTabRef.current = true;
-
-    if (shouldReduceMotion || !panelRef.current) {
-      setActiveIndex(index);
-      return;
-    }
-
-    setDirection(index > activeIndex ? 1 : -1);
-    setPendingIndex(index);
-    setIsAnimating(true);
+    setActiveIndex(index);
   }
 
   function handleTabKeyDown(
     event: KeyboardEvent<HTMLButtonElement>,
     index: number,
   ) {
-    if (isAnimating) {
-      return;
-    }
-
     let nextIndex: number | null = null;
 
     switch (event.key) {
@@ -208,7 +119,6 @@ export function CategoryShowcase({ section }: CategoryShowcaseProps) {
                   aria-selected={isActive}
                   aria-controls={`${tabsId}-panel`}
                   tabIndex={isActive ? 0 : -1}
-                  disabled={isAnimating}
                   onClick={() => handleSelect(index)}
                   onKeyDown={(event) => handleTabKeyDown(event, index)}
                   className={cn(
@@ -216,7 +126,6 @@ export function CategoryShowcase({ section }: CategoryShowcaseProps) {
                     isActive
                       ? "border-[color:rgba(238,244,255,0.95)] bg-[var(--color-cloud)] text-[var(--color-ink)] shadow-[0_18px_42px_rgba(47,107,255,0.18)]"
                       : "border-white/18 bg-[linear-gradient(180deg,rgba(11,18,32,0.42),rgba(11,18,32,0.28))] text-white/72 hover:border-white/28 hover:bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.04))] hover:text-white",
-                    isAnimating && "cursor-not-allowed opacity-85",
                   )}
                 >
                   {item.label}
@@ -234,7 +143,7 @@ export function CategoryShowcase({ section }: CategoryShowcaseProps) {
           className="mt-8"
         >
           <div
-            ref={panelRef}
+            key={activeItem.id}
             className="mx-auto max-w-6xl overflow-hidden rounded-[1.5rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] shadow-[0_24px_70px_rgba(11,18,32,0.28)]"
           >
             <div className="grid min-h-[20rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01))] lg:min-h-[30rem] lg:grid-cols-2">

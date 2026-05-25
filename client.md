@@ -146,7 +146,7 @@ For video testimonials (new requirement):
 
 ## 10) Animation Video and Motion Assets
 
-Your project already includes GSAP, Framer Motion, and Lottie support. Ask the client:
+Your project already includes Framer Motion and Lottie support. Ask the client:
 
 - Which animation style they want (clean enterprise, cinematic, product-demo)
 - Final animation deliverables:
