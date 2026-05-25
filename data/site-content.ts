@@ -409,7 +409,6 @@ export const footerColumns: FooterColumn[] = [
     title: "Contact",
     links: [
       { label: "Book Consultation", href: "/book-consultation" },
-      { label: "Privacy Policy", href: "/privacy" },
     ],
   },
 ];

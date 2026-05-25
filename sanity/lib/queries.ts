@@ -100,6 +100,12 @@ export const caseStudiesQuery = groq`
     client,
     industry,
     location,
+    "image": select(
+      defined(heroImage.asset) => {
+        "src": heroImage.asset->url,
+        "alt": coalesce(heroImage.alt, title)
+      }
+    ),
     summary,
     challenge,
     solution,
@@ -120,6 +126,12 @@ export const caseStudyQuery = groq`
     client,
     industry,
     location,
+    "image": select(
+      defined(heroImage.asset) => {
+        "src": heroImage.asset->url,
+        "alt": coalesce(heroImage.alt, title)
+      }
+    ),
     summary,
     challenge,
     solution,

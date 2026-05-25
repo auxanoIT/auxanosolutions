@@ -66,11 +66,6 @@ const staticRoutes: SitemapEntryInput[] = [
     priority: 0.5,
   },
   {
-    path: "/privacy",
-    changeFrequency: "yearly",
-    priority: 0.2,
-  },
-  {
     path: "/terms",
     changeFrequency: "yearly",
     priority: 0.2,

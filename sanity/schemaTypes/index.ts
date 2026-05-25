@@ -162,6 +162,22 @@ const caseStudy = defineType({
     defineField({ name: "client", title: "Client", type: "string" }),
     defineField({ name: "industry", title: "Industry", type: "string" }),
     defineField({ name: "location", title: "Location", type: "string" }),
+    defineField({
+      name: "heroImage",
+      title: "Case Study Image",
+      type: "image",
+      description:
+        "Recommended: a wide operational image. The website keeps the layout stable even when this is empty.",
+      options: { hotspot: true },
+      fields: [
+        defineField({
+          name: "alt",
+          title: "Alt Text",
+          type: "string",
+          description: "Describe the image for accessibility and search engines.",
+        }),
+      ],
+    }),
     defineField({ name: "summary", title: "Summary", type: "text" }),
     defineField({ name: "challenge", title: "Challenge", type: "text" }),
     defineField({

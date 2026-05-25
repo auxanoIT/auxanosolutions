@@ -162,6 +162,7 @@ export type CaseStudy = {
   result: string;
   metrics: Metric[];
   relatedServices: string[];
+  image?: ServiceNavMedia;
 };
 
 export type BlogPost = {
