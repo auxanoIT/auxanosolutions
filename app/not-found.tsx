@@ -52,19 +52,6 @@ export default function NotFound() {
                     Book a consultation
                   </ButtonLink>
                 </li>
-                <li>
-                  <ButtonLink
-                    href="/resources/knowledge-center"
-                    variant="ghost"
-                  >
-                    Browse knowledge center
-                  </ButtonLink>
-                </li>
-                <li>
-                  <ButtonLink href="/contact" variant="ghost">
-                    Contact support
-                  </ButtonLink>
-                </li>
               </ul>
             </aside>
           </div>

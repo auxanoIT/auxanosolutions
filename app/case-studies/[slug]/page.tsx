@@ -8,7 +8,11 @@ import { CaseStudyCard } from "@/components/sections/case-study-card";
 import { Container } from "@/components/ui/container";
 import { JsonLd } from "@/components/ui/json-ld";
 import { getCaseStudyMedia } from "@/lib/case-study-media";
-import { getCaseStudyBySlug, getCaseStudySlugs, getCaseStudies } from "@/lib/content";
+import {
+  getCaseStudyBySlug,
+  getCaseStudySlugs,
+  getCaseStudies,
+} from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/utils";
 
@@ -65,7 +69,9 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
     notFound();
   }
 
-  const related = allCaseStudies.filter((item) => item.slug !== caseStudy.slug).slice(0, 2);
+  const related = allCaseStudies
+    .filter((item) => item.slug !== caseStudy.slug)
+    .slice(0, 2);
   const media = getCaseStudyMedia(caseStudy);
   const metrics = caseStudy.metrics ?? [];
   const solutionSteps = caseStudy.solution ?? [];
@@ -140,8 +146,10 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
               ) : null}
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href="/book-consultation">Discuss a similar project</ButtonLink>
-              <ButtonLink href="/case-studies" variant="secondary">
+              <ButtonLink href="/book-consultation">
+                Discuss a similar project
+              </ButtonLink>
+              <ButtonLink href="/case-studies">
                 View all case studies
                 <ArrowRight className="ml-2 h-4 w-4" />
               </ButtonLink>
@@ -159,16 +167,21 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,18,32,0.04),rgba(11,18,32,0.72))]" />
             <div className="absolute bottom-5 left-5 right-5 grid gap-3 rounded-[1.25rem] border border-white/10 bg-[rgba(11,18,32,0.74)] p-5 backdrop-blur sm:grid-cols-3">
-              {(metrics.length ? metrics : [{ value: "3", label: "delivery stages" }]).slice(0, 3).map((metric) => (
-                <div key={metric.label}>
-                  <p className="text-2xl font-semibold text-white">
-                    {metric.value}
-                  </p>
-                  <p className="mt-1 text-xs uppercase tracking-[0.13em] text-white/62">
-                    {metric.label}
-                  </p>
-                </div>
-              ))}
+              {(metrics.length
+                ? metrics
+                : [{ value: "3", label: "delivery stages" }]
+              )
+                .slice(0, 3)
+                .map((metric) => (
+                  <div key={metric.label}>
+                    <p className="text-2xl font-semibold text-white">
+                      {metric.value}
+                    </p>
+                    <p className="mt-1 text-xs uppercase tracking-[0.13em] text-white/62">
+                      {metric.label}
+                    </p>
+                  </div>
+                ))}
             </div>
           </div>
         </Container>
@@ -192,7 +205,9 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                       <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-muted)]">
                         {label}
                       </dt>
-                      <dd className="mt-2 text-sm font-semibold text-[var(--color-ink)]">{value}</dd>
+                      <dd className="mt-2 text-sm font-semibold text-[var(--color-ink)]">
+                        {value}
+                      </dd>
                     </div>
                   ) : null,
                 )}
@@ -230,7 +245,9 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                       <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-electric)] text-sm font-semibold text-white">
                         {index + 1}
                       </div>
-                      <p className="text-sm leading-7 text-[var(--color-ink)]">{item}</p>
+                      <p className="text-sm leading-7 text-[var(--color-ink)]">
+                        {item}
+                      </p>
                     </div>
                   ))
                 ) : (
@@ -251,17 +268,26 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
               <h2 className="mt-5 text-4xl font-semibold leading-tight">
                 What changed after the project
               </h2>
-              <p className="mt-5 text-base leading-8 text-white/72">{caseStudy.result}</p>
+              <p className="mt-5 text-base leading-8 text-white/72">
+                {caseStudy.result}
+              </p>
               {metrics.length ? (
                 <div className="mt-8 grid gap-4 md:grid-cols-3">
                   {metrics.slice(0, 3).map((metric) => (
-                    <div key={metric.label} className="rounded-[1.25rem] border border-white/10 bg-white/8 p-5">
-                      <p className="text-3xl font-semibold text-white">{metric.value}</p>
+                    <div
+                      key={metric.label}
+                      className="rounded-[1.25rem] border border-white/10 bg-white/8 p-5"
+                    >
+                      <p className="text-3xl font-semibold text-white">
+                        {metric.value}
+                      </p>
                       <p className="mt-2 text-xs uppercase tracking-[0.13em] text-white/60">
                         {metric.label}
                       </p>
                       {metric.description ? (
-                        <p className="mt-3 text-xs leading-6 text-white/60">{metric.description}</p>
+                        <p className="mt-3 text-xs leading-6 text-white/60">
+                          {metric.description}
+                        </p>
                       ) : null}
                     </div>
                   ))}
@@ -283,11 +309,15 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                 The service areas behind this outcome
               </h2>
               <p className="mt-5 text-base leading-8 text-[var(--color-muted)]">
-                These tags keep Sanity case studies connected to the services they support while keeping the visual pattern predictable.
+                These tags keep Sanity case studies connected to the services
+                they support while keeping the visual pattern predictable.
               </p>
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
-              {(relatedServices.length ? relatedServices : ["site assessment", "deployment", "support handover"]).map((service) => (
+              {(relatedServices.length
+                ? relatedServices
+                : ["site assessment", "deployment", "support handover"]
+              ).map((service) => (
                 <div
                   key={service}
                   className="flex items-start gap-3 rounded-[1.25rem] border border-white bg-white p-5 shadow-[0_14px_35px_rgba(11,18,32,0.05)]"
@@ -337,7 +367,8 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
               Need this kind of result in your own environment?
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-8 text-[var(--color-muted)]">
-              Share the site, system, or operational challenge and Auxano can shape the right assessment, rollout, and support plan.
+              Share the site, system, or operational challenge and Auxano can
+              shape the right assessment, rollout, and support plan.
             </p>
           </div>
           <ButtonLink href="/book-consultation">

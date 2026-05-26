@@ -33,11 +33,15 @@ export default async function CaseStudiesPage() {
               Case studies built around operational change.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-white/72 sm:text-lg">
-              See how Auxano plans, installs, documents, and supports critical IT, security, and network environments for organizations that need clearer visibility and stronger execution.
+              See how Auxano plans, installs, documents, and supports critical
+              IT, security, and network environments for organizations that need
+              clearer visibility and stronger execution.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href="/book-consultation">Discuss a similar project</ButtonLink>
-              <ButtonLink href="/services" variant="secondary">
+              <ButtonLink href="/book-consultation">
+                Discuss a similar project
+              </ButtonLink>
+              <ButtonLink href="/services" className="text-black">
                 Explore services
                 <ArrowRight className="ml-2 h-4 w-4" />
               </ButtonLink>
@@ -95,8 +99,12 @@ export default async function CaseStudiesPage() {
                 className="rounded-[1.5rem] border border-[color:rgba(11,18,32,0.08)] bg-white p-6 shadow-[0_18px_50px_rgba(11,18,32,0.06)]"
               >
                 <item.icon className="h-6 w-6 text-[var(--color-electric)]" />
-                <h2 className="mt-5 text-2xl font-semibold text-[var(--color-ink)]">{item.title}</h2>
-                <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">{item.body}</p>
+                <h2 className="mt-5 text-2xl font-semibold text-[var(--color-ink)]">
+                  {item.title}
+                </h2>
+                <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">
+                  {item.body}
+                </p>
               </article>
             ))}
           </div>
@@ -113,7 +121,8 @@ export default async function CaseStudiesPage() {
               Browse delivery stories by environment, challenge, and result.
             </h2>
             <p className="mt-5 text-base leading-8 text-[var(--color-muted)]">
-              Each case study follows the same content pattern from Sanity, so new entries publish into a clean layout without breaking the page.
+              Each case study follows the same content pattern from Sanity, so
+              new entries publish into a clean layout without breaking the page.
             </p>
           </div>
 
