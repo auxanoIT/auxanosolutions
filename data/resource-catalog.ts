@@ -1,4 +1,8 @@
-import type { ResourceGroup, ResourceGroupId, ResourceLinkItem } from "@/lib/types";
+import type {
+  ResourceGroup,
+  ResourceGroupId,
+  ResourceLinkItem,
+} from "@/lib/types";
 
 type ResourceLinkSeed = Omit<ResourceLinkItem, "group">;
 
@@ -24,16 +28,25 @@ export const resourceGroups: ResourceGroup[] = [
   ]),
   buildGroup("proof-planning", "Proof & Planning", [
     { id: "case-studies", label: "Case Studies", href: "/case-studies" },
-    { id: "solutions-overview", label: "Solutions Overview", href: "/services" },
+    {
+      id: "solutions-overview",
+      label: "Solutions Overview",
+      href: "/services",
+    },
     { id: "about-auxano", label: "About Auxano", href: "/about" },
   ]),
   buildGroup("support", "Support", [
-    { id: "support-center", label: "Support Center", href: "/resources/support-center" },
     { id: "contact", label: "Contact", href: "/contact" },
   ]),
   buildGroup("commercial-tools", "Commercial Tools", [
-    { id: "book-consultation", label: "Book Consultation", href: "/book-consultation" },
+    {
+      id: "book-consultation",
+      label: "Book Consultation",
+      href: "/book-consultation",
+    },
   ]),
 ];
 
-export const resourceLinks: ResourceLinkItem[] = resourceGroups.flatMap((group) => group.links);
+export const resourceLinks: ResourceLinkItem[] = resourceGroups.flatMap(
+  (group) => group.links,
+);
